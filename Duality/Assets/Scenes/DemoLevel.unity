@@ -403,12 +403,17 @@ Prefab:
     - target: {fileID: 114286922984860666, guid: 6ee159633c017e6418c4219f4b5fc62f,
         type: 2}
       propertyPath: jumpForce
-      value: 150
+      value: 250
       objectReference: {fileID: 0}
     - target: {fileID: 50258780180462314, guid: 6ee159633c017e6418c4219f4b5fc62f,
         type: 2}
       propertyPath: m_Constraints
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 114286922984860666, guid: 6ee159633c017e6418c4219f4b5fc62f,
+        type: 2}
+      propertyPath: groundOffset
+      value: 0.05
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6ee159633c017e6418c4219f4b5fc62f, type: 2}
