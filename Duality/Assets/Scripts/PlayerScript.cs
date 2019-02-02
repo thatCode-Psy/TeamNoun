@@ -72,9 +72,7 @@ public class PlayerScript : MonoBehaviour {
         max.y = min.y + collisionOffset;
         max.x -= collisionOffset;
         min.x += collisionOffset;
-        /*foreach(Collider2D col in Physics2D.OverlapAreaAll(min, max)) {
-            print(col);
-        }*/
+        
        
         return Physics2D.OverlapArea(min, max);
     }
