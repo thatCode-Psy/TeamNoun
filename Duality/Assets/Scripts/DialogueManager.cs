@@ -11,6 +11,7 @@ public class DialogueManager : MonoBehaviour {
     public ArrayList dialogueLines;
 
     public GameObject textbox;
+    public GameObject spritebox;
 
 	// Use this for initialization
 	void Start () {
@@ -29,10 +30,11 @@ public class DialogueManager : MonoBehaviour {
         }
 
         textbox.SetActive(false);
-		/*for(int x = 0; x < dialogueLines.Count; x++)
+        spritebox.SetActive(false);
+		for(int x = 0; x < dialogueLines.Count; x++)
         {
             Debug.Log(dialogueLines[x]);
-        }*/
+        }
 	}
 	
 	// Update is called once per frame
@@ -56,22 +58,38 @@ public class DialogueManager : MonoBehaviour {
 
         string lineActual = lineToPrint.Substring(locOfCloseCurl + 1, lineToPrint.Length - locOfCloseCurl - (lineToPrint.Length - locOfOpenBracket) - 1);
         //Debug.Log(lineActual);
-        
-        //Figure out speaker later
+
+        int speaker = int.Parse(lineToPrint.Substring(locOfOpenCurl + 1, lineToPrint.Length - locOfOpenCurl - (lineToPrint.Length - locOfCloseCurl) - 1));
        
         int delay = int.Parse(lineToPrint.Substring(locOfOpenBracket + 1, lineToPrint.Length - locOfOpenBracket - (lineToPrint.Length - locOfCloseBracket) - 1));
         //Debug.Log(delay);
-
+        
         //Debug.Log(lineToPrint.Substring(locOfCloseBracket + 1));
         int nextLineVar = int.Parse(lineToPrint.Substring(locOfCloseBracket + 1));
-        StartCoroutine(Say(lineActual, 1, delay, nextLineVar));
+        StartCoroutine(Say(lineActual, speaker, delay, nextLineVar));
         
 
     }
 
-    IEnumerator Say(string line, int speed, int delay, int nextLineVar)
+    IEnumerator Say(string line, int speaker, int delay, int nextLineVar)
     {
         textbox.SetActive(true);
+        spritebox.SetActive(true);
+        int speed = 1;
+        if(speaker == 1)
+        {
+            textbox.GetComponent<Text>().color = Color.black;
+            spritebox.GetComponent<Image>().color = Color.white;
+            speed = 1;
+
+        }
+        else if(speaker == 2)
+        {
+            textbox.GetComponent<Text>().color = Color.white;
+            spritebox.GetComponent<Image>().color = Color.black;
+            speed = 2;
+        }
+        //int speed = 1;
         int x = 0;
         while(true)
         {
@@ -93,6 +111,7 @@ public class DialogueManager : MonoBehaviour {
             yield return null;
         }
         textbox.SetActive(false);
+        spritebox.SetActive(false);
         if(nextLineVar != -1)
         {
             PlayDialogue(nextLineVar);
