@@ -31,10 +31,9 @@ public class DialogueManager : MonoBehaviour {
 
         textbox.SetActive(false);
         spritebox.SetActive(false);
-		for(int x = 0; x < dialogueLines.Count; x++)
+		/*for(int x = 0; x < dialogueLines.Count; x++)
         {
-            Debug.Log(dialogueLines[x]);
-        }
+            */
 	}
 	
 	// Update is called once per frame
@@ -116,5 +115,6 @@ public class DialogueManager : MonoBehaviour {
         {
             PlayDialogue(nextLineVar);
         }
+        //Debug.Log("Finished execution");
     }
 }
