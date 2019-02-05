@@ -16,12 +16,12 @@ public class DialogueManager : MonoBehaviour {
 	void Start () {
         FileInfo file = new FileInfo(dialogueFileLocation);
         StreamReader reader = file.OpenText();
-        //Create an array of Strings based on an input file, where the first line is the number of dialogue lines
-        string line = reader.ReadLine();
-        dialogueLines = new ArrayList(int.Parse(line));
+        //Create an array of Strings based on an input file, where the first line is the number of dialogue lines (DEPRECATED AGAIN)
+        //string line = reader.ReadLine();
+        dialogueLines = new ArrayList();
 
-        /* Dialogue lines are of the format: {(integer defining speaker)(ActualLine)[(integer for delay in seconds)*/
-        //string line;
+        /* Dialogue lines are of the format: {(integer defining speaker)}(ActualLine)[(integer for delay in seconds)](number of next line or -1 if that's the end of the dialogue)*/
+        string line;
         while(!reader.EndOfStream)
         {
             line = reader.ReadLine();
@@ -29,10 +29,10 @@ public class DialogueManager : MonoBehaviour {
         }
 
         textbox.SetActive(false);
-		for(int x = 0; x < dialogueLines.Count; x++)
+		/*for(int x = 0; x < dialogueLines.Count; x++)
         {
             Debug.Log(dialogueLines[x]);
-        }
+        }*/
 	}
 	
 	// Update is called once per frame
@@ -55,17 +55,21 @@ public class DialogueManager : MonoBehaviour {
         int locOfCloseCurl = lineToPrint.IndexOf("}");
 
         string lineActual = lineToPrint.Substring(locOfCloseCurl + 1, lineToPrint.Length - locOfCloseCurl - (lineToPrint.Length - locOfOpenBracket) - 1);
-        Debug.Log(lineActual);
+        //Debug.Log(lineActual);
         
         //Figure out speaker later
        
         int delay = int.Parse(lineToPrint.Substring(locOfOpenBracket + 1, lineToPrint.Length - locOfOpenBracket - (lineToPrint.Length - locOfCloseBracket) - 1));
-        Debug.Log(delay);
-        StartCoroutine(Say(lineActual, 1, delay));
+        //Debug.Log(delay);
+
+        //Debug.Log(lineToPrint.Substring(locOfCloseBracket + 1));
+        int nextLineVar = int.Parse(lineToPrint.Substring(locOfCloseBracket + 1));
+        StartCoroutine(Say(lineActual, 1, delay, nextLineVar));
+        
 
     }
 
-    IEnumerator Say(string line, int speed, int delay)
+    IEnumerator Say(string line, int speed, int delay, int nextLineVar)
     {
         textbox.SetActive(true);
         int x = 0;
@@ -89,5 +93,9 @@ public class DialogueManager : MonoBehaviour {
             yield return null;
         }
         textbox.SetActive(false);
+        if(nextLineVar != -1)
+        {
+            PlayDialogue(nextLineVar);
+        }
     }
 }
