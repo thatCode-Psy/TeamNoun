@@ -259,6 +259,55 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ecb0281f38f1d51458205814980a1d9b, type: 3}
+--- !u!1 &1149347693
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1149347695}
+  - component: {fileID: 1149347694}
+  m_Layer: 0
+  m_Name: GameLight
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1149347694
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1149347693}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b219a36c882a3a49af58695f99cfd96, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startAngle: 203.81
+  endAngle: 235.78
+  amountOfRayCasts: 50
+  raycastRange: 11.23
+  isOn: 1
+  litMaterial: {fileID: 2100000, guid: 5383e96f5a221ea43aefea8a7f62b484, type: 2}
+--- !u!4 &1149347695
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1149347693}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 5.21, y: 4.48, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1580614314
 GameObject:
   m_ObjectHideFlags: 0
@@ -369,7 +418,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4124594490350010, guid: 482b1fb1727c18843a7f102b711599e8, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4124594490350010, guid: 482b1fb1727c18843a7f102b711599e8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -393,6 +442,16 @@ PrefabInstance:
       propertyPath: jumpForce
       value: 250
       objectReference: {fileID: 0}
+    - target: {fileID: 50258780180462314, guid: 482b1fb1727c18843a7f102b711599e8,
+        type: 3}
+      propertyPath: m_Constraints
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 23925645573531492, guid: 482b1fb1727c18843a7f102b711599e8,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 5fcf2c64c111c2a46ae3395aa4a4b051, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 482b1fb1727c18843a7f102b711599e8, type: 3}
 --- !u!1001 &2059175619
