@@ -38,19 +38,35 @@ public class LightSourceScript : MonoBehaviour {
         float angleDifference = endAngle - startAngle;
         
         for (int i = 0; i <= amountOfRayCasts; ++i) {
-            float angle = Mathf.Deg2Rad * (startAngle + i * angleDifference / (float)amountOfRayCasts);
+            float angle = Mathf.Deg2Rad * (startAngle + (i * angleDifference) / (float)amountOfRayCasts);
+           
             Vector2 dir = new Vector2(Mathf.Sin(angle), Mathf.Cos(angle));
+           
+            //RaycastHit2D raycastHitData2D = Physics2D.Raycast(raycastStart, dir, raycastRange);
+            RaycastHit2D[] raycastData = Physics2D.RaycastAll(raycastStart, dir, raycastRange);
             
-            RaycastHit2D raycastHitData2D = Physics2D.Raycast(raycastStart, dir, raycastRange);
-            Debug.DrawRay(raycastStart, dir * raycastHitData2D.distance, Color.white, 0.0f, true);
-
-            if(raycastHitData2D.collider != null){
-                if(raycastHitData2D.collider.tag == "PlayerBlack"){
-                    print("player in area");
+            bool hitPlayer = false;
+            foreach(RaycastHit2D raycast in raycastData){
+                if(raycast.collider.tag == "Player"){
+                    PlayerScript script = raycast.collider.GetComponent<PlayerScript>();
+                    script.contactLight();
+                    hitPlayer = true;
+                }
+                else{
+                    break;
                 }
             }
-          
-            vertices[i + 1] = new Vector2(raycastStart.x, raycastStart.y) + raycastHitData2D.distance * dir;
+            float distance = raycastData.Length > 0 ? raycastData[0].distance : raycastRange;
+            if(hitPlayer){
+                LayerMask maskWithoutPlayer = int.MaxValue - LayerMask.GetMask("Character");
+                
+                RaycastHit2D raycast = Physics2D.Raycast(raycastStart, dir, raycastRange, maskWithoutPlayer);
+                distance = raycast.collider != null ? raycast.distance : raycastRange;
+            }
+            
+            float drawRange = distance;
+            Debug.DrawRay(raycastStart, dir * drawRange, Color.white, 0.0f, true);
+            vertices[i + 1] = new Vector2(raycastStart.x, raycastStart.y) + drawRange * dir;
             uvs[i + 1] = Vector2.zero;
 
             if(i != amountOfRayCasts){

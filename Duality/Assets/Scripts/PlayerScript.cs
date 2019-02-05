@@ -20,25 +20,27 @@ public class PlayerScript : MonoBehaviour {
     Rigidbody2D rbody;
     Collider2D collider;
 	
+    bool canMoveThisCycle;
     
     // Use this for initialization
 	void Start () {
         rbody = GetComponent<Rigidbody2D>();
         collider = GetComponent<Collider2D>(); 
-        
+        canMoveThisCycle = color == PlayerColor.WHITE;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-       
-        Vector2 velocity = rbody.velocity;
-        if(!isHittingWallInDirection())
-            velocity.x = Input.GetAxis("Horizontal") * maxVelocity;
-        rbody.velocity = velocity;
-        if(Input.GetAxis("Jump") > 0 && isGrounded()) {
-            rbody.AddForce(Vector2.up * jumpForce);
+        if(canMoveThisCycle){
+            Vector2 velocity = rbody.velocity;
+            if(!isHittingWallInDirection())
+                velocity.x = Input.GetAxis("Horizontal") * maxVelocity;
+            rbody.velocity = velocity;
+            if(Input.GetAxis("Jump") > 0 && isGrounded()) {
+                rbody.AddForce(Vector2.up * jumpForce);
+            }
         }
-      
+        canMoveThisCycle = color == PlayerColor.WHITE;
 	}
 
     bool isHittingWallInDirection() {
@@ -77,4 +79,7 @@ public class PlayerScript : MonoBehaviour {
         return Physics2D.OverlapArea(min, max);
     }
 
+    public void contactLight(){
+        canMoveThisCycle = color != PlayerColor.WHITE;
+    }
 }
