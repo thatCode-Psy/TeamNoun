@@ -26,7 +26,7 @@ public class PlayerScript : MonoBehaviour {
 	void Start () {
         rbody = GetComponent<Rigidbody2D>();
         collider = GetComponent<Collider2D>(); 
-        canMoveThisCycle = color == PlayerColor.WHITE;
+        canMoveThisCycle = true;
 	}
 	
 	// Update is called once per frame
@@ -40,7 +40,7 @@ public class PlayerScript : MonoBehaviour {
                 rbody.AddForce(Vector2.up * jumpForce);
             }
         }
-        canMoveThisCycle = color == PlayerColor.WHITE;
+        //canMoveThisCycle = color == PlayerColor.WHITE;
 	}
 
     bool isHittingWallInDirection() {
