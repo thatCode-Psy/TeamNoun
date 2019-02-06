@@ -26,7 +26,7 @@ public class DialogueManager : MonoBehaviour {
         while(!reader.EndOfStream)
         {
             line = reader.ReadLine();
-            if (!line.Equals(""))
+            if (!line.Equals("w"))
             {
                 dialogueLines.Add(line);
             }
