@@ -14,9 +14,9 @@ GameObject:
   - component: {fileID: 50258780180462314}
   - component: {fileID: 61293782900432550}
   - component: {fileID: 114286922984860666}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Character
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 1308426602194506}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -5.43, y: -2.34, z: -0.021821104}
-  m_LocalScale: {x: 1.000217, y: 2.0353448, z: 1}
+  m_LocalScale: {x: 1, y: 2.0353448, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -100,7 +100,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &61293782900432550
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -139,7 +139,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 977d40f918960374794172ec137c9fbc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  color: 0
-  maxVelocity: 0
-  jumpForce: 0
+  color: 2
+  maxVelocity: 5
+  jumpForce: 250
   collisionOffset: 0.05
