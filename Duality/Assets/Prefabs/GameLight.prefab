@@ -43,9 +43,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b219a36c882a3a49af58695f99cfd96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startAngle: 180
-  endAngle: 270
+  startAngle: 0
+  endAngle: 180
   amountOfRayCasts: 80
-  raycastRange: 12
+  raycastRange: 1
   isOn: 1
   litMaterial: {fileID: 2100000, guid: 5383e96f5a221ea43aefea8a7f62b484, type: 2}
+  litAreaEdgeRadius: 0.1

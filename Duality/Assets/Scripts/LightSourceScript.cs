@@ -15,7 +15,7 @@ public class LightSourceScript : MonoBehaviour {
 
     public float litAreaEdgeRadius;
 	// Use this for initialization
-	void Start () {
+	protected void Start () {
 		litArea = new GameObject("Light", typeof(MeshFilter), typeof(MeshRenderer), typeof(EdgeCollider2D));
         //litArea.transform.parent = transform;
         litArea.transform.position = Vector2.zero;
@@ -25,9 +25,12 @@ public class LightSourceScript : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	protected void Update () {
         if (isOn) {
             GenerateLightArea();
+        }
+        else{
+            ClearLightArea();
         }
 	}
 
@@ -72,6 +75,7 @@ public class LightSourceScript : MonoBehaviour {
             float drawRange = distance;
             Debug.DrawRay(raycastStart, dir * drawRange, Color.white, 0.0f, true);
             vertices[i + 1] = new Vector2(raycastStart.x, raycastStart.y) + drawRange * dir;
+            vertices[i + 1].z = transform.position.z;
             uvs[i + 1] = Vector2.zero;
 
             if(i != amountOfRayCasts){
@@ -87,9 +91,18 @@ public class LightSourceScript : MonoBehaviour {
         mesh.triangles = triangles;
         litArea.GetComponent<MeshFilter>().mesh = mesh;
         litArea.GetComponent<EdgeCollider2D>().points = convertVector3ArrayToVector2Array(vertices); 
-        
+        litArea.GetComponent<EdgeCollider2D>().enabled = true;
     }
 
+    void ClearLightArea(){
+
+        Mesh mesh = new Mesh();
+        mesh.vertices = new Vector3[0];
+        mesh.uv = new Vector2[0];
+        mesh.triangles = new int[0];
+        litArea.GetComponent<MeshFilter>().mesh = mesh;
+        litArea.GetComponent<EdgeCollider2D>().enabled = false;
+    }
     private Vector2[] convertVector3ArrayToVector2Array(Vector3[] input){
         Vector2[] output = new Vector2[input.Length + 1];
         for(int i = 0; i < input.Length; i++){
