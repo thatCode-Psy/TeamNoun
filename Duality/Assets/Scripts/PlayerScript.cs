@@ -20,18 +20,18 @@ public class PlayerScript : MonoBehaviour {
     Rigidbody2D rbody;
     Collider2D collider;
 	
-    bool canMoveThisCycle;
+    bool isInMovableArea;
     
     // Use this for initialization
 	void Start () {
         rbody = GetComponent<Rigidbody2D>();
         collider = GetComponent<Collider2D>(); 
-        canMoveThisCycle = true;
+        isInMovableArea = color == PlayerColor.WHITE;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-        if(canMoveThisCycle){
+        if(isInMovableArea){
             Vector2 velocity = rbody.velocity;
             if(!isHittingWallInDirection())
                 velocity.x = Input.GetAxis("Horizontal") * maxVelocity;
@@ -40,7 +40,10 @@ public class PlayerScript : MonoBehaviour {
                 rbody.AddForce(Vector2.up * jumpForce);
             }
         }
-        //canMoveThisCycle = color == PlayerColor.WHITE;
+        else{
+            Respawn();
+        }
+        isInMovableArea = color == PlayerColor.WHITE;
 	}
 
     bool isHittingWallInDirection() {
@@ -66,6 +69,7 @@ public class PlayerScript : MonoBehaviour {
 
     }
 
+
     bool isGrounded() {
         Vector3 min = collider.bounds.min;
         
@@ -80,6 +84,11 @@ public class PlayerScript : MonoBehaviour {
     }
 
     public void contactLight(){
-        canMoveThisCycle = color != PlayerColor.WHITE;
+        isInMovableArea = color == PlayerColor.BLACK;
     }
+
+    void Respawn(){
+        print("Dead");
+    }
+
 }

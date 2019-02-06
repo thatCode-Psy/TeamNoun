@@ -57,7 +57,7 @@ public class LightSourceScript : MonoBehaviour {
             foreach(RaycastHit2D raycast in raycastData){
                 if(raycast.collider.tag == "Player"){
                     PlayerScript script = raycast.collider.GetComponent<PlayerScript>();
-                    //script.contactLight();
+                    script.contactLight();
                     hitPlayer = true;
                 }
                 else{
