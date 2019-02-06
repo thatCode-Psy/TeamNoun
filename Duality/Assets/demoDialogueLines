@@ -1,6 +1,9 @@
 {1}Let me see how this works[2]1
+
 {2}This seems to be decent[1]2
+
 {1}Okay thats the end[3]3
+
 {2}But what does it look like to have a much longer line ladedadeda[2]4
 {1}Is the text box large enough for this? And if not how do I make it scale?[2]5
 {2}And with size 24 text, is the text still readable? How does the wrapping look? I'm making this one really long to make sure it wraps, and to get an idea of max line length[4]-1

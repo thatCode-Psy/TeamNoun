@@ -26,14 +26,18 @@ public class DialogueManager : MonoBehaviour {
         while(!reader.EndOfStream)
         {
             line = reader.ReadLine();
-            dialogueLines.Add(line);
+            if (!line.Equals(""))
+            {
+                dialogueLines.Add(line);
+            }
         }
 
         textbox.SetActive(false);
         spritebox.SetActive(false);
-		/*for(int x = 0; x < dialogueLines.Count; x++)
+        for (int x = 0; x < dialogueLines.Count; x++)
         {
-            */
+            Debug.Log(dialogueLines[x]);
+        }
 	}
 	
 	// Update is called once per frame
