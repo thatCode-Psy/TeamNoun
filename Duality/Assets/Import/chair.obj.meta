@@ -1,16 +1,16 @@
 fileFormatVersion: 2
-guid: 73549e256ee859b4f96c2d72183f9fc5
+guid: a31dfce4f10e0c24d877f7d478110e1a
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
-    100000: dude
+    100000: chair
     100002: //RootNode
-    400000: dude
+    400000: chair
     400002: //RootNode
-    2100000: dudeMat
-    2300000: dude
-    3300000: dude
-    4300000: dude
+    2100000: chairMat
+    2300000: chair
+    3300000: chair
+    4300000: chair
   externalObjects: {}
   materials:
     importMaterials: 1
