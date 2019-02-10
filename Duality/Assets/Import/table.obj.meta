@@ -1,16 +1,16 @@
 fileFormatVersion: 2
-guid: b41f0187869ea4dcf81d5d6fe9de9b94
+guid: 90e2d8b07f2ea41bc827010724f5b30c
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
-    100000: dude
+    100000: table
     100002: //RootNode
-    400000: dude
+    400000: table
     400002: //RootNode
-    2100000: dudeMat
-    2300000: dude
-    3300000: dude
-    4300000: dude
+    2100000: tableMat
+    2300000: table
+    3300000: table
+    4300000: table
   externalObjects: {}
   materials:
     importMaterials: 1
