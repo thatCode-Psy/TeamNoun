@@ -1,17 +1,22 @@
 fileFormatVersion: 2
-guid: 90e2d8b07f2ea41bc827010724f5b30c
+guid: a7a2d997194da47269e367c15fdaf4c4
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
-    100000: table
-    100002: //RootNode
-    400000: table
-    400002: //RootNode
-    2100000: tableMat
-    2300000: table
-    3300000: table
-    4300000: table
-  externalObjects: {}
+    100000: //RootNode
+    100002: pCube1
+    400000: //RootNode
+    400002: pCube1
+    2100000: pCube1Mat
+    2300000: pCube1
+    3300000: pCube1
+    4300000: pCube1
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: pCube1Mat
+    second: {fileID: 2100000, guid: f55acf8665fcc44fbb72b3d64e61bc44, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
