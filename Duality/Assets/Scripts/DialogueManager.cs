@@ -13,6 +13,12 @@ public class DialogueManager : MonoBehaviour {
     public GameObject textbox;
     public GameObject spritebox;
 
+    public GameObject blackSpeaker;
+    public GameObject whiteSpeaker;
+
+    public Sprite whiteBackround;
+    public Sprite blackBackground;
+
 	// Use this for initialization
 	void Start () {
         FileInfo file = new FileInfo(dialogueFileLocation);
@@ -26,7 +32,7 @@ public class DialogueManager : MonoBehaviour {
         while(!reader.EndOfStream)
         {
             line = reader.ReadLine();
-            if (!line.Equals("w"))
+            if (!line.Equals(""))
             {
                 dialogueLines.Add(line);
             }
@@ -34,6 +40,8 @@ public class DialogueManager : MonoBehaviour {
 
         textbox.SetActive(false);
         spritebox.SetActive(false);
+        whiteSpeaker.SetActive(false);
+        blackSpeaker.SetActive(false);
         for (int x = 0; x < dialogueLines.Count; x++)
         {
             Debug.Log(dialogueLines[x]);
@@ -82,14 +90,16 @@ public class DialogueManager : MonoBehaviour {
         if(speaker == 1)
         {
             textbox.GetComponent<Text>().color = Color.black;
-            spritebox.GetComponent<Image>().color = Color.white;
+            spritebox.GetComponent<Image>().sprite = whiteBackround;
+            blackSpeaker.SetActive(true);
             speed = 1;
 
         }
         else if(speaker == 2)
         {
             textbox.GetComponent<Text>().color = Color.white;
-            spritebox.GetComponent<Image>().color = Color.black;
+            spritebox.GetComponent<Image>().sprite = blackBackground;
+            whiteSpeaker.SetActive(true);
             speed = 2;
         }
         //int speed = 1;
@@ -115,7 +125,9 @@ public class DialogueManager : MonoBehaviour {
         }
         textbox.SetActive(false);
         spritebox.SetActive(false);
-        if(nextLineVar != -1)
+        whiteSpeaker.SetActive(false);
+        blackSpeaker.SetActive(false);
+        if (nextLineVar != -1)
         {
             PlayDialogue(nextLineVar);
         }
