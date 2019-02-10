@@ -16,9 +16,9 @@ MonoBehaviour:
   endAngle: 0
   amountOfRayCasts: 0
   raycastRange: 0
-  isOn: 0
-  litMaterial: {fileID: 0}
-  litAreaEdgeRadius: 0
+  isOn: 1
+  litMaterial: {fileID: 2100000, guid: 5383e96f5a221ea43aefea8a7f62b484, type: 2}
+  litAreaEdgeRadius: 0.1
   sweepingAngle: 0
   sweepingTime: 0
 --- !u!1001 &8419341418432227416
@@ -31,7 +31,7 @@ PrefabInstance:
     - target: {fileID: 1710040312958704730, guid: 2dbd6aa0101bdb446b68f0bbf2a63649,
         type: 3}
       propertyPath: m_Name
-      value: GameLight (1)
+      value: SweepingGameLight Variant
       objectReference: {fileID: 0}
     - target: {fileID: 1710040312958704728, guid: 2dbd6aa0101bdb446b68f0bbf2a63649,
         type: 3}
