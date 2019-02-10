@@ -43,7 +43,7 @@ public class LightSourceScript : MonoBehaviour {
         int[] triangles = new int[amountOfRayCasts * 3];
 
         float angleDifference = endAngle - startAngle;
-        LayerMask raycastMask = int.MaxValue - LayerMask.GetMask("LightArea");
+        LayerMask raycastMask = int.MaxValue - LayerMask.GetMask("LightArea") - LayerMask.GetMask("Ignore Raycast");
 
         for (int i = 0; i <= amountOfRayCasts; ++i) {
             float angle = Mathf.Deg2Rad * (startAngle + (i * angleDifference) / (float)amountOfRayCasts);

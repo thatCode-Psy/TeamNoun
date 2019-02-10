@@ -16,6 +16,11 @@ public class PlayerScript : MonoBehaviour {
     public float jumpForce;
     public float collisionOffset = 0.05f;
     
+
+    GameObject currentSpawn;
+
+    int currentSpawnNumber;
+
     //Components
     Rigidbody2D rbody;
     Collider2D collider;
@@ -83,12 +88,28 @@ public class PlayerScript : MonoBehaviour {
         return Physics2D.OverlapArea(min, max);
     }
 
+    void OnTriggerEnter2D(Collider2D collider){
+        if(collider.tag == "Spawn"){
+            SpawnPointScript spawnScript = collider.GetComponent<SpawnPointScript>();
+            if(spawnScript.color == color && spawnScript.spawnNumber > currentSpawnNumber){
+                setCurrentSpawn(collider.gameObject);
+            }
+        }
+    }
+
+
     public void contactLight(){
         isInMovableArea = color == PlayerColor.BLACK;
     }
 
+    public void setCurrentSpawn(GameObject spawn){
+        currentSpawn = spawn;
+        SpawnPointScript script = spawn.GetComponent<SpawnPointScript>();
+        currentSpawnNumber = script.spawnNumber;
+    }
+
     void Respawn(){
-        print("Dead");
+        transform.position = currentSpawn.transform.position;
     }
 
 }

@@ -6,6 +6,7 @@ TagManager:
   tags:
   - PlayerWhite
   - PlayerBlack
+  - Spawn
   layers:
   - Default
   - TransparentFX
