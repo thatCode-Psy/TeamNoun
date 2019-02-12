@@ -29,10 +29,10 @@ public class lightswitch_script : MonoBehaviour
         //switchLight();
     }
 
-    void switchLight()
+    public void switchLight()
     {
         //flips the light model upside down so it looks like it gets switched on/off.
-        transform.RotateAround(transform.position, new Vector3(1.0f, 0.0f, 0.0f), 180);
+        transform.GetChild(0).RotateAround(transform.position, new Vector3(1.0f, 0.0f, 0.0f), 180);
         light_on = !light_on;
 
         //toggle lights
