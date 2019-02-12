@@ -17,6 +17,7 @@ public class PlayerScript : MonoBehaviour {
     public float collisionOffset = 0.05f;
     
 
+    GameObject collidingLightSwitch;
     GameObject currentSpawn;
 
     int currentSpawnNumber;
@@ -36,6 +37,12 @@ public class PlayerScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        if(Input.GetKeyDown(KeyCode.E) && collidingLightSwitch != null){
+            lightswitch_script script = collidingLightSwitch.GetComponent<lightswitch_script>();
+            script.switchLight();
+        }
+
+
         if(isInMovableArea){
             Vector2 velocity = rbody.velocity;
             if(!isHittingWallInDirection())
@@ -48,6 +55,7 @@ public class PlayerScript : MonoBehaviour {
         else{
             Respawn();
         }
+        
         isInMovableArea = color == PlayerColor.WHITE;
 	}
 
@@ -95,8 +103,28 @@ public class PlayerScript : MonoBehaviour {
                 setCurrentSpawn(collider.gameObject);
             }
         }
+        else if(collider.tag == "LightSwitch"){
+            collidingLightSwitch = collider.gameObject;
+        }
+        
     }
 
+    
+    // void OnTriggerStay2D(Collider2D collider){
+    //     if(collider.tag == "LightSwitch"){
+    //         print("colliding");
+    //         if(Input.GetKeyDown(KeyCode.E)){
+    //             lightswitch_script script = collider.gameObject.GetComponent<lightswitch_script>();
+    //             script.switchLight();
+    //         }
+    //     }
+    // }
+
+    void OnTriggerExit2D(Collider2D collider){
+        if(collider.tag == "LightSwitch"){
+            collidingLightSwitch = null;
+        }
+    }
 
     public void contactLight(){
         isInMovableArea = color == PlayerColor.BLACK;
