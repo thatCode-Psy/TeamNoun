@@ -37,7 +37,7 @@ public class PlayerScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if(Input.GetKeyDown(KeyCode.E) && collidingLightSwitch != null){
+        if(Input.GetAxis(color + "Interact") > 0 && collidingLightSwitch != null){
             lightswitch_script script = collidingLightSwitch.GetComponent<lightswitch_script>();
             script.switchLight();
         }
@@ -46,9 +46,9 @@ public class PlayerScript : MonoBehaviour {
         if(isInMovableArea){
             Vector2 velocity = rbody.velocity;
             if(!isHittingWallInDirection())
-                velocity.x = Input.GetAxis("Horizontal") * maxVelocity;
+                velocity.x = Input.GetAxis(color + "Horizontal") * maxVelocity;
             rbody.velocity = velocity;
-            if(Input.GetAxis("Jump") > 0 && isGrounded()) {
+            if(Input.GetAxis(color + "Jump") > 0 && isGrounded()) {
                 rbody.AddForce(Vector2.up * jumpForce);
             }
         }
