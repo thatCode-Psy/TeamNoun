@@ -27,19 +27,25 @@ public class PlayerScript : MonoBehaviour {
     Collider2D collider;
 	
     bool isInMovableArea;
+    bool interacted;
     
     // Use this for initialization
 	void Start () {
         rbody = GetComponent<Rigidbody2D>();
         collider = GetComponent<Collider2D>(); 
         isInMovableArea = color == PlayerColor.WHITE;
+        interacted = false;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-        if(Input.GetAxis(color + "Interact") > 0 && collidingLightSwitch != null){
+        if(Input.GetAxis(color + "Interact") > 0 && collidingLightSwitch != null && !interacted){
             lightswitch_script script = collidingLightSwitch.GetComponent<lightswitch_script>();
             script.switchLight();
+            interacted = true;
+        }
+        else if(Input.GetAxis(color + "Interact") == 0 && interacted){
+            interacted = false;
         }
 
 
