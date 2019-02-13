@@ -204,6 +204,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: girder_platform
       objectReference: {fileID: 0}
+    - target: {fileID: 3055968193226383831, guid: 0efa176f66102486ba6eebe843f64f9d,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 3055968193226030583, guid: 0efa176f66102486ba6eebe843f64f9d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -263,6 +268,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.x
       value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3055968193226383829, guid: 0efa176f66102486ba6eebe843f64f9d,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0efa176f66102486ba6eebe843f64f9d, type: 3}
@@ -362,6 +372,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: girder_platform (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 3055968193226383831, guid: 0efa176f66102486ba6eebe843f64f9d,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 3055968193226030583, guid: 0efa176f66102486ba6eebe843f64f9d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -421,6 +436,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.x
       value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3055968193226383829, guid: 0efa176f66102486ba6eebe843f64f9d,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0efa176f66102486ba6eebe843f64f9d, type: 3}
@@ -910,6 +930,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: girder_platform (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 3055968193226383831, guid: 0efa176f66102486ba6eebe843f64f9d,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 3055968193226030583, guid: 0efa176f66102486ba6eebe843f64f9d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -969,6 +994,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.x
       value: 2.46
+      objectReference: {fileID: 0}
+    - target: {fileID: 3055968193226383829, guid: 0efa176f66102486ba6eebe843f64f9d,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0efa176f66102486ba6eebe843f64f9d, type: 3}
@@ -1384,6 +1414,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: girder_platform (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 3055968193226383831, guid: 0efa176f66102486ba6eebe843f64f9d,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 3055968193226030583, guid: 0efa176f66102486ba6eebe843f64f9d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1443,6 +1478,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.x
       value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3055968193226383829, guid: 0efa176f66102486ba6eebe843f64f9d,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0efa176f66102486ba6eebe843f64f9d, type: 3}
@@ -1741,6 +1781,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: girder_platform (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 3055968193226383831, guid: 0efa176f66102486ba6eebe843f64f9d,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 3055968193226030583, guid: 0efa176f66102486ba6eebe843f64f9d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1800,6 +1845,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.x
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3055968193226383829, guid: 0efa176f66102486ba6eebe843f64f9d,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0efa176f66102486ba6eebe843f64f9d, type: 3}
@@ -2005,6 +2055,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: girder_platform (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 3055968193226383831, guid: 0efa176f66102486ba6eebe843f64f9d,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 3055968193226030583, guid: 0efa176f66102486ba6eebe843f64f9d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2064,6 +2119,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.x
       value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3055968193226383829, guid: 0efa176f66102486ba6eebe843f64f9d,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0efa176f66102486ba6eebe843f64f9d, type: 3}
@@ -2262,6 +2322,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: girder_platform (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 3055968193226383831, guid: 0efa176f66102486ba6eebe843f64f9d,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 3055968193226030583, guid: 0efa176f66102486ba6eebe843f64f9d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2321,6 +2386,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.x
       value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3055968193226383829, guid: 0efa176f66102486ba6eebe843f64f9d,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0efa176f66102486ba6eebe843f64f9d, type: 3}
@@ -2430,6 +2500,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: girder_platform (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 3055968193226383831, guid: 0efa176f66102486ba6eebe843f64f9d,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 3055968193226030583, guid: 0efa176f66102486ba6eebe843f64f9d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2489,6 +2564,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.x
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3055968193226383829, guid: 0efa176f66102486ba6eebe843f64f9d,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0efa176f66102486ba6eebe843f64f9d, type: 3}
@@ -2615,6 +2695,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: girder_platform (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 3055968193226383831, guid: 0efa176f66102486ba6eebe843f64f9d,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 3055968193226030583, guid: 0efa176f66102486ba6eebe843f64f9d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2674,6 +2759,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.x
       value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3055968193226383829, guid: 0efa176f66102486ba6eebe843f64f9d,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0efa176f66102486ba6eebe843f64f9d, type: 3}
