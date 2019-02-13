@@ -548,6 +548,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lerpThreshold: 0.1
+  cameraLookAhead: 4
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
