@@ -61,6 +61,11 @@ public class PlayerScript : MonoBehaviour {
         else{
             Respawn();
         }
+
+        if(Input.GetAxis(color + "Kill") > 0){
+            Input.ResetInputAxes();
+            Respawn();
+        }
         
         isInMovableArea = color == PlayerColor.WHITE;
 	}
