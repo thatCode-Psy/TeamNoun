@@ -109,7 +109,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4124594490350010, guid: 482b1fb1727c18843a7f102b711599e8, type: 3}
       propertyPath: m_LocalScale.y
-      value: 2.0353448
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 61293782900432550, guid: 482b1fb1727c18843a7f102b711599e8,
         type: 3}
@@ -166,10 +166,25 @@ PrefabInstance:
       propertyPath: m_Offset.y
       value: -0.05
       objectReference: {fileID: 0}
+    - target: {fileID: 50258780180462314, guid: 482b1fb1727c18843a7f102b711599e8,
+        type: 3}
+      propertyPath: m_GravityScale
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 50258780180462314, guid: 482b1fb1727c18843a7f102b711599e8,
+        type: 3}
+      propertyPath: m_Mass
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 114286922984860666, guid: 482b1fb1727c18843a7f102b711599e8,
         type: 3}
       propertyPath: color
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114286922984860666, guid: 482b1fb1727c18843a7f102b711599e8,
+        type: 3}
+      propertyPath: jumpForce
+      value: 500
       objectReference: {fileID: 0}
     - target: {fileID: 23925645573531492, guid: 482b1fb1727c18843a7f102b711599e8,
         type: 3}

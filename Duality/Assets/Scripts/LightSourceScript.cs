@@ -32,6 +32,7 @@ public class LightSourceScript : MonoBehaviour {
         litArea.GetComponent<MeshRenderer>().material = litMaterial;
         //litArea.GetComponent<PolygonCollider2D>().edgeRadius = litAreaEdgeRadius;
         litArea.GetComponent<PolygonCollider2D>().usedByComposite = true;
+        // litArea.GetComponent<PolygonCollider2D>().isTrigger = true;
         litArea.layer = LayerMask.NameToLayer("LightArea");
         
 	}

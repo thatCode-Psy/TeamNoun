@@ -55,6 +55,12 @@ public class PlayerScript : MonoBehaviour {
                 velocity.x = Input.GetAxis(color + "Horizontal") * maxVelocity;
             rbody.velocity = velocity;
             if(Input.GetAxis(color + "Jump") > 0 && isGrounded()) {
+                //make the landing a bit "stickier" 
+                //and prevent a small bug where you had a small window where you could jump
+                //after bouncing off the ground, stacking the velocity. this makes it consistent
+                if (rbody.velocity.y < 0){
+                    rbody.velocity = new Vector2(rbody.velocity.x, 0);
+                }
                 rbody.AddForce(Vector2.up * jumpForce);
             }
         }
@@ -102,9 +108,11 @@ public class PlayerScript : MonoBehaviour {
         max.y = min.y + collisionOffset;
         max.x -= collisionOffset;
         min.x += collisionOffset;
+
         
-       
-        return Physics2D.OverlapArea(min, max);
+        //mask so we can only jump off the ground
+        int mask = 1 << 11;
+        return Physics2D.OverlapArea(min, max, mask);
     }
 
     void OnTriggerEnter2D(Collider2D collider){
