@@ -15,19 +15,26 @@ public class DialogueManager : MonoBehaviour {
 
     public GameObject blackSpeaker;
     public GameObject whiteSpeaker;
+    public AudioSource audio;
 
     public Sprite whiteBackround;
     public Sprite blackBackground;
 
+    private AudioClip blackText;
+    private AudioClip whiteText;
+
     int currentlySpeaking;
     int bufferedLines;
 	// Use this for initialization
-	void Start () {
+	void Start() {
         FileInfo file = new FileInfo(dialogueFileLocation);
         StreamReader reader = file.OpenText();
         //Create an array of Strings based on an input file, where the first line is the number of dialogue lines (DEPRECATED AGAIN)
         //string line = reader.ReadLine();
         dialogueLines = new ArrayList();
+        audio = GetComponent<AudioSource>();
+        blackText = Resources.Load("blackText") as AudioClip;
+        whiteText = Resources.Load("whiteText") as AudioClip;
 
         /* Dialogue lines are of the format: {(integer defining speaker)}(ActualLine)[(integer for delay in seconds)](number of next line or -1 if that's the end of the dialogue)*/
         //1 is black
@@ -105,9 +112,12 @@ public class DialogueManager : MonoBehaviour {
         int speed = 1;
         if(speaker == 1)
         {
+            // audio.AudioSource
             textbox.GetComponent<Text>().color = Color.black;
             spritebox.GetComponent<Image>().sprite = whiteBackround;
             blackSpeaker.SetActive(true);
+            audio.clip = blackText;
+            audio.Play();
             speed = 1;
 
         }
@@ -116,6 +126,8 @@ public class DialogueManager : MonoBehaviour {
             textbox.GetComponent<Text>().color = Color.white;
             spritebox.GetComponent<Image>().sprite = blackBackground;
             whiteSpeaker.SetActive(true);
+            audio.clip = whiteText;
+            audio.Play();
             speed = 2;
         }
         //int speed = 1;
@@ -139,6 +151,7 @@ public class DialogueManager : MonoBehaviour {
         {
             yield return null;
         }
+        audio.Stop();
         textbox.SetActive(false);
         spritebox.SetActive(false);
         whiteSpeaker.SetActive(false);

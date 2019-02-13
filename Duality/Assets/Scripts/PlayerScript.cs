@@ -51,6 +51,7 @@ public class PlayerScript : MonoBehaviour {
 
         if(isInMovableArea){
             Vector2 velocity = rbody.velocity;
+            //TODO: question for later, do we want full air control or do we want left/right to take time?
             if(!isHittingWallInDirection())
                 velocity.x = Input.GetAxis(color + "Horizontal") * maxVelocity;
             rbody.velocity = velocity;
