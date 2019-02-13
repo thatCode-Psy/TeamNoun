@@ -37,12 +37,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 050dc9d94515e450f8f0a97acccbda38, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 12975a5a280d24a5dbebabe200128537, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 1.28, y: 0.64}
+  m_DrawMode: 1
+  m_Size: {x: 1.6, y: 0.8}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -62,16 +62,6 @@ PrefabInstance:
     - target: {fileID: 1308426602194506, guid: 482b1fb1727c18843a7f102b711599e8, type: 3}
       propertyPath: m_TagString
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 23925645573531492, guid: 482b1fb1727c18843a7f102b711599e8,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 5fcf2c64c111c2a46ae3395aa4a4b051, type: 2}
-    - target: {fileID: 23925645573531492, guid: 482b1fb1727c18843a7f102b711599e8,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4124594490350010, guid: 482b1fb1727c18843a7f102b711599e8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -119,11 +109,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4124594490350010, guid: 482b1fb1727c18843a7f102b711599e8, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 4124594490350010, guid: 482b1fb1727c18843a7f102b711599e8, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.1
+      value: 2.03
       objectReference: {fileID: 0}
     - target: {fileID: 61293782900432550, guid: 482b1fb1727c18843a7f102b711599e8,
         type: 3}
@@ -138,22 +128,22 @@ PrefabInstance:
     - target: {fileID: 61293782900432550, guid: 482b1fb1727c18843a7f102b711599e8,
         type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
-      value: 6.4
+      value: 3.2
       objectReference: {fileID: 0}
     - target: {fileID: 61293782900432550, guid: 482b1fb1727c18843a7f102b711599e8,
         type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.y
-      value: 12.8
+      value: 6.4
       objectReference: {fileID: 0}
     - target: {fileID: 61293782900432550, guid: 482b1fb1727c18843a7f102b711599e8,
         type: 3}
       propertyPath: m_SpriteTilingProperty.newSize.x
-      value: 1.28
+      value: 1.6
       objectReference: {fileID: 0}
     - target: {fileID: 61293782900432550, guid: 482b1fb1727c18843a7f102b711599e8,
         type: 3}
       propertyPath: m_SpriteTilingProperty.newSize.y
-      value: 0.64
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 61293782900432550, guid: 482b1fb1727c18843a7f102b711599e8,
         type: 3}
@@ -163,22 +153,22 @@ PrefabInstance:
     - target: {fileID: 61293782900432550, guid: 482b1fb1727c18843a7f102b711599e8,
         type: 3}
       propertyPath: m_SpriteTilingProperty.drawMode
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 61293782900432550, guid: 482b1fb1727c18843a7f102b711599e8,
         type: 3}
       propertyPath: m_Size.x
-      value: 2.3
+      value: 0.7
       objectReference: {fileID: 0}
     - target: {fileID: 61293782900432550, guid: 482b1fb1727c18843a7f102b711599e8,
         type: 3}
       propertyPath: m_Size.y
-      value: 10.63
+      value: 0.7
       objectReference: {fileID: 0}
     - target: {fileID: 61293782900432550, guid: 482b1fb1727c18843a7f102b711599e8,
         type: 3}
       propertyPath: m_Offset.y
-      value: -0.4
+      value: -0.05
       objectReference: {fileID: 0}
     - target: {fileID: 50258780180462314, guid: 482b1fb1727c18843a7f102b711599e8,
         type: 3}
@@ -198,6 +188,16 @@ PrefabInstance:
     - target: {fileID: 114286922984860666, guid: 482b1fb1727c18843a7f102b711599e8,
         type: 3}
       propertyPath: color
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 23925645573531492, guid: 482b1fb1727c18843a7f102b711599e8,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 5fcf2c64c111c2a46ae3395aa4a4b051, type: 2}
+    - target: {fileID: 23925645573531492, guid: 482b1fb1727c18843a7f102b711599e8,
+        type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
