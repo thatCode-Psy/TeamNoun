@@ -1,16 +1,10 @@
 fileFormatVersion: 2
-<<<<<<< HEAD
 guid: 8440d3f87c57c7f4399777753e492e4c
 TextureImporter:
   fileIDToRecycleName:
     21300000: ProfileBoxes_0
     21300002: ProfileBoxes_1
     21300004: ProfileBoxes_2
-=======
-guid: 7456ffbcfbb3dc44d868404cd924703f
-TextureImporter:
-  fileIDToRecycleName: {}
->>>>>>> Demo
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -45,15 +39,11 @@ TextureImporter:
     mipBias: -100
     wrapU: 1
     wrapV: 1
-    wrapW: 1
+    wrapW: -1
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-<<<<<<< HEAD
   spriteMode: 2
-=======
-  spriteMode: 1
->>>>>>> Demo
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -82,7 +72,6 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
-<<<<<<< HEAD
   - serializedVersion: 2
     buildTarget: Standalone
     maxTextureSize: 2048
@@ -106,13 +95,13 @@ TextureImporter:
         width: 320
         height: 320
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7b8079e72ee344c419e83a2a9cf0ed73
+      spriteID: f8bdefdc43a843048b36e8d8f027c5a1
       vertices: []
       indices: 
       edges: []
@@ -121,18 +110,18 @@ TextureImporter:
       name: ProfileBoxes_1
       rect:
         serializedVersion: 2
-        x: 321
+        x: 320
         y: 0
         width: 320
         height: 320
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c1ef726cf33a77b408877be793bc18f0
+      spriteID: 2d74709ff432a5f48b265eb7c3ac2bf1
       vertices: []
       indices: 
       edges: []
@@ -141,18 +130,18 @@ TextureImporter:
       name: ProfileBoxes_2
       rect:
         serializedVersion: 2
-        x: 649
+        x: 640
         y: 0
-        width: 301
+        width: 320
         height: 320
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 10, z: 0, w: 10}
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6a847807c354192489cbe00492ad96c1
+      spriteID: cefff50f535a5c549a35844db57ea39d
       vertices: []
       indices: 
       edges: []
@@ -160,16 +149,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 8c29d15f332dd714e962f23b2a911b76
-=======
-  spriteSheet:
-    serializedVersion: 2
-    sprites: []
-    outline: []
-    physicsShape: []
-    bones: []
-    spriteID: 9a45f7d1e29c2214590393294be5c9c3
->>>>>>> Demo
+    spriteID: 70b11dd2e157950429185213337064ac
     vertices: []
     indices: 
     edges: []

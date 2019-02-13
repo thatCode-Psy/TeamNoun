@@ -1,16 +1,10 @@
 fileFormatVersion: 2
-<<<<<<< HEAD
 guid: 4a2a2b66391cf6e458f930d40333a5f8
 TextureImporter:
   fileIDToRecycleName:
     21300000: TextBoxes_0
     21300002: TextBoxes_1
     21300004: TextBoxes_2
-=======
-guid: a9a0a995a86296c449a66879d38c6b81
-TextureImporter:
-  fileIDToRecycleName: {}
->>>>>>> Demo
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -45,15 +39,11 @@ TextureImporter:
     mipBias: -100
     wrapU: 1
     wrapV: 1
-    wrapW: 1
+    wrapW: -1
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-<<<<<<< HEAD
   spriteMode: 2
-=======
-  spriteMode: 1
->>>>>>> Demo
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -82,7 +72,6 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
-<<<<<<< HEAD
   - serializedVersion: 2
     buildTarget: Standalone
     maxTextureSize: 2048
@@ -112,7 +101,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a3c69dd9769715349b406973b0d2eae8
+      spriteID: cc38aab6a4dd6b74c96e79ac765e7ac5
       vertices: []
       indices: 
       edges: []
@@ -132,7 +121,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c5def1b207349fd4c8a60aaa1f86dce8
+      spriteID: f9f27134033cca54eb46fb5bd6386692
       vertices: []
       indices: 
       edges: []
@@ -152,7 +141,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3d7a9719d25c3604196e596eab26ce03
+      spriteID: d5ab7a04cd79cf043a2569df3d808c2c
       vertices: []
       indices: 
       edges: []
@@ -160,16 +149,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 2fa2c010f9c95254f8aebcf839f51ae4
-=======
-  spriteSheet:
-    serializedVersion: 2
-    sprites: []
-    outline: []
-    physicsShape: []
-    bones: []
-    spriteID: 1b6f0e1b680cd7a4f92a22353d04e1f8
->>>>>>> Demo
+    spriteID: 5d2fd78bfe4d0264e9237e2928c48266
     vertices: []
     indices: 
     edges: []
