@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class EndLevelTriggerScript : MonoBehaviour
 {
@@ -40,7 +41,7 @@ public class EndLevelTriggerScript : MonoBehaviour
                 return;
             }
         }
-        print("Victory");
+        SceneManager.LoadScene("DemoVictory");
     }
 
 }
