@@ -13,7 +13,7 @@ public class SpawnPointScript : MonoBehaviour
     public int spawnNumber;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         if(isInitialSpawn){
             GameObject player = Instantiate(playerPrefab);
