@@ -16,33 +16,57 @@ public class PlayerScript : MonoBehaviour {
     public float jumpForce;
     public float collisionOffset = 0.05f;
     
+
+    GameObject collidingLightSwitch;
+    GameObject currentSpawn;
+
+    int currentSpawnNumber;
+
     //Components
     Rigidbody2D rbody;
     Collider2D collider;
 	
     bool isInMovableArea;
+    bool interacted;
     
     // Use this for initialization
 	void Start () {
         rbody = GetComponent<Rigidbody2D>();
         collider = GetComponent<Collider2D>(); 
         isInMovableArea = color == PlayerColor.WHITE;
+        interacted = false;
 	}
 	
 	// Update is called once per frame
 	void Update () {
+        if(Input.GetAxis(color + "Interact") > 0 && collidingLightSwitch != null && !interacted){
+            lightswitch_script script = collidingLightSwitch.GetComponent<lightswitch_script>();
+            script.switchLight();
+            interacted = true;
+        }
+        else if(Input.GetAxis(color + "Interact") == 0 && interacted){
+            interacted = false;
+        }
+
+
         if(isInMovableArea){
             Vector2 velocity = rbody.velocity;
             if(!isHittingWallInDirection())
-                velocity.x = Input.GetAxis("Horizontal") * maxVelocity;
+                velocity.x = Input.GetAxis(color + "Horizontal") * maxVelocity;
             rbody.velocity = velocity;
-            if(Input.GetAxis("Jump") > 0 && isGrounded()) {
+            if(Input.GetAxis(color + "Jump") > 0 && isGrounded()) {
                 rbody.AddForce(Vector2.up * jumpForce);
             }
         }
         else{
             Respawn();
         }
+
+        if(Input.GetAxis(color + "Kill") > 0){
+            Input.ResetInputAxes();
+            Respawn();
+        }
+        
         isInMovableArea = color == PlayerColor.WHITE;
 	}
 
@@ -83,12 +107,48 @@ public class PlayerScript : MonoBehaviour {
         return Physics2D.OverlapArea(min, max);
     }
 
+    void OnTriggerEnter2D(Collider2D collider){
+        if(collider.tag == "Spawn"){
+            SpawnPointScript spawnScript = collider.GetComponent<SpawnPointScript>();
+            if(spawnScript.color == color && spawnScript.spawnNumber > currentSpawnNumber){
+                setCurrentSpawn(collider.gameObject);
+            }
+        }
+        else if(collider.tag == "LightSwitch"){
+            collidingLightSwitch = collider.gameObject;
+        }
+        
+    }
+
+    
+    // void OnTriggerStay2D(Collider2D collider){
+    //     if(collider.tag == "LightSwitch"){
+    //         print("colliding");
+    //         if(Input.GetKeyDown(KeyCode.E)){
+    //             lightswitch_script script = collider.gameObject.GetComponent<lightswitch_script>();
+    //             script.switchLight();
+    //         }
+    //     }
+    // }
+
+    void OnTriggerExit2D(Collider2D collider){
+        if(collider.tag == "LightSwitch"){
+            collidingLightSwitch = null;
+        }
+    }
+
     public void contactLight(){
         isInMovableArea = color == PlayerColor.BLACK;
     }
 
+    public void setCurrentSpawn(GameObject spawn){
+        currentSpawn = spawn;
+        SpawnPointScript script = spawn.GetComponent<SpawnPointScript>();
+        currentSpawnNumber = script.spawnNumber;
+    }
+
     void Respawn(){
-        print("Dead");
+        transform.position = currentSpawn.transform.position;
     }
 
 }
