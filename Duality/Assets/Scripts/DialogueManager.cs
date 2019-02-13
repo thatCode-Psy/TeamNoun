@@ -19,6 +19,8 @@ public class DialogueManager : MonoBehaviour {
     public Sprite whiteBackround;
     public Sprite blackBackground;
 
+    int currentlySpeaking;
+    int bufferedLines;
 	// Use this for initialization
 	void Start () {
         FileInfo file = new FileInfo(dialogueFileLocation);
@@ -28,6 +30,8 @@ public class DialogueManager : MonoBehaviour {
         dialogueLines = new ArrayList();
 
         /* Dialogue lines are of the format: {(integer defining speaker)}(ActualLine)[(integer for delay in seconds)](number of next line or -1 if that's the end of the dialogue)*/
+        //1 is black
+        //2 is white
         string line;
         while(!reader.EndOfStream)
         {
@@ -46,6 +50,9 @@ public class DialogueManager : MonoBehaviour {
         {
             Debug.Log(dialogueLines[x]);
         }
+
+        currentlySpeaking = -1;
+        bufferedLines = -1;
 	}
 	
 	// Update is called once per frame
@@ -77,13 +84,22 @@ public class DialogueManager : MonoBehaviour {
         
         //Debug.Log(lineToPrint.Substring(locOfCloseBracket + 1));
         int nextLineVar = int.Parse(lineToPrint.Substring(locOfCloseBracket + 1));
-        StartCoroutine(Say(lineActual, speaker, delay, nextLineVar));
+        //if (currentlySpeaking == )
+        //{
+            //currentlySpeaking = true;
+            StartCoroutine(Say(lineActual, speaker, delay, nextLineVar));
+        //}
+        //else
+        //{
+        //    bufferedLines = input;
+        //}
         
 
     }
 
     IEnumerator Say(string line, int speaker, int delay, int nextLineVar)
     {
+        
         textbox.SetActive(true);
         spritebox.SetActive(true);
         int speed = 1;
@@ -131,6 +147,14 @@ public class DialogueManager : MonoBehaviour {
         {
             PlayDialogue(nextLineVar);
         }
+        //else if(bufferedLines != -1)
+        //{
+        //    PlayDialogue(bufferedLines);
+        //}
+        //else
+        //{
+        //    currentlySpeaking = false;
+        //}
         //Debug.Log("Finished execution");
     }
 }
