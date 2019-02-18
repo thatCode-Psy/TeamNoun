@@ -158,6 +158,7 @@ public class PlayerScript : MonoBehaviour {
 
     void Respawn(){
         transform.position = currentSpawn.transform.position;
+        GetComponent<Rigidbody2D>().velocity = Vector2.zero;
     }
 
 }
