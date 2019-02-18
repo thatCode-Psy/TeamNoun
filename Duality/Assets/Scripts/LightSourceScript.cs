@@ -12,16 +12,29 @@ public class LightSourceScript : MonoBehaviour {
     public bool isOn;
     GameObject litArea;
     public Material litMaterial;
-
     public float litAreaEdgeRadius;
+    static GameObject lightParent;
 	// Use this for initialization
 	protected void Start () {
-		litArea = new GameObject("Light", typeof(MeshFilter), typeof(MeshRenderer), typeof(EdgeCollider2D));
-        //litArea.transform.parent = transform;
+        if(lightParent == null){
+            lightParent = new GameObject("LightParent", typeof(CompositeCollider2D));
+            Rigidbody2D body = lightParent.GetComponent<Rigidbody2D>();
+            body.constraints = RigidbodyConstraints2D.FreezeAll;
+            body.mass = 1000f;
+            //gravityScale = 0;
+    //        lightParent.GetCompoentn
+            lightParent.GetComponent<CompositeCollider2D>().edgeRadius = litAreaEdgeRadius;
+            lightParent.layer = LayerMask.NameToLayer("LightArea");
+        }
+		litArea = new GameObject("Light", typeof(MeshFilter), typeof(MeshRenderer), typeof(PolygonCollider2D));
+        litArea.transform.parent = lightParent.transform;
         litArea.transform.position = Vector2.zero;
         litArea.GetComponent<MeshRenderer>().material = litMaterial;
-        litArea.GetComponent<EdgeCollider2D>().edgeRadius = litAreaEdgeRadius;
+        //litArea.GetComponent<PolygonCollider2D>().edgeRadius = litAreaEdgeRadius;
+        litArea.GetComponent<PolygonCollider2D>().usedByComposite = true;
+        // litArea.GetComponent<PolygonCollider2D>().isTrigger = true;
         litArea.layer = LayerMask.NameToLayer("LightArea");
+        
 	}
 	
 	// Update is called once per frame
@@ -43,7 +56,7 @@ public class LightSourceScript : MonoBehaviour {
         int[] triangles = new int[amountOfRayCasts * 3];
 
         float angleDifference = endAngle - startAngle;
-        LayerMask raycastMask = int.MaxValue - LayerMask.GetMask("LightArea");
+        LayerMask raycastMask = int.MaxValue - LayerMask.GetMask("LightArea") - LayerMask.GetMask("Ignore Raycast");
 
         for (int i = 0; i <= amountOfRayCasts; ++i) {
             float angle = Mathf.Deg2Rad * (startAngle + (i * angleDifference) / (float)amountOfRayCasts);
@@ -90,9 +103,12 @@ public class LightSourceScript : MonoBehaviour {
         mesh.uv = uvs;
         mesh.triangles = triangles;
         litArea.GetComponent<MeshFilter>().mesh = mesh;
-        litArea.GetComponent<EdgeCollider2D>().points = convertVector3ArrayToVector2Array(vertices); 
-        litArea.GetComponent<EdgeCollider2D>().enabled = true;
+        litArea.GetComponent<PolygonCollider2D>().points = convertVector3ArrayToVector2Array(vertices); 
+        litArea.GetComponent<PolygonCollider2D>().enabled = true;
+        
+        
     }
+
 
     void ClearLightArea(){
 
@@ -101,7 +117,7 @@ public class LightSourceScript : MonoBehaviour {
         mesh.uv = new Vector2[0];
         mesh.triangles = new int[0];
         litArea.GetComponent<MeshFilter>().mesh = mesh;
-        litArea.GetComponent<EdgeCollider2D>().enabled = false;
+        litArea.GetComponent<PolygonCollider2D>().enabled = false;
     }
     private Vector2[] convertVector3ArrayToVector2Array(Vector3[] input){
         Vector2[] output = new Vector2[input.Length + 1];

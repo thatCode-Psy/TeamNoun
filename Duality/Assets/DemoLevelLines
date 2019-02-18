@@ -1,0 +1,9 @@
+{1}I can only move in the light, so I'm glad it's bright up here.[1]1
+{2}Well, I can only move in the dark, so you're gonna have to help me.[1]-1
+{2}Lucky for us that these lights move so slowly, huh?[1]-1
+{1}There's a switch down there, hit it to turn this light on![2]-1
+{2}Okay, there.[1]-1
+{1}Are we done?[1]-1
+{2}Seems like the end.[1]7
+{1}That was pretty easy. This game will be a piece of cake![2]8
+{2}Don't get your hopes up, this is just the demo level.[2]-1
