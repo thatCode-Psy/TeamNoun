@@ -12,6 +12,8 @@ ModelImporter:
     100012: //RootNode
     100014: pillow
     100016: walls
+    100018: chair:chair
+    100020: table:table
     400000: bar1
     400002: bar2
     400004: bar3
@@ -21,6 +23,8 @@ ModelImporter:
     400012: //RootNode
     400014: pillow
     400016: walls
+    400018: chair:chair
+    400020: table:table
     2100000: bar1Mat
     2100002: bar2Mat
     2100004: bar3Mat
@@ -29,6 +33,12 @@ ModelImporter:
     2100010: bedMat
     2100012: pillowMat
     2100014: wallsMat
+    2100016: lambert6SG
+    2100018: lambert3SG
+    2100020: lambert7SG
+    2100022: lambert4SG
+    2100024: lambert5SG
+    2100026: lambert2SG
     2300000: bar1
     2300002: bar2
     2300004: bar3
@@ -37,6 +47,8 @@ ModelImporter:
     2300010: bed
     2300012: pillow
     2300014: walls
+    2300016: chair:chair
+    2300018: table:table
     3300000: bar1
     3300002: bar2
     3300004: bar3
@@ -45,6 +57,8 @@ ModelImporter:
     3300010: bed
     3300012: pillow
     3300014: walls
+    3300016: chair:chair
+    3300018: table:table
     4300000: bar1
     4300002: bar2
     4300004: bar3
@@ -53,6 +67,8 @@ ModelImporter:
     4300010: bed
     4300012: pillow
     4300014: walls
+    4300016: chair:chair
+    4300018: table:table
   externalObjects: {}
   materials:
     importMaterials: 1
