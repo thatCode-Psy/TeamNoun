@@ -27,32 +27,50 @@ public class PlayerScript : MonoBehaviour {
     Collider2D collider;
 	
     bool isInMovableArea;
+    bool interacted;
     
     // Use this for initialization
 	void Start () {
         rbody = GetComponent<Rigidbody2D>();
         collider = GetComponent<Collider2D>(); 
         isInMovableArea = color == PlayerColor.WHITE;
+        interacted = false;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-        if(Input.GetAxis(color + "Interact") > 0 && collidingLightSwitch != null){
+        if(Input.GetAxis(color + "Interact") > 0 && collidingLightSwitch != null && !interacted){
             lightswitch_script script = collidingLightSwitch.GetComponent<lightswitch_script>();
             script.switchLight();
+            interacted = true;
+        }
+        else if(Input.GetAxis(color + "Interact") == 0 && interacted){
+            interacted = false;
         }
 
 
         if(isInMovableArea){
             Vector2 velocity = rbody.velocity;
+            //TODO: question for later, do we want full air control or do we want left/right to take time?
             if(!isHittingWallInDirection())
                 velocity.x = Input.GetAxis(color + "Horizontal") * maxVelocity;
             rbody.velocity = velocity;
             if(Input.GetAxis(color + "Jump") > 0 && isGrounded()) {
+                //make the landing a bit "stickier" 
+                //and prevent a small bug where you had a small window where you could jump
+                //after bouncing off the ground, stacking the velocity. this makes it consistent
+                if (rbody.velocity.y < 0){
+                    rbody.velocity = new Vector2(rbody.velocity.x, 0);
+                }
                 rbody.AddForce(Vector2.up * jumpForce);
             }
         }
         else{
+            Respawn();
+        }
+
+        if(Input.GetAxis(color + "Kill") > 0){
+            Input.ResetInputAxes();
             Respawn();
         }
         
@@ -91,9 +109,11 @@ public class PlayerScript : MonoBehaviour {
         max.y = min.y + collisionOffset;
         max.x -= collisionOffset;
         min.x += collisionOffset;
+
         
-       
-        return Physics2D.OverlapArea(min, max);
+        //mask so we can only jump off the ground
+        int mask = 1 << 11;
+        return Physics2D.OverlapArea(min, max, mask);
     }
 
     void OnTriggerEnter2D(Collider2D collider){
@@ -138,6 +158,7 @@ public class PlayerScript : MonoBehaviour {
 
     void Respawn(){
         transform.position = currentSpawn.transform.position;
+        GetComponent<Rigidbody2D>().velocity = Vector2.zero;
     }
 
 }
