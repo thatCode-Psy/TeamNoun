@@ -53,10 +53,10 @@ public class DialogueManager : MonoBehaviour {
         spritebox.SetActive(false);
         whiteSpeaker.SetActive(false);
         blackSpeaker.SetActive(false);
-        for (int x = 0; x < dialogueLines.Count; x++)
-        {
-            Debug.Log(dialogueLines[x]);
-        }
+        //for (int x = 0; x < dialogueLines.Count; x++)
+        //{
+        //    Debug.Log(dialogueLines[x]);
+        //}
 
         currentlySpeaking = -1;
         bufferedLines = -1;
@@ -146,12 +146,13 @@ public class DialogueManager : MonoBehaviour {
             x += speed;
             yield return null;
         }
+        audio.Stop();
         float time = Time.time;
         while(Time.time - time < delay)
         {
             yield return null;
         }
-        audio.Stop();
+        //audio.Stop();
         textbox.SetActive(false);
         spritebox.SetActive(false);
         whiteSpeaker.SetActive(false);
