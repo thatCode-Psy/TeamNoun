@@ -76,14 +76,16 @@ public class UpdatedLightSourceScript : MonoBehaviour
             RaycastHit2D[] raycastData = Physics2D.RaycastAll(raycastStart, dir, raycastRange, raycastMask);
             
             bool hitPlayer = false;
-            foreach(RaycastHit2D raycast in raycastData){
-                if(raycast.collider.tag == "Player"){
-                    PlayerScript script = raycast.collider.GetComponent<PlayerScript>();
-                    script.contactLight();
-                    hitPlayer = true;
-                }
-                else{
-                    break;
+            if(i != 0 && i != amountOfRayCasts){
+                foreach(RaycastHit2D raycast in raycastData){
+                    if(raycast.collider.tag == "Player"){
+                        PlayerScript script = raycast.collider.GetComponent<PlayerScript>();
+                        script.contactLight();
+                        hitPlayer = true;
+                    }
+                    else{
+                        break;
+                    }
                 }
             }
             float distance = raycastData.Length > 0 ? raycastData[0].distance : raycastRange;

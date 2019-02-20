@@ -334,7 +334,7 @@ PrefabInstance:
     - target: {fileID: 787624697204608787, guid: 610a08621449fd64492df3f71d1c89f5,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 787624697204608785, guid: 610a08621449fd64492df3f71d1c89f5,
         type: 3}
@@ -395,6 +395,26 @@ PrefabInstance:
         type: 3}
       propertyPath: sweepingAngle
       value: -20
+      objectReference: {fileID: 0}
+    - target: {fileID: 237358486216129277, guid: 610a08621449fd64492df3f71d1c89f5,
+        type: 3}
+      propertyPath: amountOfRayCasts
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 787624697204608786, guid: 610a08621449fd64492df3f71d1c89f5,
+        type: 3}
+      propertyPath: m_RenderMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 787624697204608786, guid: 610a08621449fd64492df3f71d1c89f5,
+        type: 3}
+      propertyPath: m_Range
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 787624697204608786, guid: 610a08621449fd64492df3f71d1c89f5,
+        type: 3}
+      propertyPath: m_Shadows.m_Type
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 610a08621449fd64492df3f71d1c89f5, type: 3}
@@ -465,20 +485,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 237358486216129277, guid: 610a08621449fd64492df3f71d1c89f5,
+        type: 3}
+      propertyPath: sweepingTime
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 237358486216129277, guid: 610a08621449fd64492df3f71d1c89f5,
+        type: 3}
+      propertyPath: amountOfRayCasts
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 787624697204608786, guid: 610a08621449fd64492df3f71d1c89f5,
         type: 3}
       propertyPath: m_Intensity
       value: 16.1
       objectReference: {fileID: 0}
-    - target: {fileID: 237358486216129277, guid: 610a08621449fd64492df3f71d1c89f5,
+    - target: {fileID: 787624697204608786, guid: 610a08621449fd64492df3f71d1c89f5,
         type: 3}
-      propertyPath: sweepingTime
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 237358486216129277, guid: 610a08621449fd64492df3f71d1c89f5,
-        type: 3}
-      propertyPath: amountOfRayCasts
-      value: 10
+      propertyPath: m_Shadows.m_Type
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 610a08621449fd64492df3f71d1c89f5, type: 3}
@@ -939,7 +964,7 @@ PrefabInstance:
     - target: {fileID: 787624697204608787, guid: 610a08621449fd64492df3f71d1c89f5,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 787624697204608785, guid: 610a08621449fd64492df3f71d1c89f5,
         type: 3}
@@ -996,10 +1021,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 237358486216129277, guid: 610a08621449fd64492df3f71d1c89f5,
+        type: 3}
+      propertyPath: litAreaEdgeRadius
+      value: 0.15
+      objectReference: {fileID: 0}
     - target: {fileID: 787624697204608786, guid: 610a08621449fd64492df3f71d1c89f5,
         type: 3}
       propertyPath: m_Range
       value: 14.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 787624697204608786, guid: 610a08621449fd64492df3f71d1c89f5,
+        type: 3}
+      propertyPath: m_RenderMode
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 610a08621449fd64492df3f71d1c89f5, type: 3}
