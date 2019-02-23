@@ -5,12 +5,18 @@ ModelImporter:
   fileIDToRecycleName:
     100000: walkway
     100002: //RootNode
+    100004: walkway:walkway
     400000: walkway
     400002: //RootNode
+    400004: walkway:walkway
     2100000: initialShadingGroup
+    2100002: walkway_initialShadingGroup
     2300000: walkway
+    2300002: walkway:walkway
     3300000: walkway
+    3300002: walkway:walkway
     4300000: walkway
+    4300002: walkway:walkway
   externalObjects: {}
   materials:
     importMaterials: 1
