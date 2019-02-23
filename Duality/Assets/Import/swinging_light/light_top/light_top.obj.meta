@@ -1,17 +1,16 @@
 fileFormatVersion: 2
-guid: dfb997a6b19cc4d3c9bd71da0662cf4a
+guid: 8421b480e0435449c92124c34bda1a4c
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
-    100000: //RootNode
-    100002: terminal
-    400000: //RootNode
-    400002: terminal
-    2100000: initialShadingGroup
-    2100002: lambert8SG
-    2300000: terminal
-    3300000: terminal
-    4300000: terminal
+    100000: light_top
+    100002: //RootNode
+    400000: light_top
+    400002: //RootNode
+    2100000: lambert2SG
+    2300000: light_top
+    3300000: light_top
+    4300000: light_top
   externalObjects: {}
   materials:
     importMaterials: 1
