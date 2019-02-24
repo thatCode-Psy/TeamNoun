@@ -7,7 +7,7 @@ public class ControllerTestingScript : MonoBehaviour {
     [SerializeField]
     private InputManager.ControllerType controllerType;
     [SerializeField]
-    private int controllerNumber = 0;
+    private int controllerNumber;
     [SerializeField]
     private GameObject scrollbarPrefab; // this is used to display the input
     [SerializeField]

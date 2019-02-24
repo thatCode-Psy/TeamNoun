@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 
 [System.Serializable]
 public enum PlayerColor {
@@ -15,7 +17,6 @@ public class PlayerScript : MonoBehaviour {
     public float maxVelocity;
     public float jumpForce;
     public float collisionOffset = 0.05f;
-    
 
     GameObject collidingLightSwitch;
     GameObject currentSpawn;
@@ -27,35 +28,75 @@ public class PlayerScript : MonoBehaviour {
     Collider2D collider;
 	
     bool isInMovableArea;
-    bool interacted;
+
+    //input manager stuff
+    [SerializeField]
+    private int playerNum;
+    //default is keyboard
+    [SerializeField]
+    private InputManager.ControllerType controllerType;
+    [SerializeField]
+    private int controllerNumber;
+    InputManager inputManager;
+    //end input manager stuff
+    public bool canMove;
     
     // Use this for initialization
 	void Start () {
         rbody = GetComponent<Rigidbody2D>();
         collider = GetComponent<Collider2D>(); 
         isInMovableArea = color == PlayerColor.WHITE;
-        interacted = false;
+        canMove = true;
+        inputManager = new InputManager(controllerNumber, controllerType);
+        print(color + " " + inputManager.ControllerNumber() + " " + inputManager.ControllerTypeName());
+        if (GameSettings.instance != null)
+        {
+            print("game settings null");
+            if (playerNum == 1)
+            {
+                inputManager = GameSettings.instance.p1InputManager;
+            } else
+            {
+                inputManager = GameSettings.instance.p2InputManager;
+            }
+        }
 	}
 	
 	// Update is called once per frame
-	void Update () {
-        if(Input.GetAxis(color + "Interact") > 0 && collidingLightSwitch != null && !interacted){
+    void Update() {
+        inputManager.Update();
+        if (inputManager.GetAxisDown(InputManager.ControllerAxis.Back))
+        {
+            SceneManager.LoadScene("Menu");
+        }
+    }
+
+    //FixedUpdate is called before physics calculations
+	void FixedUpdate () {
+        float moveHorizontal = inputManager.GetAxis(InputManager.ControllerAxis.HorizontalMovement);
+        float moveVertical = inputManager.GetAxis(InputManager.ControllerAxis.VerticalMovement);
+        bool jump = inputManager.GetAxisDown(InputManager.ControllerAxis.Jump);
+        bool interact = inputManager.GetAxisDown(InputManager.ControllerAxis.Interact);
+        bool kill = inputManager.GetAxisDown(InputManager.ControllerAxis.Kill);
+
+        movementManager(moveHorizontal, moveVertical, jump, interact, kill);
+	}
+
+    void movementManager(float horizontal, float vertical, bool jump, bool interact, bool kill) {
+        if(interact && collidingLightSwitch != null){
             lightswitch_script script = collidingLightSwitch.GetComponent<lightswitch_script>();
             script.switchLight();
-            interacted = true;
         }
-        else if(Input.GetAxis(color + "Interact") == 0 && interacted){
-            interacted = false;
-        }
-
 
         if(isInMovableArea){
             Vector2 velocity = rbody.velocity;
             //TODO: question for later, do we want full air control or do we want left/right to take time?
-            if(!isHittingWallInDirection())
-                velocity.x = Input.GetAxis(color + "Horizontal") * maxVelocity;
+            
+            // if(!isHittingWallInDirection())
+            velocity.x = horizontal * maxVelocity;
+           
             rbody.velocity = velocity;
-            if(Input.GetAxis(color + "Jump") > 0 && isGrounded()) {
+            if(jump && isGrounded()) {
                 //make the landing a bit "stickier" 
                 //and prevent a small bug where you had a small window where you could jump
                 //after bouncing off the ground, stacking the velocity. this makes it consistent
@@ -69,37 +110,34 @@ public class PlayerScript : MonoBehaviour {
             Respawn();
         }
 
-        if(Input.GetAxis(color + "Kill") > 0){
+        if(kill){
             Input.ResetInputAxes();
             Respawn();
         }
         
         isInMovableArea = color == PlayerColor.WHITE;
-	}
-
-    bool isHittingWallInDirection() {
-        float axis = Input.GetAxis("Horizontal");
-        Vector3 min = collider.bounds.min;
-        Vector3 max = collider.bounds.max;
-        if(axis > 0) {
-            max.x += 2 * collisionOffset;
-            min.x = max.x - collisionOffset;
-
-        }
-        else if(axis < 0) {
-            min.x -= 2 * collisionOffset;
-            max.x = min.x + collisionOffset;
-        } else {
-            return false;
-        }
-        max.y -= collisionOffset;
-        min.y += collisionOffset;
-
-        return Physics2D.OverlapArea(min, max);
-
-
     }
 
+    // bool isHittingWallInDirection() {
+    //     float axis = Input.GetAxis("Horizontal");
+    //     Vector3 min = collider.bounds.min;
+    //     Vector3 max = collider.bounds.max;
+    //     if(axis > 0) {
+    //         max.x += 2 * collisionOffset;
+    //         min.x = max.x - collisionOffset;
+
+    //     }
+    //     else if(axis < 0) {
+    //         min.x -= 2 * collisionOffset;
+    //         max.x = min.x + collisionOffset;
+    //     } else {
+    //         return false;
+    //     }
+    //     max.y -= collisionOffset;
+    //     min.y += collisionOffset;
+
+    //     return Physics2D.OverlapArea(min, max);
+    // }
 
     bool isGrounded() {
         Vector3 min = collider.bounds.min;
@@ -128,17 +166,6 @@ public class PlayerScript : MonoBehaviour {
         }
         
     }
-
-    
-    // void OnTriggerStay2D(Collider2D collider){
-    //     if(collider.tag == "LightSwitch"){
-    //         print("colliding");
-    //         if(Input.GetKeyDown(KeyCode.E)){
-    //             lightswitch_script script = collider.gameObject.GetComponent<lightswitch_script>();
-    //             script.switchLight();
-    //         }
-    //     }
-    // }
 
     void OnTriggerExit2D(Collider2D collider){
         if(collider.tag == "LightSwitch"){
