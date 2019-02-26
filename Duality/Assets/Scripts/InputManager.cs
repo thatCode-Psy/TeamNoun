@@ -8,10 +8,12 @@ using UnityEngine;
  * 
  * You have to update it each frame so it can keep track of things being pressed and released (the .Update() function)
  * You can query raw values of axes like horizontal or vertical using the GetAxis(InputManager.ControllerAxis axis) function, they'll be -1 to 1 except for the mouse, which is dx and dy (we may need to scale that)
- * You can query if a button is being held down with GetAxisPressed(InputManager.ControllerAxis axis). This only works for buttons like shoot, jump, back, or pause, not HorizontalMove
+ * You can query if a button is being held down with GetAxisPressed(InputManager.ControllerAxis axis). This only works for buttons like Interact, jump, back, or pause, not HorizontalMove
  * You can query if a button was just pressed or just released with GetAxisDown and GetAxisUp
  */
 
+//*** NOTE: joystick num corresponds to ONLY IF THERE IS MORE THAN ONE JOYSTICK
+//          if you ONLY have a keyboard and a controller, SET CONTROLLER NUMBER TO 1
 public class InputManager {
 
     private int controllerNumber;
@@ -20,7 +22,7 @@ public class InputManager {
     private int[] inputDown;
     private bool[] inputUp;
 
-    private int i = (int)ControllerAxis.Back;
+    // private int i = (int)ControllerAxis.Back;
 
     [SerializeField]
     private string[] controllerInputStrings;
@@ -42,10 +44,10 @@ public class InputManager {
         inputValues = new float[numInputAxes];
         inputDown = new int[numInputAxes];
 
-        // HorizontalMovement, VerticalMovement, HorizontalLook, VerticalLook, Shoot, Jump, Back, Pause
+        // HorizontalMovement, VerticalMovement, HorizontalLook, VerticalLook, Interact, Jump, Back, Pause, Kill
         if (controllerType == ControllerType.Xbox)
         {
-            controllerInputStrings = new string[] { " axis 1", " axis 2", " axis 4", " axis 5", " axis 10", " button 0", " button 6", " button 7" };
+            controllerInputStrings = new string[] { " axis 1", " axis 2", " axis 4", " axis 5", " button 2", " button 0", " button 6", " button 7", " button 3"};
             for (int i = 0; i < controllerInputStrings.Length; i++)
             {
                 controllerInputStrings[i] = "joystick " + controllerNumber + controllerInputStrings[i]; // so that the correct controller is used
@@ -53,7 +55,7 @@ public class InputManager {
         }
         else if (controllerType == ControllerType.Dualshock4)
         {
-            controllerInputStrings = new string[] { " axis 1", " axis 2", " axis 3", " axis 6", " axis 5", " button 1", " button 8", " button 9" };
+            controllerInputStrings = new string[] { " axis 1", " axis 2", " axis 3", " axis 6", " button 0", " button 1", " button 8", " button 9" , " button 3"};
             for (int i = 0; i < controllerInputStrings.Length; i++)
             {
                 controllerInputStrings[i] = "joystick " + controllerNumber + controllerInputStrings[i]; // so that the correct controller is used
@@ -69,10 +71,11 @@ public class InputManager {
             UpdateControllerValue(ControllerAxis.VerticalMovement, Input.GetAxisRaw("Vertical"));
             UpdateControllerValue(ControllerAxis.HorizontalLook, Input.GetAxisRaw("Mouse X"));
             UpdateControllerValue(ControllerAxis.VerticalLook, Input.GetAxisRaw("Mouse Y"));
-            UpdateControllerValue(ControllerAxis.Shoot, Input.GetMouseButton(0) ? 1 : 0);
+            UpdateControllerValue(ControllerAxis.Interact, Input.GetKey(KeyCode.LeftShift) ? 1 : 0);
             UpdateControllerValue(ControllerAxis.Jump, Input.GetKey(KeyCode.Space) ? 1 : 0);
             UpdateControllerValue(ControllerAxis.Back, Input.GetKey(KeyCode.Escape) ? 1 : 0);
             UpdateControllerValue(ControllerAxis.Pause, Input.GetKey(KeyCode.P) ? 1 : 0);
+             UpdateControllerValue(ControllerAxis.Kill, Input.GetKey(KeyCode.K) ? 1 : 0);
         }
         else if (controllerType == ControllerType.Xbox)
         {
@@ -80,10 +83,11 @@ public class InputManager {
             UpdateControllerValue(ControllerAxis.VerticalMovement, -Input.GetAxis(controllerInputStrings[1]));
             UpdateControllerValue(ControllerAxis.HorizontalLook, Input.GetAxis(controllerInputStrings[2]));
             UpdateControllerValue(ControllerAxis.VerticalLook, -Input.GetAxis(controllerInputStrings[3]));
-            UpdateControllerValue(ControllerAxis.Shoot, Input.GetAxisRaw(controllerInputStrings[4]) > 0.05f ? 1 : 0);
+            UpdateControllerValue(ControllerAxis.Interact, Input.GetKey(controllerInputStrings[4]) ? 1 : 0);
             UpdateControllerValue(ControllerAxis.Jump, Input.GetKey(controllerInputStrings[5]) ? 1 : 0);
             UpdateControllerValue(ControllerAxis.Back, Input.GetKey(controllerInputStrings[6]) ? 1 : 0);
             UpdateControllerValue(ControllerAxis.Pause, Input.GetKey(controllerInputStrings[7]) ? 1 : 0);
+            UpdateControllerValue(ControllerAxis.Kill, Input.GetKey(controllerInputStrings[8]) ? 1 : 0);
         }
         else if (controllerType == ControllerType.Dualshock4)
         {
@@ -92,10 +96,11 @@ public class InputManager {
             UpdateControllerValue(ControllerAxis.VerticalMovement, -Input.GetAxisRaw(controllerInputStrings[1])); // inverted this so that it's correct
             UpdateControllerValue(ControllerAxis.HorizontalLook, Input.GetAxisRaw(controllerInputStrings[2]));
             UpdateControllerValue(ControllerAxis.VerticalLook, -Input.GetAxisRaw(controllerInputStrings[3])); // inverted this so that it's "not inverted"
-            UpdateControllerValue(ControllerAxis.Shoot, Input.GetAxisRaw(controllerInputStrings[4]) > -.95f ? 1 : 0); // this is needed to scale the trigger axis correctly for dualshocks
+            UpdateControllerValue(ControllerAxis.Interact, Input.GetKey(controllerInputStrings[4]) ? 1 : 0); 
             UpdateControllerValue(ControllerAxis.Jump, Input.GetKey(controllerInputStrings[5]) ? 1 : 0);
             UpdateControllerValue(ControllerAxis.Back, Input.GetKey(controllerInputStrings[6]) ? 1 : 0);
             UpdateControllerValue(ControllerAxis.Pause, Input.GetKey(controllerInputStrings[7]) ? 1 : 0);
+            UpdateControllerValue(ControllerAxis.Kill, Input.GetKey(controllerInputStrings[8]) ? 1 : 0);
         }
     }
 
@@ -134,19 +139,19 @@ public class InputManager {
 
     public bool GetAxisDown(ControllerAxis axis)
     {
-        // NOTE THAT CURRENTLY THIS WILL ONLY WORK CORRECTLY WITH BUTTONS OR KEYS, NOT WITH JOYSTICK AXES LIKE SHOOT OR MOVE.
+        // NOTE THAT CURRENTLY THIS WILL ONLY WORK CORRECTLY WITH BUTTONS OR KEYS, NOT WITH JOYSTICK AXES LIKE Interact OR MOVE.
         return inputDown[(int)axis] == 2;
     }
 
     public bool GetAxisUp(ControllerAxis axis)
     {
-        // NOTE THAT CURRENTLY THIS WILL ONLY WORK CORRECTLY WITH BUTTONS OR KEYS, NOT WITH JOYSTICK AXES LIKE SHOOT OR MOVE.
+        // NOTE THAT CURRENTLY THIS WILL ONLY WORK CORRECTLY WITH BUTTONS OR KEYS, NOT WITH JOYSTICK AXES LIKE Interact OR MOVE.
         return inputDown[(int)axis] == -2;
     }
 
     public bool GetAxisPressed(ControllerAxis axis)
     {
-        // NOTE THAT CURRENTLY THIS WILL ONLY WORK CORRECTLY WITH BUTTONS OR KEYS, NOT WITH JOYSTICK AXES LIKE SHOOT OR MOVE.
+        // NOTE THAT CURRENTLY THIS WILL ONLY WORK CORRECTLY WITH BUTTONS OR KEYS, NOT WITH JOYSTICK AXES LIKE Interact OR MOVE.
         return inputDown[(int)axis] > 0;
     }
 
@@ -191,14 +196,16 @@ public class InputManager {
                 return "Horizontal Look";
             case ControllerAxis.VerticalLook:
                 return "Vertical Look";
-            case ControllerAxis.Shoot:
-                return "Shoot";
+            case ControllerAxis.Interact:
+                return "Interact";
             case ControllerAxis.Jump:
                 return "Jump";
             case ControllerAxis.Pause:
                 return "Pause";
             case ControllerAxis.Back:
                 return "Back";
+            case ControllerAxis.Kill:
+                return "Kill";
             default:
                 return "Not a valid axis oops";
         }
@@ -211,6 +218,6 @@ public class InputManager {
 
     public enum ControllerAxis
     {
-        HorizontalMovement, VerticalMovement, HorizontalLook, VerticalLook, Shoot, Jump, Back, Pause
+        HorizontalMovement, VerticalMovement, HorizontalLook, VerticalLook, Interact, Jump, Kill, Back, Pause
     }
 }
