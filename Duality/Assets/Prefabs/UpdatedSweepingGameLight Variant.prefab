@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseAngle: 0
   startAngleOffset: 4
-  endAngleOffset: 8
+  endAngleOffset: 4
   amountOfRayCasts: 40
   litAreaEdgeRadius: 0.1
   sweepingAngle: 20
@@ -29,7 +29,7 @@ PrefabInstance:
     - target: {fileID: 6979833441762574570, guid: 236ca1f7b14a5d843a38113fc96c0daf,
         type: 3}
       propertyPath: m_Name
-      value: UpdatedSweepingGameLight
+      value: UpdatedSweepingGameLight Variant
       objectReference: {fileID: 0}
     - target: {fileID: 6979833441762574568, guid: 236ca1f7b14a5d843a38113fc96c0daf,
         type: 3}
@@ -85,6 +85,36 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6979833441762574571, guid: 236ca1f7b14a5d843a38113fc96c0daf,
+        type: 3}
+      propertyPath: m_Shadows.m_Type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6979833441762574571, guid: 236ca1f7b14a5d843a38113fc96c0daf,
+        type: 3}
+      propertyPath: m_CullingMask.m_Bits
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 6979833441762574571, guid: 236ca1f7b14a5d843a38113fc96c0daf,
+        type: 3}
+      propertyPath: m_Shadows.m_Bias
+      value: 1.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6979833441762574571, guid: 236ca1f7b14a5d843a38113fc96c0daf,
+        type: 3}
+      propertyPath: m_Shadows.m_NormalBias
+      value: 2.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 6979833441762574571, guid: 236ca1f7b14a5d843a38113fc96c0daf,
+        type: 3}
+      propertyPath: m_Shadows.m_NearPlane
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6979833441762574571, guid: 236ca1f7b14a5d843a38113fc96c0daf,
+        type: 3}
+      propertyPath: m_Range
+      value: 10.9
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 6979833441762574569, guid: 236ca1f7b14a5d843a38113fc96c0daf, type: 3}

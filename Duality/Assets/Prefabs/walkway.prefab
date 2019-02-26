@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5383976407926512221}
   - component: {fileID: 2599689949480079201}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: walkway
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -69,7 +69,7 @@ GameObject:
   - component: {fileID: 1854670918505571783}
   - component: {fileID: 3155605214305647369}
   - component: {fileID: 6568584662247420365}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: walkway
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -47,17 +47,17 @@ public class UpdatedSweepingLightScript : UpdatedLightSourceScript
             t = (currentTime - startTime)/(endTime - startTime);
         } 
         if(isSweepCounterClockwise){
-            startAngle = Mathf.Lerp(originalStartAngle, originalStartAngle - sweepingAngle, t);
-            endAngle = Mathf.Lerp(originalEndAngle, originalEndAngle - sweepingAngle, t);
+            startAngle = Mathf.Lerp(originalStartAngle, originalStartAngle + sweepingAngle, t);
+            endAngle = Mathf.Lerp(originalEndAngle, originalEndAngle + sweepingAngle, t);
             baseAngle = Mathf.Lerp(originalBaseAngle, originalBaseAngle + sweepingAngle, t);
         }
         else{
-            startAngle = Mathf.Lerp(originalStartAngle - sweepingAngle, originalStartAngle, t);
-            endAngle = Mathf.Lerp(originalEndAngle - sweepingAngle, originalEndAngle, t);
+            startAngle = Mathf.Lerp(originalStartAngle + sweepingAngle, originalStartAngle, t);
+            endAngle = Mathf.Lerp(originalEndAngle + sweepingAngle, originalEndAngle, t);
             baseAngle = Mathf.Lerp(originalBaseAngle + sweepingAngle, originalBaseAngle, t);
         }
         Quaternion xRot = Quaternion.Euler(90f, 0, 0);
-        Quaternion yRot = Quaternion.Euler(0, baseAngle, 0);
+        Quaternion yRot = Quaternion.Euler(0, -baseAngle, 0);
         transform.rotation = xRot * yRot;
         base.Update();
     }
