@@ -7,11 +7,15 @@ public class AnimCycle : MonoBehaviour
     // Start is called before the first frame update
 
     public Sprite idle;
+    public Sprite sq, rise, fall;
+	public float bound = 0.5f;
     public Sprite[] frames = new Sprite[8];
-    public float bwFrames = 0.1f;
+    public float bwFrames = 0.075f;
     int fCount = 0;
     int fCap;
     public bool transition = false;
+    public KeyCode leftMove,rightMove;
+    bool isRight = true;
 
     void Start()
     {
@@ -23,16 +27,27 @@ public class AnimCycle : MonoBehaviour
     {
         if (!transition)
         {
-            if (Mathf.Abs(Input.GetAxis("Horizontal")) > 0)
+            if (Mathf.Abs(GetComponent<Rigidbody2D>().velocity.y) < bound)
             {
-                transition = true;
-                Invoke("IncrementStep", bwFrames);
+                if (Input.GetKey(rightMove) ^ Input.GetKey(leftMove))
+                {
+                    transition = true;
+                    Invoke("IncrementStep", bwFrames);
+                    if (Input.GetKey(rightMove))
+                        GetComponent<SpriteRenderer>().flipX = false;
+                    else
+                        GetComponent<SpriteRenderer>().flipX = true;
+                }
+                else
+                {
+                    transition = true;
+                    Invoke("ToIdle", bwFrames);
+                }
             }
+            else if (GetComponent<Rigidbody2D>().velocity.y > 0)
+            { GetComponent<SpriteRenderer>().sprite = rise; }
             else
-            {
-                transition = true;
-                Invoke("ToIdle", bwFrames);
-            }
+                GetComponent<SpriteRenderer>().sprite = fall;
         }
     }
 
