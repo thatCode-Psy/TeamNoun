@@ -11,14 +11,15 @@
 {2}You have that problem?[.5]11
 {1}No, I have the opposite problem, I think.[.8]12
 {2}Then help me, and I'll help you.[.5]-1
-{2}Whatever that explosion was, it knocked over this plant here.[.5]14
-{1}But not much other damage. Strange, huh?[.5]-1
-{2}There's a set of armor up here. And a gun.[.75]16
-{1}A gun?? No, you can't be serious.[.5]17
-{2}Hey, I'll shoot my way out if I have to-[.1]18
-{2}What the hell?[.5]19
-{1}What?[.25]20
-{2}The gun is... fused somehow. Melted.[.5]21
-{1}That's probably for the best.[.5]22
+{1}Whatever that explosion was, it knocked over this plant here.[.5]14
+{2}But not much other damage. Strange, huh?[.5]15
+{1}Almost as strange as having a bad plastic plant in a prison facility.[1]-1
+{2}There's a set of armor up here. And a gun.[.75]17
+{1}A gun?? No, you can't be serious.[.5]18
+{2}Hey, I'll shoot my way out if I have to-[.1]19
+{2}What the hell?[.5]20
+{1}What?[.25]21
+{2}The gun is... fused somehow. Melted.[.5]22
+{1}That's probably for the best.[.5]23
 {2}Speak for yourself. It probably would have been useful.[.75]-1
 {2}Stairs down. Probably not where we want to be, huh?[.5]-1
