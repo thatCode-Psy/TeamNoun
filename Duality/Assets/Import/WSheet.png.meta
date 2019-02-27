@@ -1,26 +1,20 @@
 fileFormatVersion: 2
-<<<<<<< HEAD
 guid: 27277e6815456de45beb65e28376d632
 TextureImporter:
   fileIDToRecycleName:
-    21300000: WSheet_Idle
-    21300002: WSheet_Fall
-    21300004: WSheet_JMid
-    21300006: WSheet_Rise
-    21300008: WSheet_Squat
-    21300010: WSheet_R1
-    21300012: WSheet_R2
-    21300014: WSheet_R3
-    21300016: WSheet_R4
-    21300018: WSheet_R5
-    21300020: WSheet_R6
-    21300022: WSheet_R7
-    21300024: WSheet_R8
-=======
-guid: 91f09121b71c7694ea1c29e0bf3b8eac
-TextureImporter:
-  fileIDToRecycleName: {}
->>>>>>> TextBox
+    21300000: WSheet_0
+    21300002: WSheet_1
+    21300004: WSheet_2
+    21300006: WSheet_3
+    21300008: WSheet_4
+    21300010: WSheet_5
+    21300012: WSheet_6
+    21300014: WSheet_7
+    21300016: WSheet_8
+    21300018: WSheet_9
+    21300020: WSheet_10
+    21300022: WSheet_11
+    21300024: WSheet_12
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -55,15 +49,11 @@ TextureImporter:
     mipBias: -100
     wrapU: 1
     wrapV: 1
-    wrapW: 1
+    wrapW: -1
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-<<<<<<< HEAD
   spriteMode: 2
-=======
-  spriteMode: 1
->>>>>>> TextBox
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -92,7 +82,6 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
-<<<<<<< HEAD
   - serializedVersion: 2
     buildTarget: Standalone
     maxTextureSize: 2048
@@ -108,7 +97,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: WSheet_Idle
+      name: WSheet_0
       rect:
         serializedVersion: 2
         x: 0
@@ -122,13 +111,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bf9b684e333a00c4193333812a5c166d
+      spriteID: 7e6d1bda444e461478a288fb8dac597d
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WSheet_Fall
+      name: WSheet_1
       rect:
         serializedVersion: 2
         x: 1226
@@ -142,13 +131,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9abfb6cdf42ee3e42bbb3d1ffdc57b83
+      spriteID: 5f2f1adca96f12843a3b1360b9c61ba3
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WSheet_JMid
+      name: WSheet_2
       rect:
         serializedVersion: 2
         x: 2452
@@ -162,13 +151,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3e3a6818f154ce84f8fc20f299d9e96a
+      spriteID: 6129c78985a441a4283c62319c6dc720
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WSheet_Rise
+      name: WSheet_3
       rect:
         serializedVersion: 2
         x: 3678
@@ -182,13 +171,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 48f1c474365a6f8449bab715abf4513d
+      spriteID: 354152aa83805144f818ff7b1dac507b
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WSheet_Squat
+      name: WSheet_4
       rect:
         serializedVersion: 2
         x: 4904
@@ -202,13 +191,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 71a7ba9fab260314693297661f627d1c
+      spriteID: 481d4d0706c352041850d42b778dbe19
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WSheet_R1
+      name: WSheet_5
       rect:
         serializedVersion: 2
         x: 6130
@@ -222,13 +211,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 870e31adf1ebc0d4b8b4868f396607dc
+      spriteID: 741fae37eb7d805498ea2422a5f94bc7
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WSheet_R2
+      name: WSheet_6
       rect:
         serializedVersion: 2
         x: 7356
@@ -242,13 +231,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9f089a2b437979641ab68ad0746496f8
+      spriteID: 153db24ec96a9a54b85eb3eeac5fb5ee
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WSheet_R3
+      name: WSheet_7
       rect:
         serializedVersion: 2
         x: 8582
@@ -262,13 +251,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b78a97c087884ee439a08a655723b2a3
+      spriteID: 97cb09bcd2b843a4f88d1ae2dbf47ec0
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WSheet_R4
+      name: WSheet_8
       rect:
         serializedVersion: 2
         x: 9808
@@ -282,13 +271,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7004364fd63e4874cab77dc58dd367ef
+      spriteID: b9dea4334947a5c4cac781923c508325
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WSheet_R5
+      name: WSheet_9
       rect:
         serializedVersion: 2
         x: 11034
@@ -302,13 +291,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e69ce043e71caf048bbf49574822eab8
+      spriteID: df02c2519bb138b4f9cb5dbe2ef25de6
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WSheet_R6
+      name: WSheet_10
       rect:
         serializedVersion: 2
         x: 12260
@@ -322,16 +311,16 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 959b37322d4288d49931604cab505bbc
+      spriteID: 69807084cc86d65408f6759fa0ff550f
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WSheet_R7
+      name: WSheet_11
       rect:
         serializedVersion: 2
-        x: 13492
+        x: 13486
         y: 0
         width: 1226
         height: 1282
@@ -342,13 +331,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e116492a1b5646d49901a304773b1bee
+      spriteID: 494dcbb28a995bc4fb223ea8c1ec6ba9
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WSheet_R8
+      name: WSheet_12
       rect:
         serializedVersion: 2
         x: 14712
@@ -362,7 +351,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d23541d23abc12040b5d65cb033f1cdd
+      spriteID: d8898623e064fe1448d6185145af17b9
       vertices: []
       indices: 
       edges: []
@@ -370,16 +359,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 8799c462e5cfe374b9e68225cbaeac94
-=======
-  spriteSheet:
-    serializedVersion: 2
-    sprites: []
-    outline: []
-    physicsShape: []
-    bones: []
-    spriteID: b5e59bc81a0eaa2408b30ce0d7b13505
->>>>>>> TextBox
+    spriteID: 6d7d1956688c1cb45a54bec0dfdfcb71
     vertices: []
     indices: 
     edges: []

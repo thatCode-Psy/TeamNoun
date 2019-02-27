@@ -1,26 +1,20 @@
 fileFormatVersion: 2
-<<<<<<< HEAD
 guid: 7c38d23b320aa22439b29872b8e60bde
 TextureImporter:
   fileIDToRecycleName:
-    21300000: BSheet_Idle
-    21300002: BSheet_JMid
-    21300004: BSheet_Fall
-    21300006: BSheet_Rise
-    21300008: BSheet_Squat
-    21300010: BSheet_R1
-    21300012: BSheet_R2
-    21300014: BSheet_R3
-    21300016: BSheet_R4
-    21300018: BSheet_R5
-    21300020: BSheet_R6
-    21300022: BSheet_R7
-    21300024: BSheet_R8
-=======
-guid: 3737f2b78bc85e5479521052228b1765
-TextureImporter:
-  fileIDToRecycleName: {}
->>>>>>> TextBox
+    21300000: BSheet_0
+    21300002: BSheet_1
+    21300004: BSheet_2
+    21300006: BSheet_3
+    21300008: BSheet_4
+    21300010: BSheet_5
+    21300012: BSheet_6
+    21300014: BSheet_7
+    21300016: BSheet_8
+    21300018: BSheet_9
+    21300020: BSheet_10
+    21300022: BSheet_11
+    21300024: BSheet_12
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -55,15 +49,11 @@ TextureImporter:
     mipBias: -100
     wrapU: 1
     wrapV: 1
-    wrapW: 1
+    wrapW: -1
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-<<<<<<< HEAD
   spriteMode: 2
-=======
-  spriteMode: 1
->>>>>>> TextBox
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -92,7 +82,6 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
-<<<<<<< HEAD
   - serializedVersion: 2
     buildTarget: Standalone
     maxTextureSize: 2048
@@ -108,7 +97,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: BSheet_Idle
+      name: BSheet_0
       rect:
         serializedVersion: 2
         x: 0
@@ -116,19 +105,19 @@ TextureImporter:
         width: 1226
         height: 1282
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: de7d39a5af0fb324e93ff02973c43cc1
+      spriteID: 9a9cef76de1cd3e48bba12231600c049
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BSheet_JMid
+      name: BSheet_1
       rect:
         serializedVersion: 2
         x: 1226
@@ -136,19 +125,19 @@ TextureImporter:
         width: 1226
         height: 1282
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fd3cc2d4b2e15324ba2da54e8cb0967e
+      spriteID: e2e500e4c05a08b4fa2b3559e8093861
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BSheet_Fall
+      name: BSheet_2
       rect:
         serializedVersion: 2
         x: 2452
@@ -156,19 +145,19 @@ TextureImporter:
         width: 1226
         height: 1282
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 88eba0a3686a035489108a72b67e2362
+      spriteID: 568e6a7dbac0a57489eca21430f6c192
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BSheet_Rise
+      name: BSheet_3
       rect:
         serializedVersion: 2
         x: 3678
@@ -176,19 +165,19 @@ TextureImporter:
         width: 1226
         height: 1282
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a11efdb513781c64d95008cbfe4504e5
+      spriteID: bc0c0e8a7c633d041bd5abf939931a23
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BSheet_Squat
+      name: BSheet_4
       rect:
         serializedVersion: 2
         x: 4904
@@ -196,19 +185,19 @@ TextureImporter:
         width: 1226
         height: 1282
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 35ba891b409a0194fa35e9d19650e688
+      spriteID: 1455154f7def8b94cae934bd9ca3b20c
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BSheet_R1
+      name: BSheet_5
       rect:
         serializedVersion: 2
         x: 6130
@@ -216,19 +205,19 @@ TextureImporter:
         width: 1226
         height: 1282
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4c2cb7a9b60eb3247a8a08a47b13823e
+      spriteID: 6f6fc42af2eeb2d41a5e8e5b9a945fb6
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BSheet_R2
+      name: BSheet_6
       rect:
         serializedVersion: 2
         x: 7356
@@ -236,19 +225,19 @@ TextureImporter:
         width: 1226
         height: 1282
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5d69f3a3a1284d44880acda8b24fc45d
+      spriteID: 97353952d9cd58745b3823adc1a793a1
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BSheet_R3
+      name: BSheet_7
       rect:
         serializedVersion: 2
         x: 8582
@@ -256,19 +245,19 @@ TextureImporter:
         width: 1226
         height: 1282
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b61cd95bd0370244ea57254a2a03685b
+      spriteID: f6ca039465c1dff4cbc358d56345c790
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BSheet_R4
+      name: BSheet_8
       rect:
         serializedVersion: 2
         x: 9808
@@ -276,19 +265,19 @@ TextureImporter:
         width: 1226
         height: 1282
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bb1f42eac22ffab4cb6cc5bbba3ff1b3
+      spriteID: d71b1863839119e40ac580b3f340bd7a
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BSheet_R5
+      name: BSheet_9
       rect:
         serializedVersion: 2
         x: 11034
@@ -296,39 +285,39 @@ TextureImporter:
         width: 1226
         height: 1282
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f65507d3296d1714685e8158f3c4c229
+      spriteID: a5e0a4ad24e9bd6479a0b56eac1b18cd
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BSheet_R6
+      name: BSheet_10
       rect:
         serializedVersion: 2
-        x: 12267
+        x: 12260
         y: 0
         width: 1226
         height: 1282
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 18480d774bb21ac4787f4a431f53eda5
+      spriteID: 7e057f6d26a1d744089979aaa2b96d83
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BSheet_R7
+      name: BSheet_11
       rect:
         serializedVersion: 2
         x: 13486
@@ -336,19 +325,19 @@ TextureImporter:
         width: 1226
         height: 1282
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dd29ec96a97bd644f8d603e5aae8cc73
+      spriteID: a139b0172ab85124eb3461e844c5f59b
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BSheet_R8
+      name: BSheet_12
       rect:
         serializedVersion: 2
         x: 14712
@@ -356,13 +345,13 @@ TextureImporter:
         width: 1226
         height: 1282
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 20993681a9019fd498ac8ee3344eded9
+      spriteID: b77cc653da0f67d4fb2a9268b8b0484b
       vertices: []
       indices: 
       edges: []
@@ -370,16 +359,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 7533c9ea21151d846a6f5fa1d298d4f8
-=======
-  spriteSheet:
-    serializedVersion: 2
-    sprites: []
-    outline: []
-    physicsShape: []
-    bones: []
-    spriteID: e5a2d60432df52e45b9901bad9fbae14
->>>>>>> TextBox
+    spriteID: 483c6a49b7d0bc64fb582c375534c090
     vertices: []
     indices: 
     edges: []
