@@ -15,7 +15,8 @@ public class UpdatedLightSourceScript : MonoBehaviour
 
     float raycastRange;
 
-    bool isOn;
+    
+    public bool isOn;
     GameObject litArea;
 
     public float litAreaEdgeRadius;
@@ -33,6 +34,7 @@ public class UpdatedLightSourceScript : MonoBehaviour
     //        lightParent.GetCompoentn
             lightParent.GetComponent<CompositeCollider2D>().edgeRadius = litAreaEdgeRadius;
             lightParent.layer = LayerMask.NameToLayer("LightArea");
+            lightParent.transform.position = new Vector3(-10000, 0,0);
         }
 		litArea = new GameObject("Light", typeof(PolygonCollider2D));
         litArea.transform.parent = lightParent.transform;
@@ -48,13 +50,17 @@ public class UpdatedLightSourceScript : MonoBehaviour
         endAngle = startAngle + spotLight.spotAngle;
         startAngle += startAngleOffset;
         endAngle -= endAngleOffset;
+        isOn = spotLight.enabled;
 	}
 	
 	// Update is called once per frame
-	protected void Update () {
-        isOn = spotLight.enabled;
+	protected void FixedUpdate () {
+        spotLight.enabled = isOn;
         if (isOn) {
             GenerateLightArea();
+        }
+        else{
+            litArea.GetComponent<PolygonCollider2D>().enabled = false;
         }
         
 	}
@@ -65,7 +71,7 @@ public class UpdatedLightSourceScript : MonoBehaviour
         vertices[0] = raycastStart;
 
         float angleDifference = endAngle - startAngle;
-        LayerMask raycastMask = int.MaxValue - LayerMask.GetMask("LightArea") - LayerMask.GetMask("Ignore Raycast");
+        LayerMask raycastMask = int.MaxValue - LayerMask.GetMask("LightArea") - LayerMask.GetMask("Ignore Raycast") - LayerMask.GetMask("Glass");
 
         for (int i = 0; i <= amountOfRayCasts; ++i) {
             float angle = Mathf.Deg2Rad * (startAngle + (i * angleDifference) / (float)amountOfRayCasts);
@@ -76,18 +82,21 @@ public class UpdatedLightSourceScript : MonoBehaviour
             RaycastHit2D[] raycastData = Physics2D.RaycastAll(raycastStart, dir, raycastRange, raycastMask);
             
             bool hitPlayer = false;
-            if(i != 0 && i != amountOfRayCasts){
+            
                 foreach(RaycastHit2D raycast in raycastData){
                     if(raycast.collider.tag == "Player"){
-                        PlayerScript script = raycast.collider.GetComponent<PlayerScript>();
-                        script.contactLight();
+                        
+                        if(i != 0 && i != amountOfRayCasts){
+                            PlayerScript script = raycast.collider.GetComponent<PlayerScript>();
+                            script.contactLight();
+                        }
                         hitPlayer = true;
                     }
                     else{
                         break;
                     }
                 }
-            }
+            
             float distance = raycastData.Length > 0 ? raycastData[0].distance : raycastRange;
             if(hitPlayer){
                 LayerMask maskWithoutPlayer = raycastMask - LayerMask.GetMask("Character");

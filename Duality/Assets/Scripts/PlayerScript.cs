@@ -38,11 +38,15 @@ public class PlayerScript : MonoBehaviour {
     [SerializeField]
     private int controllerNumber;
     InputManager inputManager;
+
+    AnimCycle animCycle;
     //end input manager stuff
     public bool canMove;
+    int raycastHitPerFrame;
     
     // Use this for initialization
 	void Start () {
+        animCycle = GetComponent<AnimCycle>();
         rbody = GetComponent<Rigidbody2D>();
         collider = GetComponent<Collider2D>(); 
         isInMovableArea = color == PlayerColor.WHITE;
@@ -60,6 +64,7 @@ public class PlayerScript : MonoBehaviour {
                 inputManager = GameSettings.instance.p2InputManager;
             }
         }
+        raycastHitPerFrame = 0;
 	}
 	
 	// Update is called once per frame
@@ -87,14 +92,21 @@ public class PlayerScript : MonoBehaviour {
             lightswitch_script script = collidingLightSwitch.GetComponent<lightswitch_script>();
             script.switchLight();
         }
-
-        if(isInMovableArea){
+        animCycle.leftMove = false;
+        animCycle.rightMove = false;
+        if((raycastHitPerFrame >= 2 && color == PlayerColor.BLACK) || (raycastHitPerFrame < 5 && color == PlayerColor.WHITE)){
             Vector2 velocity = rbody.velocity;
             //TODO: question for later, do we want full air control or do we want left/right to take time?
             
             // if(!isHittingWallInDirection())
+            
             velocity.x = horizontal * maxVelocity;
-           
+            if(horizontal > 0){
+                animCycle.rightMove = true;
+            }
+            else if(horizontal < 0){
+                animCycle.leftMove = true;
+            }
             rbody.velocity = velocity;
             if(jump && isGrounded()) {
                 //make the landing a bit "stickier" 
@@ -114,8 +126,9 @@ public class PlayerScript : MonoBehaviour {
             Input.ResetInputAxes();
             Respawn();
         }
-        
+       
         isInMovableArea = color == PlayerColor.WHITE;
+        raycastHitPerFrame = 0;
     }
 
     // bool isHittingWallInDirection() {
@@ -150,7 +163,7 @@ public class PlayerScript : MonoBehaviour {
 
         
         //mask so we can only jump off the ground
-        int mask = 1 << 11;
+        int mask = LayerMask.GetMask("Ground", "Glass", "LightArea");
         return Physics2D.OverlapArea(min, max, mask);
     }
 
@@ -174,7 +187,10 @@ public class PlayerScript : MonoBehaviour {
     }
 
     public void contactLight(){
+        
         isInMovableArea = color == PlayerColor.BLACK;
+        raycastHitPerFrame++;
+        
     }
 
     public void setCurrentSpawn(GameObject spawn){
@@ -184,6 +200,7 @@ public class PlayerScript : MonoBehaviour {
     }
 
     void Respawn(){
+        
         transform.position = currentSpawn.transform.position;
         GetComponent<Rigidbody2D>().velocity = Vector2.zero;
     }
