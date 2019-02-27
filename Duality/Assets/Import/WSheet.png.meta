@@ -1,4 +1,5 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: 27277e6815456de45beb65e28376d632
 TextureImporter:
   fileIDToRecycleName:
@@ -15,6 +16,11 @@ TextureImporter:
     21300020: WSheet_R6
     21300022: WSheet_R7
     21300024: WSheet_R8
+=======
+guid: 91f09121b71c7694ea1c29e0bf3b8eac
+TextureImporter:
+  fileIDToRecycleName: {}
+>>>>>>> TextBox
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -53,7 +59,11 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
+<<<<<<< HEAD
   spriteMode: 2
+=======
+  spriteMode: 1
+>>>>>>> TextBox
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -82,6 +92,7 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
+<<<<<<< HEAD
   - serializedVersion: 2
     buildTarget: Standalone
     maxTextureSize: 2048
@@ -360,6 +371,15 @@ TextureImporter:
     physicsShape: []
     bones: []
     spriteID: 8799c462e5cfe374b9e68225cbaeac94
+=======
+  spriteSheet:
+    serializedVersion: 2
+    sprites: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: b5e59bc81a0eaa2408b30ce0d7b13505
+>>>>>>> TextBox
     vertices: []
     indices: 
     edges: []
