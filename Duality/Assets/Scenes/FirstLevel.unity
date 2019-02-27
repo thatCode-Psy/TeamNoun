@@ -3511,7 +3511,7 @@ PrefabInstance:
     - target: {fileID: 8639531784071822422, guid: 4c05d45c726074044ae4706000cfb93d,
         type: 3}
       propertyPath: lights.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8639531784071822422, guid: 4c05d45c726074044ae4706000cfb93d,
         type: 3}
@@ -3523,6 +3523,11 @@ PrefabInstance:
       propertyPath: lights.Array.data[1]
       value: 
       objectReference: {fileID: 1171110027}
+    - target: {fileID: 8639531784071822422, guid: 4c05d45c726074044ae4706000cfb93d,
+        type: 3}
+      propertyPath: lights.Array.data[2]
+      value: 
+      objectReference: {fileID: 949743317}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4c05d45c726074044ae4706000cfb93d, type: 3}
 --- !u!1 &276087190
@@ -8813,6 +8818,11 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8978339329366703263, guid: 236ca1f7b14a5d843a38113fc96c0daf,
+        type: 3}
+      propertyPath: amountOfRayCasts
+      value: 80
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 236ca1f7b14a5d843a38113fc96c0daf, type: 3}
 --- !u!4 &740443422 stripped
@@ -13933,7 +13943,7 @@ PrefabInstance:
     - target: {fileID: 2650220952521487203, guid: 8fab8fb8a668f7847951e3f6bafcc4be,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 2.14
+      value: 2.18
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8fab8fb8a668f7847951e3f6bafcc4be, type: 3}
@@ -17978,7 +17988,7 @@ PrefabInstance:
     - target: {fileID: 2650220952521487203, guid: 8fab8fb8a668f7847951e3f6bafcc4be,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 2.14
+      value: 2.33
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8fab8fb8a668f7847951e3f6bafcc4be, type: 3}
@@ -18324,6 +18334,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8978339329366703263, guid: 236ca1f7b14a5d843a38113fc96c0daf,
+        type: 3}
+      propertyPath: amountOfRayCasts
+      value: 80
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 236ca1f7b14a5d843a38113fc96c0daf, type: 3}
@@ -21755,18 +21770,18 @@ PrefabInstance:
     - target: {fileID: 8639531784071822422, guid: 4c05d45c726074044ae4706000cfb93d,
         type: 3}
       propertyPath: lights.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8639531784071822422, guid: 4c05d45c726074044ae4706000cfb93d,
         type: 3}
       propertyPath: lights.Array.data[0]
       value: 
-      objectReference: {fileID: 1171110027}
+      objectReference: {fileID: 1582842104}
     - target: {fileID: 8639531784071822422, guid: 4c05d45c726074044ae4706000cfb93d,
         type: 3}
       propertyPath: lights.Array.data[1]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 949743317}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4c05d45c726074044ae4706000cfb93d, type: 3}
 --- !u!1001 &1961542768

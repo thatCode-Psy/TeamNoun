@@ -17,10 +17,12 @@ public class lightswitch_script : MonoBehaviour
 
     public AudioSource audio;
 
+    public bool switchTriggering;
     // Start is called before the first frame update
     void Start()
     {
         audio = GetComponent<AudioSource>();
+        switchTriggering = false;
         for (int x = 0; x < lights.Count; x++)
         {
             if (lights[x] != null)
@@ -35,6 +37,10 @@ public class lightswitch_script : MonoBehaviour
     void Update()
     {
         //switchLight();
+        if(switchTriggering){
+            switchLight();
+            switchTriggering = false;
+        }
     }
 
     public void switchLight()
@@ -44,7 +50,7 @@ public class lightswitch_script : MonoBehaviour
         light_on = !light_on;
         audio.Play();
         
-
+        print("triggerSwitch");
         //toggle lights
         for (int x = 0; x < lightComponents.Count; x++)
         {

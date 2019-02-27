@@ -44,7 +44,7 @@ public class PlayerScript : MonoBehaviour {
     public bool canMove;
     int raycastHitPerFrame;
 
-    bool waitframe;
+    //bool waitframe;
     
     // Use this for initialization
 	void Start () {
@@ -67,7 +67,7 @@ public class PlayerScript : MonoBehaviour {
             }
         }
         raycastHitPerFrame = 0;
-        waitframe = false;
+        //waitframe = false;
 	}
 	
 	// Update is called once per frame
@@ -97,14 +97,12 @@ public class PlayerScript : MonoBehaviour {
 	}
 
     void movementManager(float horizontal, float vertical, bool jump, bool interact, bool kill) {
-        if(interact && collidingLightSwitch != null && !waitframe){
+        if(interact && collidingLightSwitch != null){
             lightswitch_script script = collidingLightSwitch.GetComponent<lightswitch_script>();
-            script.switchLight();
-            waitframe = true;
+            script.switchTriggering = true;
+            
         }
-        else{
-            waitframe = false;
-        }
+        
         animCycle.leftMove = false;
         animCycle.rightMove = false;
         
@@ -168,7 +166,7 @@ public class PlayerScript : MonoBehaviour {
     // }
 
     bool isKilledByLight(){
-        return !((raycastHitPerFrame >= 2 && color == PlayerColor.BLACK) || (raycastHitPerFrame < 5 && color == PlayerColor.WHITE));
+        return !((raycastHitPerFrame >= 2 && color == PlayerColor.BLACK) || (raycastHitPerFrame < 4 && color == PlayerColor.WHITE));
     }
 
     bool isGrounded() {
