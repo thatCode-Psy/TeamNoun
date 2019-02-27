@@ -85,5 +85,6 @@ MonoBehaviour:
   baseAngle: 0
   startAngleOffset: 4
   endAngleOffset: 4
-  amountOfRayCasts: 20
+  amountOfRayCasts: 50
+  isOn: 0
   litAreaEdgeRadius: 0.1

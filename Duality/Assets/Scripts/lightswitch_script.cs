@@ -12,7 +12,7 @@ public class lightswitch_script : MonoBehaviour
     bool hasTriggered = false;
 
     //contains the components of all the non-null lights attached to the lightswitch.
-    private List<LightSourceScript> lightComponents = new List<LightSourceScript>();
+    private List<UpdatedLightSourceScript> lightComponents = new List<UpdatedLightSourceScript>();
 
     // Start is called before the first frame update
     void Start()
@@ -21,7 +21,7 @@ public class lightswitch_script : MonoBehaviour
         {
             if (lights[x] != null)
             {
-                LightSourceScript lsc = lights[x].GetComponent<LightSourceScript>();
+                UpdatedLightSourceScript lsc = lights[x].GetComponent<UpdatedLightSourceScript>();
                 lightComponents.Add(lsc);
             }
         }

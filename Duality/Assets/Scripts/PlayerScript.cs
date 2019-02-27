@@ -40,6 +40,7 @@ public class PlayerScript : MonoBehaviour {
     InputManager inputManager;
     //end input manager stuff
     public bool canMove;
+    int raycastHitPerFrame;
     
     // Use this for initialization
 	void Start () {
@@ -60,6 +61,7 @@ public class PlayerScript : MonoBehaviour {
                 inputManager = GameSettings.instance.p2InputManager;
             }
         }
+        raycastHitPerFrame = 0;
 	}
 	
 	// Update is called once per frame
@@ -87,7 +89,7 @@ public class PlayerScript : MonoBehaviour {
             lightswitch_script script = collidingLightSwitch.GetComponent<lightswitch_script>();
             script.switchLight();
         }
-        if(isInMovableArea){
+        if((raycastHitPerFrame >= 2 && color == PlayerColor.BLACK) || (raycastHitPerFrame < 2 && color == PlayerColor.WHITE)){
             Vector2 velocity = rbody.velocity;
             //TODO: question for later, do we want full air control or do we want left/right to take time?
             
@@ -115,6 +117,7 @@ public class PlayerScript : MonoBehaviour {
         }
        
         isInMovableArea = color == PlayerColor.WHITE;
+        raycastHitPerFrame = 0;
     }
 
     // bool isHittingWallInDirection() {
@@ -175,6 +178,7 @@ public class PlayerScript : MonoBehaviour {
     public void contactLight(){
         
         isInMovableArea = color == PlayerColor.BLACK;
+        raycastHitPerFrame++;
         
     }
 

@@ -15,7 +15,8 @@ MonoBehaviour:
   baseAngle: 0
   startAngleOffset: 4
   endAngleOffset: 4
-  amountOfRayCasts: 20
+  amountOfRayCasts: 40
+  isOn: 0
   litAreaEdgeRadius: 0.1
   sweepingAngle: 20
   sweepingTime: 5
