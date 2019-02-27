@@ -43,6 +43,7 @@ public class lightswitch_script : MonoBehaviour
         transform.GetChild(0).RotateAround(transform.position, new Vector3(1.0f, 0.0f, 0.0f), 180);
         light_on = !light_on;
         audio.Play();
+        
 
         //toggle lights
         for (int x = 0; x < lightComponents.Count; x++)
