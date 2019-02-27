@@ -15,8 +15,10 @@ public class PlayerScript : MonoBehaviour {
 
     public PlayerColor color;
     public float maxVelocity;
-    public float jumpForce;
+    public float jumpHeight;
     public float collisionOffset = 0.05f;
+
+    private bool grounded;
 
     GameObject collidingLightSwitch;
     GameObject currentSpawn;
@@ -44,6 +46,19 @@ public class PlayerScript : MonoBehaviour {
     public bool canMove;
     int raycastHitPerFrame;
 
+    private float jumpForce;
+    private float moveHorizontal;
+    private float moveVertical;
+    private bool jumpPressed;
+    private bool jumpReleased;
+    private bool jumpHeld;
+    private bool isJumping;
+    private bool interact;
+    private bool kill;
+
+    private Vector2 counterJumpForce;
+
+
     //bool waitframe;
     
     // Use this for initialization
@@ -54,6 +69,9 @@ public class PlayerScript : MonoBehaviour {
         isInMovableArea = color == PlayerColor.WHITE;
         canMove = true;
         inputManager = new InputManager(controllerNumber, controllerType);
+        jumpForce = CalculateJump(rbody.gravityScale,jumpHeight);
+        //this one will need more tooling to calculate better
+        counterJumpForce = new Vector2(-1,0);
         print(color + " " + inputManager.ControllerNumber() + " " + inputManager.ControllerTypeName());
         if (GameSettings.instance != null)
         {
@@ -81,22 +99,42 @@ public class PlayerScript : MonoBehaviour {
             Input.ResetInputAxes();
             Respawn();
         }
+
+        moveHorizontal = inputManager.GetAxis(InputManager.ControllerAxis.HorizontalMovement);
+        moveVertical = inputManager.GetAxis(InputManager.ControllerAxis.VerticalMovement);
+        jumpPressed = inputManager.GetAxisDown(InputManager.ControllerAxis.Jump);
+        jumpReleased = inputManager.GetAxisUp(InputManager.ControllerAxis.Jump);
+        interact = inputManager.GetAxisDown(InputManager.ControllerAxis.Interact);
+        kill = inputManager.GetAxisDown(InputManager.ControllerAxis.Kill);
+        grounded = isGrounded();
+
+        if(jumpPressed) {
+            jumpHeld = true;
+            if(grounded) {
+                isJumping = true;
+                rbody.AddForce(Vector2.up * jumpForce * rbody.mass, ForceMode2D.Impulse);
+            }
+        }
+        else if (jumpReleased) {
+            jumpHeld = false;
+        }
+
+        if(!jumpHeld && grounded) {
+            isJumping = false;
+        }
+
+
         raycastHitPerFrame = 0;
     }
 
     //FixedUpdate is called before physics calculations
 	void FixedUpdate () {
-        float moveHorizontal = inputManager.GetAxis(InputManager.ControllerAxis.HorizontalMovement);
-        float moveVertical = inputManager.GetAxis(InputManager.ControllerAxis.VerticalMovement);
-        bool jump = inputManager.GetAxisDown(InputManager.ControllerAxis.Jump);
-        // bool jump = Input.GetKeyDown("space");
-        bool interact = inputManager.GetAxisDown(InputManager.ControllerAxis.Interact);
-        bool kill = inputManager.GetAxisDown(InputManager.ControllerAxis.Kill);
 
-        movementManager(moveHorizontal, moveVertical, jump, interact, kill);
+
+        movementManager(moveHorizontal, moveVertical, isJumping, interact, kill);
 	}
 
-    void movementManager(float horizontal, float vertical, bool jump, bool interact, bool kill) {
+    void movementManager(float horizontal, float vertical, bool isJumping, bool interact, bool kill) {
         if(interact && collidingLightSwitch != null){
             lightswitch_script script = collidingLightSwitch.GetComponent<lightswitch_script>();
             script.switchTriggering = true;
@@ -119,19 +157,11 @@ public class PlayerScript : MonoBehaviour {
             animCycle.leftMove = true;
         }
         rbody.velocity = velocity;
-        bool grounded = isGrounded();
-        if(jump) {
-            print("grounded = " + grounded);
-            if(grounded) {
-                //make the landing a bit "stickier" 
-                //and prevent a small bug where you had a small window where you could jump
-                //after bouncing off the ground, stacking the velocity. this makes it consistent
-                if (rbody.velocity.y < 0){
-                    rbody.velocity = new Vector2(rbody.velocity.x, 0);
-                }
-                rbody.AddForce(Vector2.up * jumpForce);
+        
+        if(isJumping) {
+            if(!jumpHeld && Vector2.Dot(rbody.velocity, Vector2.up) > 0) {
+                rbody.AddForce(counterJumpForce * rbody.mass);
             }
-
         }
         
 
@@ -139,9 +169,6 @@ public class PlayerScript : MonoBehaviour {
             Input.ResetInputAxes();
             Respawn();
         }
-       
-        
-        
     }
 
     // bool isHittingWallInDirection() {
@@ -167,6 +194,10 @@ public class PlayerScript : MonoBehaviour {
 
     bool isKilledByLight(){
         return !((raycastHitPerFrame >= 2 && color == PlayerColor.BLACK) || (raycastHitPerFrame < 4 && color == PlayerColor.WHITE));
+    }
+
+    float CalculateJump(float gravity, float height) {
+        return Mathf.Sqrt(2 * gravity * height);
     }
 
     bool isGrounded() {
