@@ -122,6 +122,11 @@ PrefabInstance:
       propertyPath: m_LocalRotation.y
       value: -0
       objectReference: {fileID: 0}
+    - target: {fileID: 8978339329366703261, guid: 236ca1f7b14a5d843a38113fc96c0daf,
+        type: 3}
+      propertyPath: m_CullingMask.m_Bits
+      value: 7991
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 6979833441762574569, guid: 236ca1f7b14a5d843a38113fc96c0daf, type: 3}
     - {fileID: 8978339329366703263, guid: 236ca1f7b14a5d843a38113fc96c0daf, type: 3}

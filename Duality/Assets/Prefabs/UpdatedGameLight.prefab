@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4220123990852799058}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42,7 +42,7 @@ GameObject:
   - component: {fileID: 5400347826994643909}
   - component: {fileID: 5400347826995971047}
   - component: {fileID: 5400347826996936999}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: light_top:light_top
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -117,7 +117,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6979833441762574568}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: UpdatedGameLight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -151,7 +151,7 @@ GameObject:
   - component: {fileID: 8978339329366703262}
   - component: {fileID: 8978339329366703261}
   - component: {fileID: 8978339329366703263}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: UpdatedGameLight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -202,7 +202,7 @@ Light:
   m_RenderMode: 1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 7991
   m_Lightmapping: 4
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
@@ -228,7 +228,7 @@ MonoBehaviour:
   endAngleOffset: 4
   amountOfRayCasts: 50
   isOn: 0
-  litAreaEdgeRadius: 0.1
+  litAreaEdgeRadius: 0.05
 --- !u!1001 &6862368029001288295
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -239,6 +239,14 @@ PrefabInstance:
     - target: {fileID: 100002, guid: 687a65da902444d41b350cabc112b752, type: 3}
       propertyPath: m_Name
       value: light_bottom
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 687a65da902444d41b350cabc112b752, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 687a65da902444d41b350cabc112b752, type: 3}
+      propertyPath: m_Layer
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 687a65da902444d41b350cabc112b752, type: 3}
       propertyPath: m_LocalRotation.y

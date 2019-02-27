@@ -54,7 +54,7 @@ public class UpdatedLightSourceScript : MonoBehaviour
 	}
 	
 	// Update is called once per frame
-	protected void FixedUpdate () {
+	protected void Update () {
         spotLight.enabled = isOn;
         if (isOn) {
             GenerateLightArea();

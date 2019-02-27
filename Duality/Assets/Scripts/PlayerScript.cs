@@ -43,6 +43,8 @@ public class PlayerScript : MonoBehaviour {
     //end input manager stuff
     public bool canMove;
     int raycastHitPerFrame;
+
+    //bool waitframe;
     
     // Use this for initialization
 	void Start () {
@@ -65,6 +67,7 @@ public class PlayerScript : MonoBehaviour {
             }
         }
         raycastHitPerFrame = 0;
+        //waitframe = false;
 	}
 	
 	// Update is called once per frame
@@ -74,6 +77,11 @@ public class PlayerScript : MonoBehaviour {
         {
             SceneManager.LoadScene("Menu");
         }
+        if(isKilledByLight()){
+            Input.ResetInputAxes();
+            Respawn();
+        }
+        raycastHitPerFrame = 0;
     }
 
     //FixedUpdate is called before physics calculations
@@ -81,6 +89,7 @@ public class PlayerScript : MonoBehaviour {
         float moveHorizontal = inputManager.GetAxis(InputManager.ControllerAxis.HorizontalMovement);
         float moveVertical = inputManager.GetAxis(InputManager.ControllerAxis.VerticalMovement);
         bool jump = inputManager.GetAxisDown(InputManager.ControllerAxis.Jump);
+        // bool jump = Input.GetKeyDown("space");
         bool interact = inputManager.GetAxisDown(InputManager.ControllerAxis.Interact);
         bool kill = inputManager.GetAxisDown(InputManager.ControllerAxis.Kill);
 
@@ -90,25 +99,30 @@ public class PlayerScript : MonoBehaviour {
     void movementManager(float horizontal, float vertical, bool jump, bool interact, bool kill) {
         if(interact && collidingLightSwitch != null){
             lightswitch_script script = collidingLightSwitch.GetComponent<lightswitch_script>();
-            script.switchLight();
+            script.switchTriggering = true;
+            
         }
+        
         animCycle.leftMove = false;
         animCycle.rightMove = false;
-        if((raycastHitPerFrame >= 2 && color == PlayerColor.BLACK) || (raycastHitPerFrame < 5 && color == PlayerColor.WHITE)){
-            Vector2 velocity = rbody.velocity;
-            //TODO: question for later, do we want full air control or do we want left/right to take time?
-            
-            // if(!isHittingWallInDirection())
-            
-            velocity.x = horizontal * maxVelocity;
-            if(horizontal > 0){
-                animCycle.rightMove = true;
-            }
-            else if(horizontal < 0){
-                animCycle.leftMove = true;
-            }
-            rbody.velocity = velocity;
-            if(jump && isGrounded()) {
+        
+        Vector2 velocity = rbody.velocity;
+        //TODO: question for later, do we want full air control or do we want left/right to take time?
+        
+        // if(!isHittingWallInDirection())
+        
+        velocity.x = horizontal * maxVelocity;
+        if(horizontal > 0){
+            animCycle.rightMove = true;
+        }
+        else if(horizontal < 0){
+            animCycle.leftMove = true;
+        }
+        rbody.velocity = velocity;
+        bool grounded = isGrounded();
+        if(jump) {
+            print("grounded = " + grounded);
+            if(grounded) {
                 //make the landing a bit "stickier" 
                 //and prevent a small bug where you had a small window where you could jump
                 //after bouncing off the ground, stacking the velocity. this makes it consistent
@@ -117,18 +131,17 @@ public class PlayerScript : MonoBehaviour {
                 }
                 rbody.AddForce(Vector2.up * jumpForce);
             }
+
         }
-        else{
-            Respawn();
-        }
+        
 
         if(kill){
             Input.ResetInputAxes();
             Respawn();
         }
        
-        isInMovableArea = color == PlayerColor.WHITE;
-        raycastHitPerFrame = 0;
+        
+        
     }
 
     // bool isHittingWallInDirection() {
@@ -151,6 +164,10 @@ public class PlayerScript : MonoBehaviour {
 
     //     return Physics2D.OverlapArea(min, max);
     // }
+
+    bool isKilledByLight(){
+        return !((raycastHitPerFrame >= 2 && color == PlayerColor.BLACK) || (raycastHitPerFrame < 4 && color == PlayerColor.WHITE));
+    }
 
     bool isGrounded() {
         Vector3 min = collider.bounds.min;
