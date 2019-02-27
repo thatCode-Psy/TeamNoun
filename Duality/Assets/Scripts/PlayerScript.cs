@@ -74,6 +74,11 @@ public class PlayerScript : MonoBehaviour {
         {
             SceneManager.LoadScene("Menu");
         }
+        if(isKilledByLight()){
+            Input.ResetInputAxes();
+            Respawn();
+        }
+        raycastHitPerFrame = 0;
     }
 
     //FixedUpdate is called before physics calculations
@@ -95,46 +100,43 @@ public class PlayerScript : MonoBehaviour {
         }
         animCycle.leftMove = false;
         animCycle.rightMove = false;
-        if((raycastHitPerFrame >= 2 && color == PlayerColor.BLACK) || (raycastHitPerFrame < 5 && color == PlayerColor.WHITE)){
-            Vector2 velocity = rbody.velocity;
-            //TODO: question for later, do we want full air control or do we want left/right to take time?
-            
-            // if(!isHittingWallInDirection())
-            
-            velocity.x = horizontal * maxVelocity;
-            if(horizontal > 0){
-                animCycle.rightMove = true;
-            }
-            else if(horizontal < 0){
-                animCycle.leftMove = true;
-            }
-            rbody.velocity = velocity;
-            bool grounded = isGrounded();
-            if(jump) {
-                print("grounded = " + grounded);
-                if(grounded) {
-                    //make the landing a bit "stickier" 
-                    //and prevent a small bug where you had a small window where you could jump
-                    //after bouncing off the ground, stacking the velocity. this makes it consistent
-                    if (rbody.velocity.y < 0){
-                        rbody.velocity = new Vector2(rbody.velocity.x, 0);
-                    }
-                    rbody.AddForce(Vector2.up * jumpForce);
+        
+        Vector2 velocity = rbody.velocity;
+        //TODO: question for later, do we want full air control or do we want left/right to take time?
+        
+        // if(!isHittingWallInDirection())
+        
+        velocity.x = horizontal * maxVelocity;
+        if(horizontal > 0){
+            animCycle.rightMove = true;
+        }
+        else if(horizontal < 0){
+            animCycle.leftMove = true;
+        }
+        rbody.velocity = velocity;
+        bool grounded = isGrounded();
+        if(jump) {
+            print("grounded = " + grounded);
+            if(grounded) {
+                //make the landing a bit "stickier" 
+                //and prevent a small bug where you had a small window where you could jump
+                //after bouncing off the ground, stacking the velocity. this makes it consistent
+                if (rbody.velocity.y < 0){
+                    rbody.velocity = new Vector2(rbody.velocity.x, 0);
                 }
-
+                rbody.AddForce(Vector2.up * jumpForce);
             }
+
         }
-        else{
-            Respawn();
-        }
+        
 
         if(kill){
             Input.ResetInputAxes();
             Respawn();
         }
        
-        isInMovableArea = color == PlayerColor.WHITE;
-        raycastHitPerFrame = 0;
+        
+        
     }
 
     // bool isHittingWallInDirection() {
@@ -157,6 +159,10 @@ public class PlayerScript : MonoBehaviour {
 
     //     return Physics2D.OverlapArea(min, max);
     // }
+
+    bool isKilledByLight(){
+        return !((raycastHitPerFrame >= 2 && color == PlayerColor.BLACK) || (raycastHitPerFrame < 5 && color == PlayerColor.WHITE));
+    }
 
     bool isGrounded() {
         Vector3 min = collider.bounds.min;

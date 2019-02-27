@@ -228,7 +228,7 @@ MonoBehaviour:
   endAngleOffset: 4
   amountOfRayCasts: 50
   isOn: 0
-  litAreaEdgeRadius: 0.1
+  litAreaEdgeRadius: 0.05
 --- !u!1001 &6862368029001288295
 PrefabInstance:
   m_ObjectHideFlags: 0
