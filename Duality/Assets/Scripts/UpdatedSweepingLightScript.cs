@@ -58,7 +58,7 @@ public class UpdatedSweepingLightScript : UpdatedLightSourceScript
         }
         Quaternion xRot = Quaternion.Euler(90f, 0, 0);
         Quaternion yRot = Quaternion.Euler(0, -baseAngle, 0);
-        transform.rotation = xRot * yRot;
+        transform.parent.rotation = xRot * yRot;
         base.FixedUpdate();
     }
 }

@@ -10,6 +10,6 @@ public class LightEditor : Editor {
         DrawDefaultInspector();
         Quaternion xRot = Quaternion.Euler(90f, 0, 0);
         Quaternion yRot = Quaternion.Euler(0, -script.baseAngle, 0);
-        script.transform.rotation = xRot * yRot;
+        script.transform.parent.rotation = xRot * yRot;
     }
 }
