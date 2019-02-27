@@ -7,6 +7,7 @@ public class lightswitch_script : MonoBehaviour
     public bool light_on = false;
     public List<GameObject> lights = new List<GameObject>();
 
+    //Dialogue variables
     public GameObject dialogueManager;
     public int lineToTrigger = -1;//Keep this at -1 to have the light not trigger dialogue!
     bool hasTriggered = false;
@@ -44,7 +45,7 @@ public class lightswitch_script : MonoBehaviour
         {
             lightComponents[x].isOn = !lightComponents[x].isOn;
         }
-
+        //Dialogue stuff
         if(lineToTrigger != -1 && !hasTriggered)
         {
             dialogueManager.SendMessage("PlayDialogue", lineToTrigger);
