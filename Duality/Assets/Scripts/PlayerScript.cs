@@ -94,7 +94,7 @@ public class PlayerScript : MonoBehaviour {
         }
         animCycle.leftMove = false;
         animCycle.rightMove = false;
-        if((raycastHitPerFrame >= 2 && color == PlayerColor.BLACK) || (raycastHitPerFrame < 2 && color == PlayerColor.WHITE)){
+        if((raycastHitPerFrame >= 2 && color == PlayerColor.BLACK) || (raycastHitPerFrame < 5 && color == PlayerColor.WHITE)){
             Vector2 velocity = rbody.velocity;
             //TODO: question for later, do we want full air control or do we want left/right to take time?
             
@@ -163,7 +163,7 @@ public class PlayerScript : MonoBehaviour {
 
         
         //mask so we can only jump off the ground
-        int mask = LayerMask.GetMask("Ground", "Glass");
+        int mask = LayerMask.GetMask("Ground", "Glass", "LightArea");
         return Physics2D.OverlapArea(min, max, mask);
     }
 

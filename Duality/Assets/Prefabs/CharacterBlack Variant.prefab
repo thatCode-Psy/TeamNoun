@@ -42,7 +42,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 1
-  m_Size: {x: 1.6, y: 0.8}
+  m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -75,9 +75,8 @@ MonoBehaviour:
   - {fileID: 21300022, guid: 7c38d23b320aa22439b29872b8e60bde, type: 3}
   - {fileID: 21300024, guid: 7c38d23b320aa22439b29872b8e60bde, type: 3}
   bwFrames: 0.075
-  transition: 0
-  leftMove: 0
   rightMove: 0
+  leftMove: 0
 --- !u!1001 &8680246381275054812
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -143,7 +142,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4124594490350010, guid: 482b1fb1727c18843a7f102b711599e8, type: 3}
       propertyPath: m_LocalScale.y
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 61293782900432550, guid: 482b1fb1727c18843a7f102b711599e8,
         type: 3}
@@ -168,12 +167,12 @@ PrefabInstance:
     - target: {fileID: 61293782900432550, guid: 482b1fb1727c18843a7f102b711599e8,
         type: 3}
       propertyPath: m_SpriteTilingProperty.newSize.x
-      value: 1.6
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 61293782900432550, guid: 482b1fb1727c18843a7f102b711599e8,
         type: 3}
       propertyPath: m_SpriteTilingProperty.newSize.y
-      value: 0.8
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 61293782900432550, guid: 482b1fb1727c18843a7f102b711599e8,
         type: 3}
@@ -193,7 +192,7 @@ PrefabInstance:
     - target: {fileID: 61293782900432550, guid: 482b1fb1727c18843a7f102b711599e8,
         type: 3}
       propertyPath: m_Size.y
-      value: 0.7
+      value: 0.9
       objectReference: {fileID: 0}
     - target: {fileID: 61293782900432550, guid: 482b1fb1727c18843a7f102b711599e8,
         type: 3}
@@ -208,7 +207,7 @@ PrefabInstance:
     - target: {fileID: 50258780180462314, guid: 482b1fb1727c18843a7f102b711599e8,
         type: 3}
       propertyPath: m_Mass
-      value: 1
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 50258780180462314, guid: 482b1fb1727c18843a7f102b711599e8,
         type: 3}
