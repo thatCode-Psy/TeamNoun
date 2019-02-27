@@ -17,6 +17,8 @@ public class UpdatedLightSourceScript : MonoBehaviour
 
     
     public bool isOn;
+
+    public PhysicsMaterial2D material2D;
     GameObject litArea;
 
     public float litAreaEdgeRadius;
@@ -28,6 +30,7 @@ public class UpdatedLightSourceScript : MonoBehaviour
         if(lightParent == null){
             lightParent = new GameObject("LightParent", typeof(CompositeCollider2D));
             Rigidbody2D body = lightParent.GetComponent<Rigidbody2D>();
+            body.sharedMaterial = material2D;
             body.constraints = RigidbodyConstraints2D.FreezeAll;
             body.mass = float.MaxValue;
             //gravityScale = 0;
