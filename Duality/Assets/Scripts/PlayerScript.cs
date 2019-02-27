@@ -81,6 +81,7 @@ public class PlayerScript : MonoBehaviour {
         float moveHorizontal = inputManager.GetAxis(InputManager.ControllerAxis.HorizontalMovement);
         float moveVertical = inputManager.GetAxis(InputManager.ControllerAxis.VerticalMovement);
         bool jump = inputManager.GetAxisDown(InputManager.ControllerAxis.Jump);
+        // bool jump = Input.GetKeyDown("space");
         bool interact = inputManager.GetAxisDown(InputManager.ControllerAxis.Interact);
         bool kill = inputManager.GetAxisDown(InputManager.ControllerAxis.Kill);
 
@@ -108,14 +109,19 @@ public class PlayerScript : MonoBehaviour {
                 animCycle.leftMove = true;
             }
             rbody.velocity = velocity;
-            if(jump && isGrounded()) {
-                //make the landing a bit "stickier" 
-                //and prevent a small bug where you had a small window where you could jump
-                //after bouncing off the ground, stacking the velocity. this makes it consistent
-                if (rbody.velocity.y < 0){
-                    rbody.velocity = new Vector2(rbody.velocity.x, 0);
+            bool grounded = isGrounded();
+            if(jump) {
+                print("grounded = " + grounded);
+                if(grounded) {
+                    //make the landing a bit "stickier" 
+                    //and prevent a small bug where you had a small window where you could jump
+                    //after bouncing off the ground, stacking the velocity. this makes it consistent
+                    if (rbody.velocity.y < 0){
+                        rbody.velocity = new Vector2(rbody.velocity.x, 0);
+                    }
+                    rbody.AddForce(Vector2.up * jumpForce);
                 }
-                rbody.AddForce(Vector2.up * jumpForce);
+
             }
         }
         else{

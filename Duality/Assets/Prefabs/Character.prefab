@@ -142,4 +142,8 @@ MonoBehaviour:
   color: 2
   maxVelocity: 5
   jumpForce: 250
-  collisionOffset: 0.05
+  collisionOffset: 0.1
+  playerNum: 0
+  controllerType: 0
+  controllerNumber: 0
+  canMove: 0
