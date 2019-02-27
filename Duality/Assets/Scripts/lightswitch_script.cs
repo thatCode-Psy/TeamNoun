@@ -15,9 +15,12 @@ public class lightswitch_script : MonoBehaviour
     //contains the components of all the non-null lights attached to the lightswitch.
     private List<UpdatedLightSourceScript> lightComponents = new List<UpdatedLightSourceScript>();
 
+    public AudioSource audio;
+
     // Start is called before the first frame update
     void Start()
     {
+        audio = GetComponent<AudioSource>();
         for (int x = 0; x < lights.Count; x++)
         {
             if (lights[x] != null)
@@ -39,6 +42,7 @@ public class lightswitch_script : MonoBehaviour
         //flips the light model upside down so it looks like it gets switched on/off.
         transform.GetChild(0).RotateAround(transform.position, new Vector3(1.0f, 0.0f, 0.0f), 180);
         light_on = !light_on;
+        audio.Play();
 
         //toggle lights
         for (int x = 0; x < lightComponents.Count; x++)
