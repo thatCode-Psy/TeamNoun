@@ -53,10 +53,10 @@ public class DialogueManager : MonoBehaviour {
         spritebox.SetActive(false);
         whiteSpeaker.SetActive(false);
         blackSpeaker.SetActive(false);
-        for (int x = 0; x < dialogueLines.Count; x++)
-        {
-            Debug.Log(dialogueLines[x]);
-        }
+        //for (int x = 0; x < dialogueLines.Count; x++)
+        //{
+        //    Debug.Log(dialogueLines[x]);
+        //}
 
         currentlySpeaking = -1;
         bufferedLines = -1;
@@ -86,7 +86,7 @@ public class DialogueManager : MonoBehaviour {
 
         int speaker = int.Parse(lineToPrint.Substring(locOfOpenCurl + 1, lineToPrint.Length - locOfOpenCurl - (lineToPrint.Length - locOfCloseCurl) - 1));
        
-        int delay = int.Parse(lineToPrint.Substring(locOfOpenBracket + 1, lineToPrint.Length - locOfOpenBracket - (lineToPrint.Length - locOfCloseBracket) - 1));
+        float delay = float.Parse(lineToPrint.Substring(locOfOpenBracket + 1, lineToPrint.Length - locOfOpenBracket - (lineToPrint.Length - locOfCloseBracket) - 1));
         //Debug.Log(delay);
         
         //Debug.Log(lineToPrint.Substring(locOfCloseBracket + 1));
@@ -104,7 +104,7 @@ public class DialogueManager : MonoBehaviour {
 
     }
 
-    IEnumerator Say(string line, int speaker, int delay, int nextLineVar)
+    IEnumerator Say(string line, int speaker, float delay, int nextLineVar)
     {
         
         textbox.SetActive(true);
@@ -146,12 +146,13 @@ public class DialogueManager : MonoBehaviour {
             x += speed;
             yield return null;
         }
+        audio.Stop();
         float time = Time.time;
         while(Time.time - time < delay)
         {
             yield return null;
         }
-        audio.Stop();
+        //audio.Stop();
         textbox.SetActive(false);
         spritebox.SetActive(false);
         whiteSpeaker.SetActive(false);
