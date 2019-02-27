@@ -847,7 +847,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controllerType: 1
-  controllerNumber: 2
+  controllerNumber: 1
   scrollbarPrefab: {fileID: 1967956832068400, guid: fa24e3c8aa339da4290651d76280ac64,
     type: 3}
   scrollViewParent: {fileID: 1083599175}

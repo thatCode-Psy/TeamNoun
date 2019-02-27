@@ -32,7 +32,7 @@ public class UpdatedSweepingLightScript : UpdatedLightSourceScript
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         float currentTime = Time.time;
         float t;
@@ -59,6 +59,6 @@ public class UpdatedSweepingLightScript : UpdatedLightSourceScript
         Quaternion xRot = Quaternion.Euler(90f, 0, 0);
         Quaternion yRot = Quaternion.Euler(0, -baseAngle, 0);
         transform.rotation = xRot * yRot;
-        base.Update();
+        base.FixedUpdate();
     }
 }

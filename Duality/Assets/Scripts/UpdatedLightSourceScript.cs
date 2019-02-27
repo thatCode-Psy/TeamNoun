@@ -48,11 +48,12 @@ public class UpdatedLightSourceScript : MonoBehaviour
         endAngle = startAngle + spotLight.spotAngle;
         startAngle += startAngleOffset;
         endAngle -= endAngleOffset;
+        isOn = spotLight.enabled;
 	}
 	
 	// Update is called once per frame
-	protected void Update () {
-        isOn = spotLight.enabled;
+	protected void FixedUpdate () {
+        spotLight.enabled = isOn;
         if (isOn) {
             GenerateLightArea();
         }
