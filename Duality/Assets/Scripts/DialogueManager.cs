@@ -86,7 +86,7 @@ public class DialogueManager : MonoBehaviour {
 
         int speaker = int.Parse(lineToPrint.Substring(locOfOpenCurl + 1, lineToPrint.Length - locOfOpenCurl - (lineToPrint.Length - locOfCloseCurl) - 1));
        
-        int delay = int.Parse(lineToPrint.Substring(locOfOpenBracket + 1, lineToPrint.Length - locOfOpenBracket - (lineToPrint.Length - locOfCloseBracket) - 1));
+        float delay = float.Parse(lineToPrint.Substring(locOfOpenBracket + 1, lineToPrint.Length - locOfOpenBracket - (lineToPrint.Length - locOfCloseBracket) - 1));
         //Debug.Log(delay);
         
         //Debug.Log(lineToPrint.Substring(locOfCloseBracket + 1));
@@ -104,7 +104,7 @@ public class DialogueManager : MonoBehaviour {
 
     }
 
-    IEnumerator Say(string line, int speaker, int delay, int nextLineVar)
+    IEnumerator Say(string line, int speaker, float delay, int nextLineVar)
     {
         
         textbox.SetActive(true);
