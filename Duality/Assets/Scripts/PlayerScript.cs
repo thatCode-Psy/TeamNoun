@@ -38,12 +38,15 @@ public class PlayerScript : MonoBehaviour {
     [SerializeField]
     private int controllerNumber;
     InputManager inputManager;
+
+    AnimCycle animCycle;
     //end input manager stuff
     public bool canMove;
     int raycastHitPerFrame;
     
     // Use this for initialization
 	void Start () {
+        animCycle = GetComponent<AnimCycle>();
         rbody = GetComponent<Rigidbody2D>();
         collider = GetComponent<Collider2D>(); 
         isInMovableArea = color == PlayerColor.WHITE;
@@ -89,13 +92,21 @@ public class PlayerScript : MonoBehaviour {
             lightswitch_script script = collidingLightSwitch.GetComponent<lightswitch_script>();
             script.switchLight();
         }
+        animCycle.leftMove = false;
+        animCycle.rightMove = false;
         if((raycastHitPerFrame >= 2 && color == PlayerColor.BLACK) || (raycastHitPerFrame < 2 && color == PlayerColor.WHITE)){
             Vector2 velocity = rbody.velocity;
             //TODO: question for later, do we want full air control or do we want left/right to take time?
             
             // if(!isHittingWallInDirection())
+            
             velocity.x = horizontal * maxVelocity;
-           
+            if(horizontal > 0){
+                animCycle.rightMove = true;
+            }
+            else if(horizontal < 0){
+                animCycle.leftMove = true;
+            }
             rbody.velocity = velocity;
             if(jump && isGrounded()) {
                 //make the landing a bit "stickier" 

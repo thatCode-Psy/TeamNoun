@@ -13,10 +13,14 @@ public class AnimCycle : MonoBehaviour
     public float bwFrames = 0.075f;
     int fCount = 0;
     int fCap;
-    public bool transition = false;
-    public KeyCode leftMove,rightMove;
+    bool transition = false;
+    
     bool isRight = true;
 
+
+    public bool rightMove;
+
+    public bool leftMove;
     void Start()
     {
         fCap = frames.Length - 1;
@@ -29,11 +33,11 @@ public class AnimCycle : MonoBehaviour
         {
             if (Mathf.Abs(GetComponent<Rigidbody2D>().velocity.y) < bound)
             {
-                if (Input.GetKey(rightMove) ^ Input.GetKey(leftMove))
+                if (rightMove || leftMove)
                 {
                     transition = true;
                     Invoke("IncrementStep", bwFrames);
-                    if (Input.GetKey(rightMove))
+                    if (rightMove)
                         GetComponent<SpriteRenderer>().flipX = false;
                     else
                         GetComponent<SpriteRenderer>().flipX = true;
