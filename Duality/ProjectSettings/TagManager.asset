@@ -8,6 +8,8 @@ TagManager:
   - PlayerBlack
   - Spawn
   - LightSwitch
+  - PlayerBlack_textbox
+  - PlayerWhite_textbox
   layers:
   - Default
   - TransparentFX
