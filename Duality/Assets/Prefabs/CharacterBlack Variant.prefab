@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7560676612958963889}
   m_Layer: 5
   m_Name: Image
-  m_TagString: Untagged
+  m_TagString: PlayerBlack_textbox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -28,13 +28,14 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 6646042073218075737}
+  m_Children:
+  - {fileID: 6646042073218075737}
+  m_Father: {fileID: 8649200248069545704}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.000000044703, y: 0}
+  m_AnchoredPosition: {x: -27.7735, y: -15.502499}
   m_SizeDelta: {x: 3.996, y: 0.594}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7604815444802447
@@ -87,7 +88,7 @@ GameObject:
   - component: {fileID: 105044798825505219}
   m_Layer: 5
   m_Name: Text
-  m_TagString: PlayerBlack_textbox
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -102,14 +103,13 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 2003009014290742912}
-  m_Father: {fileID: 8649200248069545704}
+  m_Children: []
+  m_Father: {fileID: 2003009014290742912}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -27.7735, y: -15.5025}
+  m_AnchoredPosition: {x: 0, y: -0}
   m_SizeDelta: {x: 3.7871, y: 0.389}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3943838871961861756
@@ -142,16 +142,16 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 14
+    m_FontSize: 10
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 10
+    m_MinSize: 0
     m_MaxSize: 40
     m_Alignment: 0
     m_AlignByGeometry: 0
     m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
+    m_HorizontalOverflow: 1
+    m_VerticalOverflow: 1
     m_LineSpacing: 1
   m_Text: New Text
 --- !u!1 &3907925170988277204
@@ -185,7 +185,7 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0.021821104}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 6646042073218075737}
+  - {fileID: 2003009014290742912}
   m_Father: {fileID: 8680909644299082598}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

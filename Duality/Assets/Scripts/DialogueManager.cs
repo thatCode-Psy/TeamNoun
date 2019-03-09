@@ -10,18 +10,22 @@ public class DialogueManager : MonoBehaviour {
 
     public ArrayList dialogueLines;
 
-    public GameObject textbox;
-    public GameObject spritebox;
+    //This stuff is now deprecated
+    //public GameObject textbox;
+    //public GameObject spritebox;
+    //public GameObject blackSpeaker;
+    //public GameObject whiteSpeaker;
+    //public Sprite whiteBackround;
+    //public Sprite blackBackground;
 
-    public GameObject blackSpeaker;
-    public GameObject whiteSpeaker;
+    public GameObject blackTextBox;
+    public GameObject whiteTextBox;
+    
+
     public AudioSource audio;
-
-    public Sprite whiteBackround;
-    public Sprite blackBackground;
-
     private AudioClip blackText;
     private AudioClip whiteText;
+
 
     int currentlySpeaking;
     int bufferedLines;
@@ -49,14 +53,19 @@ public class DialogueManager : MonoBehaviour {
             }
         }
 
-        textbox.SetActive(false);
-        spritebox.SetActive(false);
-        whiteSpeaker.SetActive(false);
-        blackSpeaker.SetActive(false);
+        //textbox.SetActive(false);
+        //spritebox.SetActive(false);
+        //whiteSpeaker.SetActive(false);
+        //blackSpeaker.SetActive(false);
         //for (int x = 0; x < dialogueLines.Count; x++)
         //{
         //    Debug.Log(dialogueLines[x]);
         //}
+
+        AquireTextBoxes();
+        blackTextBox.SetActive(false);
+        whiteTextBox.SetActive(false);
+
 
         currentlySpeaking = -1;
         bufferedLines = -1;
@@ -106,16 +115,24 @@ public class DialogueManager : MonoBehaviour {
 
     IEnumerator Say(string line, int speaker, float delay, int nextLineVar)
     {
-        
-        textbox.SetActive(true);
-        spritebox.SetActive(true);
+
+        //textbox.SetActive(true);
+        //spritebox.SetActive(true);
+        Text textbox = null;
         int speed = 1;
         if(speaker == 1)
         {
             // audio.AudioSource
-            textbox.GetComponent<Text>().color = Color.black;
-            spritebox.GetComponent<Image>().sprite = whiteBackround;
-            blackSpeaker.SetActive(true);
+            //textbox.GetComponent<Text>().color = Color.black;
+            //spritebox.GetComponent<Image>().sprite = whiteBackround;
+            //blackSpeaker.SetActive(true);
+            if(blackTextBox == null)
+            {
+                AquireTextBoxes();
+            }
+            blackTextBox.SetActive(true);
+            textbox = blackTextBox.GetComponentInChildren<Text>();
+            Debug.Log(textbox.text);
             audio.clip = blackText;
             audio.Play();
             speed = 1;
@@ -123,25 +140,52 @@ public class DialogueManager : MonoBehaviour {
         }
         else if(speaker == 2)
         {
-            textbox.GetComponent<Text>().color = Color.white;
-            spritebox.GetComponent<Image>().sprite = blackBackground;
-            whiteSpeaker.SetActive(true);
+            //textbox.GetComponent<Text>().color = Color.white;
+            //spritebox.GetComponent<Image>().sprite = blackBackground;
+            //whiteSpeaker.SetActive(true);
+            if (whiteTextBox == null)
+            {
+                AquireTextBoxes();
+            }
+            whiteTextBox.SetActive(true);
+            textbox = whiteTextBox.GetComponentInChildren<Text>();
             audio.clip = whiteText;
             audio.Play();
             speed = 2;
         }
+        //textbox.gameObject.SetActive(true);
         //int speed = 1;
         int x = 0;
         while(true)
         {
+            if(speaker == 1)
+            {
+                if (blackTextBox == null)
+                {
+                    Debug.Log("its null");
+                    AquireTextBoxes();
+                    textbox = blackTextBox.GetComponentInChildren<Text>();
+                }
+                
+            }
+            else if(speaker == 2)
+            {
+                if (whiteTextBox == null)
+                {
+                    AquireTextBoxes();
+                    textbox = whiteTextBox.GetComponentInChildren<Text>();
+                }
+                
+            }
+
             if (x >= line.Length)
             {
-                textbox.GetComponent<Text>().text = line;
+                textbox.text = line;
                 break;
             }
             else
             {
-                textbox.GetComponent<Text>().text = line.Substring(0, x);
+                textbox.text = line.Substring(0, x);
             }
             x += speed;
             yield return null;
@@ -153,10 +197,11 @@ public class DialogueManager : MonoBehaviour {
             yield return null;
         }
         //audio.Stop();
-        textbox.SetActive(false);
-        spritebox.SetActive(false);
-        whiteSpeaker.SetActive(false);
-        blackSpeaker.SetActive(false);
+        blackTextBox.SetActive(false);
+        whiteTextBox.SetActive(false);
+        //spritebox.SetActive(false);
+        //whiteSpeaker.SetActive(false);
+        //blackSpeaker.SetActive(false);
         if (nextLineVar != -1)
         {
             PlayDialogue(nextLineVar);
@@ -170,5 +215,12 @@ public class DialogueManager : MonoBehaviour {
         //    currentlySpeaking = false;
         //}
         //Debug.Log("Finished execution");
+    }
+
+    void AquireTextBoxes()
+    {
+        blackTextBox = GameObject.FindGameObjectWithTag("PlayerBlack_textbox");
+        whiteTextBox = GameObject.FindGameObjectWithTag("PlayerWhite_textbox");
+        
     }
 }
