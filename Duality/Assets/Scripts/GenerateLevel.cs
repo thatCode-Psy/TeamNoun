@@ -6,106 +6,87 @@ public class GenerateLevel : MonoBehaviour {
 	public TextAsset level;
 	public GameObject wallPrefab;
 
-	public GameObject tablePrefab;
+	public GameObject platformPrefab;
 
-	public GameObject floorPrefab;
+	public GameObject glassPrefab;
 
-	public GameObject shirtBinPrefab;
+	public GameObject backgroundAsset1;
 
-	public GameObject boomboxPrefab;
+	public GameObject backgroundAsset2;
 
-	public GameObject doorPrefab;
-
-	public GameObject playerPrefab;
+	public GameObject backgroundAsset3;
 
 	public Vector3 levelCenter;
 
 	string[] levelRows;
 
-	LevelManagerScript levelManager;
+	
 	// Use this for initialization
 	void Awake () {
 		
-		levelManager = GetComponent<LevelManagerScript> ();
+		
 		levelRows = level.text.Split(new char[]{'\n'});
 		Bounds wallBounds = wallPrefab.transform.GetChild(0).GetComponent<MeshFilter> ().sharedMesh.bounds;
+		float wallHeightInMeters = wallBounds.extents.y * 2f * wallPrefab.transform.localScale.y;
+		float wallLengthInMeters = wallBounds.extents.x * 2f * wallPrefab.transform.localScale.x;
 
-		Bounds tableBounds = tablePrefab.transform.GetChild(0).GetComponent<MeshFilter> ().sharedMesh.bounds;
-		float wallLengthInMeters = tableBounds.extents.x * 2f * tablePrefab.transform.localScale.x;
-		float wallHalfHeightInMeters = wallBounds.extents.y * wallPrefab.transform.localScale.y;
-		float wallWidthInMeters = tableBounds.extents.z * 2f * tablePrefab.transform.localScale.z;
-		Bounds floorBounds = floorPrefab.GetComponent<MeshFilter> ().sharedMesh.bounds;
-		float floorLengthInMeters = wallLengthInMeters * levelRows[0].Trim().Length;
-		float floorWidthInMeters = wallWidthInMeters * (levelRows.Length - 1);
+		Bounds platformBounds = platformPrefab.transform.GetChild(0).GetComponent<MeshFilter> ().sharedMesh.bounds;
+		float platformWidthInMeters = platformBounds.extents.z * 2f * platformPrefab.transform.localScale.z;
+		
+		// Bounds floorBounds = floorPrefab.GetComponent<MeshFilter> ().sharedMesh.bounds;
+		// float floorLengthInMeters = wallLengthInMeters * levelRows[0].Trim().Length;
+		// float floorWidthInMeters = wallWidthInMeters * (levelRows.Length - 1);
 
-		GameObject floor = Instantiate (floorPrefab);
+		// GameObject floor = Instantiate (floorPrefab);
 
-		floor.transform.localScale = new Vector3 (floorLengthInMeters / (floorBounds.extents.x * 2f), 1f, floorWidthInMeters / (floorBounds.extents.z * 2f));
+		// floor.transform.localScale = new Vector3 (floorLengthInMeters / (floorBounds.extents.x * 2f), 1f, floorWidthInMeters / (floorBounds.extents.z * 2f));
 
-		floor.transform.position = levelCenter;
+		// floor.transform.position = levelCenter;
+		GameObject backgroundParent = new GameObject("Background Parent");
+		float backgroundOffset = platformWidthInMeters / 2;
 
-		float zOffset = floorWidthInMeters / (float)(levelRows.Length - 1);
-
-		levelManager.levelGrid = new Tile[levelRows.Length - 1][];
-
-		Vector3 topLeftCorner = new Vector3 (levelCenter.x - (floorLengthInMeters / 2f), levelCenter.y + wallHalfHeightInMeters, levelCenter.z - (floorWidthInMeters / 2));
+		Vector3 topLeftCorner = new Vector3 (levelCenter.x - (levelRows[0].Length * wallLengthInMeters / 2f), levelCenter.y + wallHeightInMeters * levelRows.Length / 2, levelCenter.z);
 	
 		for (int i = 0; i < levelRows.Length - 1; ++i) {
 			levelRows [i] = levelRows [i].Trim ();
-			float xOffset = floorLengthInMeters / (float)(levelRows [i].Length);
+			
 
-			levelManager.levelGrid [i] = new Tile[levelRows [i].Length];
 
 			for(int j = 0; j < levelRows[i].Length; ++j) {
 
-				Vector3 placePosition = new Vector3 (topLeftCorner.x + j * xOffset + wallLengthInMeters / 2f, 
-					                        topLeftCorner.y, topLeftCorner.z + i * zOffset + wallWidthInMeters / 2f);
+				Vector3 placePosition = new Vector3 (topLeftCorner.x + j * wallLengthInMeters, 
+					                        topLeftCorner.y - i * wallHeightInMeters, topLeftCorner.z);
 
-				Tile tile = new Tile ();
-				tile.position = placePosition;
-				tile.position.y = 0;
-				tile.isWall = false;
+				
 				GameObject instance = null;
 				switch (levelRows [i] [j]) {
-				case 'W':
-					instance = Instantiate (wallPrefab);
-					tile.isWall = true;
+				case 'P':
+					instance = Instantiate (platformPrefab);
+					PlaceBackgroundWall(placePosition, platformWidthInMeters, backgroundParent.transform);
 					break;
-				case 'E':
-					instance = Instantiate (wallPrefab);
-					instance.transform.Rotate (0, 90f, 0f);
-					tile.isWall = true;
+				case 'G':
+					instance = Instantiate (glassPrefab);
+					
+					PlaceBackgroundWall(placePosition, platformWidthInMeters, backgroundParent.transform);
 					break;
-				case 'T':
-					instance = Instantiate (tablePrefab);
-					tile.isWall = true;
+				case '.':
+					PlaceBackgroundWall(placePosition, platformWidthInMeters, backgroundParent.transform);
+					
+					break;
+				case 'J':
+					instance = Instantiate (backgroundAsset1);
+					placePosition.z -= platformWidthInMeters / 2f;
 					break;
 				case 'S':
-					instance = Instantiate (shirtBinPrefab);
+					instance = Instantiate (backgroundAsset2);
+					placePosition.z -= platformWidthInMeters / 2f;
 					break;
-				case 'B':
-					instance = Instantiate (boomboxPrefab);
+				case 'L':
+					instance = Instantiate (backgroundAsset3);
+					placePosition.z -= platformWidthInMeters / 2f;
+					
 					break;
-				case 'U':
-					instance = Instantiate (doorPrefab);
-					instance.transform.Rotate (0, 180f, 0f);
-					break;
-				case 'n':
-					instance = Instantiate (doorPrefab);
-					break;
-				case 'D':
-					instance = Instantiate (doorPrefab);
-					instance.transform.Rotate (0, 90f, 0f);
-					break;
-				case 'P':
-					instance = Instantiate (playerPrefab);
-					placePosition.y -= 0.5f;
-					break;
-				case 'd':
-					instance = Instantiate (playerPrefab);
-					instance.transform.Rotate (0f, 180f, 0f);
-					placePosition.y -= 0.5f;
-					break;
+				
 				
 				}
 				if (instance != null) {
@@ -113,8 +94,6 @@ public class GenerateLevel : MonoBehaviour {
 				}
 
 
-
-				levelManager.levelGrid [i] [j] = tile;
 			}
 		}
         
@@ -124,5 +103,14 @@ public class GenerateLevel : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		
+	}
+
+
+	void PlaceBackgroundWall(Vector3 position, float platformWidth, Transform parentTransform){
+		GameObject backgroundWall = Instantiate(wallPrefab);
+		backgroundWall.transform.parent = parentTransform;
+		Vector3 wallPosition = position;
+		position.z += platformWidth / 2f;
+		backgroundWall.transform.position = wallPosition;
 	}
 }
