@@ -228,6 +228,7 @@ MonoBehaviour:
   endAngleOffset: 4
   amountOfRayCasts: 50
   isOn: 0
+  material2D: {fileID: 6200000, guid: 5ff157e91ef0cb14ca3ca767db52ff7e, type: 2}
   litAreaEdgeRadius: 0.05
 --- !u!1001 &6862368029001288295
 PrefabInstance:
@@ -248,26 +249,6 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 13
       objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 687a65da902444d41b350cabc112b752, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 687a65da902444d41b350cabc112b752, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 687a65da902444d41b350cabc112b752, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 687a65da902444d41b350cabc112b752, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2300000, guid: 687a65da902444d41b350cabc112b752, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 6f74d95b5a388a74da3e4a422ea27c2f, type: 3}
     - target: {fileID: 400002, guid: 687a65da902444d41b350cabc112b752, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -312,6 +293,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 687a65da902444d41b350cabc112b752, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 687a65da902444d41b350cabc112b752, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 687a65da902444d41b350cabc112b752, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 687a65da902444d41b350cabc112b752, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2300000, guid: 687a65da902444d41b350cabc112b752, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 6f74d95b5a388a74da3e4a422ea27c2f, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 687a65da902444d41b350cabc112b752, type: 3}
 --- !u!4 &6862368029000896741 stripped

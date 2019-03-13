@@ -482,6 +482,11 @@ PrefabInstance:
       propertyPath: m_GravityScale
       value: 2.5
       objectReference: {fileID: 0}
+    - target: {fileID: 50258780180462314, guid: 482b1fb1727c18843a7f102b711599e8,
+        type: 3}
+      propertyPath: m_LinearDrag
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 114286922984860666, guid: 482b1fb1727c18843a7f102b711599e8,
         type: 3}
       propertyPath: maxVelocity
@@ -500,7 +505,7 @@ PrefabInstance:
     - target: {fileID: 114286922984860666, guid: 482b1fb1727c18843a7f102b711599e8,
         type: 3}
       propertyPath: controllerType
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114286922984860666, guid: 482b1fb1727c18843a7f102b711599e8,
         type: 3}
@@ -515,7 +520,12 @@ PrefabInstance:
     - target: {fileID: 114286922984860666, guid: 482b1fb1727c18843a7f102b711599e8,
         type: 3}
       propertyPath: playerNum
-      value: 1
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114286922984860666, guid: 482b1fb1727c18843a7f102b711599e8,
+        type: 3}
+      propertyPath: jumpHeight
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 23925645573531492, guid: 482b1fb1727c18843a7f102b711599e8,
         type: 3}
