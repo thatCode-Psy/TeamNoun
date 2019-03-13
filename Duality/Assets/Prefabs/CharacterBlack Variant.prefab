@@ -266,7 +266,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49648832ac503b74493339b77786a411, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textBox: {fileID: 191130496325746436}
+  textBox: {fileID: 347285704549698650}
   parentPlayer: {fileID: 8679219444952835222}
 --- !u!212 &2491678959005694980
 SpriteRenderer:
@@ -505,7 +505,7 @@ PrefabInstance:
     - target: {fileID: 114286922984860666, guid: 482b1fb1727c18843a7f102b711599e8,
         type: 3}
       propertyPath: controllerType
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 114286922984860666, guid: 482b1fb1727c18843a7f102b711599e8,
         type: 3}
