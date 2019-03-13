@@ -29,7 +29,7 @@ public class TextBoxBehavior : MonoBehaviour
         //If textbox would be off screen, move it to the other side
         if (testPos.x > 0.75f)
         {
-            textBox.GetComponent<RectTransform>().localPosition = new Vector3(originalPos.x - 4.33f, originalPos.y, originalPos.z);
+            textBox.GetComponent<RectTransform>().localPosition = new Vector3(originalPos.x - 3.06f, originalPos.y, originalPos.z);
         }
         else
         {
