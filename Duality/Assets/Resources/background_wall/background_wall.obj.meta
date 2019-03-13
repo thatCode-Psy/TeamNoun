@@ -8,6 +8,7 @@ ModelImporter:
     400000: //RootNode
     400002: wall
     2100000: initialShadingGroup
+    2100002: initialShadingGroup1
     2300000: wall
     3300000: wall
     4300000: wall

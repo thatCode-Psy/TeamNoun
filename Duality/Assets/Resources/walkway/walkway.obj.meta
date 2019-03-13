@@ -11,6 +11,7 @@ ModelImporter:
     400004: walkway:walkway
     2100000: initialShadingGroup
     2100002: walkway_initialShadingGroup
+    2100004: initialShadingGroup1
     2300000: walkway
     2300002: walkway:walkway
     3300000: walkway
