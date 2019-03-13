@@ -75,7 +75,19 @@ public class InputManager {
             UpdateControllerValue(ControllerAxis.Jump, Input.GetKey(KeyCode.Space) ? 1 : 0);
             UpdateControllerValue(ControllerAxis.Back, Input.GetKey(KeyCode.Escape) ? 1 : 0);
             UpdateControllerValue(ControllerAxis.Pause, Input.GetKey(KeyCode.P) ? 1 : 0);
-             UpdateControllerValue(ControllerAxis.Kill, Input.GetKey(KeyCode.K) ? 1 : 0);
+            UpdateControllerValue(ControllerAxis.Kill, Input.GetKey(KeyCode.K) ? 1 : 0);
+        }
+        else if (controllerType == ControllerType.KeyboardTwo)
+        {
+            UpdateControllerValue(ControllerAxis.HorizontalMovement, Input.GetAxisRaw("HorizontalTwo"));
+            UpdateControllerValue(ControllerAxis.VerticalMovement, Input.GetAxisRaw("VerticalTwo"));
+            UpdateControllerValue(ControllerAxis.HorizontalLook, Input.GetAxisRaw("Mouse X"));
+            UpdateControllerValue(ControllerAxis.VerticalLook, Input.GetAxisRaw("Mouse Y"));
+            UpdateControllerValue(ControllerAxis.Interact, Input.GetKey(KeyCode.Z) ? 1 : 0);
+            UpdateControllerValue(ControllerAxis.Jump, Input.GetKey(KeyCode.X) ? 1 : 0);
+            UpdateControllerValue(ControllerAxis.Back, Input.GetKey(KeyCode.C) ? 1 : 0);
+            UpdateControllerValue(ControllerAxis.Pause, Input.GetKey(KeyCode.V) ? 1 : 0);
+            UpdateControllerValue(ControllerAxis.Kill, Input.GetKey(KeyCode.B) ? 1 : 0);
         }
         else if (controllerType == ControllerType.Xbox)
         {
@@ -213,7 +225,7 @@ public class InputManager {
 
     public enum ControllerType
     {
-        Keyboard, Xbox, Dualshock4
+        Keyboard, Xbox, Dualshock4, KeyboardTwo
     }
 
     public enum ControllerAxis
