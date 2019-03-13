@@ -29,7 +29,8 @@ public class GenerateLevel : MonoBehaviour {
 		Bounds wallBounds = wallPrefab.transform.GetChild(0).GetComponent<MeshFilter> ().sharedMesh.bounds;
 		float wallHeightInMeters = wallBounds.extents.y * 2f * wallPrefab.transform.localScale.y;
 		float wallLengthInMeters = wallBounds.extents.x * 2f * wallPrefab.transform.localScale.x;
-
+		
+		print(wallHeightInMeters + " " + wallLengthInMeters);
 		Bounds platformBounds = platformPrefab.transform.GetChild(0).GetComponent<MeshFilter> ().sharedMesh.bounds;
 		float platformWidthInMeters = platformBounds.extents.z * 2f * platformPrefab.transform.localScale.z;
 		
@@ -62,32 +63,35 @@ public class GenerateLevel : MonoBehaviour {
 				switch (levelRows [i] [j]) {
 				case 'P':
 					instance = Instantiate (platformPrefab);
-					PlaceBackgroundWall(placePosition, platformWidthInMeters, backgroundParent.transform);
+					PlaceBackgroundObject(placePosition, platformWidthInMeters, backgroundParent.transform, wallPrefab);
 					break;
 				case 'G':
 					instance = Instantiate (glassPrefab);
 					
-					PlaceBackgroundWall(placePosition, platformWidthInMeters, backgroundParent.transform);
+					PlaceBackgroundObject(placePosition, platformWidthInMeters, backgroundParent.transform, wallPrefab);
 					break;
 				case '.':
-					PlaceBackgroundWall(placePosition, platformWidthInMeters, backgroundParent.transform);
+					PlaceBackgroundObject(placePosition, platformWidthInMeters, backgroundParent.transform, wallPrefab);
 					
 					break;
 				case 'J':
 					instance = Instantiate (backgroundAsset1);
-					placePosition.z -= platformWidthInMeters / 2f;
+					//placePosition.z += platformWidthInMeters / 2f;
 					break;
 				case 'S':
 					instance = Instantiate (backgroundAsset2);
-					placePosition.z -= platformWidthInMeters / 2f;
+					//placePosition.z += platformWidthInMeters / 2f;
 					break;
 				case 'L':
 					instance = Instantiate (backgroundAsset3);
-					placePosition.z -= platformWidthInMeters / 2f;
+					//placePosition.z += platformWidthInMeters / 2f;
 					
 					break;
 				
-				
+				case 'B':
+					instance = Instantiate (platformPrefab);
+					PlaceBackgroundObject(placePosition, platformWidthInMeters, backgroundParent.transform, backgroundAsset1);
+					break;
 				}
 				if (instance != null) {
 					instance.transform.position = placePosition;
@@ -106,11 +110,11 @@ public class GenerateLevel : MonoBehaviour {
 	}
 
 
-	void PlaceBackgroundWall(Vector3 position, float platformWidth, Transform parentTransform){
-		GameObject backgroundWall = Instantiate(wallPrefab);
+	void PlaceBackgroundObject(Vector3 position, float platformWidth, Transform parentTransform, GameObject backgroundAssetPrefab){
+		GameObject backgroundWall = Instantiate(backgroundAssetPrefab);
 		backgroundWall.transform.parent = parentTransform;
 		Vector3 wallPosition = position;
-		position.z += platformWidth / 2f;
+		//position.z += platformWidth / 2f;
 		backgroundWall.transform.position = wallPosition;
 	}
 }

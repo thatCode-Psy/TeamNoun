@@ -14,6 +14,8 @@ ModelImporter:
     100016: walls
     100018: chair:chair
     100020: table:table
+    100022: chair
+    100024: table
     400000: bar1
     400002: bar2
     400004: bar3
@@ -25,6 +27,8 @@ ModelImporter:
     400016: walls
     400018: chair:chair
     400020: table:table
+    400022: chair
+    400024: table
     2100000: bar1Mat
     2100002: bar2Mat
     2100004: bar3Mat
@@ -49,6 +53,8 @@ ModelImporter:
     2300014: walls
     2300016: chair:chair
     2300018: table:table
+    2300020: chair
+    2300022: table
     3300000: bar1
     3300002: bar2
     3300004: bar3
@@ -59,6 +65,8 @@ ModelImporter:
     3300014: walls
     3300016: chair:chair
     3300018: table:table
+    3300020: chair
+    3300022: table
     4300000: bar1
     4300002: bar2
     4300004: bar3
@@ -69,6 +77,8 @@ ModelImporter:
     4300014: walls
     4300016: chair:chair
     4300018: table:table
+    4300020: chair
+    4300022: table
   externalObjects: {}
   materials:
     importMaterials: 1
