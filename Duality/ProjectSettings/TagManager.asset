@@ -8,6 +8,8 @@ TagManager:
   - PlayerBlack
   - Spawn
   - LightSwitch
+  - LevelGenerator
+  - Level
   layers:
   - Default
   - TransparentFX
