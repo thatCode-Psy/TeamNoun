@@ -22,7 +22,7 @@ public class GenerateLevel : MonoBehaviour {
 
 	
 	// Use this for initialization
-	void Awake () {
+	public void Generate () {
 		
 		
 		levelRows = level.text.Split(new char[]{'\n'});
@@ -30,20 +30,16 @@ public class GenerateLevel : MonoBehaviour {
 		float wallHeightInMeters = wallBounds.extents.y * 2f * wallPrefab.transform.localScale.y;
 		float wallLengthInMeters = wallBounds.extents.x * 2f * wallPrefab.transform.localScale.x;
 		
-		print(wallHeightInMeters + " " + wallLengthInMeters);
+		
 		Bounds platformBounds = platformPrefab.transform.GetChild(0).GetComponent<MeshFilter> ().sharedMesh.bounds;
 		float platformWidthInMeters = platformBounds.extents.z * 2f * platformPrefab.transform.localScale.z;
 		
-		// Bounds floorBounds = floorPrefab.GetComponent<MeshFilter> ().sharedMesh.bounds;
-		// float floorLengthInMeters = wallLengthInMeters * levelRows[0].Trim().Length;
-		// float floorWidthInMeters = wallWidthInMeters * (levelRows.Length - 1);
-
-		// GameObject floor = Instantiate (floorPrefab);
-
-		// floor.transform.localScale = new Vector3 (floorLengthInMeters / (floorBounds.extents.x * 2f), 1f, floorWidthInMeters / (floorBounds.extents.z * 2f));
-
-		// floor.transform.position = levelCenter;
+		GameObject levelParent = new GameObject("Level Parent");
+		levelParent.transform.position = Vector3.zero;
+		levelParent.tag = "Level";
+		
 		GameObject backgroundParent = new GameObject("Background Parent");
+		backgroundParent.transform.parent = levelParent.transform;
 		float backgroundOffset = platformWidthInMeters / 2;
 
 		Vector3 topLeftCorner = new Vector3 (levelCenter.x - (levelRows[0].Length * wallLengthInMeters / 2f), levelCenter.y + wallHeightInMeters * levelRows.Length / 2, levelCenter.z);
@@ -62,11 +58,11 @@ public class GenerateLevel : MonoBehaviour {
 				GameObject instance = null;
 				switch (levelRows [i] [j]) {
 				case 'P':
-					instance = Instantiate (platformPrefab);
+					instance = Instantiate (platformPrefab, levelParent.transform);
 					PlaceBackgroundObject(placePosition, platformWidthInMeters, backgroundParent.transform, wallPrefab);
 					break;
 				case 'G':
-					instance = Instantiate (glassPrefab);
+					instance = Instantiate (glassPrefab, levelParent.transform);
 					
 					PlaceBackgroundObject(placePosition, platformWidthInMeters, backgroundParent.transform, wallPrefab);
 					break;
@@ -75,22 +71,29 @@ public class GenerateLevel : MonoBehaviour {
 					
 					break;
 				case 'J':
-					instance = Instantiate (backgroundAsset1);
+					instance = Instantiate (backgroundAsset1, levelParent.transform);
 					//placePosition.z += platformWidthInMeters / 2f;
 					break;
 				case 'S':
-					instance = Instantiate (backgroundAsset2);
+					instance = Instantiate (backgroundAsset2, levelParent.transform);
 					//placePosition.z += platformWidthInMeters / 2f;
 					break;
 				case 'L':
-					instance = Instantiate (backgroundAsset3);
+					instance = Instantiate (backgroundAsset3, levelParent.transform);
 					//placePosition.z += platformWidthInMeters / 2f;
 					
 					break;
 				
 				case 'B':
-					instance = Instantiate (platformPrefab);
+					instance = Instantiate (platformPrefab, levelParent.transform);
 					PlaceBackgroundObject(placePosition, platformWidthInMeters, backgroundParent.transform, backgroundAsset1);
+					break;
+				case 'D':
+					PlaceBackgroundObject(placePosition, platformWidthInMeters, backgroundParent.transform, wallPrefab);
+					GameObject forwardWall = PlaceBackgroundObject(placePosition, platformWidthInMeters, backgroundParent.transform, wallPrefab);
+					Vector3 frontWall = forwardWall.transform.localPosition;
+					frontWall.z -= platformWidthInMeters;
+					forwardWall.transform.localPosition = frontWall;
 					break;
 				}
 				if (instance != null) {
@@ -110,11 +113,12 @@ public class GenerateLevel : MonoBehaviour {
 	}
 
 
-	void PlaceBackgroundObject(Vector3 position, float platformWidth, Transform parentTransform, GameObject backgroundAssetPrefab){
+	GameObject PlaceBackgroundObject(Vector3 position, float platformWidth, Transform parentTransform, GameObject backgroundAssetPrefab){
 		GameObject backgroundWall = Instantiate(backgroundAssetPrefab);
 		backgroundWall.transform.parent = parentTransform;
 		Vector3 wallPosition = position;
 		//position.z += platformWidth / 2f;
 		backgroundWall.transform.position = wallPosition;
+		return backgroundWall;
 	}
 }
