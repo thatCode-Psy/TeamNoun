@@ -56,6 +56,8 @@ public class PlayerScript : MonoBehaviour {
     private bool interact;
     private bool kill;
 
+    private float holdAngle;
+
     private Vector2 counterJumpForce;
 
 
@@ -70,6 +72,7 @@ public class PlayerScript : MonoBehaviour {
         canMove = true;
         inputManager = new InputManager(controllerNumber, controllerType);
         jumpForce = CalculateJump(rbody.gravityScale,jumpHeight);
+        holdAngle = 0;
         //this one will need more tooling to calculate better
         counterJumpForce = new Vector2(-1,0);
         print(color + " " + inputManager.ControllerNumber() + " " + inputManager.ControllerTypeName());
@@ -156,8 +159,13 @@ public class PlayerScript : MonoBehaviour {
         else if(horizontal < 0){
             animCycle.leftMove = true;
         }
+        
+        
+
         rbody.velocity = velocity;
         
+        
+
         if(isJumping) {
             if(!jumpHeld && Vector2.Dot(rbody.velocity, Vector2.up) > 0) {
                 rbody.AddForce(counterJumpForce * rbody.mass);
