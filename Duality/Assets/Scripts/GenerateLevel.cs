@@ -10,6 +10,8 @@ public class GenerateLevel : MonoBehaviour {
 
 	public GameObject glassPrefab;
 
+	public GameObject foregroundWallPrefab;
+
 	public GameObject backgroundAsset1;
 
 	public GameObject backgroundAsset2;
@@ -64,6 +66,10 @@ public class GenerateLevel : MonoBehaviour {
 				case 'G':
 					instance = Instantiate (glassPrefab, levelParent.transform);
 					
+					PlaceBackgroundObject(placePosition, platformWidthInMeters, backgroundParent.transform, wallPrefab);
+					break;
+				case 'W':
+					instance = Instantiate(foregroundWallPrefab, levelParent.transform);
 					PlaceBackgroundObject(placePosition, platformWidthInMeters, backgroundParent.transform, wallPrefab);
 					break;
 				case '.':
