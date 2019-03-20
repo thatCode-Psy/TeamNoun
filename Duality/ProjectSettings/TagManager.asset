@@ -10,6 +10,8 @@ TagManager:
   - LightSwitch
   - PlayerBlack_textbox
   - PlayerWhite_textbox
+  - LevelGenerator
+  - Level
   layers:
   - Default
   - TransparentFX
