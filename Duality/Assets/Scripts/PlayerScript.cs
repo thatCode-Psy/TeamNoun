@@ -155,9 +155,17 @@ public class PlayerScript : MonoBehaviour {
         velocity.x = horizontal * maxVelocity;
         if(horizontal > 0){
             animCycle.rightMove = true;
+            if(PlayerColor.WHITE == color){
+                transform.GetChild(0).localEulerAngles = new Vector3(0,0,0);
+                transform.GetChild(0).GetChild(0).GetComponentInChildren<UpdatedLightSourceScript>().baseAngle = -90;
+            }
         }
         else if(horizontal < 0){
             animCycle.leftMove = true;
+            if(PlayerColor.WHITE == color){
+                transform.GetChild(0).localEulerAngles = new Vector3(0,0,180);
+                transform.GetChild(0).GetChild(0).GetComponentInChildren<UpdatedLightSourceScript>().baseAngle = 90;
+            }
         }
         
         

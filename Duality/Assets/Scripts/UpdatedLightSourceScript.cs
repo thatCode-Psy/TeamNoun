@@ -49,10 +49,7 @@ public class UpdatedLightSourceScript : MonoBehaviour
         litArea.layer = LayerMask.NameToLayer("LightArea");
         spotLight = GetComponent<Light>();
         raycastRange = spotLight.range;
-        startAngle = 180f - spotLight.spotAngle/2 + baseAngle;
-        endAngle = startAngle + spotLight.spotAngle;
-        startAngle += startAngleOffset;
-        endAngle -= endAngleOffset;
+        
         isOn = spotLight.enabled;
 	}
 	
@@ -60,6 +57,10 @@ public class UpdatedLightSourceScript : MonoBehaviour
 	protected void Update () {
         spotLight.enabled = isOn;
         if (isOn) {
+            startAngle = 180f - spotLight.spotAngle/2 + baseAngle;
+            endAngle = startAngle + spotLight.spotAngle;
+            startAngle += startAngleOffset;
+            endAngle -= endAngleOffset;
             GenerateLightArea();
         }
         else{
