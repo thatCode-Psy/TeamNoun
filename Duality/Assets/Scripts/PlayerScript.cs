@@ -56,7 +56,11 @@ public class PlayerScript : MonoBehaviour {
     private bool interact;
     private bool kill;
 
+    private float holdAngle;
+
     private Vector2 counterJumpForce;
+
+    private bool facingRight;
 
 
     //bool waitframe;
@@ -70,6 +74,7 @@ public class PlayerScript : MonoBehaviour {
         canMove = true;
         inputManager = new InputManager(controllerNumber, controllerType);
         jumpForce = CalculateJump(rbody.gravityScale,jumpHeight);
+        holdAngle = 0;
         //this one will need more tooling to calculate better
         counterJumpForce = new Vector2(-1,0);
         print(color + " " + inputManager.ControllerNumber() + " " + inputManager.ControllerTypeName());
@@ -85,6 +90,7 @@ public class PlayerScript : MonoBehaviour {
             }
         }
         raycastHitPerFrame = 0;
+        facingRight = true;
         //waitframe = false;
 	}
 	
@@ -123,7 +129,85 @@ public class PlayerScript : MonoBehaviour {
             isJumping = false;
         }
 
+        if(color == PlayerColor.WHITE && Input.GetKeyUp("w")){
+            if(!facingRight){
+                
+                transform.GetChild(0).GetChild(0).GetComponentInChildren<UpdatedLightSourceScript>().baseAngle += 40;
+                if(transform.GetChild(0).GetChild(0).GetComponentInChildren<UpdatedLightSourceScript>().baseAngle == 170){
+                    transform.GetChild(0).GetChild(0).GetComponentInChildren<UpdatedLightSourceScript>().baseAngle = 50;
+                }
+                
+            }
+            else{
+                transform.GetChild(0).GetChild(0).GetComponentInChildren<UpdatedLightSourceScript>().baseAngle -= 40;
+                if(transform.GetChild(0).GetChild(0).GetComponentInChildren<UpdatedLightSourceScript>().baseAngle == -170){
+                    transform.GetChild(0).GetChild(0).GetComponentInChildren<UpdatedLightSourceScript>().baseAngle = -50;
+                }
+            }
+            Quaternion xRot = Quaternion.Euler(90f, 0, 0);
+            Quaternion yRot = Quaternion.Euler(0, -transform.GetChild(0).GetChild(0).GetComponentInChildren<UpdatedLightSourceScript>().baseAngle, 0);
+            transform.GetChild(0).GetChild(0).rotation = xRot * yRot;
+        }
+        else if(color == PlayerColor.BLACK && Input.GetKeyUp("w")){
+            Vector3 currentAngle = transform.GetChild(0).GetChild(0).localEulerAngles;
+            if(!facingRight){
+                
+                currentAngle.z -= 45;
+                
+                if(Mathf.Abs(currentAngle.z - 270) <= 0.001){
+                    currentAngle.z = 45;
+                }
+                
+            }
+            else{
+                currentAngle.z += 45;
+                if(Mathf.Abs(currentAngle.z - 90) <= 0.001){
+                    currentAngle.z = -45;
+                }
+            }
 
+            transform.GetChild(0).GetChild(0).localEulerAngles = currentAngle;
+        }
+        if(color == PlayerColor.WHITE && Input.GetKeyUp("s")){
+            if(!facingRight){
+                
+                transform.GetChild(0).GetChild(0).GetComponentInChildren<UpdatedLightSourceScript>().baseAngle -= 40;
+                if(transform.GetChild(0).GetChild(0).GetComponentInChildren<UpdatedLightSourceScript>().baseAngle == 10){
+                    transform.GetChild(0).GetChild(0).GetComponentInChildren<UpdatedLightSourceScript>().baseAngle = 130;
+                }
+                
+            }
+            else{
+                transform.GetChild(0).GetChild(0).GetComponentInChildren<UpdatedLightSourceScript>().baseAngle += 40;
+                if(transform.GetChild(0).GetChild(0).GetComponentInChildren<UpdatedLightSourceScript>().baseAngle == -10){
+                    transform.GetChild(0).GetChild(0).GetComponentInChildren<UpdatedLightSourceScript>().baseAngle = -130;
+                }
+            }
+            Quaternion xRot = Quaternion.Euler(90f, 0, 0);
+            Quaternion yRot = Quaternion.Euler(0, -transform.GetChild(0).GetChild(0).GetComponentInChildren<UpdatedLightSourceScript>().baseAngle, 0);
+            transform.GetChild(0).GetChild(0).rotation = xRot * yRot;
+        }
+        else if(color == PlayerColor.BLACK && Input.GetKeyUp("s")){
+            Vector3 currentAngle = transform.GetChild(0).GetChild(0).localEulerAngles;
+            if(!facingRight){
+                
+                currentAngle.z += 45;
+                
+                if(Mathf.Abs(currentAngle.z - 90) <= 0.001){
+                    currentAngle.z = -45;
+                }
+                
+            }
+            else{
+                currentAngle.z -= 45;
+                if(Mathf.Abs(currentAngle.z - 270) <= 0.001){
+                    currentAngle.z = 45;
+                }
+            }
+
+            transform.GetChild(0).GetChild(0).localEulerAngles = currentAngle;
+        }
+        
         raycastHitPerFrame = 0;
     }
 
@@ -152,12 +236,57 @@ public class PlayerScript : MonoBehaviour {
         velocity.x = horizontal * maxVelocity;
         if(horizontal > 0){
             animCycle.rightMove = true;
+            facingRight = true;
+            if(PlayerColor.WHITE == color){
+                transform.GetChild(0).localEulerAngles = new Vector3(0,0,0);
+                float previousAngle = transform.GetChild(0).GetChild(0).GetComponentInChildren<UpdatedLightSourceScript>().baseAngle;
+                if(previousAngle > 0){
+                    transform.GetChild(0).GetChild(0).GetComponentInChildren<UpdatedLightSourceScript>().baseAngle = -previousAngle;
+                    Quaternion xRot = Quaternion.Euler(90f, 0, 0);
+                    Quaternion yRot = Quaternion.Euler(0, -transform.GetChild(0).GetChild(0).GetComponentInChildren<UpdatedLightSourceScript>().baseAngle, 0);
+                    transform.GetChild(0).GetChild(0).rotation = xRot * yRot;
+                }
+            }
+            else if(PlayerColor.BLACK == color){
+                bool previouslyFacingLeft = transform.GetChild(0).localEulerAngles != Vector3.zero;
+                if(previouslyFacingLeft){
+                    transform.GetChild(0).localEulerAngles = new Vector3(0,0,0);
+                    transform.GetChild(0).GetChild(0).localEulerAngles = - transform.GetChild(0).GetChild(0).localEulerAngles;
+                }
+                
+            }
+            
         }
         else if(horizontal < 0){
             animCycle.leftMove = true;
+            facingRight = false;
+            if(PlayerColor.WHITE == color){
+                transform.GetChild(0).localEulerAngles = new Vector3(0,0,180);
+                float previousAngle = transform.GetChild(0).GetChild(0).GetComponentInChildren<UpdatedLightSourceScript>().baseAngle;
+                if(previousAngle < 0){
+                    transform.GetChild(0).GetChild(0).GetComponentInChildren<UpdatedLightSourceScript>().baseAngle = -previousAngle;
+                    Quaternion xRot = Quaternion.Euler(90f, 0, 0);
+                    Quaternion yRot = Quaternion.Euler(0, -transform.GetChild(0).GetChild(0).GetComponentInChildren<UpdatedLightSourceScript>().baseAngle, 0);
+                    transform.GetChild(0).GetChild(0).rotation = xRot * yRot;
+                }
+            }
+             else if(PlayerColor.BLACK == color){
+                bool previouslyFacingRight = transform.GetChild(0).localEulerAngles != new Vector3(0,0,180);
+                if(previouslyFacingRight){
+                    transform.GetChild(0).localEulerAngles = new Vector3(0,0,180);
+                    transform.GetChild(0).GetChild(0).localEulerAngles = - transform.GetChild(0).GetChild(0).localEulerAngles;
+                }
+                
+            }
+            
         }
+        
+        
+
         rbody.velocity = velocity;
         
+        
+
         if(isJumping) {
             if(!jumpHeld && Vector2.Dot(rbody.velocity, Vector2.up) > 0) {
                 rbody.AddForce(counterJumpForce * rbody.mass);
