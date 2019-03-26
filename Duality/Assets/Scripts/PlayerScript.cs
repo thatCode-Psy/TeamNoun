@@ -152,17 +152,17 @@ public class PlayerScript : MonoBehaviour {
             Vector3 currentAngle = transform.GetChild(0).GetChild(0).localEulerAngles;
             if(!facingRight){
                 
-                currentAngle.z -= 45;
+                currentAngle.z -= 40;
                 
-                if(Mathf.Abs(currentAngle.z - 270) <= 0.001){
-                    currentAngle.z = 45;
+                if(Mathf.Abs(currentAngle.z - 280) <= 0.001){
+                    currentAngle.z = 40;
                 }
                 
             }
             else{
-                currentAngle.z += 45;
-                if(Mathf.Abs(currentAngle.z - 90) <= 0.001){
-                    currentAngle.z = -45;
+                currentAngle.z += 40;
+                if(Mathf.Abs(currentAngle.z - 80) <= 0.001){
+                    currentAngle.z = -40;
                 }
             }
 
@@ -191,17 +191,17 @@ public class PlayerScript : MonoBehaviour {
             Vector3 currentAngle = transform.GetChild(0).GetChild(0).localEulerAngles;
             if(!facingRight){
                 
-                currentAngle.z += 45;
+                currentAngle.z += 40;
                 
-                if(Mathf.Abs(currentAngle.z - 90) <= 0.001){
-                    currentAngle.z = -45;
+                if(Mathf.Abs(currentAngle.z - 80) <= 0.001){
+                    currentAngle.z = -40;
                 }
                 
             }
             else{
-                currentAngle.z -= 45;
-                if(Mathf.Abs(currentAngle.z - 270) <= 0.001){
-                    currentAngle.z = 45;
+                currentAngle.z -= 40;
+                if(Mathf.Abs(currentAngle.z - 280) <= 0.001){
+                    currentAngle.z = 40;
                 }
             }
 
