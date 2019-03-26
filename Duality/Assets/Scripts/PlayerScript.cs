@@ -234,7 +234,7 @@ public class PlayerScript : MonoBehaviour {
         
         // Cast a ray straight down.
         Vector2 rayStart = rbody.transform.position;
-        rayStart.x += (float).5*dir*collider.bounds.size.x;
+        rayStart.x += (float).75*dir*collider.bounds.size.x;
         RaycastHit2D hit = Physics2D.Raycast(rayStart, -Vector2.up);
         Debug.DrawRay(rayStart, -Vector2.up, Color.red);
         
@@ -243,7 +243,7 @@ public class PlayerScript : MonoBehaviour {
         if(dir > 0) { //moving right
             slopeAngle = Mathf.Abs(Vector2.Angle(Vector2.right, hit.normal) - 90);
             Debug.DrawRay(rayStart, Vector2.right, Color.red);
-        } else {
+        } else { //moving left
             slopeAngle = Vector2.Angle(Vector2.left, hit.normal) - 90;
             Debug.DrawRay(rayStart, Vector2.left, Color.red);
             print("initial calculation:" + slopeAngle);
