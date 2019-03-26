@@ -18,6 +18,8 @@ public class GenerateLevel : MonoBehaviour {
 
 	public GameObject backgroundAsset3;
 
+	public GameObject stairPrefab;
+
 	public Vector3 levelCenter;
 
 	string[] levelRows;
@@ -61,6 +63,10 @@ public class GenerateLevel : MonoBehaviour {
 				switch (levelRows [i] [j]) {
 				case 'P':
 					instance = Instantiate (platformPrefab, levelParent.transform);
+					PlaceBackgroundObject(placePosition, platformWidthInMeters, backgroundParent.transform, wallPrefab);
+					break;
+				case 'R':
+					instance = Instantiate(stairPrefab, levelParent.transform);
 					PlaceBackgroundObject(placePosition, platformWidthInMeters, backgroundParent.transform, wallPrefab);
 					break;
 				case 'G':
