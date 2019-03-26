@@ -11,7 +11,7 @@ public class GameSettings : MonoBehaviour {
     public InputManager p2InputManager = new InputManager(1, InputManager.ControllerType.Xbox);
 
 	// Use this for initialization
-	void Start () {
+	void Awake () {
 		if (instance == null)
         {
             instance = this;
