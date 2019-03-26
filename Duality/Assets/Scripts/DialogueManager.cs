@@ -43,6 +43,7 @@ public class DialogueManager : MonoBehaviour {
         /* Dialogue lines are of the format: {(integer defining speaker)}(ActualLine)[(integer for delay in seconds)](number of next line or -1 if that's the end of the dialogue)*/
         //1 is black
         //2 is white
+        //3 is other
         string line;
         while(!reader.EndOfStream)
         {
