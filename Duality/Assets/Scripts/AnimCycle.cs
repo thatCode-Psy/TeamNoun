@@ -10,12 +10,19 @@ public class AnimCycle : MonoBehaviour
     public Sprite sq, rise, fall;
 	public float bound = 0.5f;
     public Sprite[] frames = new Sprite[8];
+
+    public Sprite holdingIdle;
+
+    public Sprite holdingSQ, holdingRise, holdingFall;
+    public Sprite[] holdingFrames = new Sprite[8];
     public float bwFrames = 0.075f;
     int fCount = 0;
     int fCap;
     bool transition = false;
     
     bool isRight = true;
+
+    public bool holdingItem;
 
 
     public bool rightMove;
@@ -24,6 +31,7 @@ public class AnimCycle : MonoBehaviour
     void Start()
     {
         fCap = frames.Length - 1;
+        holdingItem = false;
     }
 
     // Update is called once per frame
@@ -49,15 +57,15 @@ public class AnimCycle : MonoBehaviour
                 }
             }
             else if (GetComponent<Rigidbody2D>().velocity.y > 0)
-            { GetComponent<SpriteRenderer>().sprite = rise; }
+            { GetComponent<SpriteRenderer>().sprite = holdingItem ? holdingRise : rise; }
             else
-                GetComponent<SpriteRenderer>().sprite = fall;
+                GetComponent<SpriteRenderer>().sprite = holdingItem ? holdingFall : fall;
         }
     }
 
     void IncrementStep()
     {
-        GetComponent<SpriteRenderer>().sprite = frames[fCount];
+        GetComponent<SpriteRenderer>().sprite = holdingItem ? holdingFrames[fCount] : frames[fCount];
         if (fCount < fCap)
             fCount++;
         else
@@ -67,7 +75,7 @@ public class AnimCycle : MonoBehaviour
 
     void ToIdle()
     {
-        GetComponent<SpriteRenderer>().sprite = idle;
+        GetComponent<SpriteRenderer>().sprite = holdingItem ? holdingIdle : idle;
         fCount = 0;
         transition = false;
     }
