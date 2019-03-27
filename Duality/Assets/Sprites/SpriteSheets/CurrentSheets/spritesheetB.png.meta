@@ -1,4 +1,5 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: 79d1b01a6f2ce234d89da226b21012e3
 TextureImporter:
   fileIDToRecycleName:
@@ -32,6 +33,11 @@ TextureImporter:
     21300054: spritesheetB_10
     21300056: spritesheetB_11
     21300058: spritesheetB_12
+=======
+guid: 5c5a4ed36e788412ea03f22059718169
+TextureImporter:
+  fileIDToRecycleName: {}
+>>>>>>> master
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -70,7 +76,11 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
+<<<<<<< HEAD
   spriteMode: 2
+=======
+  spriteMode: 1
+>>>>>>> master
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -99,6 +109,7 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
+<<<<<<< HEAD
   - serializedVersion: 2
     buildTarget: Standalone
     maxTextureSize: 2048
@@ -417,6 +428,15 @@ TextureImporter:
     physicsShape: []
     bones: []
     spriteID: e1e384f2c8c07c24588f739465f6b417
+=======
+  spriteSheet:
+    serializedVersion: 2
+    sprites: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: fb916ac281b34466db24e5f8cdf73aed
+>>>>>>> master
     vertices: []
     indices: 
     edges: []
