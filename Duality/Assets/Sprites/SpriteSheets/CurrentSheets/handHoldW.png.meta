@@ -1,7 +1,13 @@
 fileFormatVersion: 2
-guid: 5316bdfa4f9644fb3a4318c1eee9df34
+guid: dfd0521c5ad11cd44980f4abc120fb14
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: handHoldW_aDown
+    21300002: handHoldW_aFront
+    21300004: handHoldW_aUp
+    21300006: handHoldW_bDown
+    21300008: handHoldW_bFront
+    21300010: handHoldW_bUp
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -36,11 +42,11 @@ TextureImporter:
     mipBias: -100
     wrapU: 1
     wrapV: 1
-    wrapW: 1
+    wrapW: -1
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -69,13 +75,144 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: handHoldW_aDown
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1234
+        height: 1290
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bc275d8d90308364ab65c36c098d4502
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: handHoldW_aFront
+      rect:
+        serializedVersion: 2
+        x: 1234
+        y: 0
+        width: 1234
+        height: 1290
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1de935d6df7806d45b1dbcc68cb93fa9
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: handHoldW_aUp
+      rect:
+        serializedVersion: 2
+        x: 2468
+        y: 0
+        width: 1234
+        height: 1290
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7a24d30a94baf4b479428a9f6928444e
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: handHoldW_bDown
+      rect:
+        serializedVersion: 2
+        x: 3702
+        y: 0
+        width: 1234
+        height: 1290
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6cab95b727c2e944899b86ccbd4ef398
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: handHoldW_bFront
+      rect:
+        serializedVersion: 2
+        x: 4936
+        y: 0
+        width: 1234
+        height: 1290
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c594969530b3ad54f898aa4e0ca5d853
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: handHoldW_bUp
+      rect:
+        serializedVersion: 2
+        x: 6170
+        y: 0
+        width: 1234
+        height: 1290
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d5f38e97ab9b582468273a01ea8c00ce
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 159f835fd056345bb8c080e8e8666d9c
+    spriteID: 45e64152194ced54198cbbdf50274b39
     vertices: []
     indices: 
     edges: []
