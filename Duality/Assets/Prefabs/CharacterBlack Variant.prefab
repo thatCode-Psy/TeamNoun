@@ -58,8 +58,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8391335082776265365}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.5, y: 0, z: 0}
-  m_LocalScale: {x: 0.1, y: 0.4, z: 0.1}
+  m_LocalPosition: {x: 0.714, y: 0, z: 0}
+  m_LocalScale: {x: 0.5, y: 0.1, z: 0.1}
   m_Children: []
   m_Father: {fileID: 1219270027780102033}
   m_RootOrder: 0
@@ -209,7 +209,21 @@ MonoBehaviour:
   - {fileID: 21300020, guid: 7c38d23b320aa22439b29872b8e60bde, type: 3}
   - {fileID: 21300022, guid: 7c38d23b320aa22439b29872b8e60bde, type: 3}
   - {fileID: 21300024, guid: 7c38d23b320aa22439b29872b8e60bde, type: 3}
+  holdingIdle: {fileID: 0}
+  holdingSQ: {fileID: 0}
+  holdingRise: {fileID: 0}
+  holdingFall: {fileID: 0}
+  holdingFrames:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   bwFrames: 0.075
+  holdingItem: 0
   rightMove: 0
   leftMove: 0
 --- !u!1001 &8680246381275054812
