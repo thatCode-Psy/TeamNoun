@@ -63,6 +63,9 @@ public class PlayerScript : MonoBehaviour {
     private bool facingRight;
 
 
+    private bool pickedUpGrabable;
+
+
     //bool waitframe;
     
     // Use this for initialization
@@ -91,6 +94,7 @@ public class PlayerScript : MonoBehaviour {
         }
         raycastHitPerFrame = 0;
         facingRight = true;
+        pickedUpGrabable = false;
         //waitframe = false;
 	}
 	
@@ -233,31 +237,31 @@ public class PlayerScript : MonoBehaviour {
         float dir = Mathf.Sign(horizontal);
         
         // Cast a ray straight down.
-        Vector2 rayStart = rbody.transform.position;
-        rayStart.x += (float).75*dir*collider.bounds.size.x;
-        RaycastHit2D hit = Physics2D.Raycast(rayStart, -Vector2.up);
-        Debug.DrawRay(rayStart, -Vector2.up, Color.red);
+        // Vector2 rayStart = rbody.transform.position;
+        // rayStart.x += (float).75*dir*collider.bounds.size.x;
+        // RaycastHit2D hit = Physics2D.Raycast(rayStart, -Vector2.up);
+        // Debug.DrawRay(rayStart, -Vector2.up, Color.red);
         
         
-        float slopeAngle;
-        if(dir > 0) { //moving right
-            slopeAngle = Mathf.Abs(Vector2.Angle(Vector2.right, hit.normal) - 90);
-            Debug.DrawRay(rayStart, Vector2.right, Color.red);
-        } else { //moving left
-            slopeAngle = Vector2.Angle(Vector2.left, hit.normal) - 90;
-            Debug.DrawRay(rayStart, Vector2.left, Color.red);
-            print("initial calculation:" + slopeAngle);
-        }
+        // float slopeAngle;
+        // if(dir > 0) { //moving right
+        //     slopeAngle = Mathf.Abs(Vector2.Angle(Vector2.right, hit.normal) - 90);
+        //     Debug.DrawRay(rayStart, Vector2.right, Color.red);
+        // } else { //moving left
+        //     slopeAngle = Vector2.Angle(Vector2.left, hit.normal) - 90;
+        //     Debug.DrawRay(rayStart, Vector2.left, Color.red);
+        //     print("initial calculation:" + slopeAngle);
+        // }
         
         // //account for slopes in the other direction
         // if(slopeAngle > 90)
         //     slopeAngle = 180 - slopeAngle;
 
-        if(slopeAngle < 60) {
+        // if(slopeAngle < 60) {
             velocity.x = horizontal * maxVelocity;
-        } else {
-            velocity.x = 0;
-        }
+        // } else {
+        //     velocity.x = 0;
+        // }
         if(horizontal > 0){
             animCycle.rightMove = true;
             facingRight = true;
@@ -308,12 +312,12 @@ public class PlayerScript : MonoBehaviour {
         
 
         rbody.velocity = velocity;
-        if(color == PlayerColor.WHITE) {
-            print("normal:" + hit.normal);
-            print("dir:" + dir);
-            print(slopeAngle);
-            print("x velocity:" + rbody.velocity.x);
-        }
+        // if(color == PlayerColor.WHITE) {
+        //     print("normal:" + hit.normal);
+        //     print("dir:" + dir);
+        //     print(slopeAngle);
+        //     print("x velocity:" + rbody.velocity.x);
+        // }
 
         
         
@@ -384,6 +388,12 @@ public class PlayerScript : MonoBehaviour {
         }
         else if(collider.tag == "LightSwitch"){
             collidingLightSwitch = collider.gameObject;
+        }
+        else if(collider.tag == "GrabableFlashLight" && color == PlayerColor.WHITE){
+            transform.GetChild(0).gameObject.SetActive(true);
+            pickedUpGrabable = true;
+            Destroy(collider.gameObject);
+            
         }
         
     }
