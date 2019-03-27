@@ -5,18 +5,18 @@ TextureImporter:
     21300000: armW_idle
     21300002: armW_rise
     21300004: armW_fall
-    21300006: armW_1
-    21300008: armW_2
-    21300010: armW_3
-    21300012: armW_4
+    21300006: armW_4
+    21300008: armW_1
+    21300010: armW_10
+    21300012: armW_11
     21300014: armW_5
-    21300016: armW_6
-    21300018: armW_7
-    21300020: armW_8
-    21300022: armW_9
-    21300024: armW_10
-    21300026: armW_11
-    21300028: armW_12
+    21300016: armW_12
+    21300018: armW_2
+    21300020: armW_3
+    21300022: armW_6
+    21300024: armW_7
+    21300026: armW_8
+    21300028: armW_9
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -107,7 +107,7 @@ TextureImporter:
         width: 1234
         height: 1290
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -127,7 +127,7 @@ TextureImporter:
         width: 1234
         height: 1290
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -147,7 +147,7 @@ TextureImporter:
         width: 1234
         height: 1290
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -159,7 +159,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: armW_1
+      name: armW_4
       rect:
         serializedVersion: 2
         x: 3702
@@ -167,7 +167,7 @@ TextureImporter:
         width: 1234
         height: 1290
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -179,7 +179,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: armW_2
+      name: armW_1
       rect:
         serializedVersion: 2
         x: 0
@@ -187,7 +187,7 @@ TextureImporter:
         width: 1234
         height: 1290
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -199,7 +199,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: armW_3
+      name: armW_10
       rect:
         serializedVersion: 2
         x: 1234
@@ -207,7 +207,7 @@ TextureImporter:
         width: 1234
         height: 1290
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -219,7 +219,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: armW_4
+      name: armW_11
       rect:
         serializedVersion: 2
         x: 2468
@@ -227,7 +227,7 @@ TextureImporter:
         width: 1234
         height: 1290
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -247,7 +247,7 @@ TextureImporter:
         width: 1234
         height: 1290
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -259,7 +259,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: armW_6
+      name: armW_12
       rect:
         serializedVersion: 2
         x: 0
@@ -267,7 +267,7 @@ TextureImporter:
         width: 1234
         height: 1290
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -279,7 +279,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: armW_7
+      name: armW_2
       rect:
         serializedVersion: 2
         x: 1234
@@ -287,7 +287,7 @@ TextureImporter:
         width: 1234
         height: 1290
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -299,7 +299,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: armW_8
+      name: armW_3
       rect:
         serializedVersion: 2
         x: 2468
@@ -307,7 +307,7 @@ TextureImporter:
         width: 1234
         height: 1290
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -319,7 +319,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: armW_9
+      name: armW_6
       rect:
         serializedVersion: 2
         x: 3702
@@ -327,7 +327,7 @@ TextureImporter:
         width: 1234
         height: 1290
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -339,7 +339,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: armW_10
+      name: armW_7
       rect:
         serializedVersion: 2
         x: 0
@@ -347,7 +347,7 @@ TextureImporter:
         width: 1234
         height: 1290
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -359,7 +359,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: armW_11
+      name: armW_8
       rect:
         serializedVersion: 2
         x: 1234
@@ -367,7 +367,7 @@ TextureImporter:
         width: 1234
         height: 1290
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -379,7 +379,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: armW_12
+      name: armW_9
       rect:
         serializedVersion: 2
         x: 2468
@@ -387,7 +387,7 @@ TextureImporter:
         width: 1234
         height: 1290
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
