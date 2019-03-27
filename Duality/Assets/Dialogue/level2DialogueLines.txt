@@ -1,0 +1,9 @@
+{2}The stairs down here are broken.[.5]1
+{1}Must have been the, what did he call it? Thaum flux?[.5]2
+{2}Something like that. All Greek to me.[.5]3
+{2}It sounded like he didn't even know.[.5]-1
+{1}It's pretty crazy looking down here.[.5]5
+{1}I wonder if people know about this part.[.5]6
+{2}I'd bet no. They definitely did something to magic to us,[.6]7
+{2}And I don't think human experimentation would go over well.[.7]8
+{1}You aren't wrong about that.[.5]-1
