@@ -82,6 +82,21 @@ public class DialogueManager : MonoBehaviour {
         PlayDialogue(int.Parse(input));
     }
 
+    private void SetPlayerMovement(bool canMove)
+    {
+        GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
+        foreach (GameObject x in players)
+        {
+            x.GetComponent<PlayerScript>().canMove = canMove;
+        }
+    }
+
+    public void PlayDialoguePriority(int input)
+    {
+        SetPlayerMovement(false);
+        PlayDialogue(input);
+    }
+
     public void PlayDialogue(int input)
     {
         string lineToPrint = (string)dialogueLines[input];
@@ -206,6 +221,10 @@ public class DialogueManager : MonoBehaviour {
         if (nextLineVar != -1)
         {
             PlayDialogue(nextLineVar);
+        }
+        else
+        {
+            SetPlayerMovement(true);
         }
         //else if(bufferedLines != -1)
         //{

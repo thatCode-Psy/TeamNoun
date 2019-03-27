@@ -130,8 +130,10 @@ public class PlayerScript : MonoBehaviour {
     //FixedUpdate is called before physics calculations
 	void FixedUpdate () {
 
-
-        movementManager(moveHorizontal, moveVertical, isJumping, interact, kill);
+        if (canMove)
+        {
+            movementManager(moveHorizontal, moveVertical, isJumping, interact, kill);
+        }
 	}
 
     void movementManager(float horizontal, float vertical, bool isJumping, bool interact, bool kill) {
