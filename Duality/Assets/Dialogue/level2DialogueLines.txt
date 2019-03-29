@@ -7,3 +7,53 @@
 {2}I'd bet no. They definitely did something to magic to us,[.6]7
 {2}And I don't think human experimentation would go over well.[.7]8
 {1}You aren't wrong about that.[.5]-1
+{1}Woah.[.5]-1
+{2}Holy shit, look at this.[.5]11
+{1}I guess that's why Mr.Layton called it the ritual level.[.5]12
+{1}I can kind of remember coming here though...[.5]13
+{2}Me too, I remember being led out into the middle there.[.5]14
+{1}Then a brutal headache, and waking up in that cell?[.5]15
+{2}Yeah. Those bastards better have a way to undo whatever they did.[.75]16
+{1}I wonder what it was they did though.[.5]17
+{1}Surely making light or shadow solid couldn't have been the whole point, right?[.75]18
+{2}No idea.[.5]-1
+{2}Ok, now where the hell is this terminal?[.5]20
+{3}Hello? Is someone out there?[.75]21
+{2}Another person, great. Let me guess, you're trapped in there?[.6]22
+{3}Yes, it turns out the karmic imbalance from having too many subjects[.2]23
+{3}created a thaumic vacuum that, when it was forced back into equilibirum,[.2]
+{3}irradiated the facility with nearly 14 megathaumiels of magic flux and triggered lockdown.[.5]25
+{1}...What?[.4]26
+{2}Yeah, what was all that?[]27
+{3}My apologies, perhaps that was too deep-wait.[.5]28
+{3}You aren't staff members, you're subjects![.5]29
+{2}Yeah, unfortunately for us. Who are you anyway?[.5]30
+{3}I'm Andrea Ellisburg, I'm the head researcher here at Verlen.[.5]31
+{1}You seem like a good person to ask then, what did they do to us here?[.6]32
+{3}Well, we were attempting to discern what causes people to commit evil acts[.75]33
+{3}The goal was to create a "vaccine for the soul" against those things.[.75]34
+{2}...What.[.5]35
+{3}To do it, we used a ritual to separate prisoners into "yin" and "yang" halves.[.75]36
+{3}I assume you didn't realize you're a mass of plus spin magic energy contained in a minus spin membrange?[.75]37
+{3}And the other you is the opposite?[.5]38
+{1}What on... holy crap![.5]39
+{2}Holy shit what the fuck?[.5]40
+{3}A usual occurrence. The human mind is remarkably able to ignore things that are "unnatural".[.75]41
+{1}Wait, but if you split people in half...[.5]42
+{2}...And we were in cells next to each other...[.5]43
+{3}Probably, yes. Based on your ambient anima readings, Benjamin Aredoughne?[.5]44
+{3}Convicted of burglary, brought here just before the solestice?[.5]45
+{1}Well... is there a way you can make us... be a normal person again?[.6]46
+{3}Er.[.5]47
+{3}Well, no.[.5]48
+{2}You motherfuckers.[.4]48
+{3}Wait, wait! In theory, if you can find can find a place of sufficient thaumic pressure-[.2]50
+{1}In layman's terms, please.[.5]51
+{3}Ok... if you can find a sufficiently magical place and be close enough together,[.4]52
+{3}The ambient magic could reverse the ritual and "snap" you back to your natural state[.5]53
+{2}I almost don't believe you, but it doesn't matter until we get out of this place.[.5]54
+{2}Where's the control terminal?[.3]55
+{3}Right past my door. You should be able to take the elevator past it to leave.[.6]56
+{3}Be fast, though- Dr. Layton will call enforcers as soon as the lockdown goes down.[.6]57
+{3}You'll probably have just a couple minutes to get out.[.5]58
+{2}Good enough. Let's go.
