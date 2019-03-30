@@ -12,6 +12,7 @@ TagManager:
   - PlayerWhite_textbox
   - LevelGenerator
   - Level
+  - Other_textbox
   layers:
   - Default
   - TransparentFX

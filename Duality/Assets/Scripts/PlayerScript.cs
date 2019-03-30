@@ -216,7 +216,7 @@ public class PlayerScript : MonoBehaviour {
 
         if (canMove)
         {
-            movementManager(moveHorizontal, moveVertical, isJumping, interact, kill);
+            this.movementManager(moveHorizontal, moveVertical, isJumping, interact, kill);
         }
 	}
 
