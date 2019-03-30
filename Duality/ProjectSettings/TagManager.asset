@@ -12,6 +12,8 @@ TagManager:
   - Level
   - GrabableFlashLight
   - Other_textbox
+  - PlayerBlack_textbox
+  - PlayerWhite_textbox
   layers:
   - Default
   - TransparentFX

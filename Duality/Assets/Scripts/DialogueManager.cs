@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -146,11 +147,21 @@ public class DialogueManager : MonoBehaviour
             //textbox.GetComponent<Text>().color = Color.black;
             //spritebox.GetComponent<Image>().sprite = whiteBackround;
             //blackSpeaker.SetActive(true);
-            if (blackTextBox == null)
+            //if (blackTextBox == null)
+            //{
+            //    AquireTextBoxes();
+            //}
+            try
             {
-                AquireTextBoxes();
+                blackTextBox.SetActive(true);
             }
-            blackTextBox.SetActive(true);
+            catch(Exception e)
+            {
+                print(e.Message);
+                AquireTextBoxes();
+                blackTextBox.SetActive(true);
+            }
+            
             textbox = blackTextBox.GetComponentInChildren<Text>();
             Debug.Log(textbox.text);
             audio.clip = blackText;
@@ -163,11 +174,20 @@ public class DialogueManager : MonoBehaviour
             //textbox.GetComponent<Text>().color = Color.white;
             //spritebox.GetComponent<Image>().sprite = blackBackground;
             //whiteSpeaker.SetActive(true);
-            if (whiteTextBox == null)
+            // if (whiteTextBox == null)
+            //{
+            //    AquireTextBoxes();
+            //}
+            //whiteTextBox.SetActive(true);
+            try
+            {
+                whiteTextBox.SetActive(true);
+            }
+            catch (Exception e)
             {
                 AquireTextBoxes();
+                whiteTextBox.SetActive(true);
             }
-            whiteTextBox.SetActive(true);
             textbox = whiteTextBox.GetComponentInChildren<Text>();
             audio.clip = whiteText;
             audio.Play();
@@ -175,11 +195,20 @@ public class DialogueManager : MonoBehaviour
         }
         else if (speaker == 3)
         {
-            if (otherTextBox == null)
+            //if (otherTextBox == null)
+            //{
+            //    AquireTextBoxes();
+            //}
+            //otherTextBox.SetActive(true);
+            try
+            {
+                otherTextBox.SetActive(true);
+            }
+            catch (Exception e)
             {
                 AquireTextBoxes();
+                otherTextBox.SetActive(true);
             }
-            otherTextBox.SetActive(true);
             textbox = otherTextBox.GetComponentInChildren<Text>();
             audio.clip = whiteText;
             audio.Play();
