@@ -10,7 +10,7 @@ PrefabInstance:
     - target: {fileID: 1880565891738129702, guid: 6d5fc8b4812bf17458ca7ef51db4212d,
         type: 3}
       propertyPath: m_Name
-      value: backWallTextured
+      value: secondLevelBackWallTextured
       objectReference: {fileID: 0}
     - target: {fileID: 8665131609893443700, guid: 6d5fc8b4812bf17458ca7ef51db4212d,
         type: 3}
@@ -67,5 +67,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3300201358621967920, guid: 6d5fc8b4812bf17458ca7ef51db4212d,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 1f540014b249c8f4d9bf6afff65718bd, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6d5fc8b4812bf17458ca7ef51db4212d, type: 3}
