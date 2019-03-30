@@ -392,6 +392,7 @@ public class PlayerScript : MonoBehaviour {
         else if(collider.tag == "GrabableFlashLight" && color == PlayerColor.WHITE){
             transform.GetChild(0).gameObject.SetActive(true);
             pickedUpGrabable = true;
+            animCycle.holdingItem = true;
             Destroy(collider.gameObject);
             
         }
