@@ -13,8 +13,11 @@ public class DialogueManager : MonoBehaviour {
     public GameObject textbox;
     public GameObject spritebox;
 
-    public GameObject blackSpeaker;
-    public GameObject whiteSpeaker;
+    public GameObject blackTextBox;
+    public GameObject whiteTextBox;
+    public GameObject otherTextBox;
+    
+
     public AudioSource audio;
 
     public Sprite whiteBackround;
@@ -118,7 +121,7 @@ public class DialogueManager : MonoBehaviour {
             blackSpeaker.SetActive(true);
             audio.clip = blackText;
             audio.Play();
-            speed = 1;
+            speed = 2;
 
         }
         else if(speaker == 2)
@@ -130,6 +133,19 @@ public class DialogueManager : MonoBehaviour {
             audio.Play();
             speed = 2;
         }
+        else if(speaker == 3)
+        {
+            if(otherTextBox == null)
+            {
+                AquireTextBoxes();
+            }
+            otherTextBox.SetActive(true);
+            textbox = otherTextBox.GetComponentInChildren<Text>();
+            audio.clip = whiteText;
+            audio.Play();
+            speed = 2;
+        }
+        //textbox.gameObject.SetActive(true);
         //int speed = 1;
         int x = 0;
         while(true)
@@ -170,5 +186,12 @@ public class DialogueManager : MonoBehaviour {
         //    currentlySpeaking = false;
         //}
         //Debug.Log("Finished execution");
+    }
+
+    void AquireTextBoxes()
+    {
+        blackTextBox = GameObject.FindGameObjectWithTag("PlayerBlack_textbox");
+        whiteTextBox = GameObject.FindGameObjectWithTag("PlayerWhite_textbox");
+        otherTextBox = GameObject.FindGameObjectWithTag("Other_textbox");
     }
 }

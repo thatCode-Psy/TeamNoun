@@ -11,6 +11,7 @@ TagManager:
   - LevelGenerator
   - Level
   - GrabableFlashLight
+  - Other_textbox
   layers:
   - Default
   - TransparentFX
