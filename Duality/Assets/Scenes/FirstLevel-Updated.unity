@@ -75184,6 +75184,7 @@ MonoBehaviour:
     type: 3}
   backgroundAsset2: {fileID: 0}
   backgroundAsset3: {fileID: 0}
+  stairPrefab: {fileID: 0}
   levelCenter: {x: 0, y: 0, z: 0}
 --- !u!1 &1740515932
 GameObject:
