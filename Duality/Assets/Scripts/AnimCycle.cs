@@ -35,6 +35,8 @@ public class AnimCycle : MonoBehaviour
 
     bool heldItemMoved;
 
+    public bool grounded;
+
     Vector3 originalChildPosition;
     void Start()
     {
@@ -42,6 +44,7 @@ public class AnimCycle : MonoBehaviour
         holdingItem = false;
         heldItemMoved = false;
         originalChildPosition = transform.GetChild(0).localPosition;
+        grounded = true;
     }
 
     // Update is called once per frame
@@ -50,7 +53,7 @@ public class AnimCycle : MonoBehaviour
         if (!transition)
         {
             Vector3 newPosition = originalChildPosition;
-            if (Mathf.Abs(GetComponent<Rigidbody2D>().velocity.y) < bound)
+            if (Mathf.Abs(GetComponent<Rigidbody2D>().velocity.y) < bound || grounded)
             {
                 if (rightMove || leftMove)
                 {
@@ -78,11 +81,11 @@ public class AnimCycle : MonoBehaviour
                     Invoke("ToIdle", bwFrames);
                 }
             }
-            else if (GetComponent<Rigidbody2D>().velocity.y > 0){ 
+            else if (GetComponent<Rigidbody2D>().velocity.y > 0 && !grounded){ 
                 GetComponent<SpriteRenderer>().sprite = rise;
                 transform.GetChild(1).gameObject.GetComponent<SpriteRenderer>().sprite = holdingItem ? armHoldingRise : armRise;
             }
-            else{
+            else if(GetComponent<Rigidbody2D>().velocity.y < 0 && !grounded){
                 GetComponent<SpriteRenderer>().sprite = fall;
                 transform.GetChild(1).gameObject.GetComponent<SpriteRenderer>().sprite = holdingItem ? armHoldingFall : armFall;
             }

@@ -117,7 +117,6 @@ public class PlayerScript : MonoBehaviour {
         interact = inputManager.GetAxisDown(InputManager.ControllerAxis.Interact);
         kill = inputManager.GetAxisDown(InputManager.ControllerAxis.Kill);
         grounded = isGrounded();
-
         if(jumpPressed) {
             jumpHeld = true;
             if(grounded) {
@@ -232,6 +231,7 @@ public class PlayerScript : MonoBehaviour {
         
         animCycle.leftMove = false;
         animCycle.rightMove = false;
+        animCycle.grounded = grounded;
         
         Vector2 velocity = rbody.velocity;
         //TODO: question for later, do we want full air control or do we want left/right to take time?
@@ -377,7 +377,7 @@ public class PlayerScript : MonoBehaviour {
         max.x -= collisionOffset;
         min.x += collisionOffset;
 
-        
+    
         //mask so we can only jump off the ground
         int mask = LayerMask.GetMask("Ground", "Glass", "LightArea");
         return Physics2D.OverlapArea(min, max, mask);
