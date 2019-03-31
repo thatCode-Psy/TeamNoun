@@ -29,7 +29,7 @@ public class DialogueManager : MonoBehaviour
     private AudioClip blackText;
     private AudioClip whiteText;
 
-
+    float defaultCameraSetting;
     int currentlySpeaking;
     int bufferedLines;
     // Use this for initialization
@@ -70,10 +70,12 @@ public class DialogueManager : MonoBehaviour
         AquireTextBoxes();
         blackTextBox.SetActive(false);
         whiteTextBox.SetActive(false);
+        otherTextBox.SetActive(false);
 
 
         currentlySpeaking = -1;
         bufferedLines = -1;
+        defaultCameraSetting = Camera.main.GetComponent<CameraFollowScript>().cameraLookAhead;
     }
 
     // Update is called once per frame
@@ -93,13 +95,19 @@ public class DialogueManager : MonoBehaviour
         foreach (GameObject x in players)
         {
             x.GetComponent<PlayerScript>().canMove = canMove;
+            x.GetComponent<Rigidbody2D>().velocity = new Vector3(0f,0f,0f);
+            x.GetComponent<AnimCycle>().leftMove = false;
+            x.GetComponent<AnimCycle>().rightMove = false;
         }
     }
 
-    public void PlayDialoguePriority(int input)
+    public void PlayDialoguePriority(float[] arguments)
     {
         SetPlayerMovement(false);
-        PlayDialogue(input);
+        if (arguments[1] != -1)
+            Camera.main.GetComponent<CameraFollowScript>().cameraLookAhead = arguments[1];
+        PlayDialogue((int)arguments[0]);
+        
     }
 
     public void PlayDialogue(int input)
@@ -260,6 +268,7 @@ public class DialogueManager : MonoBehaviour
         //audio.Stop();
         blackTextBox.SetActive(false);
         whiteTextBox.SetActive(false);
+        otherTextBox.SetActive(false);
         //spritebox.SetActive(false);
         //whiteSpeaker.SetActive(false);
         //blackSpeaker.SetActive(false);
@@ -270,6 +279,7 @@ public class DialogueManager : MonoBehaviour
         else
         {
             SetPlayerMovement(true);
+            Camera.main.GetComponent<CameraFollowScript>().cameraLookAhead = defaultCameraSetting;
         }
         //else if(bufferedLines != -1)
         //{
