@@ -1,14 +1,13 @@
 fileFormatVersion: 2
-guid: fc3c4b2ef5b5e4c0f8750accc362ba7e
+guid: 637e5dc44badc694996c537bec050aec
 TextureImporter:
   fileIDToRecycleName:
-    21300000: holdArmB_idle
-    21300002: holdArmB_rise
-    21300004: holdArmB_fall
-    21300006: holdArmB_1
-    21300008: holdArmB_2
-    21300010: holdArmB_3 6
-    21300012: holdArmB_4 5
+    21300000: handHoldB_1 2
+    21300002: handHoldB_3 6
+    21300004: handHoldB_4 5
+    21300006: handHoldB_idle rise
+    21300008: handHoldB_fall
+    21300010: handHoldB_run
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -91,141 +90,121 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: holdArmB_idle
+      name: handHoldB_1 2
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 1234
-        height: 1290
+        width: 2162
+        height: 1946
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 95234c806df72a94d9f98d4c22d69e40
+      spriteID: 76e3f37007f8a794aa7a149eee5daa6f
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: holdArmB_rise
+      name: handHoldB_3 6
       rect:
         serializedVersion: 2
-        x: 1234
+        x: 2183
         y: 0
-        width: 1234
-        height: 1290
+        width: 2162
+        height: 1946
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4b68ca32764ca124f8f924ba23ffd7d6
+      spriteID: 42f3b343b303b754798130d45120d4b8
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: holdArmB_fall
+      name: handHoldB_4 5
       rect:
         serializedVersion: 2
-        x: 2468
+        x: 4324
         y: 0
-        width: 1234
-        height: 1290
+        width: 2162
+        height: 1946
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f5de1c468e2f2e146b8d5c561bdffb4a
+      spriteID: 9db46a5073f124243bcd79f75ab3d6be
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: holdArmB_1
+      name: handHoldB_idle rise
       rect:
         serializedVersion: 2
-        x: 3702
+        x: 6486
         y: 0
-        width: 1234
-        height: 1290
+        width: 2162
+        height: 1946
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8aae8dcf399840541b86489588fd5f50
+      spriteID: 6877fddbb9697ee40954b6eb3027a983
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: holdArmB_2
+      name: handHoldB_fall
       rect:
         serializedVersion: 2
-        x: 4936
+        x: 8648
         y: 0
-        width: 1234
-        height: 1290
+        width: 2162
+        height: 1946
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6ca747bb236eeca44b49f45d107067c8
+      spriteID: 7b9b9bd25face9545aa7e9b6019441c3
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: holdArmB_3 6
+      name: handHoldB_run
       rect:
         serializedVersion: 2
-        x: 6170
+        x: 10810
         y: 0
-        width: 1234
-        height: 1290
+        width: 2162
+        height: 1946
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d656c9c3b75531340b1684f4f495c575
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: holdArmB_4 5
-      rect:
-        serializedVersion: 2
-        x: 7404
-        y: 0
-        width: 1234
-        height: 1290
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 38c2c32f4cf862b4cabc78caa8c6f419
+      spriteID: 2a4afdd0b75cc314db034bdde57a36bf
       vertices: []
       indices: 
       edges: []
@@ -233,7 +212,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: f49bdae66214a421b8489b1b262ca795
+    spriteID: 24400797a82d8d84aa724e5f93a3d781
     vertices: []
     indices: 
     edges: []
