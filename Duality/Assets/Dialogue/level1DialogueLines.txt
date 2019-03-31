@@ -22,7 +22,7 @@
 {1}The gun is... fused somehow. Melted.[.5]22
 {1}That's probably for the best.[.5]23
 {2}Speak for yourself. It probably would have been useful.[.75]-1
-{2}Stairs down. Probably not where we want to be, huh?[.5]-1
+{1}Stairs down. Probably not where we want to be, huh?[.5]-1
 {2}Damn, the door here is sealed. Do you see a way out down there?[.75]26
 {1}No, the maintenance tunnel ends here. We'll have to look somewhere else.[.75]27
 {3}Excuse me, gentlemen. Perhaps I can assist you?[.5]28
