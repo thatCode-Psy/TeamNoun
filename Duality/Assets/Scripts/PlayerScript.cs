@@ -56,7 +56,7 @@ public class PlayerScript : MonoBehaviour {
     private bool interact;
     private bool kill;
 
-    private float holdAngle;
+    
 
     private Vector2 counterJumpForce;
 
@@ -66,6 +66,11 @@ public class PlayerScript : MonoBehaviour {
     private bool pickedUpGrabable;
 
 
+    //Not used for white character
+
+    private bool holdUp;
+    private Vector3 originalBoxPosition;
+    private Vector3 upBoxPosition;
     //bool waitframe;
     
     // Use this for initialization
@@ -77,7 +82,7 @@ public class PlayerScript : MonoBehaviour {
         canMove = true;
         inputManager = new InputManager(controllerNumber, controllerType);
         jumpForce = CalculateJump(rbody.gravityScale,jumpHeight);
-        holdAngle = 0;
+        holdUp = false;
         //this one will need more tooling to calculate better
         counterJumpForce = new Vector2(-1,0);
         print(color + " " + inputManager.ControllerNumber() + " " + inputManager.ControllerTypeName());
@@ -95,6 +100,10 @@ public class PlayerScript : MonoBehaviour {
         raycastHitPerFrame = 0;
         facingRight = true;
         pickedUpGrabable = false;
+        if(color == PlayerColor.BLACK){
+            originalBoxPosition = transform.GetChild(0).GetChild(0).localPosition;
+            upBoxPosition = new Vector3(0.02f, 0.62f, 0f);
+        }
         //waitframe = false;
 	}
 	
@@ -151,26 +160,11 @@ public class PlayerScript : MonoBehaviour {
             Quaternion yRot = Quaternion.Euler(0, -transform.GetChild(0).GetChild(0).GetComponentInChildren<UpdatedLightSourceScript>().baseAngle, 0);
             transform.GetChild(0).GetChild(0).rotation = xRot * yRot;
         }
-        else if(color == PlayerColor.BLACK && Input.GetKeyUp("w")){
-            Vector3 currentAngle = transform.GetChild(0).GetChild(0).localEulerAngles;
-            if(!facingRight){
-                
-                currentAngle.z -= 40;
-                
-                if(Mathf.Abs(currentAngle.z - 280) <= 0.001){
-                    currentAngle.z = 40;
-                }
-                
-            }
-            else{
-                currentAngle.z += 40;
-                if(Mathf.Abs(currentAngle.z - 80) <= 0.001){
-                    currentAngle.z = -40;
-                }
-            }
-
-            transform.GetChild(0).GetChild(0).localEulerAngles = currentAngle;
-        }
+        // else if(color == PlayerColor.BLACK && Input.GetKeyUp("w")){
+        //     holdUp = !holdUp;
+        //     transform.GetChild(0).GetChild(0).localEulerAngles = holdUp ? new Vector3(0, 0, 90f) : new Vector3(0,0,0);
+        //     transform.GetChild(0).GetChild(0).localPosition = holdUp ? upBoxPosition : originalBoxPosition;
+        // }
         if(color == PlayerColor.WHITE && Input.GetKeyUp("s")){
             if(!facingRight){
                 
@@ -190,26 +184,11 @@ public class PlayerScript : MonoBehaviour {
             Quaternion yRot = Quaternion.Euler(0, -transform.GetChild(0).GetChild(0).GetComponentInChildren<UpdatedLightSourceScript>().baseAngle, 0);
             transform.GetChild(0).GetChild(0).rotation = xRot * yRot;
         }
-        else if(color == PlayerColor.BLACK && Input.GetKeyUp("s")){
-            Vector3 currentAngle = transform.GetChild(0).GetChild(0).localEulerAngles;
-            if(!facingRight){
-                
-                currentAngle.z += 40;
-                
-                if(Mathf.Abs(currentAngle.z - 80) <= 0.001){
-                    currentAngle.z = -40;
-                }
-                
-            }
-            else{
-                currentAngle.z -= 40;
-                if(Mathf.Abs(currentAngle.z - 280) <= 0.001){
-                    currentAngle.z = 40;
-                }
-            }
-
-            transform.GetChild(0).GetChild(0).localEulerAngles = currentAngle;
-        }
+        // else if(color == PlayerColor.BLACK && Input.GetKeyUp("s")){
+        //     holdUp = !holdUp;
+        //     transform.GetChild(0).GetChild(0).localEulerAngles = holdUp ? new Vector3(0, 0, 90f) : new Vector3(0,0,0);
+        //     transform.GetChild(0).GetChild(0).localPosition = holdUp ? upBoxPosition : originalBoxPosition;
+        // }
         
         raycastHitPerFrame = 0;
     }
@@ -232,7 +211,7 @@ public class PlayerScript : MonoBehaviour {
         animCycle.leftMove = false;
         animCycle.rightMove = false;
         animCycle.grounded = grounded;
-        
+        animCycle.holdingUp = holdUp;
         Vector2 velocity = rbody.velocity;
         //TODO: question for later, do we want full air control or do we want left/right to take time?
         
@@ -283,7 +262,6 @@ public class PlayerScript : MonoBehaviour {
                 bool previouslyFacingLeft = transform.GetChild(0).localEulerAngles != Vector3.zero;
                 if(previouslyFacingLeft){
                     transform.GetChild(0).localEulerAngles = new Vector3(0,0,0);
-                    transform.GetChild(0).GetChild(0).localEulerAngles = - transform.GetChild(0).GetChild(0).localEulerAngles;
                 }
                 
             }
@@ -303,10 +281,9 @@ public class PlayerScript : MonoBehaviour {
                 }
             }
              else if(PlayerColor.BLACK == color){
-                bool previouslyFacingRight = transform.GetChild(0).localEulerAngles != new Vector3(0,0,180);
+                bool previouslyFacingRight = transform.GetChild(0).localEulerAngles != new Vector3(0,180,0);
                 if(previouslyFacingRight){
-                    transform.GetChild(0).localEulerAngles = new Vector3(0,0,180);
-                    transform.GetChild(0).GetChild(0).localEulerAngles = - transform.GetChild(0).GetChild(0).localEulerAngles;
+                    transform.GetChild(0).localEulerAngles = new Vector3(0,180,0);
                 }
                 
             }
@@ -400,6 +377,13 @@ public class PlayerScript : MonoBehaviour {
             Destroy(collider.gameObject);
             
         }
+        else if(collider.tag == "GrabableBox" && color == PlayerColor.BLACK){
+            transform.GetChild(0).gameObject.SetActive(true);
+            pickedUpGrabable = true;
+            animCycle.holdingItem = true;
+            Destroy(collider.gameObject);
+            
+        }
         
     }
 
@@ -423,7 +407,7 @@ public class PlayerScript : MonoBehaviour {
     }
 
     void Respawn(){
-        
+        print("player" + color + " died");
         transform.position = currentSpawn.transform.position;
         GetComponent<Rigidbody2D>().velocity = Vector2.zero;
     }
