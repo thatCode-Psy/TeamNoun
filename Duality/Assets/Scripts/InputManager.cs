@@ -68,9 +68,9 @@ public class InputManager {
         if (controllerType == ControllerType.Keyboard)
         {
             UpdateControllerValue(ControllerAxis.HorizontalMovement, Input.GetAxisRaw("Horizontal"));
-            UpdateControllerValue(ControllerAxis.VerticalMovement, Input.GetAxisRaw("Vertical"));
-            UpdateControllerValue(ControllerAxis.HorizontalLook, Input.GetAxisRaw("Mouse X"));
-            UpdateControllerValue(ControllerAxis.VerticalLook, Input.GetAxisRaw("Mouse Y"));
+            // UpdateControllerValue(ControllerAxis.VerticalMovement, Input.GetAxisRaw("Vertical"));
+            // UpdateControllerValue(ControllerAxis.HorizontalLook, Input.GetAxisRaw("Mouse X"));
+            // UpdateControllerValue(ControllerAxis.VerticalLook, Input.GetAxisRaw("Mouse Y"));
             UpdateControllerValue(ControllerAxis.Interact, Input.GetKey(KeyCode.LeftShift) ? 1 : 0);
             UpdateControllerValue(ControllerAxis.Jump, Input.GetKey(KeyCode.Space) ? 1 : 0);
             UpdateControllerValue(ControllerAxis.Back, Input.GetKey(KeyCode.Escape) ? 1 : 0);
@@ -80,9 +80,9 @@ public class InputManager {
         else if (controllerType == ControllerType.KeyboardTwo)
         {
             UpdateControllerValue(ControllerAxis.HorizontalMovement, Input.GetAxisRaw("HorizontalTwo"));
-            UpdateControllerValue(ControllerAxis.VerticalMovement, Input.GetAxisRaw("VerticalTwo"));
-            UpdateControllerValue(ControllerAxis.HorizontalLook, Input.GetAxisRaw("Mouse X"));
-            UpdateControllerValue(ControllerAxis.VerticalLook, Input.GetAxisRaw("Mouse Y"));
+            // UpdateControllerValue(ControllerAxis.VerticalMovement, Input.GetAxisRaw("VerticalTwo"));
+            // UpdateControllerValue(ControllerAxis.HorizontalLook, Input.GetAxisRaw("Mouse X"));
+            // UpdateControllerValue(ControllerAxis.VerticalLook, Input.GetAxisRaw("Mouse Y"));
             UpdateControllerValue(ControllerAxis.Interact, Input.GetKey(KeyCode.Z) ? 1 : 0);
             UpdateControllerValue(ControllerAxis.Jump, Input.GetKey(KeyCode.X) ? 1 : 0);
             UpdateControllerValue(ControllerAxis.Back, Input.GetKey(KeyCode.C) ? 1 : 0);
@@ -92,9 +92,9 @@ public class InputManager {
         else if (controllerType == ControllerType.Xbox)
         {
             UpdateControllerValue(ControllerAxis.HorizontalMovement, Input.GetAxis(controllerInputStrings[0]));
-            UpdateControllerValue(ControllerAxis.VerticalMovement, -Input.GetAxis(controllerInputStrings[1]));
-            UpdateControllerValue(ControllerAxis.HorizontalLook, Input.GetAxis(controllerInputStrings[2]));
-            UpdateControllerValue(ControllerAxis.VerticalLook, -Input.GetAxis(controllerInputStrings[3]));
+            // UpdateControllerValue(ControllerAxis.VerticalMovement, -Input.GetAxis(controllerInputStrings[1]));
+            // UpdateControllerValue(ControllerAxis.HorizontalLook, Input.GetAxis(controllerInputStrings[2]));
+            // UpdateControllerValue(ControllerAxis.VerticalLook, -Input.GetAxis(controllerInputStrings[3]));
             UpdateControllerValue(ControllerAxis.Interact, Input.GetKey(controllerInputStrings[4]) ? 1 : 0);
             UpdateControllerValue(ControllerAxis.Jump, Input.GetKey(controllerInputStrings[5]) ? 1 : 0);
             UpdateControllerValue(ControllerAxis.Back, Input.GetKey(controllerInputStrings[6]) ? 1 : 0);
@@ -218,6 +218,12 @@ public class InputManager {
                 return "Back";
             case ControllerAxis.Kill:
                 return "Kill";
+            case ControllerAxis.flashUp:
+                return "Flash Up";
+            case ControllerAxis.flashDown:
+                return "Flash Down";
+            case ControllerAxis.flashToggle:
+                return "Flash Toggle";
             default:
                 return "Not a valid axis oops";
         }
@@ -230,6 +236,6 @@ public class InputManager {
 
     public enum ControllerAxis
     {
-        HorizontalMovement, VerticalMovement, HorizontalLook, VerticalLook, Interact, Jump, Kill, Back, Pause
+        HorizontalMovement, VerticalMovement, HorizontalLook, VerticalLook, Interact, Jump, Kill, Back, Pause, flashUp, flashDown, flashToggle
     }
 }
