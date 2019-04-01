@@ -1,0 +1,48 @@
+{1}What... what was that?[.5]1
+{2}I have no idea, but it gave us a way out of here, so I'm taking it.[1]2
+{1}Do you know where here is?[.5]3
+{2}No, but I can guess it's probably not where I want to be.[.75]4
+{1}What's your name, by the way?[.5]5
+{2}Benny. You?[.5]6
+{1}Call me Benjamin.[.5]-1
+{1}This is the only way to go, I suppose.[.75]8
+{2}Yeah, and we're taking it.[.5]-1
+{2}Something is strange here, the light feels like a wall.[.75]10
+{2}You have that problem?[.5]11
+{1}No, I have the opposite problem. The shadows feel hard.[.75]12
+{2}We'll probably have to work together to get out then.[.5]-1
+{1}Whatever that explosion was, it knocked over this plant here.[.5]14
+{2}But not much other damage. Strange, huh?[.5]15
+{1}Almost as strange as having a plastic plant in a prison facility.[1]-1
+{1}There's a set of body armor up here. And a gun.[.75]17
+{2}A gun? Grab it, we might have to shoot our way out.[.5]18
+{1}What? No way, I don't want to shoot anyo-[.1]19
+{1}What on earth?[.5]20
+{2}What?[.25]21
+{1}The gun is... fused somehow. Melted.[.5]22
+{1}That's probably for the best.[.5]23
+{2}Speak for yourself. It probably would have been useful.[.75]-1
+{1}Stairs down. Probably not where we want to be, huh?[.5]-1
+{2}Damn, the door here is sealed. Do you see a way out down there?[.75]26
+{1}No, the maintenance tunnel ends here. We'll have to look somewhere else.[.75]27
+{3}Excuse me, gentlemen. Perhaps I can assist you?[.5]28
+{1}What? Who the hell are you?[.5]29
+{3}My name is Eric Layton. I'm the head of this facility. And you two would be.. ah yes.[.6]30
+{3}I was visiting with the warden when the incident ocurred, but he is...[.75]31
+{3}Indisposed at the moment.[.5]32
+{1}What was the incident?[.5]33
+{3}Apologies, you're rather quiet down there. What did you say?[.75]34
+{2}Benjamin asked what the "incident" was.[.5]35
+{3}I'm not sure, but it would appear something went wrong in the ritual chamber.[.8]36
+{3}From my understanding, the... thaum flux reached excessive levels. I think.[.75]37
+{1}That sounds like magic.[.5]38
+{3}Of course. Verlen Enterprises maintains a research branch for the understanding of such things.[.8]39
+{2}Whatever. You had no right to pull me out of that jail.[.5]40
+{2}Let me leave![.5]41
+{1}I would also like to get out of here. I'd rather serve my time in a real jail.[.75]42
+{3}While I appreciate the sentiment, gentleman, the facility has been put into automatic lockdown.[.9]43
+{3}I can't even lean this office.[.5]44
+{3}You'll need to go down to the ritual level's control terminal to release the lockdown.[.8]45
+{3}That will allow anyone trapped to evacuate, so I suppose it's in my authority to let you leave with them.[1]46
+{2}Damn right. Let's go, Benjamin.[.5]47
+{1}Yeah, let's roll.[.5]-1
