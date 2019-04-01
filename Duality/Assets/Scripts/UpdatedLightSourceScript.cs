@@ -87,19 +87,19 @@ public class UpdatedLightSourceScript : MonoBehaviour
             
             bool hitPlayer = false;
             
-                foreach(RaycastHit2D raycast in raycastData){
-                    if(raycast.collider.tag == "Player"){
+            foreach(RaycastHit2D raycast in raycastData){
+                if(raycast.collider.tag == "Player"){
                         
-                        if(i != 0 && i != amountOfRayCasts){
-                            PlayerScript script = raycast.collider.GetComponent<PlayerScript>();
-                            script.contactLight();
-                        }
-                        hitPlayer = true;
+                    if(i != 0 && i != amountOfRayCasts){
+                        PlayerScript script = raycast.collider.GetComponent<PlayerScript>();
+                        script.contactLight();
                     }
-                    else{
-                        break;
-                    }
+                    hitPlayer = true;
                 }
+                else{
+                    break;
+                }
+            }
             
             float distance = raycastData.Length > 0 ? raycastData[0].distance : raycastRange;
             if(hitPlayer){

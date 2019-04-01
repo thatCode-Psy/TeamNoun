@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2746125311802711405}
   - component: {fileID: 2836176828468616017}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: left_stair
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41,7 +41,7 @@ PolygonCollider2D:
   m_GameObject: {fileID: 1178322705240802864}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 5ff157e91ef0cb14ca3ca767db52ff7e, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -73,7 +73,7 @@ GameObject:
   - component: {fileID: 3974794577182249340}
   - component: {fileID: 4013902076945172606}
   - component: {fileID: 6820076027834560154}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: left_stair
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -11,6 +11,11 @@ TagManager:
   - LevelGenerator
   - Level
   - GrabableFlashLight
+  - Other_textbox
+  - PlayerBlack_textbox
+  - PlayerWhite_textbox
+  - pizzaBox
+  - GrabableBox
   layers:
   - Default
   - TransparentFX
