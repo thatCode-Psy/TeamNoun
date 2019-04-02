@@ -47,7 +47,7 @@ public class InputManager {
         // HorizontalMovement, VerticalMovement, HorizontalLook, VerticalLook, Interact, Jump, Back, Pause, Kill
         if (controllerType == ControllerType.Xbox)
         {
-            controllerInputStrings = new string[] { " axis 1", " axis 2", " axis 4", " axis 5", " button 2", " button 0", " button 6", " button 7", " button 3"};
+            controllerInputStrings = new string[] { " axis 1", " axis 2", " axis 4", " axis 5", " button 2", " button 0", " button 6", " button 7", " button 3", " button 5", " button 4", "button 1"};
             for (int i = 0; i < controllerInputStrings.Length; i++)
             {
                 controllerInputStrings[i] = "joystick " + controllerNumber + controllerInputStrings[i]; // so that the correct controller is used
@@ -55,7 +55,7 @@ public class InputManager {
         }
         else if (controllerType == ControllerType.Dualshock4)
         {
-            controllerInputStrings = new string[] { " axis 1", " axis 2", " axis 3", " axis 6", " button 0", " button 1", " button 8", " button 9" , " button 3"};
+            controllerInputStrings = new string[] { " axis 1", " axis 2", " axis 3", " axis 6", " button 0", " button 1", " button 8", " button 9" , " button 3", "button 5", "button 4", "button 2"};
             for (int i = 0; i < controllerInputStrings.Length; i++)
             {
                 controllerInputStrings[i] = "joystick " + controllerNumber + controllerInputStrings[i]; // so that the correct controller is used
@@ -68,7 +68,7 @@ public class InputManager {
         if (controllerType == ControllerType.Keyboard)
         {
             UpdateControllerValue(ControllerAxis.HorizontalMovement, Input.GetAxisRaw("Horizontal"));
-            // UpdateControllerValue(ControllerAxis.VerticalMovement, Input.GetAxisRaw("Vertical"));
+            UpdateControllerValue(ControllerAxis.VerticalMovement, Input.GetAxisRaw("Vertical"));
             // UpdateControllerValue(ControllerAxis.HorizontalLook, Input.GetAxisRaw("Mouse X"));
             // UpdateControllerValue(ControllerAxis.VerticalLook, Input.GetAxisRaw("Mouse Y"));
             UpdateControllerValue(ControllerAxis.Interact, Input.GetKey(KeyCode.LeftShift) ? 1 : 0);
@@ -76,11 +76,14 @@ public class InputManager {
             UpdateControllerValue(ControllerAxis.Back, Input.GetKey(KeyCode.Escape) ? 1 : 0);
             UpdateControllerValue(ControllerAxis.Pause, Input.GetKey(KeyCode.P) ? 1 : 0);
             UpdateControllerValue(ControllerAxis.Kill, Input.GetKey(KeyCode.K) ? 1 : 0);
+            UpdateControllerValue(ControllerAxis.flashUp, Input.GetKey(KeyCode.W) ? 1 : 0);
+            UpdateControllerValue(ControllerAxis.flashDown, Input.GetKey(KeyCode.S) ? 1 : 0);
+            UpdateControllerValue(ControllerAxis.flashToggle, Input.GetKey(KeyCode.F) ? 1 : 0);
         }
         else if (controllerType == ControllerType.KeyboardTwo)
         {
             UpdateControllerValue(ControllerAxis.HorizontalMovement, Input.GetAxisRaw("HorizontalTwo"));
-            // UpdateControllerValue(ControllerAxis.VerticalMovement, Input.GetAxisRaw("VerticalTwo"));
+            UpdateControllerValue(ControllerAxis.VerticalMovement, Input.GetAxisRaw("VerticalTwo"));
             // UpdateControllerValue(ControllerAxis.HorizontalLook, Input.GetAxisRaw("Mouse X"));
             // UpdateControllerValue(ControllerAxis.VerticalLook, Input.GetAxisRaw("Mouse Y"));
             UpdateControllerValue(ControllerAxis.Interact, Input.GetKey(KeyCode.Z) ? 1 : 0);
@@ -88,11 +91,14 @@ public class InputManager {
             UpdateControllerValue(ControllerAxis.Back, Input.GetKey(KeyCode.C) ? 1 : 0);
             UpdateControllerValue(ControllerAxis.Pause, Input.GetKey(KeyCode.V) ? 1 : 0);
             UpdateControllerValue(ControllerAxis.Kill, Input.GetKey(KeyCode.B) ? 1 : 0);
+            UpdateControllerValue(ControllerAxis.flashUp, Input.GetKey(KeyCode.UpArrow) ? 1 : 0);
+            UpdateControllerValue(ControllerAxis.flashDown, Input.GetKey(KeyCode.DownArrow) ? 1 : 0);
+            UpdateControllerValue(ControllerAxis.flashToggle, Input.GetKey(KeyCode.RightShift) ? 1 : 0);
         }
         else if (controllerType == ControllerType.Xbox)
         {
             UpdateControllerValue(ControllerAxis.HorizontalMovement, Input.GetAxis(controllerInputStrings[0]));
-            // UpdateControllerValue(ControllerAxis.VerticalMovement, -Input.GetAxis(controllerInputStrings[1]));
+            UpdateControllerValue(ControllerAxis.VerticalMovement, -Input.GetAxis(controllerInputStrings[1]));
             // UpdateControllerValue(ControllerAxis.HorizontalLook, Input.GetAxis(controllerInputStrings[2]));
             // UpdateControllerValue(ControllerAxis.VerticalLook, -Input.GetAxis(controllerInputStrings[3]));
             UpdateControllerValue(ControllerAxis.Interact, Input.GetKey(controllerInputStrings[4]) ? 1 : 0);
@@ -100,19 +106,26 @@ public class InputManager {
             UpdateControllerValue(ControllerAxis.Back, Input.GetKey(controllerInputStrings[6]) ? 1 : 0);
             UpdateControllerValue(ControllerAxis.Pause, Input.GetKey(controllerInputStrings[7]) ? 1 : 0);
             UpdateControllerValue(ControllerAxis.Kill, Input.GetKey(controllerInputStrings[8]) ? 1 : 0);
+            UpdateControllerValue(ControllerAxis.flashUp, Input.GetKey(controllerInputStrings[9]) ? 1 : 0);
+            UpdateControllerValue(ControllerAxis.flashDown, Input.GetKey(controllerInputStrings[10]) ? 1 : 0);
+            UpdateControllerValue(ControllerAxis.flashToggle, Input.GetKey(controllerInputStrings[11]) ? 1 : 0);
+
         }
         else if (controllerType == ControllerType.Dualshock4)
         {
             Debug.Log(Input.GetAxisRaw(controllerInputStrings[4]));
             UpdateControllerValue(ControllerAxis.HorizontalMovement, Input.GetAxisRaw(controllerInputStrings[0]));
             UpdateControllerValue(ControllerAxis.VerticalMovement, -Input.GetAxisRaw(controllerInputStrings[1])); // inverted this so that it's correct
-            UpdateControllerValue(ControllerAxis.HorizontalLook, Input.GetAxisRaw(controllerInputStrings[2]));
-            UpdateControllerValue(ControllerAxis.VerticalLook, -Input.GetAxisRaw(controllerInputStrings[3])); // inverted this so that it's "not inverted"
+            // UpdateControllerValue(ControllerAxis.HorizontalLook, Input.GetAxisRaw(controllerInputStrings[2]));
+            // UpdateControllerValue(ControllerAxis.VerticalLook, -Input.GetAxisRaw(controllerInputStrings[3])); // inverted this so that it's "not inverted"
             UpdateControllerValue(ControllerAxis.Interact, Input.GetKey(controllerInputStrings[4]) ? 1 : 0); 
             UpdateControllerValue(ControllerAxis.Jump, Input.GetKey(controllerInputStrings[5]) ? 1 : 0);
             UpdateControllerValue(ControllerAxis.Back, Input.GetKey(controllerInputStrings[6]) ? 1 : 0);
             UpdateControllerValue(ControllerAxis.Pause, Input.GetKey(controllerInputStrings[7]) ? 1 : 0);
             UpdateControllerValue(ControllerAxis.Kill, Input.GetKey(controllerInputStrings[8]) ? 1 : 0);
+            UpdateControllerValue(ControllerAxis.flashUp, Input.GetKey(controllerInputStrings[9]) ? 1 : 0);
+            UpdateControllerValue(ControllerAxis.flashDown, Input.GetKey(controllerInputStrings[10]) ? 1 : 0);
+            UpdateControllerValue(ControllerAxis.flashToggle, Input.GetKey(controllerInputStrings[11]) ? 1 : 0);
         }
     }
 
@@ -234,6 +247,7 @@ public class InputManager {
         Keyboard, Xbox, Dualshock4, KeyboardTwo
     }
 
+// "look" axis not used
     public enum ControllerAxis
     {
         HorizontalMovement, VerticalMovement, HorizontalLook, VerticalLook, Interact, Jump, Kill, Back, Pause, flashUp, flashDown, flashToggle
