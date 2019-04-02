@@ -25,6 +25,10 @@ public class UpdatedLightSourceScript : MonoBehaviour
 
     Light spotLight;
     static GameObject lightParent;
+
+    private GameObject[] players;
+
+    private float MAX_RANGE;
 	// Use this for initialization
 	protected void Start () {
         if(lightParent == null){
@@ -51,12 +55,14 @@ public class UpdatedLightSourceScript : MonoBehaviour
         raycastRange = spotLight.range;
         
         isOn = spotLight.enabled;
+        players = GameObject.FindGameObjectsWithTag("Player");
+        MAX_RANGE = raycastRange * 2f;
 	}
 	
 	// Update is called once per frame
 	protected void Update () {
         spotLight.enabled = isOn;
-        if (isOn) {
+        if (isOn && playersInRange()) {
             startAngle = 180f - spotLight.spotAngle/2 + baseAngle;
             endAngle = startAngle + spotLight.spotAngle;
             startAngle += startAngleOffset;
@@ -122,7 +128,14 @@ public class UpdatedLightSourceScript : MonoBehaviour
     }
 
 
-
+    private bool playersInRange(){
+        for(int i = 0; i < players.Length; ++i){
+            if(Vector3.Distance(players[i].transform.position, transform.position) < MAX_RANGE){
+                return true;
+            }
+        }
+        return false;
+    }
     private Vector2[] convertVector3ArrayToVector2Array(Vector3[] input){
         Vector2[] output = new Vector2[input.Length + 1];
         for(int i = 0; i < input.Length; i++){
