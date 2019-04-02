@@ -21,10 +21,10 @@
 {3}Hello? Is someone out there?[.75]21
 {2}Another person, great. Let me guess, you're trapped in there?[.6]22
 {3}Yes, it turns out the karmic imbalance from having too many subjects[.2]23
-{3}created a thaumic vacuum that, when it was forced back into equilibirum,[.2]
+{3}created a thaumic vacuum that, when it was forced back into equilibirum,[.2]24
 {3}irradiated the facility with nearly 14 megathaumiels of magic flux and triggered lockdown.[.5]25
 {1}...What?[.4]26
-{2}Yeah, what was all that?[]27
+{2}Yeah, what was all that?[.5]27
 {3}My apologies, perhaps that was too deep-wait.[.5]28
 {3}You aren't staff members, you're subjects![.5]29
 {2}Yeah, unfortunately for us. Who are you anyway?[.5]30
@@ -34,7 +34,7 @@
 {3}The goal was to create a "vaccine for the soul" against those things.[.75]34
 {2}...What.[.5]35
 {3}To do it, we used a ritual to separate prisoners into "yin" and "yang" halves.[.75]36
-{3}I assume you didn't realize you're a mass of plus spin magic energy contained in a minus spin membrange?[.75]37
+{3}I assume you didn't realize you're a mass of plus spin magic energy contained in a minus spin membrane?[.75]37
 {3}And the other you is the opposite?[.5]38
 {1}What on... holy crap![.5]39
 {2}Holy shit what the fuck?[.5]40
@@ -59,3 +59,6 @@
 {2}Good enough. Let's go.[.5]-1
 {2}Hey, there's a flashlight down here. I'm grabbing it.[.5]60
 {1}A portable light source sounds good to me.[.5]-1
+{1}There's a... pizza box here.[.5]62
+{2}I guess someone had to leave in a hurry, huh?[.5]63
+{1}Well, I'll grab it. Maybe I can block light with it.[.6]-1
