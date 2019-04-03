@@ -1,0 +1,9 @@
+{1}So we're technically the same person, huh?[.5]1
+{2}I can see it. We do have nearly the same name.[.5]2
+{1}Nickname versus real name I guess.[.5]3
+{1}Think there was any merit in what that lady said? With the yin and yang side thing?[.7]4
+{2}Well, we do seem pretty different. That might be it.[.]5
+{2}But honestly, who cares? I'm sure we'll have stuff to talk about on the outside,[.75]6
+{2}But for now we gotta move.[.5]7
+{1}Looks like we gotta split up here. I'll see you at the top?[.6]8
+{2}See you at the top.[.5]-1
