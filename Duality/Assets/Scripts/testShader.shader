@@ -45,7 +45,7 @@
             o.Albedo = c.rgb;
             if (o.Albedo.r > 0.8)
             {
-                o.Albedo.r = abs(_CosTime.z);
+                o.Albedo.r = abs(2.0 * cos(_Time.z));
             }
             // Metallic and smoothness come from slider variables
             o.Metallic = _Metallic;
