@@ -8,6 +8,8 @@ public class EndLevelTriggerScript : MonoBehaviour
 
     static List<EndLevelTriggerScript> endLevelTriggers = new List<EndLevelTriggerScript>();
 
+    public string nextLevel = "DemoVictory";
+
     bool triggering;
     // Start is called before the first frame update
     void Start()
@@ -41,7 +43,7 @@ public class EndLevelTriggerScript : MonoBehaviour
                 return;
             }
         }
-        SceneManager.LoadScene("DemoVictory");
+        SceneManager.LoadScene(nextLevel);
     }
 
 }

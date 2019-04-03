@@ -1,22 +1,29 @@
 fileFormatVersion: 2
-guid: 6cad9eb21f7674471a75b6558721c546
+guid: befca53872342404dac40aa6f8e9cc6b
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
-    100000: pCube1
+    100000: chair
     100002: //RootNode
-    400000: pCube1
+    100004: table
+    100006: walls
+    400000: chair
     400002: //RootNode
-    2100000: initialShadingGroup
-    2300000: pCube1
-    3300000: pCube1
-    4300000: pCube1
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: initialShadingGroup
-    second: {fileID: 2100000, guid: 668f5cbcdc59e414c8b45cac8c088899, type: 2}
+    400004: table
+    400006: walls
+    2100000: jailcell_lambert7SG
+    2100002: jailcell_lambert5SG
+    2100004: initialShadingGroup
+    2300000: chair
+    2300002: table
+    2300004: walls
+    3300000: chair
+    3300002: table
+    3300004: walls
+    4300000: chair
+    4300002: table
+    4300004: walls
+  externalObjects: {}
   materials:
     importMaterials: 1
     materialName: 0

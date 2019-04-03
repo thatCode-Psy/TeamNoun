@@ -96,6 +96,7 @@ public class DialogueManager : MonoBehaviour
         {
             x.GetComponent<PlayerScript>().canMove = canMove;
             x.GetComponent<Rigidbody2D>().velocity = new Vector3(0f,0f,0f);
+            x.GetComponent<Rigidbody2D>().gravityScale = canMove ? 2.5f : 0f;
             x.GetComponent<AnimCycle>().leftMove = false;
             x.GetComponent<AnimCycle>().rightMove = false;
         }
@@ -105,7 +106,9 @@ public class DialogueManager : MonoBehaviour
     {
         SetPlayerMovement(false);
         if (arguments[1] != -1)
+        {
             //Camera.main.GetComponent<CameraFollowScript>().cameraLookAhead = arguments[1];
+        }
         PlayDialogue((int)arguments[0]);
         
     }
