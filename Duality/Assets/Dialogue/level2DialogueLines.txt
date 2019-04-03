@@ -46,7 +46,7 @@
 {1}Well... is there a way you can make us... be a normal person again?[.6]46
 {3}Er.[.5]47
 {3}Well, no.[.5]48
-{2}You motherfuckers.[.4]48
+{2}You motherfuckers.[.4]49
 {3}Wait, wait! In theory, if you can find can find a place of sufficient thaumic pressure-[.2]50
 {1}In layman's terms, please.[.5]51
 {3}Ok... if you can find a sufficiently magical place and be close enough together,[.4]52
