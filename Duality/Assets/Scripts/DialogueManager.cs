@@ -106,7 +106,9 @@ public class DialogueManager : MonoBehaviour
     {
         SetPlayerMovement(false);
         if (arguments[1] != -1)
+        {
             //Camera.main.GetComponent<CameraFollowScript>().cameraLookAhead = arguments[1];
+        }
         PlayDialogue((int)arguments[0]);
         
     }

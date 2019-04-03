@@ -1,0 +1,20 @@
+{1}So we're technically the same person, huh?[.5]1
+{2}I can see it. We do have nearly the same name.[.5]2
+{1}Nickname versus real name I guess.[.5]3
+{1}Think there was any merit in what that lady said? With the yin and yang side thing?[.7]4
+{2}Well, we do seem pretty different. That might be it.[.5]5
+{2}But honestly, who cares? I'm sure we'll have stuff to talk about on the outside,[.75]6
+{2}But for now we gotta move. That chick said we only had a few minutes, right?[.5]7
+{1}Yeah, those alarms don't look good.[.5]8
+{1}Looks like we gotta split up here. I'll see you at the top?[.6]9
+{2}See you at the top.[.5]-1
+{2}Glad to see you made it.[.5]11
+{1}Sorry, that explosion did a number on this place.[.7]12
+{1}Sure made it weird, but I'm glad there was a up.[.5]13
+{2}Well I see the way out ahead. Lets leave this shitty place.[.5]14
+{1}Yeah.[.3]15
+{1}Do you think we have a chance to fix ourselves? Be one person again?[.6]16
+{2}Never know until we try, right? We have a lead, we'll figure it out.[.75]17
+{1}Maybe without breaking the law this time.[.5]18
+{2}Hey, we did what we needed to, and we'll keep doing it. Right?[.5]19
+{1}Fair enough! Let's roll.[.5]-1
