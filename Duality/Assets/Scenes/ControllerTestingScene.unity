@@ -846,7 +846,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78ff6ab627f5952458936f6ae0908e73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  controllerType: 1
+  controllerType: 3
   controllerNumber: 1
   scrollbarPrefab: {fileID: 1967956832068400, guid: fa24e3c8aa339da4290651d76280ac64,
     type: 3}

@@ -134,20 +134,24 @@ public class PlayerScript : MonoBehaviour {
         flashToggle = inputManager.GetAxisDown(InputManager.ControllerAxis.flashToggle);
 
         grounded = isGrounded();
-        if(jumpPressed) {
-            jumpHeld = true;
-            if(grounded) {
-                isJumping = true;
-                rbody.AddForce(Vector2.up * jumpForce * rbody.mass, ForceMode2D.Impulse);
-            }
-        }
-        else if (jumpReleased) {
-            jumpHeld = false;
-        }
+        //jump stuff
+        if(canMove) {
+            if(jumpPressed) {
+                    jumpHeld = true;
+                    if(grounded) {
+                        isJumping = true;
+                        rbody.AddForce(Vector2.up * jumpForce * rbody.mass, ForceMode2D.Impulse);
+                    }
+                }
+                else if (jumpReleased) {
+                    jumpHeld = false;
+                }
 
-        if(!jumpHeld && grounded) {
-            isJumping = false;
+                if(!jumpHeld && grounded) {
+                    isJumping = false;
+                }
         }
+        
 
         if(color == PlayerColor.WHITE && flashUp){
             if(!facingRight){
