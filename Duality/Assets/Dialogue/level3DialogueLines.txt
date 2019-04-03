@@ -7,3 +7,13 @@
 {2}But for now we gotta move.[.5]7
 {1}Looks like we gotta split up here. I'll see you at the top?[.6]8
 {2}See you at the top.[.5]-1
+{2}Glad to see you made it.[.5]10
+{1}Sorry, that explosion did a number on this place.[.7]11
+{1}Sure made it weird, but I'm glad there was a up.[.5]12
+{2}Well I see the way out ahead. Lets leave this shitty place.[.5]13
+{1}Yeah.[.3]14
+{1}Do you think we have a chance to fix ourselves? Be one person again?[.6]15
+{2}Never know until we try, right? We have a lead, we'll figure it out.[.75]16
+{1}Maybe without breaking the law this time.[.5]17
+{2}Hey, we did what we needed to, and we'll keep doing it. Right?[.5]18
+{1}Fair enough! Let's roll.[.5]-1
