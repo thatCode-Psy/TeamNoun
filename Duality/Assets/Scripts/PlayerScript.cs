@@ -41,7 +41,7 @@ public class PlayerScript : MonoBehaviour {
     private int controllerNumber;
     InputManager inputManager;
 
-    AnimCycle animCycle;
+    public AnimCycle animCycle;
     //end input manager stuff
     public bool canMove;
     int raycastHitPerFrame;
@@ -66,7 +66,7 @@ public class PlayerScript : MonoBehaviour {
     private bool facingRight;
 
 
-    public bool pickedUpGrabable;
+    public bool pickedUpGrabable = false;
 
 
     //Not used for white character
@@ -102,7 +102,9 @@ public class PlayerScript : MonoBehaviour {
         }
         raycastHitPerFrame = 0;
         facingRight = true;
-        pickedUpGrabable = false;
+        if(pickedUpGrabable){
+            animCycle.holdingItem = true;
+        }
         if(color == PlayerColor.BLACK){
             originalBoxPosition = transform.GetChild(0).GetChild(0).localPosition;
             upBoxPosition = new Vector3(0.02f, 0.62f, 0f);
