@@ -87,7 +87,7 @@ public class InputManager {
             // UpdateControllerValue(ControllerAxis.HorizontalLook, Input.GetAxisRaw("Mouse X"));
             // UpdateControllerValue(ControllerAxis.VerticalLook, Input.GetAxisRaw("Mouse Y"));
             UpdateControllerValue(ControllerAxis.Interact, Input.GetKey(KeyCode.Slash) ? 1 : 0);
-            UpdateControllerValue(ControllerAxis.Jump, Input.GetKey(KeyCode.LeftControl) ? 1 : 0);
+            UpdateControllerValue(ControllerAxis.Jump, Input.GetKey(KeyCode.RightControl) ? 1 : 0);
             UpdateControllerValue(ControllerAxis.Back, Input.GetKey(KeyCode.C) ? 1 : 0);
             UpdateControllerValue(ControllerAxis.Pause, Input.GetKey(KeyCode.P) ? 1 : 0);
             UpdateControllerValue(ControllerAxis.Kill, Input.GetKey(KeyCode.Quote) ? 1 : 0);

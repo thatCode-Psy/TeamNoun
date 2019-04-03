@@ -20,10 +20,12 @@ public class SpawnPointScript : MonoBehaviour
             GameObject player = Instantiate(playerPrefab);
             player.transform.position = transform.position;
             PlayerScript script = player.GetComponent<PlayerScript>();
+            
             script.setCurrentSpawn(gameObject);
             if(startingWithItem){
                 player.transform.GetChild(0).gameObject.SetActive(true);
                 script.pickedUpGrabable = true;
+                
             }
         }
     }
