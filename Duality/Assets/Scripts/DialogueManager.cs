@@ -8,8 +8,9 @@ using UnityEngine.UI;
 public class DialogueManager : MonoBehaviour
 {
 
-    public string dialogueFileLocation;
+    // public string dialogueFileLocation;
 
+    public TextAsset dialogueFile;
     public ArrayList dialogueLines;
 
     //This stuff is now deprecated
@@ -35,11 +36,12 @@ public class DialogueManager : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        FileInfo file = new FileInfo(dialogueFileLocation);
-        StreamReader reader = file.OpenText();
+        // FileInfo file = new FileInfo(dialogueFileLocation);
+        // StreamReader reader = file.OpenText();
         //Create an array of Strings based on an input file, where the first line is the number of dialogue lines (DEPRECATED AGAIN)
         //string line = reader.ReadLine();
-        dialogueLines = new ArrayList();
+        string[] fileLines = dialogueFile.text.Split(new char[]{'\n'});
+        dialogueLines = new ArrayList(fileLines);
         audio = GetComponent<AudioSource>();
         blackText = Resources.Load("blackText") as AudioClip;
         whiteText = Resources.Load("whiteText") as AudioClip;
@@ -48,15 +50,15 @@ public class DialogueManager : MonoBehaviour
         //1 is black
         //2 is white
         //3 is other
-        string line;
-        while (!reader.EndOfStream)
-        {
-            line = reader.ReadLine();
-            if (!line.Equals(""))
-            {
-                dialogueLines.Add(line);
-            }
-        }
+        // string line;
+        // while (!reader.EndOfStream)
+        // {
+        //     line = reader.ReadLine();
+        //     if (!line.Equals(""))
+        //     {
+        //         dialogueLines.Add(line);
+        //     }
+        // }
 
         //textbox.SetActive(false);
         //spritebox.SetActive(false);

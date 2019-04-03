@@ -6203,6 +6203,11 @@ PrefabInstance:
       propertyPath: dialogueFileLocation
       value: Assets/Dialogue/level3DialogueLines.txt
       objectReference: {fileID: 0}
+    - target: {fileID: 8720605854782856964, guid: 7f16e187929361e4dbe2aac075f7c12e,
+        type: 3}
+      propertyPath: dialogueFile
+      value: 
+      objectReference: {fileID: 4900000, guid: e9c9c48342cde8240b95eb6ae4f6ce74, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7f16e187929361e4dbe2aac075f7c12e, type: 3}
 --- !u!82 &109817937 stripped
@@ -93256,6 +93261,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1732081379}
     m_Modifications:
+    - target: {fileID: 8978339329366703260, guid: 236ca1f7b14a5d843a38113fc96c0daf,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6979833441762574570, guid: 236ca1f7b14a5d843a38113fc96c0daf,
         type: 3}
       propertyPath: m_Name
@@ -93340,11 +93350,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Enabled
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8978339329366703260, guid: 236ca1f7b14a5d843a38113fc96c0daf,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 236ca1f7b14a5d843a38113fc96c0daf, type: 3}
@@ -101135,15 +101140,15 @@ PrefabInstance:
       propertyPath: m_SpotAngle
       value: 79
       objectReference: {fileID: 0}
-    - target: {fileID: 8978339329366703263, guid: 236ca1f7b14a5d843a38113fc96c0daf,
-        type: 3}
-      propertyPath: amountOfRayCasts
-      value: 100
-      objectReference: {fileID: 0}
     - target: {fileID: 8978339329366703262, guid: 236ca1f7b14a5d843a38113fc96c0daf,
         type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.54
+      objectReference: {fileID: 0}
+    - target: {fileID: 8978339329366703263, guid: 236ca1f7b14a5d843a38113fc96c0daf,
+        type: 3}
+      propertyPath: amountOfRayCasts
+      value: 100
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 236ca1f7b14a5d843a38113fc96c0daf, type: 3}
