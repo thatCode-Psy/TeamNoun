@@ -47,7 +47,7 @@ public class InputManager {
         // HorizontalMovement, VerticalMovement, HorizontalLook, VerticalLook, Interact, Jump, Back, Pause, Kill
         if (controllerType == ControllerType.Xbox)
         {
-            controllerInputStrings = new string[] { " axis 1", " axis 2", " axis 4", " axis 5", " button 2", " button 0", " button 6", " button 7", " button 3", " button 5", " button 4", "button 1"};
+            controllerInputStrings = new string[] { " axis 1", " axis 2", " axis 4", " axis 5", " button 2", " button 0", " button 6", " button 7", " button 3", " button 5", " button 4", " button 1"};
             for (int i = 0; i < controllerInputStrings.Length; i++)
             {
                 controllerInputStrings[i] = "joystick " + controllerNumber + controllerInputStrings[i]; // so that the correct controller is used
@@ -55,7 +55,7 @@ public class InputManager {
         }
         else if (controllerType == ControllerType.Dualshock4)
         {
-            controllerInputStrings = new string[] { " axis 1", " axis 2", " axis 3", " axis 6", " button 0", " button 1", " button 8", " button 9" , " button 3", "button 5", "button 4", "button 2"};
+            controllerInputStrings = new string[] { " axis 1", " axis 2", " axis 3", " axis 6", " button 0", " button 1", " button 8", " button 9" , " button 3", " button 5", " button 4", " button 2"};
             for (int i = 0; i < controllerInputStrings.Length; i++)
             {
                 controllerInputStrings[i] = "joystick " + controllerNumber + controllerInputStrings[i]; // so that the correct controller is used
