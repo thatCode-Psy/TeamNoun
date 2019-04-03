@@ -26,7 +26,7 @@ public class AnimCycle : MonoBehaviour
     
     bool isRight = true;
 
-    public bool holdingItem;
+    public bool holdingItem = false;
 
     public bool rightMove;
 
@@ -42,7 +42,7 @@ public class AnimCycle : MonoBehaviour
     void Start()
     {
         fCap = frames.Length - 1;
-        holdingItem = false;
+        
         heldItemMoved = false;
         originalChildPosition = transform.GetChild(0).localPosition;
         grounded = true;
