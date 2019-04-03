@@ -244,7 +244,7 @@ public class InputManager {
 
     public enum ControllerType
     {
-        Keyboard, Xbox, Dualshock4, KeyboardTwo
+        Keyboard, KeyboardTwo, Xbox, Dualshock4
     }
 
 // "look" axis not used
