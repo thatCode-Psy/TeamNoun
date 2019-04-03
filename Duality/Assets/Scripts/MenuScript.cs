@@ -7,10 +7,10 @@ using UnityEngine.UI;
 public class MenuScript : MonoBehaviour {
     private int p1ControllerNumber = 1;
     private int p1ControllerType = (int)InputManager.ControllerType.Xbox; // keyboard
-    private string p1ControllerName = "XBox Controller";
+    private string p1ControllerName = "Keyboard";
     private int p2ControllerNumber = 1;
     private int p2ControllerType = (int)InputManager.ControllerType.Keyboard; // Xbox
-    private string p2ControllerName = "Keyboard";
+    private string p2ControllerName = "Keyboard Two";
 
 
     public Text p1NameText;
@@ -79,13 +79,13 @@ public class MenuScript : MonoBehaviour {
         {
             case 1:
                 p1ControllerType += 1;
-                p1ControllerType %= 3;
+                p1ControllerType %= 4;
                 GameSettings.instance.p1InputManager.InitializeInputManager(p1ControllerNumber, (InputManager.ControllerType)p1ControllerType);
                 p1ControllerName = GameSettings.instance.p1InputManager.ControllerTypeName();
                 break;
             case 2:
                 p2ControllerType += 1;
-                p2ControllerType %= 3;
+                p2ControllerType %= 4;
                 GameSettings.instance.p2InputManager.InitializeInputManager(p2ControllerNumber, (InputManager.ControllerType)p2ControllerType);
                 p2ControllerName = GameSettings.instance.p2InputManager.ControllerTypeName();
                 break;
