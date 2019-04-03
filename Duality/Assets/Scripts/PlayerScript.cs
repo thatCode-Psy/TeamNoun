@@ -59,9 +59,7 @@ public class PlayerScript : MonoBehaviour {
     private bool flashDown;
     private bool flashToggle;
 
-    
-
-    private Vector2 counterJumpForce;
+        private Vector2 counterJumpForce;
 
     private bool facingRight;
 
@@ -88,16 +86,18 @@ public class PlayerScript : MonoBehaviour {
         holdUp = false;
         //this one will need more tooling to calculate better
         counterJumpForce = new Vector2(-1,0);
-        print(color + " " + inputManager.ControllerNumber() + " " + inputManager.ControllerTypeName());
         if (GameSettings.instance != null)
         {
-            print("game settings null");
+            print("game settings active");
+            print(playerNum);
             if (playerNum == 1)
             {
                 inputManager = GameSettings.instance.p1InputManager;
+                print(color + " " + inputManager.ControllerNumber() + " " + inputManager.ControllerTypeName());
             } else
             {
                 inputManager = GameSettings.instance.p2InputManager;
+                print(color + " " + inputManager.ControllerNumber() + " " + inputManager.ControllerTypeName());
             }
         }
         raycastHitPerFrame = 0;
