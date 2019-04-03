@@ -46,15 +46,18 @@ public class PlayerScript : MonoBehaviour {
     public bool canMove;
     int raycastHitPerFrame;
 
+    //control vars
     private float jumpForce;
     private float moveHorizontal;
-    private float moveVertical;
     private bool jumpPressed;
     private bool jumpReleased;
     private bool jumpHeld;
     private bool isJumping;
     private bool interact;
     private bool kill;
+    private bool flashUp;
+    private bool flashDown;
+    private bool flashToggle;
 
     
 
@@ -120,11 +123,14 @@ public class PlayerScript : MonoBehaviour {
         }
 
         moveHorizontal = inputManager.GetAxis(InputManager.ControllerAxis.HorizontalMovement);
-        moveVertical = inputManager.GetAxis(InputManager.ControllerAxis.VerticalMovement);
         jumpPressed = inputManager.GetAxisDown(InputManager.ControllerAxis.Jump);
         jumpReleased = inputManager.GetAxisUp(InputManager.ControllerAxis.Jump);
         interact = inputManager.GetAxisDown(InputManager.ControllerAxis.Interact);
         kill = inputManager.GetAxisDown(InputManager.ControllerAxis.Kill);
+        flashUp = inputManager.GetAxisDown(InputManager.ControllerAxis.flashUp);
+        flashDown = inputManager.GetAxisDown(InputManager.ControllerAxis.flashDown);
+        flashToggle = inputManager.GetAxisDown(InputManager.ControllerAxis.flashToggle);
+
         grounded = isGrounded();
         if(jumpPressed) {
             jumpHeld = true;
@@ -141,7 +147,7 @@ public class PlayerScript : MonoBehaviour {
             isJumping = false;
         }
 
-        if(color == PlayerColor.WHITE && Input.GetKeyUp("w")){
+        if(color == PlayerColor.WHITE && flashUp){
             if(!facingRight){
                 
                 transform.GetChild(0).GetChild(0).GetComponentInChildren<UpdatedLightSourceScript>().baseAngle += 40;
@@ -165,7 +171,7 @@ public class PlayerScript : MonoBehaviour {
         //     transform.GetChild(0).GetChild(0).localEulerAngles = holdUp ? new Vector3(0, 0, 90f) : new Vector3(0,0,0);
         //     transform.GetChild(0).GetChild(0).localPosition = holdUp ? upBoxPosition : originalBoxPosition;
         // }
-        if(color == PlayerColor.WHITE && Input.GetKeyUp("s")){
+        if(color == PlayerColor.WHITE && flashDown){
             if(!facingRight){
                 
                 transform.GetChild(0).GetChild(0).GetComponentInChildren<UpdatedLightSourceScript>().baseAngle -= 40;
@@ -198,11 +204,11 @@ public class PlayerScript : MonoBehaviour {
 
         if (canMove)
         {
-            this.movementManager(moveHorizontal, moveVertical, isJumping, interact, kill);
+            this.movementManager();
         }
 	}
 
-    void movementManager(float horizontal, float vertical, bool isJumping, bool interact, bool kill) {
+    void movementManager() {
         if(interact && collidingLightSwitch != null){
             lightswitch_script script = collidingLightSwitch.GetComponent<lightswitch_script>();
             script.switchTriggering = true;
@@ -217,7 +223,7 @@ public class PlayerScript : MonoBehaviour {
         
         // if(!isHittingWallInDirection())
 
-        float dir = Mathf.Sign(horizontal);
+        float dir = Mathf.Sign(moveHorizontal);
         
         // Cast a ray straight down.
         // Vector2 rayStart = rbody.transform.position;
@@ -241,11 +247,11 @@ public class PlayerScript : MonoBehaviour {
         //     slopeAngle = 180 - slopeAngle;
 
         // if(slopeAngle < 60) {
-            velocity.x = horizontal * maxVelocity;
+            velocity.x = moveHorizontal * maxVelocity;
         // } else {
         //     velocity.x = 0;
         // }
-        if(horizontal > 0){
+        if(moveHorizontal > 0){
             animCycle.rightMove = true;
             facingRight = true;
             if(PlayerColor.WHITE == color){
@@ -267,7 +273,7 @@ public class PlayerScript : MonoBehaviour {
             }
             
         }
-        else if(horizontal < 0){
+        else if(moveHorizontal < 0){
             animCycle.leftMove = true;
             facingRight = false;
             if(PlayerColor.WHITE == color){

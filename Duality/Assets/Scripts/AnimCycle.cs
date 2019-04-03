@@ -28,7 +28,6 @@ public class AnimCycle : MonoBehaviour
 
     public bool holdingItem;
 
-
     public bool rightMove;
 
     public bool leftMove;

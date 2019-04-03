@@ -18,6 +18,7 @@ ModelImporter:
     100024: pasted__pCube6
     100026: pasted__pCube7
     100028: thing
+    100030: yin_yang
     400000: left_wire1
     400002: left_wire2
     400004: pCube1
@@ -33,6 +34,7 @@ ModelImporter:
     400024: pasted__pCube6
     400026: pasted__pCube7
     400028: thing
+    400030: yin_yang
     2100000: initialShadingGroup
     2100002: lambert3SG
     2100004: lambert5SG
@@ -52,6 +54,7 @@ ModelImporter:
     2300022: pasted__pCube6
     2300024: pasted__pCube7
     2300026: thing
+    2300028: yin_yang
     3300000: left_wire1
     3300002: left_wire2
     3300004: pCube1
@@ -66,6 +69,7 @@ ModelImporter:
     3300022: pasted__pCube6
     3300024: pasted__pCube7
     3300026: thing
+    3300028: yin_yang
     4300000: left_wire1
     4300002: left_wire2
     4300004: pCube1
@@ -80,6 +84,7 @@ ModelImporter:
     4300022: pasted__pCube6
     4300024: pasted__pCube7
     4300026: thing
+    4300028: yin_yang
   externalObjects: {}
   materials:
     importMaterials: 1
