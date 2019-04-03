@@ -6,6 +6,7 @@ public class SpawnPointScript : MonoBehaviour
 {
 
     public bool isInitialSpawn;
+    public bool startingWithItem = false;
     public PlayerColor color;
 
     public GameObject playerPrefab;
@@ -20,6 +21,10 @@ public class SpawnPointScript : MonoBehaviour
             player.transform.position = transform.position;
             PlayerScript script = player.GetComponent<PlayerScript>();
             script.setCurrentSpawn(gameObject);
+            if(startingWithItem){
+                player.transform.GetChild(0).gameObject.SetActive(true);
+                script.pickedUpGrabable = true;
+            }
         }
     }
 

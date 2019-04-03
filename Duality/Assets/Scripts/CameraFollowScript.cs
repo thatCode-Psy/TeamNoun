@@ -5,19 +5,25 @@ using UnityEngine;
 public class CameraFollowScript : MonoBehaviour
 {
 
-    public float lerpThreshold;
-    public float cameraLookAhead;
+    public float dampTime;
+    // public float cameraLookAhead;
     GameObject[] playerList;
 
-    float minSizeY;
-    float minSizeX;
+    public float minFOV;
+    public float maxFOV;
+    
+    Vector3 velocity;
+
+    public float expectedMaxDistanceBetweenPlayers = 30f;
+
+    public Vector3 offset;
    
     // Start is called before the first frame update
     void Start()
     {
         playerList = GameObject.FindGameObjectsWithTag("Player");
-        minSizeY = GetComponent<Camera>().orthographicSize;
-        minSizeX = minSizeY * Screen.width / Screen.height;
+        // minSizeY = GetComponent<Camera>().orthographicSize;
+        // minSizeX = minSizeY * Screen.width / Screen.height;
         
     }
 
@@ -32,18 +38,24 @@ public class CameraFollowScript : MonoBehaviour
         }
         averageX /= playerList.Length;
         averageY /= playerList.Length;
-        Vector3 currentPosition = transform.position;
+        Vector3 currentPosition = Vector3.zero;
         currentPosition.x = averageX;
         currentPosition.y = averageY;
-        transform.position = Vector3.Lerp(transform.position, currentPosition, lerpThreshold);
+        currentPosition += offset;
+        transform.position = Vector3.SmoothDamp(transform.position, currentPosition, ref velocity, dampTime);
         if(playerList.Length > 1){
-            float currentSize = GetComponent<Camera>().orthographicSize;
-            float currentDifference = Mathf.Abs(playerList[0].transform.position.x - playerList[1].transform.position.x) * 0.5f;
-            float currentDifferenceHeight = Mathf.Abs(playerList[0].transform.position.y - playerList[1].transform.position.y) * 0.5f; 
-            float newWidth = Mathf.Max(minSizeX, currentDifference * cameraLookAhead);
-            Camera.main.fieldOfView = Mathf.Lerp(currentSize, Mathf.Max(currentDifferenceHeight * cameraLookAhead, newWidth * Screen.height/Screen.width, minSizeY), lerpThreshold);
+            
+            float distance = Vector3.Distance(playerList[0].transform.position, playerList[1].transform.position);
+            // float currentDifference = Mathf.Abs(playerList[0].transform.position.x - playerList[1].transform.position.x) * 0.5f;
+            // float currentDifferenceHeight = Mathf.Abs(playerList[0].transform.position.y - playerList[1].transform.position.y) * 0.5f; 
+            // float newWidth = Mathf.Max(minSizeX, currentDifference * cameraLookAhead);
+            
+            float newFov = Mathf.Lerp(minFOV, maxFOV, distance/expectedMaxDistanceBetweenPlayers);
+            Camera.main.fieldOfView = Mathf.Lerp(Camera.main.fieldOfView, newFov, Time.deltaTime);
         }
         
 
     }
+
+    
 }

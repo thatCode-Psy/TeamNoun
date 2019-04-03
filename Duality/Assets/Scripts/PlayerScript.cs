@@ -66,7 +66,7 @@ public class PlayerScript : MonoBehaviour {
     private bool facingRight;
 
 
-    private bool pickedUpGrabable;
+    public bool pickedUpGrabable;
 
 
     //Not used for white character
