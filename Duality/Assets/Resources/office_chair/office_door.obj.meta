@@ -1,22 +1,17 @@
 fileFormatVersion: 2
-guid: 6cad9eb21f7674471a75b6558721c546
+guid: 5df9d86b8849c4b89a67877e189a4153
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
-    100000: pCube1
-    100002: //RootNode
-    400000: pCube1
-    400002: //RootNode
+    100000: //RootNode
+    100002: pCylinder1
+    400000: //RootNode
+    400002: pCylinder1
     2100000: initialShadingGroup
-    2300000: pCube1
-    3300000: pCube1
-    4300000: pCube1
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: initialShadingGroup
-    second: {fileID: 2100000, guid: 668f5cbcdc59e414c8b45cac8c088899, type: 2}
+    2300000: pCylinder1
+    3300000: pCylinder1
+    4300000: pCylinder1
+  externalObjects: {}
   materials:
     importMaterials: 1
     materialName: 0
