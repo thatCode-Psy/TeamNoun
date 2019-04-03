@@ -75,7 +75,7 @@ public class DialogueManager : MonoBehaviour
 
         currentlySpeaking = -1;
         bufferedLines = -1;
-        defaultCameraSetting = Camera.main.GetComponent<CameraFollowScript>().cameraLookAhead;
+        defaultCameraSetting = 30;
     }
 
     // Update is called once per frame
@@ -105,7 +105,7 @@ public class DialogueManager : MonoBehaviour
     {
         SetPlayerMovement(false);
         if (arguments[1] != -1)
-            Camera.main.GetComponent<CameraFollowScript>().cameraLookAhead = arguments[1];
+            //Camera.main.GetComponent<CameraFollowScript>().cameraLookAhead = arguments[1];
         PlayDialogue((int)arguments[0]);
         
     }
@@ -279,7 +279,7 @@ public class DialogueManager : MonoBehaviour
         else
         {
             SetPlayerMovement(true);
-            Camera.main.GetComponent<CameraFollowScript>().cameraLookAhead = defaultCameraSetting;
+//            Camera.main.GetComponent<CameraFollowScript>().cameraLookAhead = defaultCameraSetting;
         }
         //else if(bufferedLines != -1)
         //{
