@@ -74,8 +74,8 @@ public class InputManager {
             UpdateControllerValue(ControllerAxis.Interact, Input.GetKey(KeyCode.LeftShift) ? 1 : 0);
             UpdateControllerValue(ControllerAxis.Jump, Input.GetKey(KeyCode.Space) ? 1 : 0);
             UpdateControllerValue(ControllerAxis.Back, Input.GetKey(KeyCode.Escape) ? 1 : 0);
-            UpdateControllerValue(ControllerAxis.Pause, Input.GetKey(KeyCode.P) ? 1 : 0);
-            UpdateControllerValue(ControllerAxis.Kill, Input.GetKey(KeyCode.K) ? 1 : 0);
+            UpdateControllerValue(ControllerAxis.Pause, Input.GetKey(KeyCode.R) ? 1 : 0);
+            UpdateControllerValue(ControllerAxis.Kill, Input.GetKey(KeyCode.T) ? 1 : 0);
             UpdateControllerValue(ControllerAxis.flashUp, Input.GetKey(KeyCode.W) ? 1 : 0);
             UpdateControllerValue(ControllerAxis.flashDown, Input.GetKey(KeyCode.S) ? 1 : 0);
             UpdateControllerValue(ControllerAxis.flashToggle, Input.GetKey(KeyCode.F) ? 1 : 0);
@@ -86,11 +86,11 @@ public class InputManager {
             UpdateControllerValue(ControllerAxis.VerticalMovement, Input.GetAxisRaw("VerticalTwo"));
             // UpdateControllerValue(ControllerAxis.HorizontalLook, Input.GetAxisRaw("Mouse X"));
             // UpdateControllerValue(ControllerAxis.VerticalLook, Input.GetAxisRaw("Mouse Y"));
-            UpdateControllerValue(ControllerAxis.Interact, Input.GetKey(KeyCode.Z) ? 1 : 0);
-            UpdateControllerValue(ControllerAxis.Jump, Input.GetKey(KeyCode.X) ? 1 : 0);
+            UpdateControllerValue(ControllerAxis.Interact, Input.GetKey(KeyCode.Slash) ? 1 : 0);
+            UpdateControllerValue(ControllerAxis.Jump, Input.GetKey(KeyCode.LeftControl) ? 1 : 0);
             UpdateControllerValue(ControllerAxis.Back, Input.GetKey(KeyCode.C) ? 1 : 0);
-            UpdateControllerValue(ControllerAxis.Pause, Input.GetKey(KeyCode.V) ? 1 : 0);
-            UpdateControllerValue(ControllerAxis.Kill, Input.GetKey(KeyCode.B) ? 1 : 0);
+            UpdateControllerValue(ControllerAxis.Pause, Input.GetKey(KeyCode.P) ? 1 : 0);
+            UpdateControllerValue(ControllerAxis.Kill, Input.GetKey(KeyCode.Quote) ? 1 : 0);
             UpdateControllerValue(ControllerAxis.flashUp, Input.GetKey(KeyCode.UpArrow) ? 1 : 0);
             UpdateControllerValue(ControllerAxis.flashDown, Input.GetKey(KeyCode.DownArrow) ? 1 : 0);
             UpdateControllerValue(ControllerAxis.flashToggle, Input.GetKey(KeyCode.RightShift) ? 1 : 0);
