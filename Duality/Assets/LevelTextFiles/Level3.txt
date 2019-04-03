@@ -1,9 +1,9 @@
 W.........................DDD
 W.........................DDD
-W.........................DDD
-W..PPPPPPP..PPPPPPPPPPPPPPPPP
+W............................
+W..PBPBPBP..PBPBPPPBPBPPPPPPP
 WP.........P.............WDDD
-W..P..........PPPPP......WDDD
+W..P...........PPPP......WDDD
 WP..................P....WDDD
 W..P..........PP......P..WDDD
 W....P.....P.......PPPPPPWDDD
