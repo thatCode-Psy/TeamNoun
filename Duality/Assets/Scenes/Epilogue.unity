@@ -369,6 +369,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   button: {fileID: 1807510505}
+  text: {fileID: 979083230}
   lampShade: {fileID: 1183567204}
   endCamPos: 2.137
   lerpThresh: 0.1
