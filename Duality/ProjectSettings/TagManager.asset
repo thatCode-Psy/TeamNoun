@@ -16,6 +16,7 @@ TagManager:
   - PlayerWhite_textbox
   - pizzaBox
   - GrabableBox
+  - ritualChamber
   layers:
   - Default
   - TransparentFX
