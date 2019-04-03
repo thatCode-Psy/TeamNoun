@@ -24,14 +24,14 @@ public class SelectOnInput : MonoBehaviour
         inputManager.Update();
         float moveHorizontal = inputManager.GetAxis(InputManager.ControllerAxis.HorizontalMovement);
         float moveVertical = inputManager.GetAxis(InputManager.ControllerAxis.VerticalMovement);
-        print(moveHorizontal + " " + moveVertical);
         if( (moveHorizontal != 0 || moveVertical != 0) && selected == false ) {
             eventSystem.SetSelectedGameObject(selectedObject);
             selected = true;
         }
     }
 
-    private void onDisable() {
+    private void OnDisable() {
+        print("on disable called");
         selected = false;
     }
 }

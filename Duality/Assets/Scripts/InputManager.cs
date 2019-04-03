@@ -69,8 +69,8 @@ public class InputManager {
         {
             UpdateControllerValue(ControllerAxis.HorizontalMovement, Input.GetAxisRaw("Horizontal"));
             UpdateControllerValue(ControllerAxis.VerticalMovement, Input.GetAxisRaw("Vertical"));
-            // UpdateControllerValue(ControllerAxis.HorizontalLook, Input.GetAxisRaw("Mouse X"));
-            // UpdateControllerValue(ControllerAxis.VerticalLook, Input.GetAxisRaw("Mouse Y"));
+            UpdateControllerValue(ControllerAxis.HorizontalLook, Input.GetAxisRaw("Mouse X"));
+            UpdateControllerValue(ControllerAxis.VerticalLook, Input.GetAxisRaw("Mouse Y"));
             UpdateControllerValue(ControllerAxis.Interact, Input.GetKey(KeyCode.LeftShift) ? 1 : 0);
             UpdateControllerValue(ControllerAxis.Jump, Input.GetKey(KeyCode.Space) ? 1 : 0);
             UpdateControllerValue(ControllerAxis.Back, Input.GetKey(KeyCode.Escape) ? 1 : 0);
@@ -84,8 +84,8 @@ public class InputManager {
         {
             UpdateControllerValue(ControllerAxis.HorizontalMovement, Input.GetAxisRaw("HorizontalTwo"));
             UpdateControllerValue(ControllerAxis.VerticalMovement, Input.GetAxisRaw("VerticalTwo"));
-            // UpdateControllerValue(ControllerAxis.HorizontalLook, Input.GetAxisRaw("Mouse X"));
-            // UpdateControllerValue(ControllerAxis.VerticalLook, Input.GetAxisRaw("Mouse Y"));
+            UpdateControllerValue(ControllerAxis.HorizontalLook, Input.GetAxisRaw("Mouse X"));
+            UpdateControllerValue(ControllerAxis.VerticalLook, Input.GetAxisRaw("Mouse Y"));
             UpdateControllerValue(ControllerAxis.Interact, Input.GetKey(KeyCode.Slash) ? 1 : 0);
             UpdateControllerValue(ControllerAxis.Jump, Input.GetKey(KeyCode.RightControl) ? 1 : 0);
             UpdateControllerValue(ControllerAxis.Back, Input.GetKey(KeyCode.C) ? 1 : 0);
@@ -99,8 +99,8 @@ public class InputManager {
         {
             UpdateControllerValue(ControllerAxis.HorizontalMovement, Input.GetAxis(controllerInputStrings[0]));
             UpdateControllerValue(ControllerAxis.VerticalMovement, -Input.GetAxis(controllerInputStrings[1]));
-            // UpdateControllerValue(ControllerAxis.HorizontalLook, Input.GetAxis(controllerInputStrings[2]));
-            // UpdateControllerValue(ControllerAxis.VerticalLook, -Input.GetAxis(controllerInputStrings[3]));
+            UpdateControllerValue(ControllerAxis.HorizontalLook, Input.GetAxis(controllerInputStrings[2]));
+            UpdateControllerValue(ControllerAxis.VerticalLook, -Input.GetAxis(controllerInputStrings[3]));
             UpdateControllerValue(ControllerAxis.Interact, Input.GetKey(controllerInputStrings[4]) ? 1 : 0);
             UpdateControllerValue(ControllerAxis.Jump, Input.GetKey(controllerInputStrings[5]) ? 1 : 0);
             UpdateControllerValue(ControllerAxis.Back, Input.GetKey(controllerInputStrings[6]) ? 1 : 0);
@@ -113,11 +113,11 @@ public class InputManager {
         }
         else if (controllerType == ControllerType.Dualshock4)
         {
-            Debug.Log(Input.GetAxisRaw(controllerInputStrings[4]));
+            // Debug.Log(Input.GetAxisRaw(controllerInputStrings[4]));
             UpdateControllerValue(ControllerAxis.HorizontalMovement, Input.GetAxisRaw(controllerInputStrings[0]));
             UpdateControllerValue(ControllerAxis.VerticalMovement, -Input.GetAxisRaw(controllerInputStrings[1])); // inverted this so that it's correct
-            // UpdateControllerValue(ControllerAxis.HorizontalLook, Input.GetAxisRaw(controllerInputStrings[2]));
-            // UpdateControllerValue(ControllerAxis.VerticalLook, -Input.GetAxisRaw(controllerInputStrings[3])); // inverted this so that it's "not inverted"
+            UpdateControllerValue(ControllerAxis.HorizontalLook, Input.GetAxisRaw(controllerInputStrings[2]));
+            UpdateControllerValue(ControllerAxis.VerticalLook, -Input.GetAxisRaw(controllerInputStrings[3])); // inverted this so that it's "not inverted"
             UpdateControllerValue(ControllerAxis.Interact, Input.GetKey(controllerInputStrings[4]) ? 1 : 0); 
             UpdateControllerValue(ControllerAxis.Jump, Input.GetKey(controllerInputStrings[5]) ? 1 : 0);
             UpdateControllerValue(ControllerAxis.Back, Input.GetKey(controllerInputStrings[6]) ? 1 : 0);
@@ -199,6 +199,8 @@ public class InputManager {
                 return "XBox Controller";
             case ControllerType.Dualshock4:
                 return "Dualshock 4 Controller";
+            case ControllerType.KeyboardTwo:
+                return "Keyboard Two";
             default:
                 return "This is not a valid controller type. Congratulations you broke the game";
         }
@@ -244,7 +246,7 @@ public class InputManager {
 
     public enum ControllerType
     {
-        Keyboard, KeyboardTwo, Xbox, Dualshock4
+        Keyboard, Dualshock4, KeyboardTwo, Xbox
     }
 
 // "look" axis not used
