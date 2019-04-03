@@ -9,6 +9,7 @@ public class EpilogueBehavior : MonoBehaviour
     // Start is called before the first frame update
     GameObject camera;
     public GameObject button;
+    public Text text;
     public GameObject lampShade;
     public float endCamPos;
     public float lerpThresh;
@@ -49,6 +50,7 @@ public class EpilogueBehavior : MonoBehaviour
         for (float i = 0; i <= 1; i += Time.deltaTime)
         {
             button.GetComponent<Image>().color = new Color(1, 1, 1, i);
+            text.color = new Color(0, 0, 0, i);
             yield return null;
         }
     }
