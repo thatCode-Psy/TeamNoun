@@ -59834,6 +59834,31 @@ PrefabInstance:
       propertyPath: lights.Array.data[1]
       value: 
       objectReference: {fileID: 740108272}
+    - target: {fileID: 1141397000123282798, guid: 4c05d45c726074044ae4706000cfb93d,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1141397000123282798, guid: 4c05d45c726074044ae4706000cfb93d,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1141397000123282798, guid: 4c05d45c726074044ae4706000cfb93d,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1141397000123282798, guid: 4c05d45c726074044ae4706000cfb93d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1141397000123282798, guid: 4c05d45c726074044ae4706000cfb93d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4c05d45c726074044ae4706000cfb93d, type: 3}
 --- !u!4 &1323823673 stripped
