@@ -170,13 +170,13 @@ public class DialogueManager : MonoBehaviour
             }
             catch(Exception e)
             {
-                print(e.Message);
+                //print(e.Message);
                 AquireTextBoxes();
                 blackTextBox.SetActive(true);
             }
             
             textbox = blackTextBox.GetComponentInChildren<Text>();
-            Debug.Log(textbox.text);
+            //Debug.Log(textbox.text);
             audio.clip = blackText;
             audio.Play();
             speed = 2;

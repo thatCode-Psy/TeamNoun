@@ -40,7 +40,8 @@ public class GenerateLevel : MonoBehaviour {
 		Bounds platformBounds = platformPrefab.transform.GetChild(0).GetComponent<MeshFilter> ().sharedMesh.bounds;
 		float platformWidthInMeters = platformBounds.extents.z * 2f * platformPrefab.transform.localScale.z;
 		
-		GameObject levelParent = new GameObject("Level Parent");
+		GameObject levelParent = new GameObject("Level Parent", typeof(CompositeCollider2D));
+		levelParent.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
 		levelParent.transform.position = Vector3.zero;
 		levelParent.tag = "Level";
 		

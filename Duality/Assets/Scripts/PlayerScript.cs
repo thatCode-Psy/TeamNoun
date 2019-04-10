@@ -59,7 +59,7 @@ public class PlayerScript : MonoBehaviour {
     private bool flashDown;
     private bool flashToggle;
 
-        private Vector2 counterJumpForce;
+    private Vector2 counterJumpForce;
 
     private bool facingRight;
 
@@ -72,6 +72,8 @@ public class PlayerScript : MonoBehaviour {
     private bool holdUp;
     private Vector3 originalBoxPosition;
     private Vector3 upBoxPosition;
+
+    public int rayCastCount = 10;
     //bool waitframe;
     
     // Use this for initialization
@@ -203,15 +205,16 @@ public class PlayerScript : MonoBehaviour {
         // }
         
         raycastHitPerFrame = 0;
+        if (canMove)
+        {
+            this.movementManager();
+        }
     }
 
     //FixedUpdate is called before physics calculations
 	void FixedUpdate () {
 
-        if (canMove)
-        {
-            this.movementManager();
-        }
+        
 	}
 
     void movementManager() {
@@ -229,8 +232,12 @@ public class PlayerScript : MonoBehaviour {
         
         // if(!isHittingWallInDirection())
 
+        
+        
         float dir = Mathf.Sign(moveHorizontal);
         
+        float speed = GetMinHorizontalRayCast(moveHorizontal);
+        //Debug.Log (speed);
         // Cast a ray straight down.
         // Vector2 rayStart = rbody.transform.position;
         // rayStart.x += (float).75*dir*collider.bounds.size.x;
@@ -253,7 +260,7 @@ public class PlayerScript : MonoBehaviour {
         //     slopeAngle = 180 - slopeAngle;
 
         // if(slopeAngle < 60) {
-            velocity.x = moveHorizontal * maxVelocity;
+        velocity.x = speed/Time.deltaTime;
         // } else {
         //     velocity.x = 0;
         // }
@@ -422,6 +429,61 @@ public class PlayerScript : MonoBehaviour {
         print("player" + color + " died");
         transform.position = currentSpawn.transform.position;
         GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+    }
+
+    Bounds getOffsetBounds(){
+        Vector3 size = collider.bounds.size;
+        size.x -= collisionOffset * 2f;
+        size.y -= collisionOffset * 2f;
+        Bounds bounds = new Bounds(collider.bounds.center, size);
+        
+        return bounds;
+    }
+
+    float GetMinHorizontalRayCast(float horizontal){
+        Bounds offsetBounds = getOffsetBounds();
+        int mask = LayerMask.GetMask("Ground", "Glass", "LightArea"); 
+        float rayCastDistance = maxVelocity * Mathf.Abs(horizontal) * Time.deltaTime;
+        float minDistance = rayCastDistance;
+        if(horizontal > 0){
+            Vector2 topRightCorner = new Vector2 (collider.bounds.max.x, offsetBounds.max.y);
+            Vector2 bottomRightCorner = new Vector2 (collider.bounds.max.x, offsetBounds.min.y);
+            float rayCastOffset = (topRightCorner.y - bottomRightCorner.y) / rayCastCount;
+            
+            for(int i = 0; i <= rayCastCount; ++i){
+                Vector3 rayCastStart = bottomRightCorner;
+                rayCastStart.y += i * rayCastOffset;
+                
+                RaycastHit2D hit = Physics2D.Raycast(rayCastStart, Vector2.right, rayCastDistance, mask);
+                if(hit.collider != null){
+                    if(hit.distance < minDistance){
+                        minDistance = hit.distance;
+                    }
+                }
+                Debug.DrawRay(rayCastStart, Vector3.right * hit.distance, Color.red, 0.0f, true);
+            }
+            return minDistance;
+        }
+        else if(horizontal < 0){
+            Vector2 topLeftCorner = new Vector2 (collider.bounds.min.x, offsetBounds.max.y);
+            Vector2 bottomLeftCorner = new Vector2 (collider.bounds.min.x, offsetBounds.min.y);
+            float rayCastOffset = (topLeftCorner.y - bottomLeftCorner.y) / rayCastCount;
+            
+            for(int i = 0; i <= rayCastCount; ++i){
+                Vector3 rayCastStart = bottomLeftCorner;
+                rayCastStart.y += i * rayCastOffset;
+                
+                RaycastHit2D hit = Physics2D.Raycast(rayCastStart, Vector2.left, rayCastDistance, mask);
+                if(hit.collider != null){
+                    if(hit.distance < minDistance){
+                        minDistance = hit.distance;
+                    }
+                }
+                Debug.DrawRay(rayCastStart, Vector3.left * hit.distance, Color.red, 0.0f, true);
+            }
+            return -minDistance;
+        }
+        return 0f;
     }
 
 }

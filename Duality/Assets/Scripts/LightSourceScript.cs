@@ -21,6 +21,7 @@ public class LightSourceScript : MonoBehaviour {
             Rigidbody2D body = lightParent.GetComponent<Rigidbody2D>();
             body.constraints = RigidbodyConstraints2D.FreezeAll;
             body.mass = 1000f;
+            body.bodyType = RigidbodyType2D.Static;
             //gravityScale = 0;
     //        lightParent.GetCompoentn
             lightParent.GetComponent<CompositeCollider2D>().edgeRadius = litAreaEdgeRadius;
@@ -86,7 +87,7 @@ public class LightSourceScript : MonoBehaviour {
             }
             
             float drawRange = distance;
-            Debug.DrawRay(raycastStart, dir * drawRange, Color.white, 0.0f, true);
+            //Debug.DrawRay(raycastStart, dir * drawRange, Color.white, 0.0f, true);
             vertices[i + 1] = new Vector2(raycastStart.x, raycastStart.y) + drawRange * dir;
             vertices[i + 1].z = transform.position.z;
             uvs[i + 1] = Vector2.zero;

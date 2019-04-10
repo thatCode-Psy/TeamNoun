@@ -644,6 +644,11 @@ PrefabInstance:
       propertyPath: m_Mass
       value: 2.5
       objectReference: {fileID: 0}
+    - target: {fileID: 50258780180462314, guid: 482b1fb1727c18843a7f102b711599e8,
+        type: 3}
+      propertyPath: m_BodyType
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 114286922984860666, guid: 482b1fb1727c18843a7f102b711599e8,
         type: 3}
       propertyPath: color
@@ -657,7 +662,7 @@ PrefabInstance:
     - target: {fileID: 114286922984860666, guid: 482b1fb1727c18843a7f102b711599e8,
         type: 3}
       propertyPath: controllerType
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 114286922984860666, guid: 482b1fb1727c18843a7f102b711599e8,
         type: 3}

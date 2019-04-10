@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1439888416042915364}
   - component: {fileID: 425296398442172269}
+  - component: {fileID: 8545617578798214893}
+  - component: {fileID: 5127430186644773128}
   m_Layer: 12
   m_Name: GlassBase
   m_TagString: Untagged
@@ -39,9 +41,9 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2159285636948015414}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 5ff157e91ef0cb14ca3ca767db52ff7e, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -58,6 +60,42 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2, y: 0.25}
   m_EdgeRadius: 0
+--- !u!68 &8545617578798214893
+EdgeCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2159285636948015414}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 6200000, guid: 5ff157e91ef0cb14ca3ca767db52ff7e, type: 2}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0.125}
+  m_EdgeRadius: 0
+  m_Points:
+  - {x: -1, y: 0.125}
+  - {x: 1, y: 0.125}
+--- !u!68 &5127430186644773128
+EdgeCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2159285636948015414}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 6200000, guid: 5ff157e91ef0cb14ca3ca767db52ff7e, type: 2}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -0.125}
+  m_EdgeRadius: 0
+  m_Points:
+  - {x: -1, y: 0.125}
+  - {x: 1, y: 0.125}
 --- !u!1 &8984358184450880298
 GameObject:
   m_ObjectHideFlags: 0
