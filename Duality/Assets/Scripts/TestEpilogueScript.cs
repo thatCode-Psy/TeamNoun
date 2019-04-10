@@ -22,10 +22,17 @@ public class TestEpilogueScript : MonoBehaviour
     public Vector3 rotation4;
     public float speed4;
     float elapsed = 0;
+    public GameObject black_char;
+    public GameObject white_char;
+    public GameObject moon;
+    public GameObject sky;
+    public GameObject tree;
+
     // Start is called before the first frame update
     void Start()
     {
         mainCamera = Camera.main.gameObject;
+        moon.transform.position = new Vector3(4.65f, 7.88f, -8.61f);
     }
 
     // Update is called once per frame
@@ -50,12 +57,20 @@ public class TestEpilogueScript : MonoBehaviour
             float lerp = (elapsed - speed1 - speed2) / speed3;
             mainCamera.transform.position = (lerp * endPosition3) + ((1.0f - lerp) * startPosition3);
             mainCamera.transform.rotation = Quaternion.Euler(rotation3);
+            moon.transform.position = new Vector3(3.35f, 5.06f, -8.61f);
         }
         else if (elapsed < speed1 + speed2 + speed3 + speed4)
         {
             float lerp = (elapsed - speed1 - speed2 - speed3) / speed4;
             mainCamera.transform.position = (lerp * endPosition4) + ((1.0f - lerp) * startPosition4);
             mainCamera.transform.rotation = Quaternion.Euler(rotation4);
+            moon.transform.position = new Vector3(4.65f, 7.88f, -8.61f);
+
+        }
+        else
+        {
+            mainCamera.transform.position = new Vector3(0.0f, 5.0f, -18.0f);
+            mainCamera.transform.rotation = Quaternion.Euler(0.0f, 180.0f, 0.0f);
         }
 
     }
