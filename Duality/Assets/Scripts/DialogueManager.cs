@@ -94,11 +94,17 @@ public class DialogueManager : MonoBehaviour
     private void SetPlayerMovement(bool canMove)
     {
         GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
+        if (!canMove)
+            StartCoroutine(FloatWatch());
         foreach (GameObject x in players)
         {
             x.GetComponent<PlayerScript>().canMove = canMove;
-            x.GetComponent<Rigidbody2D>().velocity = new Vector3(0f,0f,0f);
-            x.GetComponent<Rigidbody2D>().gravityScale = canMove ? 2.5f : 0f;
+            //x.GetComponent<Rigidbody2D>().velocity = new Vector3(0f,0f,0f);
+            //x.GetComponent<Rigidbody2D>().gravityScale = canMove ? 2.5f : 0f;
+            if (canMove)
+            {
+                x.GetComponent<Rigidbody2D>().gravityScale = 2.5f;
+            }
             x.GetComponent<AnimCycle>().leftMove = false;
             x.GetComponent<AnimCycle>().rightMove = false;
         }
@@ -176,7 +182,7 @@ public class DialogueManager : MonoBehaviour
             }
             
             textbox = blackTextBox.GetComponentInChildren<Text>();
-            Debug.Log(textbox.text);
+            //Debug.Log(textbox.text);
             audio.clip = blackText;
             audio.Play();
             speed = 2;
@@ -302,5 +308,31 @@ public class DialogueManager : MonoBehaviour
         blackTextBox = GameObject.FindGameObjectWithTag("PlayerBlack_textbox");
         whiteTextBox = GameObject.FindGameObjectWithTag("PlayerWhite_textbox");
         otherTextBox = GameObject.FindGameObjectWithTag("Other_textbox");
+    }
+
+    //When a priority textbox is hit, wait for both players to be on the ground before stopping gravity
+    IEnumerator FloatWatch()
+    {
+        float time = Time.time;
+        while(Time.time - time < .1)
+        {
+            yield return null;
+        }
+        GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
+        bool falling = true;
+        while(falling)
+        {
+            
+            if(Mathf.Abs(0 - players[0].GetComponent<Rigidbody2D>().velocity.y) <= .1 && Mathf.Abs(0 - players[1].GetComponent<Rigidbody2D>().velocity.y) <= .1)
+            {
+                foreach(GameObject p in players)
+                {
+                    p.GetComponent<Rigidbody2D>().gravityScale = 0;
+                    p.GetComponent<Rigidbody2D>().velocity = new Vector3(0f, 0f, 0f);
+                }
+                falling = false;
+            }
+            yield return null;
+        }
     }
 }
