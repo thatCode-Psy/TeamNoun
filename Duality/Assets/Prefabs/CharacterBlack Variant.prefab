@@ -316,6 +316,7 @@ GameObject:
   - component: {fileID: 6451059408820428736}
   - component: {fileID: 2919297150686080805}
   - component: {fileID: 8304511154722311581}
+  - component: {fileID: 1066595799139197189}
   m_Layer: 5
   m_Name: Image
   m_TagString: PlayerBlack_textbox
@@ -380,6 +381,19 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
+--- !u!114 &1066595799139197189
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8162709056987913339}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df53b3a70a2a5de4c9500983b7e3f4ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  text: {fileID: 3950814608901795089}
 --- !u!212 &2491678959005694980
 SpriteRenderer:
   m_ObjectHideFlags: 0
