@@ -252,6 +252,7 @@ GameObject:
   - component: {fileID: 6128866939938999878}
   - component: {fileID: 4696728046628203778}
   - component: {fileID: 912130865093371101}
+  - component: {fileID: 4748269121329662098}
   m_Layer: 5
   m_Name: Image
   m_TagString: PlayerWhite_textbox
@@ -316,6 +317,19 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
+--- !u!114 &4748269121329662098
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4517148171090649472}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df53b3a70a2a5de4c9500983b7e3f4ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  text: {fileID: 8561695193250934676}
 --- !u!1 &4982767403275547262
 GameObject:
   m_ObjectHideFlags: 0
@@ -464,8 +478,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.065000005, y: 0.78520405}
   m_AnchorMax: {x: 0.065000005, y: 0.78520405}
-  m_AnchoredPosition: {x: 1.7292027, y: 0.0023685396}
-  m_SizeDelta: {x: 3399.9963, y: 6.351353}
+  m_AnchoredPosition: {x: 1.7279122, y: 0.0023685396}
+  m_SizeDelta: {x: 3399.9966, y: 6.351353}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3555171824923226932
 CanvasRenderer:
