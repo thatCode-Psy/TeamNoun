@@ -74,6 +74,12 @@ public class PlayerScript : MonoBehaviour {
     private Vector3 upBoxPosition;
 
     public int rayCastCount = 10;
+
+    public float gravity = -2.5f;
+
+    public float maxSlopeClimb = 75f;
+
+    private bool climbingOrDescending;
     //bool waitframe;
     
     // Use this for initialization
@@ -84,7 +90,7 @@ public class PlayerScript : MonoBehaviour {
         isInMovableArea = color == PlayerColor.WHITE;
         canMove = true;
         inputManager = new InputManager(controllerNumber, controllerType);
-        jumpForce = CalculateJump(rbody.gravityScale,jumpHeight);
+        jumpForce = CalculateJump(-gravity,jumpHeight);
         holdUp = false;
         //this one will need more tooling to calculate better
         counterJumpForce = new Vector2(-1,0);
@@ -111,6 +117,7 @@ public class PlayerScript : MonoBehaviour {
             originalBoxPosition = transform.GetChild(0).GetChild(0).localPosition;
             upBoxPosition = new Vector3(0.02f, 0.62f, 0f);
         }
+        climbingOrDescending = false;
         //waitframe = false;
 	}
 	
@@ -134,26 +141,50 @@ public class PlayerScript : MonoBehaviour {
         flashUp = inputManager.GetAxisDown(InputManager.ControllerAxis.flashUp);
         flashDown = inputManager.GetAxisDown(InputManager.ControllerAxis.flashDown);
         flashToggle = inputManager.GetAxisDown(InputManager.ControllerAxis.flashToggle);
+        Vector2 velocity = rbody.velocity;
+         
 
-        grounded = isGrounded();
-        //jump stuff
-        if(canMove) {
-            if(jumpPressed) {
-                    jumpHeld = true;
-                    if(grounded) {
-                        isJumping = true;
-                        rbody.AddForce(Vector2.up * jumpForce * rbody.mass, ForceMode2D.Impulse);
-                    }
-                }
-                else if (jumpReleased) {
-                    jumpHeld = false;
-                }
-
-                if(!jumpHeld && grounded) {
-                    isJumping = false;
-                }
+        grounded = false;
+        //grounded = isGrounded();
+        
+        velocity.y += gravity;
+        if(grounded){
+            velocity.y = 0;
+        }
+        float fallSpeed = getMinVerticalRayCast(velocity.y) / Time.deltaTime;
+        velocity.y = fallSpeed;
+        if(grounded){
+            velocity.y = 0;
         }
         
+        //jump stuff
+        if(canMove) {
+            if(isJumping) {
+                
+                if(!jumpHeld && Vector2.Dot(rbody.velocity, Vector2.up) > 0) {
+                    velocity += counterJumpForce * Time.deltaTime;
+                }
+            }
+            if(jumpPressed) {
+                jumpHeld = true;
+                if(grounded) {
+                    
+                    isJumping = true;
+                    grounded = false;
+                    velocity.y = jumpForce;
+                }
+            }
+            else if (jumpReleased) {
+                jumpHeld = false;
+            }
+
+            if(/*!jumpHeld && */grounded) {
+                isJumping = false;
+            }
+            
+
+        }
+        rbody.velocity = velocity;
 
         if(color == PlayerColor.WHITE && flashUp){
             if(!facingRight){
@@ -322,11 +353,7 @@ public class PlayerScript : MonoBehaviour {
         
         
 
-        if(isJumping) {
-            if(!jumpHeld && Vector2.Dot(rbody.velocity, Vector2.up) > 0) {
-                rbody.AddForce(counterJumpForce * rbody.mass);
-            }
-        }
+        
         
 
         if(kill){
@@ -364,19 +391,52 @@ public class PlayerScript : MonoBehaviour {
         return Mathf.Sqrt(2 * gravity * height);
     }
 
-    bool isGrounded() {
-        Vector3 min = collider.bounds.min;
-        
-        Vector3 max = collider.bounds.max;
-        min.y -= 2 * collisionOffset;
-        max.y = min.y + collisionOffset;
-        max.x -= collisionOffset;
-        min.x += collisionOffset;
+    float getMinVerticalRayCast(float vertical) {
+        // Vector3 min = collider.bounds.min;
+
+        // Vector3 max = collider.bounds.max;
+        // min.y -= 2 * collisionOffset;
+        // max.y = min.y + collisionOffset;
+        // max.x -= collisionOffset;
+        // min.x += collisionOffset;
 
     
         //mask so we can only jump off the ground
         int mask = LayerMask.GetMask("Ground", "Glass", "LightArea");
-        return Physics2D.OverlapArea(min, max, mask);
+        Bounds offsetBounds = getOffsetBounds();
+        
+        float direction = Mathf.Sign(vertical);
+        
+        if(Mathf.Abs(vertical) <= 0.00000001){
+            return 0;
+        }
+        
+        Vector2 leftCorner = direction < 0 ? offsetBounds.min : new Vector3(offsetBounds.min.x, offsetBounds.max.y);
+        Vector2 rightCorner = direction < 0 ? new Vector3(offsetBounds.max.x, offsetBounds.min.y) : offsetBounds.max;
+        leftCorner.x -= collisionOffset;
+        rightCorner.x += collisionOffset;
+        float raycastDistance = (vertical * direction * Time.deltaTime + collisionOffset);
+        float rayCastOffset = (rightCorner.x - leftCorner.x) / rayCastCount;
+        float minDistance = raycastDistance - collisionOffset;
+        
+        for(int i = 0; i <= rayCastCount; ++i){
+            Vector2 rayCastStart = leftCorner;
+            rayCastStart.x += i * rayCastOffset;
+            RaycastHit2D hit = Physics2D.Raycast(rayCastStart, Vector2.up * direction, raycastDistance, mask);
+            Debug.DrawRay(rayCastStart, Vector3.up * raycastDistance * direction, Color.green, 0.0f, true);
+            if(hit){
+                grounded = direction == -1f;
+                if(minDistance > hit.distance - collisionOffset){
+                    minDistance = hit.distance - collisionOffset;
+                }
+                
+            }
+            
+        }
+        
+        return minDistance * direction;
+        
+       
     }
 
     void OnTriggerEnter2D(Collider2D collider){
@@ -443,11 +503,11 @@ public class PlayerScript : MonoBehaviour {
     float GetMinHorizontalRayCast(float horizontal){
         Bounds offsetBounds = getOffsetBounds();
         int mask = LayerMask.GetMask("Ground", "Glass", "LightArea"); 
-        float rayCastDistance = maxVelocity * Mathf.Abs(horizontal) * Time.deltaTime;
-        float minDistance = rayCastDistance;
+        float rayCastDistance = maxVelocity * Mathf.Abs(horizontal) * Time.deltaTime + collisionOffset;
+        float minDistance = rayCastDistance - collisionOffset;
         if(horizontal > 0){
-            Vector2 topRightCorner = new Vector2 (collider.bounds.max.x, offsetBounds.max.y);
-            Vector2 bottomRightCorner = new Vector2 (collider.bounds.max.x, offsetBounds.min.y);
+            Vector2 topRightCorner = offsetBounds.max;
+            Vector2 bottomRightCorner = new Vector2 (offsetBounds.max.x, offsetBounds.min.y);
             float rayCastOffset = (topRightCorner.y - bottomRightCorner.y) / rayCastCount;
             
             for(int i = 0; i <= rayCastCount; ++i){
@@ -456,8 +516,12 @@ public class PlayerScript : MonoBehaviour {
                 
                 RaycastHit2D hit = Physics2D.Raycast(rayCastStart, Vector2.right, rayCastDistance, mask);
                 if(hit.collider != null){
-                    if(hit.distance < minDistance){
-                        minDistance = hit.distance;
+                    float slopeAngle = Vector2.Angle(hit.normal, Vector2.up);
+                    if(slopeAngle <= maxSlopeClimb && i == 0){
+                        minDistance = ClimbSlope(slopeAngle, horizontal);
+                    }
+                    if(hit.distance - collisionOffset < minDistance){
+                        minDistance = hit.distance - collisionOffset;
                     }
                 }
                 Debug.DrawRay(rayCastStart, Vector3.right * hit.distance, Color.red, 0.0f, true);
@@ -465,8 +529,8 @@ public class PlayerScript : MonoBehaviour {
             return minDistance;
         }
         else if(horizontal < 0){
-            Vector2 topLeftCorner = new Vector2 (collider.bounds.min.x, offsetBounds.max.y);
-            Vector2 bottomLeftCorner = new Vector2 (collider.bounds.min.x, offsetBounds.min.y);
+            Vector2 topLeftCorner = new Vector2 (offsetBounds.min.x, offsetBounds.max.y);
+            Vector2 bottomLeftCorner = offsetBounds.min;
             float rayCastOffset = (topLeftCorner.y - bottomLeftCorner.y) / rayCastCount;
             
             for(int i = 0; i <= rayCastCount; ++i){
@@ -475,8 +539,13 @@ public class PlayerScript : MonoBehaviour {
                 
                 RaycastHit2D hit = Physics2D.Raycast(rayCastStart, Vector2.left, rayCastDistance, mask);
                 if(hit.collider != null){
-                    if(hit.distance < minDistance){
-                        minDistance = hit.distance;
+
+                    float slopeAngle = Vector2.Angle(hit.normal, Vector2.up);
+                    if(slopeAngle <= maxSlopeClimb && i == 0){
+                        minDistance = ClimbSlope(slopeAngle, horizontal);
+                    }
+                    else if(hit.distance - collisionOffset < minDistance){
+                        minDistance = hit.distance - collisionOffset;
                     }
                 }
                 Debug.DrawRay(rayCastStart, Vector3.left * hit.distance, Color.red, 0.0f, true);
@@ -484,6 +553,18 @@ public class PlayerScript : MonoBehaviour {
             return -minDistance;
         }
         return 0f;
+    }
+
+
+    float ClimbSlope(float slopeAngle, float horizontal){
+        float moveDistance = Mathf.Abs(horizontal) * maxVelocity;
+        Vector3 velocity = rbody.velocity;
+        velocity.y = Mathf.Sin(slopeAngle * Mathf.Deg2Rad) * moveDistance * Time.deltaTime;
+        print(velocity.y);
+        climbingOrDescending = true;
+        grounded = true;
+        rbody.velocity = velocity;
+        return Mathf.Cos(slopeAngle * Mathf.Deg2Rad) * moveDistance * Time.deltaTime;
     }
 
 }

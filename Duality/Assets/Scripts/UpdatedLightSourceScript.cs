@@ -39,7 +39,7 @@ public class UpdatedLightSourceScript : MonoBehaviour
             body.mass = float.MaxValue;
             //gravityScale = 0;
     //        lightParent.GetCompoentn
-            lightParent.GetComponent<CompositeCollider2D>().edgeRadius = litAreaEdgeRadius;
+            lightParent.GetComponent<CompositeCollider2D>().edgeRadius = 0;
             lightParent.layer = LayerMask.NameToLayer("LightArea");
             lightParent.transform.position = new Vector3(-10000, 0,0);
         }
