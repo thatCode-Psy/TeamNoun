@@ -74,6 +74,9 @@ public class PlayerScript : MonoBehaviour {
     private Vector3 upBoxPosition;
     //bool waitframe;
     
+    public int raycastCount = 7;
+
+
     // Use this for initialization
 	void Start () {
         animCycle = GetComponent<AnimCycle>();
@@ -134,6 +137,7 @@ public class PlayerScript : MonoBehaviour {
         flashToggle = inputManager.GetAxisDown(InputManager.ControllerAxis.flashToggle);
 
         grounded = isGrounded();
+        
         //jump stuff
         if(canMove) {
             if(jumpPressed) {
@@ -358,18 +362,31 @@ public class PlayerScript : MonoBehaviour {
     }
 
     bool isGrounded() {
-        Vector3 min = collider.bounds.min;
+        // Vector3 min = collider.bounds.min;
         
-        Vector3 max = collider.bounds.max;
-        min.y -= 2 * collisionOffset;
-        max.y = min.y + collisionOffset;
-        max.x -= collisionOffset;
-        min.x += collisionOffset;
+        // Vector3 max = collider.bounds.max;
+        // min.y -= 2 * collisionOffset;
+        // max.y = min.y + collisionOffset;
+        // max.x -= collisionOffset;
+        // min.x += collisionOffset;
 
     
         //mask so we can only jump off the ground
         int mask = LayerMask.GetMask("Ground", "Glass", "LightArea");
-        return Physics2D.OverlapArea(min, max, mask);
+
+        Vector2 bottomLeft = collider.bounds.min;
+        Vector2 bottomRight = new Vector3(collider.bounds.max.x, collider.bounds.min.y);
+        float xDiff = (bottomRight.x - bottomLeft.x) / (float)raycastCount;
+        for(int i = 0; i <= raycastCount; ++i){
+            Vector2 raycastStart = bottomLeft;
+            raycastStart.x += xDiff * i;
+            RaycastHit2D hit = Physics2D.Raycast(raycastStart, Vector2.down, collisionOffset, mask);
+            if(hit){
+                return true;
+            }
+        }
+        return false;
+        //return Physics2D.OverlapArea(min, max, mask);
     }
 
     void OnTriggerEnter2D(Collider2D collider){
