@@ -27,6 +27,7 @@ public class TestEpilogueScript : MonoBehaviour
     public GameObject moon;
     public GameObject sky;
     public GameObject tree;
+    public List<Vector3> array;
 
     // Start is called before the first frame update
     void Start()
