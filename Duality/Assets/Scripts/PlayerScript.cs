@@ -153,13 +153,15 @@ public class PlayerScript : MonoBehaviour {
         }
         float fallSpeed = getMinVerticalRayCast(velocity.y) / Time.deltaTime;
         velocity.y = fallSpeed;
+        
         if(grounded){
             velocity.y = 0;
+            isJumping = false;
         }
         
         //jump stuff
         if(canMove) {
-            if(isJumping) {
+            if(isJumping && !climbingOrDescending) {
                 
                 if(!jumpHeld && Vector2.Dot(rbody.velocity, Vector2.up) > 0) {
                     velocity += counterJumpForce * Time.deltaTime;
@@ -185,7 +187,7 @@ public class PlayerScript : MonoBehaviour {
 
         }
         rbody.velocity = velocity;
-
+        
         if(color == PlayerColor.WHITE && flashUp){
             if(!facingRight){
                 
@@ -240,6 +242,7 @@ public class PlayerScript : MonoBehaviour {
         {
             this.movementManager();
         }
+        print(grounded + " " + color + " " + rbody.velocity);
     }
 
     //FixedUpdate is called before physics calculations
@@ -341,7 +344,7 @@ public class PlayerScript : MonoBehaviour {
         }
         
         
-
+        velocity.y = rbody.velocity.y;
         rbody.velocity = velocity;
         // if(color == PlayerColor.WHITE) {
         //     print("normal:" + hit.normal);
@@ -423,13 +426,17 @@ public class PlayerScript : MonoBehaviour {
             Vector2 rayCastStart = leftCorner;
             rayCastStart.x += i * rayCastOffset;
             RaycastHit2D hit = Physics2D.Raycast(rayCastStart, Vector2.up * direction, raycastDistance, mask);
-            Debug.DrawRay(rayCastStart, Vector3.up * raycastDistance * direction, Color.green, 0.0f, true);
+            
             if(hit){
                 grounded = direction == -1f;
                 if(minDistance > hit.distance - collisionOffset){
                     minDistance = hit.distance - collisionOffset;
                 }
+                Debug.DrawRay(rayCastStart, Vector3.up * hit.distance * direction, Color.green, 0.0f, true);
                 
+            }
+            else{
+                Debug.DrawRay(rayCastStart, Vector3.up * raycastDistance * direction, Color.blue, 0.0f, true);
             }
             
         }
@@ -557,10 +564,10 @@ public class PlayerScript : MonoBehaviour {
 
 
     float ClimbSlope(float slopeAngle, float horizontal){
+        print("climbing slope " + color);
         float moveDistance = Mathf.Abs(horizontal) * maxVelocity;
         Vector3 velocity = rbody.velocity;
         velocity.y = Mathf.Sin(slopeAngle * Mathf.Deg2Rad) * moveDistance * Time.deltaTime;
-        print(velocity.y);
         climbingOrDescending = true;
         grounded = true;
         rbody.velocity = velocity;
