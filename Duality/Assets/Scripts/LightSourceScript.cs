@@ -23,7 +23,7 @@ public class LightSourceScript : MonoBehaviour {
             body.mass = 1000f;
             //gravityScale = 0;
     //        lightParent.GetCompoentn
-            lightParent.GetComponent<CompositeCollider2D>().edgeRadius = litAreaEdgeRadius;
+            lightParent.GetComponent<CompositeCollider2D>().edgeRadius = 0;
             body.bodyType = RigidbodyType2D.Static;
             lightParent.layer = LayerMask.NameToLayer("LightArea");
         }
