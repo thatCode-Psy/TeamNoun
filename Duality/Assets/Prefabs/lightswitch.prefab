@@ -129,6 +129,7 @@ MonoBehaviour:
   dialogueManager: {fileID: 0}
   lineToTrigger: -1
   audio: {fileID: 0}
+  switchTriggering: 0
 --- !u!1001 &1141397000123412460
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -170,7 +171,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: a7a2d997194da47269e367c15fdaf4c4, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: a7a2d997194da47269e367c15fdaf4c4, type: 3}
       propertyPath: m_LocalRotation.z
@@ -178,7 +179,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: a7a2d997194da47269e367c15fdaf4c4, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: a7a2d997194da47269e367c15fdaf4c4, type: 3}
       propertyPath: m_RootOrder
@@ -190,7 +191,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: a7a2d997194da47269e367c15fdaf4c4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 180
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: a7a2d997194da47269e367c15fdaf4c4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -199,7 +200,7 @@ PrefabInstance:
     - target: {fileID: 2300000, guid: a7a2d997194da47269e367c15fdaf4c4, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: ef22aaa2ad4f3194cae9b277fbdfb051, type: 3}
+      objectReference: {fileID: 2100000, guid: 529ff101084e149c0994d7c666d69879, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a7a2d997194da47269e367c15fdaf4c4, type: 3}
 --- !u!1 &1141397000123377996 stripped

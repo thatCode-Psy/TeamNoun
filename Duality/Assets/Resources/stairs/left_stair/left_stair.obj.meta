@@ -11,7 +11,13 @@ ModelImporter:
     2300000: left_stair
     3300000: left_stair
     4300000: left_stair
-  externalObjects: {}
+    2186277476908879412: ImportLogs
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: initialShadingGroup
+    second: {fileID: 2100000, guid: cfec3c50bb6444fe597a2d7f83c2178b, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
