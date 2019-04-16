@@ -79363,7 +79363,8 @@ MonoBehaviour:
     type: 3}
   backgroundAsset1: {fileID: 8138677512360204017, guid: 988f5469be9c145649657b0494670146,
     type: 3}
-  backgroundAsset2: {fileID: 0}
+  backgroundAsset2: {fileID: 2395761270514689998, guid: e572404b22531b648884641805ed547c,
+    type: 3}
   backgroundAsset3: {fileID: 0}
   rightStairPrefab: {fileID: 0}
   leftStairPrefab: {fileID: 0}
