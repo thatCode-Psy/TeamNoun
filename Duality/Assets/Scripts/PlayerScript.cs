@@ -351,9 +351,6 @@ public class PlayerScript : MonoBehaviour {
                     
                     if(hit2.normal.x != 0 && velocity.x == 0){
                         rbody.gravityScale = 0;
-                        if(color ==  PlayerColor.BLACK){
-                            print("test");
-                        }
                     }
                     else if(!hit){
                         velocity.x -= hit2.normal.x;
