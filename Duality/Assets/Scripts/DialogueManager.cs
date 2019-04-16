@@ -25,6 +25,8 @@ public class DialogueManager : MonoBehaviour
     public GameObject whiteTextBox;
     public GameObject otherTextBox;
 
+    public int speed = 2;
+
 
     public AudioSource audio;
     private AudioClip blackText;
@@ -123,6 +125,7 @@ public class DialogueManager : MonoBehaviour
 
     public void PlayDialogue(int input)
     {
+        //Debug.Log(input);
         string lineToPrint = (string)dialogueLines[input];
 
         int locOfOpenBracket = lineToPrint.IndexOf("[");
@@ -159,7 +162,6 @@ public class DialogueManager : MonoBehaviour
         //textbox.SetActive(true);
         //spritebox.SetActive(true);
         Text textbox = null;
-        int speed = 1;
         if (speaker == 1)
         {
             // audio.AudioSource
@@ -176,7 +178,7 @@ public class DialogueManager : MonoBehaviour
             }
             catch(Exception e)
             {
-                print(e.Message);
+             //   print(e.Message);
                 AquireTextBoxes();
                 blackTextBox.SetActive(true);
             }
@@ -185,7 +187,7 @@ public class DialogueManager : MonoBehaviour
             //Debug.Log(textbox.text);
             audio.clip = blackText;
             audio.Play();
-            speed = 2;
+            //speed = 2;
 
         }
         else if (speaker == 2)
@@ -210,7 +212,7 @@ public class DialogueManager : MonoBehaviour
             textbox = whiteTextBox.GetComponentInChildren<Text>();
             audio.clip = whiteText;
             audio.Play();
-            speed = 2;
+            //speed = 2;
         }
         else if (speaker == 3)
         {
@@ -231,7 +233,7 @@ public class DialogueManager : MonoBehaviour
             textbox = otherTextBox.GetComponentInChildren<Text>();
             audio.clip = whiteText;
             audio.Play();
-            speed = 2;
+            //speed = 2;
         }
         //textbox.gameObject.SetActive(true);
         //int speed = 1;

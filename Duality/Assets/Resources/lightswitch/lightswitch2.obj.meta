@@ -5,13 +5,24 @@ ModelImporter:
   fileIDToRecycleName:
     100000: lightswitch1:pCube1
     100002: //RootNode
+    100004: pCube1
     400000: lightswitch1:pCube1
     400002: //RootNode
+    400004: pCube1
     2100000: lambert4SG
+    2100002: initialShadingGroup
     2300000: lightswitch1:pCube1
+    2300002: pCube1
     3300000: lightswitch1:pCube1
+    3300002: pCube1
     4300000: lightswitch1:pCube1
-  externalObjects: {}
+    4300002: pCube1
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: initialShadingGroup
+    second: {fileID: 2100000, guid: 529ff101084e149c0994d7c666d69879, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
