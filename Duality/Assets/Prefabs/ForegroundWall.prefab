@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6792263741284552809}
   - component: {fileID: 8593239217638878526}
   - component: {fileID: 6081606145601830188}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -87,7 +87,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6952777426985545963}
   - component: {fileID: 6570804396142759357}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: ForegroundWall
   m_TagString: Untagged
   m_Icon: {fileID: 0}

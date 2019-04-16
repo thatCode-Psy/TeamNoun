@@ -74,6 +74,12 @@ public class PlayerScript : MonoBehaviour {
     private Vector3 upBoxPosition;
     //bool waitframe;
     
+    public int raycastCount = 7;
+    private float initGravity;
+    public float maxAngleForClimbing = 50f;
+    public float maxAngleForDescending = 50f;
+
+
     // Use this for initialization
 	void Start () {
         animCycle = GetComponent<AnimCycle>();
@@ -86,6 +92,7 @@ public class PlayerScript : MonoBehaviour {
         holdUp = false;
         //this one will need more tooling to calculate better
         counterJumpForce = new Vector2(-1,0);
+        initGravity = rbody.gravityScale;
         if (GameSettings.instance != null)
         {
             print("game settings active");
@@ -134,6 +141,7 @@ public class PlayerScript : MonoBehaviour {
         flashToggle = inputManager.GetAxisDown(InputManager.ControllerAxis.flashToggle);
 
         grounded = isGrounded();
+        
         //jump stuff
         if(canMove) {
             if(jumpPressed) {
@@ -201,6 +209,10 @@ public class PlayerScript : MonoBehaviour {
         //     transform.GetChild(0).GetChild(0).localEulerAngles = holdUp ? new Vector3(0, 0, 90f) : new Vector3(0,0,0);
         //     transform.GetChild(0).GetChild(0).localPosition = holdUp ? upBoxPosition : originalBoxPosition;
         // }
+        if (canMove)
+        {
+            this.movementManager();
+        }
         
         raycastHitPerFrame = 0;
     }
@@ -208,10 +220,7 @@ public class PlayerScript : MonoBehaviour {
     //FixedUpdate is called before physics calculations
 	void FixedUpdate () {
 
-        if (canMove)
-        {
-            this.movementManager();
-        }
+        
 	}
 
     void movementManager() {
@@ -247,63 +256,99 @@ public class PlayerScript : MonoBehaviour {
         //     Debug.DrawRay(rayStart, Vector2.left, Color.red);
         //     print("initial calculation:" + slopeAngle);
         // }
-        
-        // //account for slopes in the other direction
-        // if(slopeAngle > 90)
-        //     slopeAngle = 180 - slopeAngle;
+        int mask = LayerMask.GetMask("Ground", "Glass", "LightArea");
+        Vector2 bottomCorner = dir == 1f ? new Vector3(collider.bounds.max.x, collider.bounds.min.y) : collider.bounds.min;
+        bottomCorner.y += collisionOffset / 2f;
+        RaycastHit2D hit = Physics2D.Raycast(bottomCorner, Vector2.right * dir, collisionOffset, mask);
+        bool hittingWall = false;
+        if(hit){
+            Debug.DrawRay(bottomCorner, Vector2.right * dir * hit.distance, Color.blue, 0.0f, true);
+            float slopeAngle = Vector2.Angle(hit.normal, Vector2.up);
+            
+            if(slopeAngle > maxAngleForClimbing){
+                hittingWall = true;
+                
+            }
+        }
+
 
         // if(slopeAngle < 60) {
+        if(!hittingWall){
             velocity.x = moveHorizontal * maxVelocity;
         // } else {
         //     velocity.x = 0;
         // }
-        if(moveHorizontal > 0){
-            animCycle.rightMove = true;
-            facingRight = true;
-            if(PlayerColor.WHITE == color){
-                transform.GetChild(0).localEulerAngles = new Vector3(0,0,0);
-                float previousAngle = transform.GetChild(0).GetChild(0).GetComponentInChildren<UpdatedLightSourceScript>().baseAngle;
-                if(previousAngle > 0){
-                    transform.GetChild(0).GetChild(0).GetComponentInChildren<UpdatedLightSourceScript>().baseAngle = -previousAngle;
-                    Quaternion xRot = Quaternion.Euler(90f, 0, 0);
-                    Quaternion yRot = Quaternion.Euler(0, -transform.GetChild(0).GetChild(0).GetComponentInChildren<UpdatedLightSourceScript>().baseAngle, 0);
-                    transform.GetChild(0).GetChild(0).rotation = xRot * yRot;
-                }
-            }
-            else if(PlayerColor.BLACK == color){
-                bool previouslyFacingLeft = transform.GetChild(0).localEulerAngles != Vector3.zero;
-                if(previouslyFacingLeft){
+            if(moveHorizontal > 0){
+                animCycle.rightMove = true;
+                facingRight = true;
+                if(PlayerColor.WHITE == color){
                     transform.GetChild(0).localEulerAngles = new Vector3(0,0,0);
+                    float previousAngle = transform.GetChild(0).GetChild(0).GetComponentInChildren<UpdatedLightSourceScript>().baseAngle;
+                    if(previousAngle > 0){
+                        transform.GetChild(0).GetChild(0).GetComponentInChildren<UpdatedLightSourceScript>().baseAngle = -previousAngle;
+                        Quaternion xRot = Quaternion.Euler(90f, 0, 0);
+                        Quaternion yRot = Quaternion.Euler(0, -transform.GetChild(0).GetChild(0).GetComponentInChildren<UpdatedLightSourceScript>().baseAngle, 0);
+                        transform.GetChild(0).GetChild(0).rotation = xRot * yRot;
+                    }
+                }
+                else if(PlayerColor.BLACK == color){
+                    bool previouslyFacingLeft = transform.GetChild(0).localEulerAngles != Vector3.zero;
+                    if(previouslyFacingLeft){
+                        transform.GetChild(0).localEulerAngles = new Vector3(0,0,0);
+                    }
+                    
                 }
                 
             }
-            
-        }
-        else if(moveHorizontal < 0){
-            animCycle.leftMove = true;
-            facingRight = false;
-            if(PlayerColor.WHITE == color){
-                transform.GetChild(0).localEulerAngles = new Vector3(0,0,180);
-                float previousAngle = transform.GetChild(0).GetChild(0).GetComponentInChildren<UpdatedLightSourceScript>().baseAngle;
-                if(previousAngle < 0){
-                    transform.GetChild(0).GetChild(0).GetComponentInChildren<UpdatedLightSourceScript>().baseAngle = -previousAngle;
-                    Quaternion xRot = Quaternion.Euler(90f, 0, 0);
-                    Quaternion yRot = Quaternion.Euler(0, -transform.GetChild(0).GetChild(0).GetComponentInChildren<UpdatedLightSourceScript>().baseAngle, 0);
-                    transform.GetChild(0).GetChild(0).rotation = xRot * yRot;
+            else if(moveHorizontal < 0){
+                animCycle.leftMove = true;
+                facingRight = false;
+                if(PlayerColor.WHITE == color){
+                    transform.GetChild(0).localEulerAngles = new Vector3(0,0,180);
+                    float previousAngle = transform.GetChild(0).GetChild(0).GetComponentInChildren<UpdatedLightSourceScript>().baseAngle;
+                    if(previousAngle < 0){
+                        transform.GetChild(0).GetChild(0).GetComponentInChildren<UpdatedLightSourceScript>().baseAngle = -previousAngle;
+                        Quaternion xRot = Quaternion.Euler(90f, 0, 0);
+                        Quaternion yRot = Quaternion.Euler(0, -transform.GetChild(0).GetChild(0).GetComponentInChildren<UpdatedLightSourceScript>().baseAngle, 0);
+                        transform.GetChild(0).GetChild(0).rotation = xRot * yRot;
+                    }
                 }
-            }
-             else if(PlayerColor.BLACK == color){
-                bool previouslyFacingRight = transform.GetChild(0).localEulerAngles != new Vector3(0,180,0);
-                if(previouslyFacingRight){
-                    transform.GetChild(0).localEulerAngles = new Vector3(0,180,0);
+                else if(PlayerColor.BLACK == color){
+                    bool previouslyFacingRight = transform.GetChild(0).localEulerAngles != new Vector3(0,180,0);
+                    if(previouslyFacingRight){
+                        transform.GetChild(0).localEulerAngles = new Vector3(0,180,0);
+                    }
+                    
                 }
                 
             }
+        }
+        else{
+            velocity.x = 0;
+        }
+        rbody.gravityScale = initGravity;
+        if(this.grounded){
             
+            RaycastHit2D hit2 = Physics2D.Raycast(this.transform.position, Vector2.down, Mathf.Infinity, mask);
+            if(hit2){
+                float slopeAngle = Vector2.Angle(hit2.normal, Vector2.up);
+                
+                if(slopeAngle <= maxAngleForDescending){
+                    
+                    if(hit2.normal.x != 0 && velocity.x == 0){
+                        rbody.gravityScale = 0;
+                    }
+                    else{
+                        velocity.x -= hit2.normal.x;
+                        Vector3 position = transform.position;
+                        position.y += -hit2.normal.x * Mathf.Abs(velocity.x) * Time.deltaTime * (velocity.x - hit2.normal.x >0 ? 1:-1);
+                        transform.position = position;
+                    }
+                }
+            }
         }
         
         
-
         rbody.velocity = velocity;
         // if(color == PlayerColor.WHITE) {
         //     print("normal:" + hit.normal);
@@ -358,18 +403,38 @@ public class PlayerScript : MonoBehaviour {
     }
 
     bool isGrounded() {
-        Vector3 min = collider.bounds.min;
+        // Vector3 min = collider.bounds.min;
         
-        Vector3 max = collider.bounds.max;
-        min.y -= 2 * collisionOffset;
-        max.y = min.y + collisionOffset;
-        max.x -= collisionOffset;
-        min.x += collisionOffset;
+        // Vector3 max = collider.bounds.max;
+        // min.y -= 2 * collisionOffset;
+        // max.y = min.y + collisionOffset;
+        // max.x -= collisionOffset;
+        // min.x += collisionOffset;
 
     
         //mask so we can only jump off the ground
         int mask = LayerMask.GetMask("Ground", "Glass", "LightArea");
-        return Physics2D.OverlapArea(min, max, mask);
+
+        Vector2 bottomLeft = collider.bounds.min;
+        Vector2 bottomRight = new Vector3(collider.bounds.max.x, collider.bounds.min.y);
+        float xDiff = (bottomRight.x - bottomLeft.x) / (float)raycastCount;
+        for(int i = 0; i <= raycastCount; ++i){
+            Vector2 raycastStart = bottomLeft;
+            raycastStart.x += xDiff * i;
+            RaycastHit2D hit = Physics2D.Raycast(raycastStart, Vector2.down, collisionOffset, mask);
+            if(hit){
+                RaycastHit2D hit2 = Physics2D.Raycast(this.transform.position, Vector2.down, Mathf.Infinity, mask);
+                if(hit2){
+                    float slopeAngle = Vector2.Angle(hit2.normal, Vector2.up);
+            
+                    if(slopeAngle <= maxAngleForDescending){
+                        return true;
+                    }
+                }
+            }
+        }
+        return false;
+        //return Physics2D.OverlapArea(min, max, mask);
     }
 
     void OnTriggerEnter2D(Collider2D collider){
