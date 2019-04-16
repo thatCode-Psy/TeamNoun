@@ -63,6 +63,7 @@ public class TestEpilogueScript : MonoBehaviour
             float lerp = (elapsed - speed1) / speed2;
             mainCamera.transform.position = (lerp * endPosition2) + ((1.0f - lerp) * startPosition2);
             mainCamera.transform.rotation = Quaternion.Euler(rotation2);
+            moon.transform.position = new Vector3(2.8f, 7.1f, -8.61f);
         }
         else if (elapsed < speed1 + speed2 + speed3)
         {
