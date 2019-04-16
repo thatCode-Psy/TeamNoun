@@ -339,7 +339,7 @@ public class PlayerScript : MonoBehaviour {
                         rbody.gravityScale = 0;
                     }
                     else{
-                        velocity.x -= hit2.normal.x * 0.59f;
+                        velocity.x -= hit2.normal.x;
                         Vector3 position = transform.position;
                         position.y += -hit2.normal.x * Mathf.Abs(velocity.x) * Time.deltaTime * (velocity.x - hit2.normal.x >0 ? 1:-1);
                         transform.position = position;
