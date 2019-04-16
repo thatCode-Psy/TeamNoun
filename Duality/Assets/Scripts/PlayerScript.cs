@@ -267,7 +267,7 @@ public class PlayerScript : MonoBehaviour {
             
             if(slopeAngle > maxAngleForClimbing){
                 hittingWall = true;
-                
+                print("hitting wall" + slopeAngle + hit.normal);
             }
         }
 
@@ -351,6 +351,9 @@ public class PlayerScript : MonoBehaviour {
                     
                     if(hit2.normal.x != 0 && velocity.x == 0){
                         rbody.gravityScale = 0;
+                        if(color ==  PlayerColor.BLACK){
+                            print("test");
+                        }
                     }
                     else if(!hit){
                         velocity.x -= hit2.normal.x;
@@ -358,6 +361,10 @@ public class PlayerScript : MonoBehaviour {
                         position.y += -hit2.normal.x * Mathf.Abs(velocity.x) * Time.deltaTime * (velocity.x - hit2.normal.x > 0 ? 1:-1);
                         transform.position = position;
                     }
+                        
+                    /* else{
+                        
+                    }*/
                 }
             }
         }
