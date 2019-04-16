@@ -267,7 +267,7 @@ public class PlayerScript : MonoBehaviour {
             
             if(slopeAngle > maxAngleForClimbing){
                 hittingWall = true;
-                print("hitting wall" + slopeAngle + hit.normal);
+               
             }
         }
 
