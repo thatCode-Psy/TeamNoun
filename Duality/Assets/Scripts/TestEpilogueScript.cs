@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class TestEpilogueScript : MonoBehaviour
 {
+    public GameObject dialogueManager;
+    bool triggered1 = false;
+    bool triggered2 = false;
+    bool triggered3 = false;
+
     GameObject mainCamera;
     public Vector3 startPosition1;
     public Vector3 endPosition1;
@@ -49,12 +54,25 @@ public class TestEpilogueScript : MonoBehaviour
         }
         else if (elapsed < speed1 + speed2)
         {
+            if(!triggered1)
+            {
+                int start = 0;
+                dialogueManager.SendMessage("PlayDialogue", start);
+                triggered1 = true;
+            }
             float lerp = (elapsed - speed1) / speed2;
             mainCamera.transform.position = (lerp * endPosition2) + ((1.0f - lerp) * startPosition2);
             mainCamera.transform.rotation = Quaternion.Euler(rotation2);
+            moon.transform.position = new Vector3(2.8f, 7.1f, -8.61f);
         }
         else if (elapsed < speed1 + speed2 + speed3)
         {
+            if (!triggered2)
+            {
+                int start = 1;
+                dialogueManager.SendMessage("PlayDialogue", start);
+                triggered2 = true;
+            }
             float lerp = (elapsed - speed1 - speed2) / speed3;
             mainCamera.transform.position = (lerp * endPosition3) + ((1.0f - lerp) * startPosition3);
             mainCamera.transform.rotation = Quaternion.Euler(rotation3);
@@ -62,6 +80,12 @@ public class TestEpilogueScript : MonoBehaviour
         }
         else if (elapsed < speed1 + speed2 + speed3 + speed4)
         {
+            if (!triggered3)
+            {
+                int start = 2;
+                dialogueManager.SendMessage("PlayDialogue", start);
+                triggered3 = true;
+            }
             float lerp = (elapsed - speed1 - speed2 - speed3) / speed4;
             mainCamera.transform.position = (lerp * endPosition4) + ((1.0f - lerp) * startPosition4);
             mainCamera.transform.rotation = Quaternion.Euler(rotation4);
