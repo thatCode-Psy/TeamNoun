@@ -2455,7 +2455,7 @@ GameObject:
   - component: {fileID: 882390199}
   - component: {fileID: 882390198}
   m_Layer: 0
-  m_Name: black_char
+  m_Name: black_char_old
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2903,7 +2903,7 @@ GameObject:
   - component: {fileID: 1069714955}
   - component: {fileID: 1069714954}
   m_Layer: 0
-  m_Name: wSpriteEndA
+  m_Name: white_char
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3399,7 +3399,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1123804645}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.65, y: 7.88, z: -8.61}
+  m_LocalPosition: {x: 2.8, y: 7.08, z: -8.61}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -4531,7 +4531,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 283.3, y: 155.2}
+  m_AnchoredPosition: {x: 283.3, y: 355}
   m_SizeDelta: {x: 3.996, y: 0.594}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1464383983
@@ -5524,13 +5524,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1704783605}
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 0, y: 5, z: -18}
+  m_LocalRotation: {x: 0.010182748, y: 0.9714445, z: 0.0424142, w: -0.23322317}
+  m_LocalPosition: {x: 3.1, y: 4, z: 3.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 6
-  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+  m_LocalEulerAnglesHint: {x: -5, y: 207, z: 0}
 --- !u!114 &1704783609
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5560,8 +5560,8 @@ MonoBehaviour:
   endPosition4: {x: 0, y: 5, z: 14}
   rotation4: {x: 0, y: 180, z: 0}
   speed4: 10
-  black_char: {fileID: 882390197}
-  white_char: {fileID: 2032812764}
+  black_char: {fileID: 1838672810}
+  white_char: {fileID: 1069714953}
   moon: {fileID: 1123804645}
   sky: {fileID: 253805623}
   tree: {fileID: 647741914}
@@ -6193,7 +6193,7 @@ GameObject:
   - component: {fileID: 1838672812}
   - component: {fileID: 1838672811}
   m_Layer: 0
-  m_Name: bSpriteEndInnGlow
+  m_Name: black_char
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6388,7 +6388,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -220, y: -64}
+  m_AnchoredPosition: {x: -220, y: -351}
   m_SizeDelta: {x: 3.996, y: 0.594}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1850786704
@@ -7048,7 +7048,7 @@ GameObject:
   - component: {fileID: 2032812766}
   - component: {fileID: 2032812765}
   m_Layer: 0
-  m_Name: white_char
+  m_Name: white_char_old
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
