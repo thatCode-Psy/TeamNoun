@@ -26,6 +26,6 @@ public class TextBoxScaling : MonoBehaviour
     {
         //text.fontSize = (int)(originalTextSize * (camera.fieldOfView / originalFOV) * .2) + 96;
         gameObject.GetComponent<RectTransform>().localScale = new Vector3(originalScaleX * (camera.fieldOfView / originalFOV), originalScaleY * (camera.fieldOfView / originalFOV), 1);
-        text.gameObject.GetComponent<RectTransform>().localScale = new Vector3(.001f, .001f * (camera.fieldOfView / originalFOV), 1);
+        //text.gameObject.GetComponent<RectTransform>().localScale = new Vector3(.001f * (camera.fieldOfView / originalFOV), .001f * (camera.fieldOfView / originalFOV), 1);
     }
 }
