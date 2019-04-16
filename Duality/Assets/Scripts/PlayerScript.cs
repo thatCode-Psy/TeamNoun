@@ -262,13 +262,27 @@ public class PlayerScript : MonoBehaviour {
         RaycastHit2D hit = Physics2D.Raycast(bottomCorner, Vector2.right * dir, collisionOffset, mask);
         bool hittingWall = false;
         if(hit){
-            Debug.DrawRay(bottomCorner, Vector2.right * dir * hit.distance, Color.blue, 0.0f, true);
+            //Debug.DrawRay(bottomCorner, Vector2.right * dir * hit.distance, Color.blue, 0.0f, true);
             float slopeAngle = Vector2.Angle(hit.normal, Vector2.up);
             
             if(slopeAngle > maxAngleForClimbing){
                 hittingWall = true;
-                print("hitting wall" + slopeAngle + hit.normal);
+                
             }
+        }
+
+        if(!hittingWall){
+            float rayCastOffset = collider.bounds.max.y - bottomCorner.y;
+            rayCastOffset -= collisionOffset / 2f;
+            rayCastOffset /= raycastCount;
+            for(int i = 0; i < raycastCount; ++i){
+                Vector2 raycastStart = bottomCorner;
+                raycastStart.y += rayCastOffset * (float)(i + 1);
+                RaycastHit2D wallHit = Physics2D.Raycast(raycastStart, Vector2.right * dir, collisionOffset, mask);
+                if(wallHit){
+                    hittingWall = true;
+                }
+            } 
         }
 
 
@@ -337,9 +351,6 @@ public class PlayerScript : MonoBehaviour {
                     
                     if(hit2.normal.x != 0 && velocity.x == 0){
                         rbody.gravityScale = 0;
-                        if(color ==  PlayerColor.BLACK){
-                            print("test");
-                        }
                     }
                     else if(!hit){
                         velocity.x -= hit2.normal.x;
@@ -347,10 +358,6 @@ public class PlayerScript : MonoBehaviour {
                         position.y += -hit2.normal.x * Mathf.Abs(velocity.x) * Time.deltaTime * (velocity.x - hit2.normal.x > 0 ? 1:-1);
                         transform.position = position;
                     }
-                        
-                    /* else{
-                        
-                    }*/
                 }
             }
         }
