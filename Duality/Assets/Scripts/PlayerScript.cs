@@ -88,8 +88,8 @@ public class PlayerScript : MonoBehaviour {
 
     void Awake() {
         jumpSource = AddAudio(clipJump);
-        landOneSource = AddAudio(clipLandOne);
-        landTwoSource = AddAudio(clipLandTwo);
+        landOneSource = AddAudio(clipLandOne, vol : 0.1f);
+        landTwoSource = AddAudio(clipLandTwo, vol : 0.1f);
     }
     
     // Use this for initialization
