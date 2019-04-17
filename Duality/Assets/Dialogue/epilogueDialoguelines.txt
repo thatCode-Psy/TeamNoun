@@ -1,3 +1,3 @@
-{1}Ok, I think we're probably clear. Where to next? I've got some hunches.[3.7]-1
+{1}Ok, I think we're probably clear. Where to next? I've got some hunches.[3.4]-1
 {2}I'm thinking we look to head up north. I have a feeling the Northern Lights have the ambient magic we need.[2.8]-1
 {1}Funny, I was thinking the same thing. Let's roll![4]-1
