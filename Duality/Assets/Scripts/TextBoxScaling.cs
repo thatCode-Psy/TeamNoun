@@ -15,7 +15,7 @@ public class TextBoxScaling : MonoBehaviour
     void Start()
     {
         camera = Camera.main;
-        //originalFOV = camera.fieldOfView;
+        originalFOV = camera.fieldOfView;
         //originalTextSize = text.fontSize;
         originalScaleX = gameObject.GetComponent<RectTransform>().localScale.x;
         originalScaleY = gameObject.GetComponent<RectTransform>().localScale.y;
