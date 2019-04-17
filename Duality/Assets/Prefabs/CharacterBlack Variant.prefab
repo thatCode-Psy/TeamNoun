@@ -463,7 +463,7 @@ MonoBehaviour:
   armRise: {fileID: 21300002, guid: a9ccdecf43c6df74faad14e48d8ab5ac, type: 3}
   armFall: {fileID: 21300004, guid: a9ccdecf43c6df74faad14e48d8ab5ac, type: 3}
   armHoldingRise: {fileID: 21300008, guid: 4e9de2e6c1db9ab45a101469d74382b7, type: 3}
-  armHoldingFall: {fileID: 21300002, guid: 4e9de2e6c1db9ab45a101469d74382b7, type: 3}
+  armHoldingFall: {fileID: 21300010, guid: 4e9de2e6c1db9ab45a101469d74382b7, type: 3}
   armHoldingRiseUp: {fileID: 21300000, guid: 4e9de2e6c1db9ab45a101469d74382b7, type: 3}
   armHoldingFallUp: {fileID: 21300002, guid: 4e9de2e6c1db9ab45a101469d74382b7, type: 3}
   bound: 0.5
@@ -520,6 +520,7 @@ MonoBehaviour:
   - {fileID: 21300022, guid: 4e9de2e6c1db9ab45a101469d74382b7, type: 3}
   - {fileID: 21300014, guid: 4e9de2e6c1db9ab45a101469d74382b7, type: 3}
   bwFrames: 0.075
+  transition: 0
   holdingItem: 0
   rightMove: 0
   leftMove: 0
@@ -632,6 +633,11 @@ PrefabInstance:
       propertyPath: m_Size.x
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6541991238543367470, guid: 9a29452651b24134aa4aa20042c4590c,
+        type: 3}
+      propertyPath: m_Offset.x
+      value: 0.18
+      objectReference: {fileID: 0}
     - target: {fileID: 2099409743531180406, guid: 9a29452651b24134aa4aa20042c4590c,
         type: 3}
       propertyPath: m_CastShadows
@@ -641,6 +647,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_ReceiveShadows
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2516871388632409514, guid: 9a29452651b24134aa4aa20042c4590c,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2516871388632409514, guid: 9a29452651b24134aa4aa20042c4590c,
+        type: 3}
+      propertyPath: m_Offset.x
+      value: 0.18
+      objectReference: {fileID: 0}
+    - target: {fileID: 2516871388632409514, guid: 9a29452651b24134aa4aa20042c4590c,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2516871388632409514, guid: 9a29452651b24134aa4aa20042c4590c,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 0.025
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9a29452651b24134aa4aa20042c4590c, type: 3}
@@ -835,12 +861,17 @@ PrefabInstance:
     - target: {fileID: 114286922984860666, guid: 482b1fb1727c18843a7f102b711599e8,
         type: 3}
       propertyPath: maxAngleForClimbing
-      value: 50
+      value: 70
       objectReference: {fileID: 0}
     - target: {fileID: 114286922984860666, guid: 482b1fb1727c18843a7f102b711599e8,
         type: 3}
       propertyPath: maxAngleForDescending
-      value: 50
+      value: 70
+      objectReference: {fileID: 0}
+    - target: {fileID: 114286922984860666, guid: 482b1fb1727c18843a7f102b711599e8,
+        type: 3}
+      propertyPath: collisionOffset
+      value: 0.05
       objectReference: {fileID: 0}
     - target: {fileID: 23925645573531492, guid: 482b1fb1727c18843a7f102b711599e8,
         type: 3}

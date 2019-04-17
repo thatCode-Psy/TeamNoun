@@ -56,7 +56,7 @@ public class UpdatedLightSourceScript : MonoBehaviour
         
         isOn = spotLight.enabled;
         players = GameObject.FindGameObjectsWithTag("Player");
-        MAX_RANGE = raycastRange * 1.5f;
+        MAX_RANGE = raycastRange * 1.05f;
 	}
 	
 	// Update is called once per frame

@@ -262,15 +262,29 @@ public class PlayerScript : MonoBehaviour {
         RaycastHit2D hit = Physics2D.Raycast(bottomCorner, Vector2.right * dir, collisionOffset, mask);
         bool hittingWall = false;
         if(hit){
-            Debug.DrawRay(bottomCorner, Vector2.right * dir * hit.distance, Color.blue, 0.0f, true);
+            //Debug.DrawRay(bottomCorner, Vector2.right * dir * hit.distance, Color.blue, 0.0f, true);
             float slopeAngle = Vector2.Angle(hit.normal, Vector2.up);
             
             if(slopeAngle > maxAngleForClimbing){
                 hittingWall = true;
-                
+               
             }
         }
 
+        if(!hittingWall){
+            float rayCastOffset = collider.bounds.max.y - bottomCorner.y;
+            rayCastOffset -= collisionOffset / 2f;
+            rayCastOffset /= raycastCount;
+            for(int i = 0; i < raycastCount; ++i){
+                Vector2 raycastStart = bottomCorner;
+                raycastStart.y += rayCastOffset * (float)(i + 1);
+                RaycastHit2D wallHit = Physics2D.Raycast(raycastStart, Vector2.right * dir, collisionOffset, mask);
+                if(wallHit){
+                    hittingWall = true;
+                }
+            } 
+        }
+        
 
         // if(slopeAngle < 60) {
         if(!hittingWall){
@@ -281,7 +295,7 @@ public class PlayerScript : MonoBehaviour {
             if(moveHorizontal > 0){
                 animCycle.rightMove = true;
                 facingRight = true;
-                if(PlayerColor.WHITE == color){
+                if(PlayerColor.WHITE == color && !animCycle.transition){
                     transform.GetChild(0).localEulerAngles = new Vector3(0,0,0);
                     float previousAngle = transform.GetChild(0).GetChild(0).GetComponentInChildren<UpdatedLightSourceScript>().baseAngle;
                     if(previousAngle > 0){
@@ -291,7 +305,7 @@ public class PlayerScript : MonoBehaviour {
                         transform.GetChild(0).GetChild(0).rotation = xRot * yRot;
                     }
                 }
-                else if(PlayerColor.BLACK == color){
+                else if(PlayerColor.BLACK == color && !animCycle.transition){
                     bool previouslyFacingLeft = transform.GetChild(0).localEulerAngles != Vector3.zero;
                     if(previouslyFacingLeft){
                         transform.GetChild(0).localEulerAngles = new Vector3(0,0,0);
@@ -303,7 +317,7 @@ public class PlayerScript : MonoBehaviour {
             else if(moveHorizontal < 0){
                 animCycle.leftMove = true;
                 facingRight = false;
-                if(PlayerColor.WHITE == color){
+                if(PlayerColor.WHITE == color && !animCycle.transition){
                     transform.GetChild(0).localEulerAngles = new Vector3(0,0,180);
                     float previousAngle = transform.GetChild(0).GetChild(0).GetComponentInChildren<UpdatedLightSourceScript>().baseAngle;
                     if(previousAngle < 0){
@@ -313,7 +327,7 @@ public class PlayerScript : MonoBehaviour {
                         transform.GetChild(0).GetChild(0).rotation = xRot * yRot;
                     }
                 }
-                else if(PlayerColor.BLACK == color){
+                else if(PlayerColor.BLACK == color && !animCycle.transition){
                     bool previouslyFacingRight = transform.GetChild(0).localEulerAngles != new Vector3(0,180,0);
                     if(previouslyFacingRight){
                         transform.GetChild(0).localEulerAngles = new Vector3(0,180,0);
@@ -338,12 +352,16 @@ public class PlayerScript : MonoBehaviour {
                     if(hit2.normal.x != 0 && velocity.x == 0){
                         rbody.gravityScale = 0;
                     }
-                    else{
+                    else if(!hit){
                         velocity.x -= hit2.normal.x;
                         Vector3 position = transform.position;
-                        position.y += -hit2.normal.x * Mathf.Abs(velocity.x) * Time.deltaTime * (velocity.x - hit2.normal.x >0 ? 1:-1);
+                        position.y += -hit2.normal.x * Mathf.Abs(velocity.x) * Time.deltaTime * (velocity.x - hit2.normal.x > 0 ? 1:-1);
                         transform.position = position;
                     }
+                        
+                    /* else{
+                        
+                    }*/
                 }
             }
         }
