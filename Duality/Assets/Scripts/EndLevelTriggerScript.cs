@@ -36,7 +36,7 @@ public class EndLevelTriggerScript : MonoBehaviour
             {
                 SceneManager.LoadScene(nextLevel);
             }
-            print("Players on goal "+playerOnGoal);
+            //print("Players on goal "+playerOnGoal);
             //triggering = true;
             //CheckWin();
 
