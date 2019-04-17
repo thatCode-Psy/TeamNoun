@@ -64,17 +64,20 @@ public class AnimCycle : MonoBehaviour
                     
                     newPosition.y -= 0.11f;
                     transition = true;
-                    Invoke("IncrementStep", bwFrames);
+                    
+                    
+                    
                     if (rightMove){
-                        GetComponent<SpriteRenderer>().flipX = false;
+                        
                         newPosition.x += 0.06f;
-                        transform.GetChild(1).gameObject.GetComponent<SpriteRenderer>().flipX = false;
+                        
                     }
                     else{
-                        GetComponent<SpriteRenderer>().flipX = true;
+                        //GetComponent<SpriteRenderer>().flipX = true;
                         newPosition.x -= 0.06f;
-                        transform.GetChild(1).gameObject.GetComponent<SpriteRenderer>().flipX = true;
+                        
                     }
+                    Invoke("IncrementStep", bwFrames);
                 }
                 else
                 {
@@ -104,6 +107,7 @@ public class AnimCycle : MonoBehaviour
 
     void IncrementStep()
     {
+        
         GetComponent<SpriteRenderer>().sprite = frames[fCount];
         transform.GetChild(1).gameObject.GetComponent<SpriteRenderer>().sprite = holdingItem ? armHoldingFrames[fCount] : armFrames[fCount];
         if(holdingItem && holdingUp){

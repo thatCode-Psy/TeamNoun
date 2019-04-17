@@ -1,22 +1,18 @@
 fileFormatVersion: 2
-guid: c560dd33185544274af00eb609ddaeda
+guid: c861e7d75a88441b68580a63cd4e2672
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
-    100000: wire
+    100000: default
     100002: //RootNode
-    400000: wire
+    400000: default
     400002: //RootNode
-    2100000: initialShadingGroup
-    2300000: wire
-    3300000: wire
-    4300000: wire
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: initialShadingGroup
-    second: {fileID: 2100000, guid: 067ca2f1d3e574e4d8ace836e434d966, type: 2}
+    2100000: defaultMat
+    2300000: default
+    3300000: default
+    4300000: default
+    2186277476908879412: ImportLogs
+  externalObjects: {}
   materials:
     importMaterials: 1
     materialName: 0

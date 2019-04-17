@@ -322,8 +322,9 @@ public class PlayerScript : MonoBehaviour {
         // }
             if(moveHorizontal > 0){
                 animCycle.rightMove = true;
+                
                 facingRight = true;
-                if(PlayerColor.WHITE == color && !animCycle.transition){
+                if(PlayerColor.WHITE == color && animCycle.transition){
                     transform.GetChild(0).localEulerAngles = new Vector3(0,0,0);
                     float previousAngle = transform.GetChild(0).GetChild(0).GetComponentInChildren<UpdatedLightSourceScript>().baseAngle;
                     if(previousAngle > 0){
@@ -331,12 +332,16 @@ public class PlayerScript : MonoBehaviour {
                         Quaternion xRot = Quaternion.Euler(90f, 0, 0);
                         Quaternion yRot = Quaternion.Euler(0, -transform.GetChild(0).GetChild(0).GetComponentInChildren<UpdatedLightSourceScript>().baseAngle, 0);
                         transform.GetChild(0).GetChild(0).rotation = xRot * yRot;
+                        GetComponent<SpriteRenderer>().flipX = false;
+                        transform.GetChild(1).gameObject.GetComponent<SpriteRenderer>().flipX = false;
                     }
                 }
-                else if(PlayerColor.BLACK == color && !animCycle.transition){
+                else if(PlayerColor.BLACK == color && animCycle.transition){
                     bool previouslyFacingLeft = transform.GetChild(0).localEulerAngles != Vector3.zero;
                     if(previouslyFacingLeft){
                         transform.GetChild(0).localEulerAngles = new Vector3(0,0,0);
+                        GetComponent<SpriteRenderer>().flipX = false;
+                        transform.GetChild(1).gameObject.GetComponent<SpriteRenderer>().flipX = false;
                     }
                     
                 }
@@ -344,8 +349,9 @@ public class PlayerScript : MonoBehaviour {
             }
             else if(moveHorizontal < 0){
                 animCycle.leftMove = true;
+                
                 facingRight = false;
-                if(PlayerColor.WHITE == color && !animCycle.transition){
+                if(PlayerColor.WHITE == color && animCycle.transition){
                     transform.GetChild(0).localEulerAngles = new Vector3(0,0,180);
                     float previousAngle = transform.GetChild(0).GetChild(0).GetComponentInChildren<UpdatedLightSourceScript>().baseAngle;
                     if(previousAngle < 0){
@@ -353,12 +359,16 @@ public class PlayerScript : MonoBehaviour {
                         Quaternion xRot = Quaternion.Euler(90f, 0, 0);
                         Quaternion yRot = Quaternion.Euler(0, -transform.GetChild(0).GetChild(0).GetComponentInChildren<UpdatedLightSourceScript>().baseAngle, 0);
                         transform.GetChild(0).GetChild(0).rotation = xRot * yRot;
+                        GetComponent<SpriteRenderer>().flipX = true;
+                        transform.GetChild(1).gameObject.GetComponent<SpriteRenderer>().flipX = true;
                     }
                 }
-                else if(PlayerColor.BLACK == color && !animCycle.transition){
+                else if(PlayerColor.BLACK == color && animCycle.transition){
                     bool previouslyFacingRight = transform.GetChild(0).localEulerAngles != new Vector3(0,180,0);
                     if(previouslyFacingRight){
                         transform.GetChild(0).localEulerAngles = new Vector3(0,180,0);
+                        GetComponent<SpriteRenderer>().flipX = true;
+                        transform.GetChild(1).gameObject.GetComponent<SpriteRenderer>().flipX = true;
                     }
                     
                 }
