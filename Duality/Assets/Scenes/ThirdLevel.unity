@@ -22598,7 +22598,7 @@ PrefabInstance:
     - target: {fileID: 1468225812810825751, guid: 003e776c18c72d9418e5a7b1d42e3cc8,
         type: 3}
       propertyPath: nextLevel
-      value: Epilogue
+      value: Endscene2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 003e776c18c72d9418e5a7b1d42e3cc8, type: 3}
@@ -41448,7 +41448,7 @@ PrefabInstance:
     - target: {fileID: 1468225812810825751, guid: 003e776c18c72d9418e5a7b1d42e3cc8,
         type: 3}
       propertyPath: nextLevel
-      value: Epilogue
+      value: Endscene2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 003e776c18c72d9418e5a7b1d42e3cc8, type: 3}
@@ -112488,8 +112488,8 @@ Transform:
   - {fileID: 403070604}
   - {fileID: 808820442}
   - {fileID: 219451262}
-  - {fileID: 661436737}
   - {fileID: 1579435733}
+  - {fileID: 661436737}
   - {fileID: 1462061609}
   - {fileID: 449901933}
   - {fileID: 1231374503}
