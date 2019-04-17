@@ -22,7 +22,7 @@ public class AnimCycle : MonoBehaviour
     public float bwFrames = 0.075f;
     int fCount = 0;
     int fCap;
-    bool transition = false;
+    public bool transition = false;
     
     bool isRight = true;
 
