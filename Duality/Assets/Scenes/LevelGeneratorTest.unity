@@ -43175,7 +43175,7 @@ Transform:
   - {fileID: 652803242}
   - {fileID: 321295124}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &979837768
 GameObject:
@@ -43866,7 +43866,7 @@ Transform:
   m_Children:
   - {fileID: 1416097981}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &990157071
 GameObject:
@@ -55629,7 +55629,7 @@ PrefabInstance:
     - target: {fileID: 1293007171206768142, guid: 003e776c18c72d9418e5a7b1d42e3cc8,
         type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1293007171206768142, guid: 003e776c18c72d9418e5a7b1d42e3cc8,
         type: 3}
@@ -96726,6 +96726,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: FirstDialogueTrigger(priority)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7363849499784491812, guid: 5e216f22eb969434691b9416ff0a4a41,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7363849499784491815, guid: 5e216f22eb969434691b9416ff0a4a41,
         type: 3}
