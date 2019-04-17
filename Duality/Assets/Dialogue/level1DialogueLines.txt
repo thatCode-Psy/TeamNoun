@@ -40,7 +40,7 @@
 {2}Whatever. You had no right to pull me out of that jail.[.6]40
 {2}Let me leave![.6]41
 {1}I would also like to get out of here. I'd rather serve my time in a real jail.[.85]42
-{3}While I appreciate the sentiment, gentleman, the facility has been put into automatic lockdown.[1]43
+{3}While I appreciate the sentiment, gentlemen, the facility has been put into automatic lockdown.[1]43
 {3}I can't even leave this office.[.6]44
 {3}You'll need to go down to the ritual level's control terminal to release the lockdown.[1.1]45
 {3}That will allow anyone trapped to evacuate, so I suppose it's in my authority to let you leave with them.[1.1]46
