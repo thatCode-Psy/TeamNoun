@@ -506,6 +506,7 @@ MonoBehaviour:
   - {fileID: 21300022, guid: 4e9de2e6c1db9ab45a101469d74382b7, type: 3}
   - {fileID: 21300014, guid: 4e9de2e6c1db9ab45a101469d74382b7, type: 3}
   bwFrames: 0.075
+  transition: 0
   holdingItem: 0
   rightMove: 0
   leftMove: 0
@@ -827,6 +828,11 @@ PrefabInstance:
         type: 3}
       propertyPath: maxAngleForDescending
       value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 114286922984860666, guid: 482b1fb1727c18843a7f102b711599e8,
+        type: 3}
+      propertyPath: collisionOffset
+      value: 0.05
       objectReference: {fileID: 0}
     - target: {fileID: 23925645573531492, guid: 482b1fb1727c18843a7f102b711599e8,
         type: 3}
