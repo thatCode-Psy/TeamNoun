@@ -709,6 +709,21 @@ PrefabInstance:
       propertyPath: collisionOffset
       value: 0.05
       objectReference: {fileID: 0}
+    - target: {fileID: 114286922984860666, guid: 482b1fb1727c18843a7f102b711599e8,
+        type: 3}
+      propertyPath: clipJump
+      value: 
+      objectReference: {fileID: 8300000, guid: 6c0d41487e11da54c9383aa7f8e98acd, type: 3}
+    - target: {fileID: 114286922984860666, guid: 482b1fb1727c18843a7f102b711599e8,
+        type: 3}
+      propertyPath: clipLandOne
+      value: 
+      objectReference: {fileID: 8300000, guid: bd90e408f61106940ba87432ad41c4f3, type: 3}
+    - target: {fileID: 114286922984860666, guid: 482b1fb1727c18843a7f102b711599e8,
+        type: 3}
+      propertyPath: clipLandTwo
+      value: 
+      objectReference: {fileID: 8300000, guid: ab6b2301d87dfa3428cc2884cae7e06b, type: 3}
     - target: {fileID: 23925645573531492, guid: 482b1fb1727c18843a7f102b711599e8,
         type: 3}
       propertyPath: m_Materials.Array.data[0]

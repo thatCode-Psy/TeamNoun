@@ -15,8 +15,8 @@ public class MenuScript : MonoBehaviour {
 
     public Text p1NameText;
     public Text p2NameText;
-    public Text p1NumberText;
-    public Text p2NumberText;
+    // public Text p1NumberText;
+    // public Text p2NumberText;
 
     public void Start()
     {
@@ -86,6 +86,12 @@ public class MenuScript : MonoBehaviour {
             case 2:
                 p2ControllerType += 1;
                 p2ControllerType %= 4;
+                //adjust controller number depending on controller type
+                if( (p1ControllerType == 1 || p1ControllerType == 2) && (p2ControllerType == 1 || p2ControllerType == 2)) {
+                    p2ControllerNumber = 2;
+                } else {
+                    p2ControllerNumber = 1;
+                }
                 GameSettings.instance.p2InputManager.InitializeInputManager(p2ControllerNumber, (InputManager.ControllerType)p2ControllerType);
                 p2ControllerName = GameSettings.instance.p2InputManager.ControllerTypeName();
                 break;
@@ -100,8 +106,8 @@ public class MenuScript : MonoBehaviour {
     {
         p1NameText.text = p1ControllerName;
         p2NameText.text = p2ControllerName;
-        p1NumberText.text = "Controller #" + p1ControllerNumber;
-        p2NumberText.text = "Controller #" + p2ControllerNumber;
+        // p1NumberText.text = "Controller #" + p1ControllerNumber;
+        // p2NumberText.text = "Controller #" + p2ControllerNumber;
     }
 
     public void LoadLevel()

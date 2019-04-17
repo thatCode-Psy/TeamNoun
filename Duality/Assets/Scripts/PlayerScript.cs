@@ -154,28 +154,9 @@ public class PlayerScript : MonoBehaviour {
 
         bool wasAirborne = !grounded;
         grounded = isGrounded();
-        
-        //jump stuff
-        if(canMove) {
-            if(jumpPressed) {
-                    jumpHeld = true;
-                    if(grounded) {
-                        isJumping = true;
-                        rbody.AddForce(Vector2.up * jumpForce * rbody.mass, ForceMode2D.Impulse);
-                        jumpSource.Play();
-                    }
-                }
-                else if (jumpReleased) {
-                    jumpHeld = false;
-                }
-
-                if(!jumpHeld && grounded) {
-                    isJumping = false;
-                }
-        }
 
         //landing sound
-        if(wasAirborne && grounded) {
+        if(wasAirborne && grounded && isJumping) {
             print("landed");
             int soundSelect = Random.Range(0, 2);
             switch (soundSelect) {
@@ -187,6 +168,27 @@ public class PlayerScript : MonoBehaviour {
                     break;
             }
         }
+        
+        //jump stuff
+        if(canMove) {
+            if(jumpPressed) {
+                    jumpHeld = true;
+                    if(grounded) {
+                        jumpSource.Play();
+                        isJumping = true;
+                        rbody.AddForce(Vector2.up * jumpForce * rbody.mass, ForceMode2D.Impulse);  
+                    }
+                }
+                else if (jumpReleased) {
+                    jumpHeld = false;
+                }
+
+                if(!jumpHeld && grounded) {
+                    isJumping = false;
+                }
+        }
+
+
         
 
         if(color == PlayerColor.WHITE && flashUp && canMove){
