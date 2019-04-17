@@ -108,6 +108,6 @@ public class MenuScript : MonoBehaviour {
     {
         GameSettings.instance.p1InputManager.InitializeInputManager(p1ControllerNumber, (InputManager.ControllerType)p1ControllerType);
         GameSettings.instance.p2InputManager.InitializeInputManager(p2ControllerNumber, (InputManager.ControllerType)p2ControllerType);
-        SceneManager.LoadScene("LevelGeneratorTest");
+        SceneManager.LoadScene("OpeningThing");
     }
 }
