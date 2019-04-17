@@ -683,12 +683,12 @@ PrefabInstance:
     - target: {fileID: 114286922984860666, guid: 482b1fb1727c18843a7f102b711599e8,
         type: 3}
       propertyPath: maxAngleForClimbing
-      value: 50
+      value: 70
       objectReference: {fileID: 0}
     - target: {fileID: 114286922984860666, guid: 482b1fb1727c18843a7f102b711599e8,
         type: 3}
       propertyPath: maxAngleForDescending
-      value: 50
+      value: 70
       objectReference: {fileID: 0}
     - target: {fileID: 114286922984860666, guid: 482b1fb1727c18843a7f102b711599e8,
         type: 3}
