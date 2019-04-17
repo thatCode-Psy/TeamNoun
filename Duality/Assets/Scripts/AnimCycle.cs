@@ -68,14 +68,14 @@ public class AnimCycle : MonoBehaviour
                     
                     
                     if (rightMove){
-                        GetComponent<SpriteRenderer>().flipX = false;
+                        
                         newPosition.x += 0.06f;
-                        transform.GetChild(1).gameObject.GetComponent<SpriteRenderer>().flipX = false;
+                        
                     }
                     else{
-                        GetComponent<SpriteRenderer>().flipX = true;
+                        //GetComponent<SpriteRenderer>().flipX = true;
                         newPosition.x -= 0.06f;
-                        transform.GetChild(1).gameObject.GetComponent<SpriteRenderer>().flipX = true;
+                        
                     }
                     Invoke("IncrementStep", bwFrames);
                 }
