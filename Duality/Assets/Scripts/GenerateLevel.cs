@@ -91,8 +91,8 @@ public class GenerateLevel : MonoBehaviour {
 					
 					break;
 				case 'J':
-					instance = Instantiate (backgroundAsset1, levelParent.transform);
-					//placePosition.z += platformWidthInMeters / 2f;
+					instance = Instantiate (platformPrefab, levelParent.transform);
+					PlaceBackgroundObject(placePosition, platformWidthInMeters, backgroundParent.transform, backgroundAsset2);
 					break;
 				case 'S':
 					instance = Instantiate (backgroundAsset2, levelParent.transform);
