@@ -11,7 +11,12 @@ ModelImporter:
     2300000: wire
     3300000: wire
     4300000: wire
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: initialShadingGroup
+    second: {fileID: 2100000, guid: 067ca2f1d3e574e4d8ace836e434d966, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
