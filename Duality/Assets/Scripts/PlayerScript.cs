@@ -189,7 +189,7 @@ public class PlayerScript : MonoBehaviour {
         }
         
 
-        if(color == PlayerColor.WHITE && flashUp){
+        if(color == PlayerColor.WHITE && flashUp && canMove){
             if(!facingRight){
                 
                 transform.GetChild(0).GetChild(0).GetComponentInChildren<UpdatedLightSourceScript>().baseAngle += 40;
@@ -213,7 +213,7 @@ public class PlayerScript : MonoBehaviour {
         //     transform.GetChild(0).GetChild(0).localEulerAngles = holdUp ? new Vector3(0, 0, 90f) : new Vector3(0,0,0);
         //     transform.GetChild(0).GetChild(0).localPosition = holdUp ? upBoxPosition : originalBoxPosition;
         // }
-        if(color == PlayerColor.WHITE && flashDown){
+        if(color == PlayerColor.WHITE && flashDown && canMove){
             if(!facingRight){
                 
                 transform.GetChild(0).GetChild(0).GetComponentInChildren<UpdatedLightSourceScript>().baseAngle -= 40;
