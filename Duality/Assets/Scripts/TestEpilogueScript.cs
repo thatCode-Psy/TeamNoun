@@ -34,6 +34,15 @@ public class TestEpilogueScript : MonoBehaviour
     public GameObject tree;
     public List<Vector3> array;
 
+    /// <summary>
+    /// Awake is called when the script instance is being loaded.
+    /// </summary>
+    void Awake()
+    {
+        QualitySettings.vSyncCount = 0;
+        Application.targetFrameRate = 60;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -56,6 +65,7 @@ public class TestEpilogueScript : MonoBehaviour
         {
             if(!triggered1)
             {
+                Debug.Log("got here 1 " + Time.time);
                 int start = 0;
                 dialogueManager.SendMessage("PlayDialogue", start);
                 triggered1 = true;
@@ -69,6 +79,7 @@ public class TestEpilogueScript : MonoBehaviour
         {
             if (!triggered2)
             {
+                Debug.Log("got here 2 " + Time.time);
                 int start = 1;
                 dialogueManager.SendMessage("PlayDialogue", start);
                 triggered2 = true;
@@ -82,6 +93,7 @@ public class TestEpilogueScript : MonoBehaviour
         {
             if (!triggered3)
             {
+                Debug.Log("got here 3 " + Time.time);
                 int start = 2;
                 dialogueManager.SendMessage("PlayDialogue", start);
                 triggered3 = true;
