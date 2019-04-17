@@ -59,10 +59,9 @@ public class PlayerScript : MonoBehaviour {
     private bool flashDown;
     private bool flashToggle;
 
-        private Vector2 counterJumpForce;
+    private Vector2 counterJumpForce;
 
     private bool facingRight;
-
 
     public bool pickedUpGrabable = false;
 
@@ -78,8 +77,21 @@ public class PlayerScript : MonoBehaviour {
     private float initGravity;
     public float maxAngleForClimbing = 50f;
     public float maxAngleForDescending = 50f;
+    public AudioClip clipJump;
+    public AudioClip clipLandOne;
+    public AudioClip clipLandTwo;
+
+    private AudioSource jumpSource;
+    private AudioSource landOneSource;
+    private AudioSource landTwoSource;
 
 
+    void Awake() {
+        jumpSource = AddAudio(clipJump);
+        landOneSource = AddAudio(clipLandOne);
+        landTwoSource = AddAudio(clipLandTwo);
+    }
+    
     // Use this for initialization
 	void Start () {
         animCycle = GetComponent<AnimCycle>();
@@ -140,6 +152,7 @@ public class PlayerScript : MonoBehaviour {
         flashDown = inputManager.GetAxisDown(InputManager.ControllerAxis.flashDown);
         flashToggle = inputManager.GetAxisDown(InputManager.ControllerAxis.flashToggle);
 
+        bool wasAirborne = !grounded;
         grounded = isGrounded();
         
         //jump stuff
@@ -149,6 +162,7 @@ public class PlayerScript : MonoBehaviour {
                     if(grounded) {
                         isJumping = true;
                         rbody.AddForce(Vector2.up * jumpForce * rbody.mass, ForceMode2D.Impulse);
+                        jumpSource.Play();
                     }
                 }
                 else if (jumpReleased) {
@@ -158,6 +172,20 @@ public class PlayerScript : MonoBehaviour {
                 if(!jumpHeld && grounded) {
                     isJumping = false;
                 }
+        }
+
+        //landing sound
+        if(wasAirborne && grounded) {
+            print("landed");
+            int soundSelect = Random.Range(0, 2);
+            switch (soundSelect) {
+                case 0:
+                    landOneSource.Play();
+                    break;
+                case 1:
+                    landTwoSource.Play();
+                    break;
+            }
         }
         
 
@@ -505,6 +533,15 @@ public class PlayerScript : MonoBehaviour {
         print("player" + color + " died");
         transform.position = currentSpawn.transform.position;
         GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+    }
+
+    private AudioSource AddAudio(AudioClip clip,bool loop = false, bool playAwake = false,float vol = 1) {
+        AudioSource newAudio = gameObject.AddComponent(typeof(AudioSource)) as AudioSource;
+        newAudio.clip = clip;
+        newAudio.loop = loop;
+        newAudio.playOnAwake = playAwake;
+        newAudio.volume = vol;
+        return newAudio;
     }
 
 }

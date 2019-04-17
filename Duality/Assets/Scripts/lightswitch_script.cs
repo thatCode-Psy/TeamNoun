@@ -15,13 +15,21 @@ public class lightswitch_script : MonoBehaviour
     //contains the components of all the non-null lights attached to the lightswitch.
     private List<UpdatedLightSourceScript> lightComponents = new List<UpdatedLightSourceScript>();
 
-    public AudioSource audio;
-
+    private AudioSource switchOn;
+    private AudioSource switchOff;
+    public AudioClip clipOn;
+    public AudioClip clipOff;
     public bool switchTriggering;
+
+    void Awake() {
+        // add the necessary AudioSources:
+        switchOn = AddAudio(clipOn);
+        switchOff = AddAudio(clipOff);
+    }
+
     // Start is called before the first frame update
     void Start()
     {
-        audio = GetComponent<AudioSource>();
         switchTriggering = false;
         for (int x = 0; x < lights.Count; x++)
         {
@@ -47,8 +55,14 @@ public class lightswitch_script : MonoBehaviour
     {
         //flips the light model upside down so it looks like it gets switched on/off.
         transform.GetChild(0).RotateAround(transform.position, new Vector3(0f, 0.0f, 1.0f), 180);
+
+        if(light_on) {
+            switchOn.Play();
+        } else {
+            switchOff.Play();
+        }
+
         light_on = !light_on;
-        audio.Play();
         
         print("triggerSwitch");
         //toggle lights
@@ -62,5 +76,14 @@ public class lightswitch_script : MonoBehaviour
             dialogueManager.SendMessage("PlayDialogue", lineToTrigger);
             hasTriggered = true;
         }
+    }
+
+    private AudioSource AddAudio(AudioClip clip,bool loop = false, bool playAwake = false,float vol = 1) {
+        AudioSource newAudio = gameObject.AddComponent(typeof(AudioSource)) as AudioSource;
+        newAudio.clip = clip;
+        newAudio.loop = loop;
+        newAudio.playOnAwake = playAwake;
+        newAudio.volume = vol;
+        return newAudio;
     }
 }
