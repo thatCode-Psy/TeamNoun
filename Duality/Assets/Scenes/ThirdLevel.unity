@@ -28944,7 +28944,7 @@ PrefabInstance:
     - target: {fileID: 8978339329366703263, guid: 236ca1f7b14a5d843a38113fc96c0daf,
         type: 3}
       propertyPath: amountOfRayCasts
-      value: 30
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 8978339329366703263, guid: 236ca1f7b14a5d843a38113fc96c0daf,
         type: 3}
@@ -103044,7 +103044,7 @@ PrefabInstance:
     - target: {fileID: 8978339329366703261, guid: 236ca1f7b14a5d843a38113fc96c0daf,
         type: 3}
       propertyPath: m_SpotAngle
-      value: 61
+      value: 79
       objectReference: {fileID: 0}
     - target: {fileID: 8978339329366703262, guid: 236ca1f7b14a5d843a38113fc96c0daf,
         type: 3}
