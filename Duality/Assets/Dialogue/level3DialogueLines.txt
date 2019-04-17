@@ -12,7 +12,7 @@
 {1}Sorry, that explosion did a number on this place.[.8]12
 {1}Sure made it weird, but I'm glad there was a up.[.6]13
 {2}Well I see the way out ahead. Lets leave this shitty place.[.6]14
-{1}Yeah.[.5]15
+{1}Yeah.[.5]-1
 {1}Do you think we have a chance to fix ourselves? Be one person again?[.7]16
 {2}Never know until we try, right? We have a lead, we'll figure it out.[.85]17
 {1}Maybe without breaking the law this time.[.6]18
