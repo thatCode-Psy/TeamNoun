@@ -7,7 +7,7 @@ public class EndLevelTriggerScript : MonoBehaviour
 {
 
     static List<EndLevelTriggerScript> endLevelTriggers = new List<EndLevelTriggerScript>();
-
+    static bool runningCheckWin;
     public string nextLevel = "DemoVictory";
 
     bool triggering;
@@ -16,6 +16,7 @@ public class EndLevelTriggerScript : MonoBehaviour
     {
         endLevelTriggers.Add(this);
         triggering = false;
+        runningCheckWin = false;
     }
 
     // Update is called once per frame
@@ -38,12 +39,16 @@ public class EndLevelTriggerScript : MonoBehaviour
     }
 
     void CheckWin(){
-        foreach(EndLevelTriggerScript script in endLevelTriggers){
-            if(!script.triggering){
-                return;
+        if(!runningCheckWin){
+            runningCheckWin = true;
+            foreach(EndLevelTriggerScript script in endLevelTriggers){
+                if(!script.triggering){
+                    runningCheckWin = false;
+                    return;
+                }
             }
+            SceneManager.LoadScene(nextLevel);
         }
-        SceneManager.LoadScene(nextLevel);
     }
 
 }
