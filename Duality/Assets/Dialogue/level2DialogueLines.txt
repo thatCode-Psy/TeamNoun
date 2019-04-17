@@ -1,64 +1,64 @@
-{2}The stairs down here are broken.[.5]1
-{1}Must have been the, what did he call it? Thaum flux?[.5]2
-{2}Something like that. All Greek to me.[.5]3
-{2}It sounded like he didn't even know.[.5]-1
-{1}It's pretty crazy looking down here.[.5]5
-{1}I wonder if people know about this part.[.5]6
-{2}I'd bet no. They definitely did something to magic to us,[.6]7
-{2}And I don't think human experimentation would go over well.[.7]8
-{1}You aren't wrong about that.[.5]-1
-{1}Woah.[.5]-1
-{2}Holy shit, look at this.[.5]11
-{1}I guess that's why Mr.Layton called it the ritual level.[.5]12
-{1}I can kind of remember coming here though...[.5]13
-{2}Me too, I remember being led out into the middle there.[.5]14
-{1}Then a brutal headache, and waking up in that cell?[.5]15
-{2}Yeah. Those bastards better have a way to undo whatever they did.[.75]16
-{1}I wonder what it was they did though.[.5]17
-{1}Surely making light or shadow solid couldn't have been the whole point, right?[.75]18
-{2}No idea.[.5]-1
-{2}Ok, now where the hell is this terminal?[.5]20
-{3}Hello? Is someone out there?[.75]21
-{2}Another person, great. Let me guess, you're trapped in there?[.6]22
-{3}Yes, it turns out the karmic imbalance from having too many subjects[.2]23
-{3}created a thaumic vacuum that, when it was forced back into equilibirum,[.2]24
-{3}irradiated the facility with nearly 14 megathaumiels of magic flux and triggered lockdown.[.5]25
-{1}...What?[.4]26
-{2}Yeah, what was all that?[.5]27
-{3}My apologies, perhaps that was too deep-wait.[.5]28
-{3}You aren't staff members, you're subjects![.5]29
-{2}Yeah, unfortunately for us. Who are you anyway?[.5]30
-{3}I'm Andrea Ellisburg, I'm the head researcher here at Verlen.[.5]31
-{1}You seem like a good person to ask then, what did they do to us here?[.6]32
-{3}Well, we were attempting to discern what causes people to commit evil acts[.75]33
-{3}The goal was to create a "vaccine for the soul" against those things.[.75]34
-{2}...What.[.5]35
-{3}To do it, we used a ritual to separate prisoners into "yin" and "yang" halves.[.75]36
-{3}I assume you didn't realize you're a mass of plus spin magic energy contained in a minus spin membrane?[.75]37
-{3}And the other you is the opposite?[.5]38
-{1}What on... holy crap![.5]39
-{2}Holy shit what the fuck?[.5]40
-{3}A usual occurrence. The human mind is remarkably able to ignore things that are "unnatural".[.75]41
-{1}Wait, but if you split people in half...[.5]42
-{2}...And we were in cells next to each other...[.5]43
-{3}Probably, yes. Based on your ambient anima readings, Benjamin Aredoughne?[.5]44
-{3}Convicted of burglary, brought here just before the solestice?[.5]45
-{1}Well... is there a way you can make us... be a normal person again?[.6]46
+{2}The stairs down here are broken.[.6]1
+{1}Must have been the, what did he call it? Thaum flux?[.6]2
+{2}Something like that. All Greek to me.[.6]3
+{2}It sounded like he didn't even know.[.6]-1
+{1}It's pretty crazy looking down here.[.6]5
+{1}I wonder if people know about this part.[.6]6
+{2}I'd bet no. They definitely did something to magic to us,[.7]7
+{2}And I don't think human experimentation would go over well.[.8]8
+{1}You aren't wrong about that.[.6]-1
+{1}Woah.[.6]-1
+{2}Holy shit, look at this.[.6]11
+{1}I guess that's why Mr.Layton called it the ritual level.[.6]12
+{1}I can kind of remember coming here though...[.6]13
+{2}Me too, I remember being led out into the middle there.[.6]14
+{1}Then a brutal headache, and waking up in that cell?[.6]15
+{2}Yeah. Those bastards better have a way to undo whatever they did.[.85]16
+{1}I wonder what it was they did though.[.6]17
+{1}Surely making light or shadow solid couldn't have been the whole point, right?[.85]18
+{2}No idea.[.6]-1
+{2}Ok, now where the hell is this terminal?[.7]20
+{3}Hello? Is someone out there?[.85]21
+{2}Another person, great. Let me guess, you're trapped in there?[.8]22
+{3}Yes, it turns out the karmic imbalance from having too many subjects[.3]23
+{3}created a thaumic vacuum that, when it was forced back into equilibirum,[.3]24
+{3}irradiated the facility with nearly 14 megathaumiels of magic flux and triggered lockdown.[.8]25
+{1}...What?[.6]26
+{2}Yeah, what was all that?[.7]27
+{3}My apologies, perhaps that was too deep-wait.[.7]28
+{3}You aren't staff members, you're subjects![.7]29
+{2}Yeah, unfortunately for us. Who are you anyway?[.7]30
+{3}I'm Andrea Ellisburg, I'm the head researcher at this facility.[.8]31
+{1}You seem like a good person to ask then, what did they do to us here?[.8]32
+{3}Well, we were attempting to discern what causes people to commit evil acts[.95]33
+{3}The goal was to create a "vaccine for the soul" against those things.[.95]34
+{2}...What.[.6]35
+{3}To do it, we used a ritual to separate prisoners into "yin" and "yang" halves.[.95]36
+{3}I assume you didn't realize you're a mass of plus spin magic energy contained in a minus spin membrane?[.95]37
+{3}And the other you is the opposite?[.7]38
+{1}What on... holy crap![.6]39
+{2}Holy shit what the fuck?[.6]40
+{3}A usual occurrence. The human mind is remarkably able to ignore things that are "unnatural".[.95]41
+{1}Wait, but if you split people in half...[.7]42
+{2}...And we were in cells next to each other...[.7]43
+{3}Probably, yes. Based on your ambient anima readings, Benjamin Aredoughne?[.8]44
+{3}Convicted of burglary, brought here just before the solestice?[.7]45
+{1}Well... is there a way you can make us... be a normal person again?[.8]46
 {3}Er.[.5]47
-{3}Well, no.[.5]48
-{2}You motherfuckers.[.4]49
-{3}Wait, wait! In theory, if you can find can find a place of sufficient thaumic pressure-[.2]50
-{1}In layman's terms, please.[.5]51
-{3}Ok... if you can find a sufficiently magical place and be close enough together,[.4]52
-{3}The ambient magic could reverse the ritual and "snap" you back to your natural state[.5]53
-{2}I almost don't believe you, but it doesn't matter until we get out of this place.[.5]54
-{2}Where's the control terminal?[.3]55
-{3}Right past my door. You should be able to take the elevator past it to leave.[.6]56
-{3}Be fast, though- Dr. Layton will call enforcers as soon as the lockdown goes down.[.6]57
-{3}You'll probably have just a couple minutes to get out.[.5]58
-{2}Good enough. Let's go.[.5]-1
-{2}Hey, there's a flashlight down here. I'm grabbing it.[.5]60
-{1}A portable light source sounds good to me.[.5]-1
-{1}There's a... pizza box here.[.5]62
-{2}I guess someone had to leave in a hurry, huh?[.5]63
-{1}Well, I'll grab it. Maybe I can block light with it.[.6]-1
+{3}Well, no.[.8]48
+{2}You motherfuckers.[.7]49
+{3}Wait, wait! In theory, if you can find can find a place of sufficient thaumic pressure-[.3]50
+{1}In layman's terms, please.[.6]51
+{3}Ok... if you can find a sufficiently magical place and be close enough together,[.8]52
+{3}The ambient magic could reverse the ritual and "snap" you back to your natural state[.8]53
+{2}I almost don't believe you, but it doesn't matter until we get out of this place.[.7]54
+{2}Where's the control terminal?[.6]55
+{3}Right past my door. You should be able to take the elevator past it to leave.[.8]56
+{3}Be fast, though- Dr. Layton will call enforcers as soon as the lockdown goes down.[.8]57
+{3}You'll probably have just a couple minutes to get out.[.7]58
+{2}Good enough. Let's go.[.7]-1
+{2}Hey, there's a flashlight down here. I'm grabbing it.[.6]60
+{1}A portable light source sounds good to me.[.6]-1
+{1}There's a... pizza box here.[.6]62
+{2}I guess someone had to leave in a hurry, huh?[.6]63
+{1}Well, I'll grab it. Maybe I can block light with it.[.7]-1
