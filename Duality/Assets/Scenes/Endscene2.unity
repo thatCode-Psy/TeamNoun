@@ -5566,6 +5566,7 @@ MonoBehaviour:
   sky: {fileID: 253805623}
   tree: {fileID: 647741914}
   array: []
+  speed5: 10
 --- !u!1 &1715722509
 GameObject:
   m_ObjectHideFlags: 0
