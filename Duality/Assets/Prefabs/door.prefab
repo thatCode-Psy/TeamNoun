@@ -92,6 +92,7 @@ GameObject:
   - component: {fileID: 811670607}
   - component: {fileID: 811670609}
   - component: {fileID: 811670608}
+  - component: {fileID: 4076253684381161789}
   m_Layer: 5
   m_Name: Image
   m_TagString: Other_textbox
@@ -156,6 +157,20 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
+--- !u!114 &4076253684381161789
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 811670606}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df53b3a70a2a5de4c9500983b7e3f4ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  text: {fileID: 327559665}
+  originalFOV: 0
 --- !u!1 &884964055
 GameObject:
   m_ObjectHideFlags: 0
