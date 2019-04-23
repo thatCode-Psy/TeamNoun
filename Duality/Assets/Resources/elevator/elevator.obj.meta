@@ -11,7 +11,12 @@ ModelImporter:
     2300000: pCube1
     3300000: pCube1
     4300000: pCube1
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: initialShadingGroup
+    second: {fileID: 2100000, guid: d48989e9759bf46c0ab92bc271abbf17, type: 2}
   materials:
     importMaterials: 1
     materialName: 0

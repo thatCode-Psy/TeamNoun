@@ -902,6 +902,11 @@ PrefabInstance:
       propertyPath: baseAngle
       value: -90
       objectReference: {fileID: 0}
+    - target: {fileID: 212200384838260121, guid: 13040b3cc751dfd43bb2be773f2f330f,
+        type: 3}
+      propertyPath: amountOfRayCasts
+      value: 70
+      objectReference: {fileID: 0}
     - target: {fileID: 212200384838260123, guid: 13040b3cc751dfd43bb2be773f2f330f,
         type: 3}
       propertyPath: m_SpotAngle
