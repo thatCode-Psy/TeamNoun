@@ -11725,10 +11725,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c655a052777f81a4cbf22febc3b02a19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dampTime: 0.5
+  dampTime: 0.1
   minFOV: 10
-  maxFOV: 40
-  expectedMaxDistanceBetweenPlayers: 15
+  maxFOV: 90
+  expectedMaxDistanceBetweenPlayers: 50
   offset: {x: 0, y: 0.5, z: -20}
 --- !u!82 &288444087
 AudioSource:
@@ -36367,15 +36367,15 @@ PrefabInstance:
       propertyPath: m_Shadows.m_NearPlane
       value: 5.5
       objectReference: {fileID: 0}
-    - target: {fileID: 8978339329366703263, guid: 236ca1f7b14a5d843a38113fc96c0daf,
-        type: 3}
-      propertyPath: baseAngle
-      value: -90.18
-      objectReference: {fileID: 0}
     - target: {fileID: 8978339329366703262, guid: 236ca1f7b14a5d843a38113fc96c0daf,
         type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8978339329366703263, guid: 236ca1f7b14a5d843a38113fc96c0daf,
+        type: 3}
+      propertyPath: baseAngle
+      value: -90.18
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 236ca1f7b14a5d843a38113fc96c0daf, type: 3}
@@ -55132,15 +55132,15 @@ PrefabInstance:
       propertyPath: m_Shadows.m_NearPlane
       value: 5.5
       objectReference: {fileID: 0}
-    - target: {fileID: 8978339329366703263, guid: 236ca1f7b14a5d843a38113fc96c0daf,
-        type: 3}
-      propertyPath: baseAngle
-      value: -90.18
-      objectReference: {fileID: 0}
     - target: {fileID: 8978339329366703262, guid: 236ca1f7b14a5d843a38113fc96c0daf,
         type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8978339329366703263, guid: 236ca1f7b14a5d843a38113fc96c0daf,
+        type: 3}
+      propertyPath: baseAngle
+      value: -90.18
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 236ca1f7b14a5d843a38113fc96c0daf, type: 3}
