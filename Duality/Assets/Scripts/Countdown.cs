@@ -29,7 +29,8 @@ public class Countdown : MonoBehaviour
         
         while (currCountdownValue > 0)
         {
-            countdownText.text = ((int)currCountdownValue/60 +":" + currCountdownValue % 60);
+            int seconds = (int)currCountdownValue % 60;
+            countdownText.text = ((int)currCountdownValue/60 +":" + seconds.ToString("D2"));
             Debug.Log("Countdown: " + currCountdownValue);
             yield return new WaitForSeconds(1.0f);
             currCountdownValue--;
