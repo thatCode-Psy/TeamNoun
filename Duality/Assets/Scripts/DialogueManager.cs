@@ -27,6 +27,8 @@ public class DialogueManager : MonoBehaviour
 
     public int speed = 2;
 
+    public bool isEpilogue = false;
+
 
     public AudioSource audio;
     private AudioClip blackText;
@@ -72,6 +74,12 @@ public class DialogueManager : MonoBehaviour
         //}
 
         AquireTextBoxes();
+        if (!isEpilogue)
+        {
+            blackTextBox.SendMessage("GetFOV");
+            whiteTextBox.SendMessage("GetFOV");
+            otherTextBox.SendMessage("GetFOV");
+        }
         blackTextBox.SetActive(false);
         whiteTextBox.SetActive(false);
         otherTextBox.SetActive(false);

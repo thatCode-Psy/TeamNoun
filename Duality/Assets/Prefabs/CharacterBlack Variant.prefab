@@ -394,6 +394,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text: {fileID: 3950814608901795089}
+  originalFOV: 15.6
 --- !u!212 &2491678959005694980
 SpriteRenderer:
   m_ObjectHideFlags: 0
