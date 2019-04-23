@@ -84370,6 +84370,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: MidDialogueTrigger
       objectReference: {fileID: 0}
+    - target: {fileID: 7171452949913467970, guid: caf4141140dcd91418d2624b4055ad52,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7171452949913467968, guid: caf4141140dcd91418d2624b4055ad52,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -88205,6 +88210,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: LightbridgeDialogueTrigger
+      objectReference: {fileID: 0}
+    - target: {fileID: 7171452949913467970, guid: caf4141140dcd91418d2624b4055ad52,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7171452949913467968, guid: caf4141140dcd91418d2624b4055ad52,
         type: 3}

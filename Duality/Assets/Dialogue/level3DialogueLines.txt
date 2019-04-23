@@ -1,18 +1,19 @@
 {1}So we're technically the same person, huh?[.6]1
-{2}I can see it. We do have nearly the same name.[.6]2
-{1}Nickname versus real name I guess.[.6]3
-{1}Think there was any merit in what that lady said? With the yin and yang side thing?[.8]4
-{2}Well, we do seem pretty different. That might be it.[.6]5
-{2}But honestly, who cares? I'm sure we'll have stuff to talk about on the outside,[.85]6
-{2}But for now we gotta move. That chick said we only had a few minutes, right?[.6]7
-{1}Yeah, those alarms don't look good.[.6]8
-{1}Looks like we gotta split up here. I'll see you at the top?[.7]9
-{2}See you at the top.[.6]-1
-{2}Glad to see you made it.[.6]11
-{1}Sorry, that explosion did a number on this place.[.8]12
-{1}Sure made it weird, but I'm glad there was a up.[.6]13
-{2}Well I see the way out ahead. Lets leave this shitty place.[.6]14
-{1}Yeah.[.5]-1
+{2}I could see it.[.6]5
+//{1}Nickname versus real name I guess.[.6]3
+//{1}Think there was any merit in what that lady said? With the yin and yang side thing?[.8]4
+//{2}Well, we do seem pretty different. That might be it.[.6]5
+{2}But honestly, who gives a shit? I'm sure we'll have stuff to talk about on the outside,[.85]6
+{2}But for now we gotta move. That chick said we only had a few minutes, right?[.6]8
+//{1}Yeah, those alarms don't look good.[.6]8
+{1}Do... you think we should try to fix ourselves?[.9]9
+{2}Gotta make it out of here first.[.6]-1
+//{2}Glad to see you made it.[.6]11
+//{1}Sorry, that explosion did a number on this place.[.8]12
+//{1}Sure made it weird, but I'm glad there was a up.[.6]13
+{2}I see the way out ahead. Lets leave this shitty place.[.6]14
+{2}And then, we'll fix ourselves. These motherfuckers can't beat us.[.8]15
+{1}Yeah![.5]-1
 {1}Do you think we have a chance to fix ourselves? Be one person again?[.7]16
 {2}Never know until we try, right? We have a lead, we'll figure it out.[.85]17
 {1}Maybe without breaking the law this time.[.6]18

@@ -2,9 +2,9 @@
 //{2}I have no idea, but it gave us a way out of here, so I'm taking it.[1.1]2
 {1}Do you know where here is?[.6]3
 {2}No, but I can guess it's probably not where I want to be.[.85]4
-{1}What's your name, by the way?[.6]5
-{2}Benny. You?[.6]6
-{1}Call me Benjamin.[.6]-1
+{1}What's your name, by the way?[.8]5
+{2}Benny. You?[.8]6
+{1}Call me Benjamin.[.8]-1
 //{1}This is the only way to go, I suppose.[.85]8
 //{2}Yeah, and we're taking it.[.6]-1
 {2}The light here feels like a wall, what the hell?.[.85]10
