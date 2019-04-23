@@ -36947,6 +36947,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlantDialogueTrigger
       objectReference: {fileID: 0}
+    - target: {fileID: 7171452949913467970, guid: caf4141140dcd91418d2624b4055ad52,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7171452949913467968, guid: caf4141140dcd91418d2624b4055ad52,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -78306,6 +78311,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: GunDialogueTrigger
       objectReference: {fileID: 0}
+    - target: {fileID: 7171452949913467970, guid: caf4141140dcd91418d2624b4055ad52,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7171452949913467968, guid: caf4141140dcd91418d2624b4055ad52,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -98306,6 +98316,11 @@ PrefabInstance:
       propertyPath: dialogueFile
       value: 
       objectReference: {fileID: 4900000, guid: 993b6d79c2437324d92badf31df30edc, type: 3}
+    - target: {fileID: 8720605854782856964, guid: 7f16e187929361e4dbe2aac075f7c12e,
+        type: 3}
+      propertyPath: speed
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7f16e187929361e4dbe2aac075f7c12e, type: 3}
 --- !u!1 &2126749504 stripped

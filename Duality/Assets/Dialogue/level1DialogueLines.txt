@@ -1,32 +1,32 @@
 {1}What... what was that?[.6]1
-{2}I have no idea, but it gave us a way out of here, so I'm taking it.[1.1]2
+//{2}I have no idea, but it gave us a way out of here, so I'm taking it.[1.1]2
 {1}Do you know where here is?[.6]3
 {2}No, but I can guess it's probably not where I want to be.[.85]4
 {1}What's your name, by the way?[.6]5
 {2}Benny. You?[.6]6
 {1}Call me Benjamin.[.6]-1
-{1}This is the only way to go, I suppose.[.85]8
-{2}Yeah, and we're taking it.[.6]-1
-{2}Something is strange here, the light feels like a wall.[.85]10
+//{1}This is the only way to go, I suppose.[.85]8
+//{2}Yeah, and we're taking it.[.6]-1
+{2}The light here feels like a wall, what the hell?.[.85]10
 {2}You have that problem?[.6]11
-{1}No, I have the opposite problem. The shadows feel hard.[.85]12
+{1}No, for me it's the shadows that feel solid.[.85]-1
 {3}We'll probably have to work together to get out then.[.6]-1
-{1}Whatever that explosion was, it knocked over this plant here.[.6]14
-{2}But not much other damage. Strange, huh?[.7]15
-{1}Almost as strange as having a plastic plant in a prison facility.[1]-1
-{1}There's a set of body armor up here. And a gun.[.85]17
-{2}A gun? Grab it, we might have to shoot our way out.[.6]18
-{1}What? No way, I don't want to shoot anyo-[.2]19
-{1}What on earth?[.6]20
-{2}What?[.35]21
-{1}The gun is... fused somehow. Melted.[.6]22
-{1}That's probably for the best.[.6]23
-{2}Speak for yourself. It probably would have been useful.[.85]-1
-{3}Stairs down. Probably not where we want to be, huh?[.6]-1
-{2}Damn, the door here is sealed. Do you see a way out down there?[.85]26
-{1}No, the maintenance tunnel ends here. We'll have to look somewhere else.[.85]27
+//{1}Whatever that explosion was, it knocked over this plant here.[.6]14
+//{2}But not much other damage. Strange, huh?[.7]15
+//{1}Almost as strange as having a plastic plant in a prison facility.[1]-1
+//{1}There's a set of body armor up here. And a gun.[.85]17
+//{2}A gun? Grab it, we might have to shoot our way out.[.6]18
+//{1}What? No way, I don't want to shoot anyo-[.2]19
+//{1}What on earth?[.6]20
+//{2}What?[.35]21
+//{1}The gun is... fused somehow. Melted.[.6]22
+//{1}That's probably for the best.[.6]23
+//{2}Speak for yourself. It probably would have been useful.[.85]-1
+//{3}Stairs down. Probably not where we want to be, huh?[.6]-1
+//{2}Damn, the door here is sealed. Do you see a way out down there?[.85]26
+//{1}No, the maintenance tunnel ends here. We'll have to look somewhere else.[.85]27
 {3}Excuse me, gentlemen. Perhaps I can assist you?[.75]28
-{1}What? Who the hell are you?[.6]29
+{2}What? Who the hell are you?[.6]29
 {3}My name is Eric Layton. I'm the head of this facility. And you two would be.. ah yes.[.75]30
 {3}I was visiting with the warden when the incident ocurred, but he is...[.85]31
 {3}Indisposed at the moment.[.6]32
@@ -34,12 +34,12 @@
 {3}Apologies, you're rather quiet down there. What did you say?[.85]34
 {2}Benjamin asked what the "incident" was.[.6]35
 {3}I'm not sure, but it would appear something went wrong in the ritual chamber.[.9]36
-{3}From my understanding, the... thaum flux reached excessive levels. I think.[.85]37
-{1}That sounds like magic.[.6]38
-{3}Of course. Verlen Enterprises maintains a research branch for the understanding of such things.[.9]39
-{2}Whatever. You had no right to pull me out of that jail.[.6]40
-{2}Let me leave![.6]41
-{1}I would also like to get out of here. I'd rather serve my time in a real jail.[.85]42
+{3}From my understanding, the... thaum flux reached excessive levels. I think.[.85]40
+//{1}That sounds like magic.[.6]38
+//{3}Of course. Verlen Enterprises maintains a research branch for the understanding of such things.[.9]39
+//{2}Whatever. You had no right to pull me out of that jail.[.6]40
+{2}I don't give a shit. Let me leave![.6]41
+{1}Me as well. I'd rather serve my time in a less shady place.[.85]42
 {3}While I appreciate the sentiment, gentlemen, the facility has been put into automatic lockdown.[1]43
 {3}I can't even leave this office.[.6]44
 {3}You'll need to go down to the ritual level's control terminal to release the lockdown.[1.1]45
