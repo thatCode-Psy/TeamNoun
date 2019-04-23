@@ -36,6 +36,7 @@ public class TestEpilogueScript : MonoBehaviour
     public List<Vector3> array;
 
     public float speed5;
+    DialogueManager manager;
 
     /// <summary>
     /// Awake is called when the script instance is being loaded.
@@ -51,6 +52,7 @@ public class TestEpilogueScript : MonoBehaviour
     {
         mainCamera = Camera.main.gameObject;
         moon.transform.position = new Vector3(4.65f, 7.88f, -8.61f);
+        manager = dialogueManager.GetComponent<DialogueManager>();
     }
 
     // Update is called once per frame
@@ -76,7 +78,8 @@ public class TestEpilogueScript : MonoBehaviour
             {
                 Debug.Log("got here 1 " + Time.time);
                 int start = 0;
-                dialogueManager.SendMessage("PlayDialogue", start);
+
+                manager.PlayDialogue(start);
                 triggered1 = true;
             }
             float lerp = (elapsed - speed1) / speed2;
@@ -91,7 +94,8 @@ public class TestEpilogueScript : MonoBehaviour
             {
                 Debug.Log("got here 2 " + Time.time);
                 int start = 1;
-                dialogueManager.SendMessage("PlayDialogue", start);
+                manager.PlayDialogue(start);
+                //dialogueManager.SendMessage("PlayDialogue", start);
                 triggered2 = true;
             }
             float lerp = (elapsed - speed1 - speed2) / speed3;
@@ -105,7 +109,8 @@ public class TestEpilogueScript : MonoBehaviour
             {
                 Debug.Log("got here 3 " + Time.time);
                 int start = 2;
-                dialogueManager.SendMessage("PlayDialogue", start);
+                manager.PlayDialogue(start);
+                //dialogueManager.SendMessage("PlayDialogue", start);
                 triggered3 = true;
             }
             float lerp = (elapsed - speed1 - speed2 - speed3) / speed4;
