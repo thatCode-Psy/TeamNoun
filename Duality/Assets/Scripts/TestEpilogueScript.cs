@@ -5,11 +5,11 @@ using UnityEngine.SceneManagement;
 public class TestEpilogueScript : MonoBehaviour
 {
     public GameObject dialogueManager;
-    bool triggered1 = false;
-    bool triggered2 = false;
-    bool triggered3 = false;
+    bool triggered1;
+    bool triggered2;
+    bool triggered3;
 
-    GameObject mainCamera;
+    //GameObject mainCamera;
     public Vector3 startPosition1;
     public Vector3 endPosition1;
     public Vector3 rotation1;
@@ -26,14 +26,14 @@ public class TestEpilogueScript : MonoBehaviour
     public Vector3 endPosition4;
     public Vector3 rotation4;
     public float speed4;
-    float elapsed = 0;
+    float elapsed;
     public GameObject black_char;
     public GameObject black_char2;
-    public GameObject white_char;
+    //public GameObject white_char;
     public GameObject moon;
-    public GameObject sky;
-    public GameObject tree;
-    public List<Vector3> array;
+    //public GameObject sky;
+    //public GameObject tree;
+    //public List<Vector3> array;
 
     public float speed5;
     DialogueManager manager;
@@ -45,12 +45,17 @@ public class TestEpilogueScript : MonoBehaviour
     {
         //QualitySettings.vSyncCount = 0;
         Application.targetFrameRate = 60;
+        elapsed = 0f;
+        triggered1 = false;
+        triggered2 = false;
+        triggered3 = false;
+        //mainCamera = Camera.main.gameObject;
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        mainCamera = Camera.main.gameObject;
+        
         moon.transform.position = new Vector3(4.65f, 7.88f, -8.61f);
         manager = dialogueManager.GetComponent<DialogueManager>();
     }
@@ -62,14 +67,14 @@ public class TestEpilogueScript : MonoBehaviour
 
 
         black_char.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0f);
-        black_char2.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
+        black_char2.GetComponent<SpriteRenderer>().color = Color.white;
 
         if (elapsed < speed1)
         {
             float lerp = elapsed / speed1;
-            mainCamera.transform.position = (lerp * endPosition1) + ((1.0f - lerp) * startPosition1);
-            mainCamera.transform.rotation = Quaternion.Euler(rotation1);
-            black_char.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
+            Camera.main.transform.position = (lerp * endPosition1) + ((1.0f - lerp) * startPosition1);
+            Camera.main.transform.rotation = Quaternion.Euler(rotation1);
+            black_char.GetComponent<SpriteRenderer>().color = Color.white;
             black_char2.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0f);
         }
         else if (elapsed < speed1 + speed2)
@@ -83,8 +88,8 @@ public class TestEpilogueScript : MonoBehaviour
                 triggered1 = true;
             }
             float lerp = (elapsed - speed1) / speed2;
-            mainCamera.transform.position = (lerp * endPosition2) + ((1.0f - lerp) * startPosition2);
-            mainCamera.transform.rotation = Quaternion.Euler(rotation2);
+            Camera.main.transform.position = (lerp * endPosition2) + ((1.0f - lerp) * startPosition2);
+            Camera.main.transform.rotation = Quaternion.Euler(rotation2);
             moon.transform.position = new Vector3(2.8f, 7.1f, -8.61f);
 
         }
@@ -99,8 +104,8 @@ public class TestEpilogueScript : MonoBehaviour
                 triggered2 = true;
             }
             float lerp = (elapsed - speed1 - speed2) / speed3;
-            mainCamera.transform.position = (lerp * endPosition3) + ((1.0f - lerp) * startPosition3);
-            mainCamera.transform.rotation = Quaternion.Euler(rotation3);
+            Camera.main.transform.position = (lerp * endPosition3) + ((1.0f - lerp) * startPosition3);
+            Camera.main.transform.rotation = Quaternion.Euler(rotation3);
             moon.transform.position = new Vector3(3.35f, 5.06f, -8.61f);
         }
         else if (elapsed < speed1 + speed2 + speed3 + speed4)
@@ -114,17 +119,17 @@ public class TestEpilogueScript : MonoBehaviour
                 triggered3 = true;
             }
             float lerp = (elapsed - speed1 - speed2 - speed3) / speed4;
-            mainCamera.transform.position = (lerp * endPosition4) + ((1.0f - lerp) * startPosition4);
-            mainCamera.transform.rotation = Quaternion.Euler(rotation4);
+            Camera.main.transform.position = (lerp * endPosition4) + ((1.0f - lerp) * startPosition4);
+            Camera.main.transform.rotation = Quaternion.Euler(rotation4);
             moon.transform.position = new Vector3(4.65f, 7.88f, -8.61f);
-            black_char.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
+            black_char.GetComponent<SpriteRenderer>().color = Color.white;
             black_char2.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0f);
 
         }
         else if (elapsed < speed1 + speed2 + speed3 + speed4 + speed5)
         {
-            mainCamera.transform.position = new Vector3(0.0f, 5.0f, -18.0f);
-            mainCamera.transform.rotation = Quaternion.Euler(0.0f, 180.0f, 0.0f);
+            Camera.main.transform.position = new Vector3(0.0f, 5.0f, -18.0f);
+            Camera.main.transform.rotation = Quaternion.Euler(0.0f, 180.0f, 0.0f);
         }
         else
         {
