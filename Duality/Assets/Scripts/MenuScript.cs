@@ -21,6 +21,7 @@ public class MenuScript : MonoBehaviour {
     public void Start()
     {
         // show the mouse and unlock it so you can click on things
+        Application.targetFrameRate = 60;
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
         if (GameSettings.instance != null)
