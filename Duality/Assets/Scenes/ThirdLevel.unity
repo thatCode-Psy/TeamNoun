@@ -52708,7 +52708,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countdownText: {fileID: 989404976}
   percentTimeLeftMaxRed: 0.2
-  countdownTimeMinutes: 1
+  countdownTimeMinutes: 5
   countdownTimeSeconds: 0
 --- !u!114 &828855557
 MonoBehaviour:
