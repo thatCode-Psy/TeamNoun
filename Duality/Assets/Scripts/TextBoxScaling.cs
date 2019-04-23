@@ -38,6 +38,7 @@ public class TextBoxScaling : MonoBehaviour
     public void GetFOV()
     {
         camera = Camera.main;
-        originalFOV = camera.fieldOfView;
+        //originalFOV = camera.fieldOfView;
+        originalFOV = 15.7f;
     }
 }

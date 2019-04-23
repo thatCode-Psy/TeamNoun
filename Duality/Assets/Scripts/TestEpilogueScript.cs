@@ -28,6 +28,7 @@ public class TestEpilogueScript : MonoBehaviour
     public float speed4;
     float elapsed = 0;
     public GameObject black_char;
+    public GameObject black_char2;
     public GameObject white_char;
     public GameObject moon;
     public GameObject sky;
@@ -57,11 +58,17 @@ public class TestEpilogueScript : MonoBehaviour
     {
         elapsed += Time.deltaTime;
 
+
+        black_char.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0f);
+        black_char2.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
+
         if (elapsed < speed1)
         {
             float lerp = elapsed / speed1;
             mainCamera.transform.position = (lerp * endPosition1) + ((1.0f - lerp) * startPosition1);
             mainCamera.transform.rotation = Quaternion.Euler(rotation1);
+            black_char.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
+            black_char2.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0f);
         }
         else if (elapsed < speed1 + speed2)
         {
@@ -76,6 +83,7 @@ public class TestEpilogueScript : MonoBehaviour
             mainCamera.transform.position = (lerp * endPosition2) + ((1.0f - lerp) * startPosition2);
             mainCamera.transform.rotation = Quaternion.Euler(rotation2);
             moon.transform.position = new Vector3(2.8f, 7.1f, -8.61f);
+
         }
         else if (elapsed < speed1 + speed2 + speed3)
         {
@@ -104,6 +112,8 @@ public class TestEpilogueScript : MonoBehaviour
             mainCamera.transform.position = (lerp * endPosition4) + ((1.0f - lerp) * startPosition4);
             mainCamera.transform.rotation = Quaternion.Euler(rotation4);
             moon.transform.position = new Vector3(4.65f, 7.88f, -8.61f);
+            black_char.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
+            black_char2.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0f);
 
         }
         else if (elapsed < speed1 + speed2 + speed3 + speed4 + speed5)
