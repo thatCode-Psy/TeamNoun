@@ -116,4 +116,11 @@ public class MenuScript : MonoBehaviour {
         GameSettings.instance.p2InputManager.InitializeInputManager(p2ControllerNumber, (InputManager.ControllerType)p2ControllerType);
         SceneManager.LoadScene("OpeningThing");
     }
+
+    public void Cheat(string x)
+    {
+        GameSettings.instance.p1InputManager.InitializeInputManager(p1ControllerNumber, (InputManager.ControllerType)p1ControllerType);
+        GameSettings.instance.p2InputManager.InitializeInputManager(p2ControllerNumber, (InputManager.ControllerType)p2ControllerType);
+        SceneManager.LoadScene(x);
+    }
 }
